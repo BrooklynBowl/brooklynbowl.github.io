@@ -409,7 +409,7 @@
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">В ДРУГИХ ГОРОДАХ</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="https://msk.brooklynbowl.ru/" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Москва&nbsp;</a><a href="https://spb.brooklynbowl.ru/" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Санкт-Петербург</a><a href="https://smr.brooklynbowl.ru" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Самара</a><a href="https://iz.brooklynbowl.ru" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Ижевск</a><a href="https://surgut.brooklynbowl.ru" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Сургут</a><a href="https://nv.brooklynbowl.ru" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Нижневартовск</a></div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="https://msk.brooklynbowl.ru/" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Москва&nbsp;</a><a href="https://spb.brooklynbowl.ru/" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Санкт-Петербург</a><a href="https://smr.brooklynbowl.ru" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Самара</a><a href="https://iz.brooklynbowl.ru" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Ижевск</a><a href="https://surgut.brooklynbowl.ru" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Сургут</a><a href="../nv/index.html" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Нижневартовск</a></div>
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ДОПОЛНИТЕЛЬНО</div>
@@ -459,7 +459,7 @@ class Component extends DCLogic {
         { name:'Ижевск', addr:'Адрес уточняется', hours:'Ежедневно, 10:00 – 0:00', lat:56.8519, lng:53.2045 } ] },
       'Сургут': { center:[61.25,73.40], zoom:11, site:'https://surgut.brooklynbowl.ru', points:[
         { name:'Сургут', addr:'Адрес уточняется', hours:'Ежедневно, 10:00 – 0:00', lat:61.2540, lng:73.3962 } ] },
-      'Нижневартовск': { center:[60.94,76.55], zoom:11, site:'https://nv.brooklynbowl.ru', points:[
+      'Нижневартовск': { center:[60.94,76.55], zoom:11, site:'../nv/index.html', points:[
         { name:'Нижневартовск', addr:'Адрес уточняется', hours:'Ежедневно, 10:00 – 0:00', lat:60.9397, lng:76.5531 } ] }
     };
   }
@@ -523,7 +523,7 @@ class Component extends DCLogic {
       { name:'Самара', sub:'Перейти на сайт Brooklyn Bowl в Самаре', url:'https://smr.brooklynbowl.ru' },
       { name:'Ижевск', sub:'Перейти на сайт Brooklyn Bowl в Ижевске', url:'https://iz.brooklynbowl.ru' },
       { name:'Сургут', sub:'Перейти на сайт Brooklyn Bowl в Сургуте', url:'https://surgut.brooklynbowl.ru' },
-      { name:'Нижневартовск', sub:'Перейти на сайт Brooklyn Bowl в Нижневартовске', url:'https://nv.brooklynbowl.ru' }
+      { name:'Нижневартовск', sub:'Перейти на сайт Brooklyn Bowl в Нижневартовске', url:'../nv/index.html' }
     ];
     const base = 'padding:12px 22px; border-radius:300px; cursor:pointer; font-size:15px; font-weight:600; font-family:inherit; transition:background-color .2s ease, color .2s ease, border-color .2s ease; white-space:nowrap;';
     const cats = Object.keys(MENU).map((c) => ({
