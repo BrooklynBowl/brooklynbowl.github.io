@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" sizes="32x32" href="uploads/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="uploads/apple-touch-icon.png">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -284,9 +286,9 @@ summary::-webkit-details-marker{display:none;}
               <input type="tel" placeholder="Телефон" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
               <input type="date" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
               <select style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit; appearance:none; cursor:pointer;"><option>Петровский</option><option>Матрица</option><option>Петровский</option></select>
-              <button onClick="{{ submitOform }}" style="margin-top:4px; width:100%; cursor:pointer; border:none; background:#E42725; padding:16px; border-radius:300px; color:#fff; font-size:16px; font-weight:700; font-family:inherit;" style-hover="background:#fff !important; color:#E42725 !important;">Оформить карту</button>
+              <label style="display:flex; align-items:flex-start; gap:10px; margin-top:14px; cursor:pointer; user-select:none; -webkit-user-select:none;"><span style="{{ checkboxBoxStyle }}" onClick="{{ toggleConsent }}">{{ consentCheck }}</span><span style="font-size:12px; line-height:1.5; color:#6E6C68; padding-top:1px;">Я согласен с <a href="privacy.html" style="color:#E42725; text-decoration:underline; text-underline-offset:2px;">политикой конфиденциальности</a> персональных данных и даю свое согласие на их обработку</span></label>
+            <button onClick="{{ submitOform }}" disabled="{{ !consentOk }}" style="{{ submitBtnStyle }}">Оформить карту</button>
             </div>
-            <p style="margin:14px 0 0; font-size:12px; line-height:1.5; color:#6E6C68;">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
           </div>
         </sc-if>
         <sc-if value="{{ oformSent }}" hint-placeholder-val="{{ false }}">
@@ -337,7 +339,7 @@ summary::-webkit-details-marker{display:none;}
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ДОПОЛНИТЕЛЬНО</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Публичная оферта</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Согласие на обработку персональных данных</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Политика обработки персональных данных</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Юридическая информация</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Важная информация</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Все права защищены</a></div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="oferta.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Публичная оферта</a><a href="consent.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Согласие на обработку персональных данных</a><a href="privacy.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Политика обработки персональных данных</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Юридическая информация</a><a href="info.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Важная информация</a><a href="https://drive.google.com/file/d/1ui3DE_XNjK_vp_80EqzJb5WzoJme2s1r/view" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Все права защищены</a></div>
         </div>
       </div>
     </div>
@@ -355,7 +357,7 @@ summary::-webkit-details-marker{display:none;}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { sel: 2, spend: 4000, faq: null, oform: false, osent: false };
+  state = { consent: false, sel: 2, spend: 4000, faq: null, oform: false, osent: false };
   renderVals() {
     const LV = [
       { name: 'Искатель',         short: 'Искатель',   cb: 5,  pay: 10, visits: 0 },
@@ -423,6 +425,11 @@ class Component extends DCLogic {
       openOform: () => this.setState({ oform: true, osent: false }),
       closeOform: () => this.setState({ oform: false }),
       submitOform: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ osent: true }); },
+      consentOk: this.state.consent,
+      toggleConsent: () => this.setState(s => ({ consent: !s.consent })),
+      submitBtnStyle: { marginTop:'12px', width:'100%', cursor: this.state.consent ? 'pointer' : 'not-allowed', border:'none', background: this.state.consent ? '#E42725' : 'rgba(255,255,255,0.12)', padding:'16px', borderRadius:'300px', color: this.state.consent ? '#fff' : 'rgba(255,255,255,0.4)', fontSize:'16px', fontWeight:'700', fontFamily:'inherit', transition:'background .2s, color .2s' },
+      checkboxBoxStyle: { flexShrink:0, marginTop:'2px', width:'18px', height:'18px', borderRadius:'5px', border: this.state.consent ? '1.5px solid rgba(228,39,37,0.8)' : '1.5px solid rgba(255,255,255,0.22)', background: this.state.consent ? 'rgba(228,39,37,0.12)' : 'transparent', display:'inline-flex', alignItems:'center', justifyContent:'center', transition:'border-color .18s, background .18s' },
+      consentCheck: this.state.consent ? React.createElement('svg',{width:11,height:9,viewBox:'0 0 11 9',fill:'none'},React.createElement('path',{d:'M1 4.5L4 7.5L10 1.5',stroke:'#E42725',strokeWidth:2.2,strokeLinecap:'round',strokeLinejoin:'round'})) : null,
       stopProp: (e) => e.stopPropagation()
     };
   }
