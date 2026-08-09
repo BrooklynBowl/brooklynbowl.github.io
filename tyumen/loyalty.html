@@ -288,12 +288,12 @@ summary::-webkit-details-marker{display:none;}
             <h3 style="margin:14px 0 4px; font-size:24px; font-weight:800; color:#fff;">Оформить карту гостя</h3>
             <p style="margin:0 0 20px; font-size:14px; line-height:1.5; color:#9C9A95;">Администратор оформит карту и привяжет её к вашему номеру. Оформление бесплатно — нужны только имя, телефон и дата рождения.</p>
             <div style="display:flex; flex-direction:column; gap:12px;">
-              <input type="text" placeholder="Ваше имя" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
-              <input type="tel" placeholder="Телефон" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
-              <input type="date" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
-              <select style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit; appearance:none; cursor:pointer;"><option>СитиМолл</option><option>Остров</option><option>Колумб</option></select>
+              <input id="loy-name" type="text" placeholder="Ваше имя" required style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+              <input id="loy-contact" type="tel" placeholder="Телефон" required style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+              <input id="loy-birthdate" type="date" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+              <select id="loy-point" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit; appearance:none; cursor:pointer;"><option>СитиМолл</option><option>Остров</option><option>Колумб</option></select>
               <label style="display:flex; align-items:flex-start; gap:10px; margin-top:14px; cursor:pointer; user-select:none; -webkit-user-select:none;"><span style="{{ checkboxBoxStyle }}" onClick="{{ toggleConsent }}">{{ consentCheck }}</span><span style="font-size:12px; line-height:1.5; color:#6E6C68; padding-top:1px;">Согласен(-на) с <a href="privacy.html" style="color:#E42725; text-decoration:underline; text-underline-offset:2px;">политикой обработки персональных данных</a></span></label>
-            <button onClick="{{ submitOform }}" disabled="{{ !consentOk }}" style="{{ submitBtnStyle }}">Оформить карту</button>
+            <button onClick="{{ submitOform }}" disabled="{{ !consentOk || sending }}" style="{{ submitBtnStyle }}">{{ submitBtnLabel }}</button>
             </div>
           </div>
         </sc-if>
@@ -301,8 +301,17 @@ summary::-webkit-details-marker{display:none;}
           <div style="display:flex; flex-direction:column; align-items:center; text-align:center; padding:24px 6px;">
             <div style="width:66px; height:66px; border-radius:50%; background:#E42725; display:flex; align-items:center; justify-content:center; font-size:32px; color:#fff;">✓</div>
             <h3 style="margin:20px 0 0; font-size:24px; font-weight:800; color:#fff;">Заявка принята</h3>
-            <p style="margin:12px 0 0; max-width:330px; font-size:15px; line-height:1.55; color:#9C9A95;">Администратор перезвонит, оформит карту и привяжет её к вашему номеру. При следующем визите уже копятся баллы.</p>
+            <p style="margin:12px 0 0; max-width:330px; font-size:15px; line-height:1.55; color:#9C9A95;">Заявка отправлена, координатор свяжется с вами в течение дня.</p>
             <button onClick="{{ closeOform }}" style="margin-top:22px; cursor:pointer; border:1px solid rgba(255,255,255,0.18); background:transparent; padding:13px 30px; border-radius:300px; color:#fff; font-size:15px; font-weight:600; font-family:inherit;" style-hover="border-color:#E42725 !important;">Готово</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ oformError }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex; flex-direction:column; align-items:center; text-align:center; padding:24px 6px;">
+            <div style="width:66px; height:66px; border-radius:50%; background:rgba(228,39,37,0.16); border:1.5px solid #E42725; display:flex; align-items:center; justify-content:center; font-size:30px; font-weight:800; color:#E42725;">!</div>
+            <h3 style="margin:20px 0 0; font-size:24px; font-weight:800; color:#fff;">Не получилось отправить</h3>
+            <p style="margin:12px 0 0; max-width:330px; font-size:15px; line-height:1.55; color:#9C9A95;">Позвоните нам напрямую — координатор оформит карту по телефону:</p>
+            <a href="tel:+73452226130" style="margin-top:14px; text-decoration:none; font-size:20px; font-weight:700; color:#fff;" style-hover="color:#FF5257 !important;">+7 3452 22-61-30</a>
+            <button onClick="{{ closeOform }}" style="margin-top:22px; cursor:pointer; border:1px solid rgba(255,255,255,0.18); background:transparent; padding:13px 30px; border-radius:300px; color:#fff; font-size:15px; font-weight:600; font-family:inherit;" style-hover="border-color:#E42725 !important;">Закрыть</button>
           </div>
         </sc-if>
       </div>
@@ -363,7 +372,7 @@ summary::-webkit-details-marker{display:none;}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { consent: false, sel: 2, spend: 4000, faq: null, oform: false, osent: false };
+  state = { consent: false, sel: 2, spend: 4000, faq: null, oform: false, osent: false, sending: false, serr: false };
   renderVals() {
     const LV = [
       { name: 'Искатель',         short: 'Искатель',   cb: 5,  pay: 10, visits: 0 },
@@ -426,14 +435,59 @@ class Component extends DCLogic {
       },
       faqs,
       oformOpen: this.state.oform === true,
-      oformForm: this.state.osent !== true,
+      oformForm: this.state.osent !== true && this.state.serr !== true,
       oformSent: this.state.osent === true,
-      openOform: () => this.setState({ oform: true, osent: false }),
+      oformError: this.state.serr === true,
+      sending: this.state.sending === true,
+      openOform: () => this.setState({ oform: true, osent: false, serr: false, sending: false }),
       closeOform: () => this.setState({ oform: false }),
-      submitOform: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ osent: true }); },
+      submitOform: (e) => {
+        if (e && e.preventDefault) e.preventDefault();
+        if (!this.state.consent || this.state.sending) return;
+        const val = (id) => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
+        const nameEl = document.getElementById('loy-name');
+        const contactEl = document.getElementById('loy-contact');
+        const name = val('loy-name');
+        const contact = val('loy-contact');
+        if (!name) { if (nameEl) nameEl.reportValidity(); return; }
+        if (!contact) { if (contactEl) contactEl.reportValidity(); return; }
+        const point = val('loy-point');
+        const birthdate = val('loy-birthdate');
+        const lines = [];
+        if (point) lines.push('Точка: ' + point);
+        if (birthdate) lines.push('Дата рождения: ' + birthdate);
+        const fields = {
+          TITLE: 'SiteOP: Карта гостя, Тюмень',
+          NAME: name,
+          COMMENTS: lines.join('\n'),
+          SOURCE_DESCRIPTION: 'Новый сайт, Тюмень',
+        };
+        if (contact.indexOf('@') !== -1) fields.EMAIL = [{ VALUE: contact, VALUE_TYPE: 'WORK' }];
+        else fields.PHONE = [{ VALUE: contact, VALUE_TYPE: 'WORK' }];
+        this.setState({ sending: true, serr: false });
+        fetch('https://bbteam.bitrix24.ru/rest/119/4dwow62fd1jmzudi/crm.lead.add.json', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ fields: fields }),
+        })
+          .then((r) => r.json())
+          .then((data) => {
+            if (data && data.result) {
+              ['loy-name','loy-contact','loy-birthdate','loy-point'].forEach((id) => {
+                const el = document.getElementById(id);
+                if (el) el.value = '';
+              });
+              this.setState({ sending: false, serr: false, osent: true });
+            } else {
+              this.setState({ sending: false, serr: true });
+            }
+          })
+          .catch(() => { this.setState({ sending: false, serr: true }); });
+      },
       consentOk: this.state.consent,
       toggleConsent: () => this.setState(s => ({ consent: !s.consent })),
-      submitBtnStyle: { marginTop:'12px', width:'100%', cursor: this.state.consent ? 'pointer' : 'not-allowed', border:'none', background: this.state.consent ? '#E42725' : 'rgba(255,255,255,0.12)', padding:'16px', borderRadius:'300px', color: this.state.consent ? '#fff' : 'rgba(255,255,255,0.4)', fontSize:'16px', fontWeight:'700', fontFamily:'inherit', transition:'background .2s, color .2s' },
+      submitBtnLabel: this.state.sending ? 'Отправляем…' : 'Оформить карту',
+      submitBtnStyle: { marginTop:'12px', width:'100%', cursor: (this.state.consent && !this.state.sending) ? 'pointer' : 'not-allowed', border:'none', background: this.state.consent ? (this.state.sending ? 'rgba(228,39,37,0.6)' : '#E42725') : 'rgba(255,255,255,0.12)', padding:'16px', borderRadius:'300px', color: this.state.consent ? '#fff' : 'rgba(255,255,255,0.4)', fontSize:'16px', fontWeight:'700', fontFamily:'inherit', transition:'background .2s, color .2s' },
       checkboxBoxStyle: { flexShrink:0, marginTop:'2px', width:'18px', height:'18px', borderRadius:'5px', border: this.state.consent ? '1.5px solid rgba(228,39,37,0.8)' : '1.5px solid rgba(255,255,255,0.22)', background: this.state.consent ? 'rgba(228,39,37,0.12)' : 'transparent', display:'inline-flex', alignItems:'center', justifyContent:'center', transition:'border-color .18s, background .18s' },
       consentCheck: this.state.consent ? React.createElement('svg',{width:11,height:9,viewBox:'0 0 11 9',fill:'none'},React.createElement('path',{d:'M1 4.5L4 7.5L10 1.5',stroke:'#E42725',strokeWidth:2.2,strokeLinecap:'round',strokeLinejoin:'round'})) : null,
       stopProp: (e) => e.stopPropagation()

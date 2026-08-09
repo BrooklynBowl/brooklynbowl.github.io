@@ -249,18 +249,18 @@ summary::-webkit-details-marker{display:none;}
             <h3 style="margin:14px 0 4px; font-size:24px; font-weight:800; color:#fff;">Оставить заявку</h3>
             <p style="margin:0 0 20px; font-size:14px; line-height:1.5; color:#9C9A95;">Перезвоним в течение двух часов, подтвердим слот и условия. Скажите размеры обуви и возраст детей — подготовим заранее.</p>
             <div style="display:flex; flex-direction:column; gap:12px;">
-              <input type="text" value="Семьёй" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
-              <select style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit; appearance:none; cursor:pointer;"><option>Петровский</option><option>Матрица</option><option>Петровский</option></select>
+              <input id="fam-f0" type="text" value="Семьёй" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+              <select id="fam-f1" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit; appearance:none; cursor:pointer;"><option>Петровский</option><option>Матрица</option></select>
               <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
-                <input type="date" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
-                <input type="time" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+                <input id="fam-f2" type="date" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+                <input id="fam-f3" type="time" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
               </div>
-              <input type="number" min="1" placeholder="Сколько гостей (взрослые + дети)" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
-              <input type="text" placeholder="Возраст и размеры обуви детей" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
-              <input type="text" placeholder="Ваше имя" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
-              <input type="tel" placeholder="Телефон" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+              <input id="fam-f4" type="number" min="1" placeholder="Сколько гостей (взрослые + дети)" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+              <input id="fam-f5" type="text" placeholder="Возраст и размеры обуви детей" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+              <input id="fam-name" required type="text" placeholder="Ваше имя" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+              <input id="fam-contact" required type="tel" placeholder="Телефон" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
               <label style="display:flex; align-items:flex-start; gap:10px; margin-top:14px; cursor:pointer; user-select:none; -webkit-user-select:none;"><span style="{{ checkboxBoxStyle }}" onClick="{{ toggleConsent }}">{{ consentCheck }}</span><span style="font-size:12px; line-height:1.5; color:#6E6C68; padding-top:1px;">Я согласен с <a href="privacy.html" style="color:#E42725; text-decoration:underline; text-underline-offset:2px;">политикой конфиденциальности</a> персональных данных и даю свое согласие на их обработку</span></label>
-            <button onClick="{{ submitBooking }}" disabled="{{ !consentOk }}" style="{{ submitBtnStyle }}">Отправить заявку</button>
+            <button onClick="{{ submitBooking }}" disabled="{{ !consentOk || sending }}" style="{{ submitBtnStyle }}">{{ submitBtnLabel }}</button>
             </div>
           </div>
         </sc-if>
@@ -268,8 +268,17 @@ summary::-webkit-details-marker{display:none;}
           <div style="display:flex; flex-direction:column; align-items:center; text-align:center; padding:24px 6px;">
             <div style="width:66px; height:66px; border-radius:50%; background:#E42725; display:flex; align-items:center; justify-content:center; font-size:32px; color:#fff;">✓</div>
             <h3 style="margin:20px 0 0; font-size:24px; font-weight:800; color:#fff;">Заявка принята</h3>
-            <p style="margin:12px 0 0; max-width:330px; font-size:15px; line-height:1.55; color:#9C9A95;">Администратор перезвонит в течение двух часов и подтвердит детали. Если закрыли сайт — заявка уже у нас.</p>
+            <p style="margin:12px 0 0; max-width:330px; font-size:15px; line-height:1.55; color:#9C9A95;">Заявка отправлена, координатор свяжется с вами в течение дня.</p>
             <button onClick="{{ closeBooking }}" style="margin-top:22px; cursor:pointer; border:1px solid rgba(255,255,255,0.18); background:transparent; padding:13px 30px; border-radius:300px; color:#fff; font-size:15px; font-weight:600; font-family:inherit;" style-hover="border-color:#E42725 !important;">Готово</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ bookingError }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex; flex-direction:column; align-items:center; text-align:center; padding:24px 6px;">
+            <div style="width:66px; height:66px; border-radius:50%; background:rgba(228,39,37,0.16); border:1.5px solid #E42725; display:flex; align-items:center; justify-content:center; font-size:30px; font-weight:800; color:#E42725;">!</div>
+            <h3 style="margin:20px 0 0; font-size:24px; font-weight:800; color:#fff;">Не получилось отправить</h3>
+            <p style="margin:12px 0 0; max-width:330px; font-size:15px; line-height:1.55; color:#9C9A95;">Позвоните нам напрямую — координатор оформит заявку по телефону:</p>
+            <a href="tel:+73412707813" style="margin-top:14px; text-decoration:none; font-size:20px; font-weight:700; color:#fff;" style-hover="color:#FF5257 !important;">+7 3412 70-78-13</a>
+            <button onClick="{{ closeBooking }}" style="margin-top:22px; cursor:pointer; border:1px solid rgba(255,255,255,0.18); background:transparent; padding:13px 30px; border-radius:300px; color:#fff; font-size:15px; font-weight:600; font-family:inherit;" style-hover="border-color:#E42725 !important;">Закрыть</button>
           </div>
         </sc-if>
       </div>
@@ -304,7 +313,7 @@ summary::-webkit-details-marker{display:none;}
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ТОЧКИ СЕТИ</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="filial-petrovsky.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Петровский</a><a href="filial-matrix.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Матрица</a><a href="filial-petrovsky.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Петровский</a><a href="contacts.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Все контакты</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Аренда площадки</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Доставка</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Франшиза</a></div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="filial-petrovsky.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Петровский</a><a href="filial-matrix.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Матрица</a><a href="contacts.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Все контакты</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Аренда площадки</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Доставка</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Франшиза</a></div>
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">В ДРУГИХ ГОРОДАХ</div>
@@ -330,7 +339,7 @@ summary::-webkit-details-marker{display:none;}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { consent: false, g: 4, di: 0, ad: {} };
+  state = { consent: false, sending: false, serr: false, g: 4, di: 0, ad: {} };
   renderVals() {
     const REVIEWS = [
       {author:'Эль', text:'Супер крутое место, ходим всем семьёй, с детьми. Вкусная еда, приемлемые цены. Вежливый персонал. Чистый уютный туалет и вообще везде чистота и приятная атмосфера. Рекомендую!', tag:'Семьёй', platform:'Яндекс Карты', date:'25 мая 2026'},
@@ -384,15 +393,62 @@ class Component extends DCLogic {
       reviews,
       stopProp: (e) => e.stopPropagation(),
       bookingOpen: this.state.booking === true,
-      bookingForm: this.state.bsent !== true,
+      bookingForm: this.state.bsent !== true && this.state.serr !== true,
       bookingSent: this.state.bsent === true,
-      openBooking: () => this.setState({ booking: true, bsent: false }),
+      bookingError: this.state.serr === true,
+      sending: this.state.sending === true,
+      openBooking: () => this.setState({ booking: true, bsent: false, serr: false, sending: false }),
       bookLane: () => window.open('https://b851103.yclients.com/', '_blank'),
       closeBooking: () => this.setState({ booking: false }),
-      submitBooking: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ bsent: true }); },
+      submitBooking: (e) => {
+        if (e && e.preventDefault) e.preventDefault();
+        if (!this.state.consent || this.state.sending) return;
+        const val = (id) => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
+        const nameEl = document.getElementById('fam-name');
+        const contactEl = document.getElementById('fam-contact');
+        const name = val('fam-name');
+        const contact = val('fam-contact');
+        if (!name) { if (nameEl) nameEl.reportValidity(); return; }
+        if (!contact) { if (contactEl) contactEl.reportValidity(); return; }
+        const lines = [];
+        if (val('fam-f0')) lines.push('Тип мероприятия: ' + val('fam-f0'));
+        if (val('fam-f1')) lines.push('Точка: ' + val('fam-f1'));
+        if (val('fam-f2')) lines.push('Дата: ' + val('fam-f2'));
+        if (val('fam-f3')) lines.push('Время: ' + val('fam-f3'));
+        if (val('fam-f4')) lines.push('Сколько гостей (взрослые + дети): ' + val('fam-f4'));
+        if (val('fam-f5')) lines.push('Возраст и размеры обуви детей: ' + val('fam-f5'));
+        const fields = {
+          TITLE: 'SiteOP: Семьёй, Ижевск',
+          NAME: name,
+          COMMENTS: lines.join('\n'),
+          SOURCE_DESCRIPTION: 'Новый сайт, Ижевск',
+        };
+        if (contact.indexOf('@') !== -1) fields.EMAIL = [{ VALUE: contact, VALUE_TYPE: 'WORK' }];
+        else fields.PHONE = [{ VALUE: contact, VALUE_TYPE: 'WORK' }];
+        this.setState({ sending: true, serr: false });
+        fetch('https://bbteam.bitrix24.ru/rest/119/4dwow62fd1jmzudi/crm.lead.add.json', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ fields: fields }),
+        })
+          .then((r) => r.json())
+          .then((data) => {
+            if (data && data.result) {
+              ['fam-f0','fam-f1','fam-f2','fam-f3','fam-f4','fam-f5','fam-name','fam-contact'].forEach((id) => {
+                const el = document.getElementById(id);
+                if (el) el.value = '';
+              });
+              this.setState({ sending: false, serr: false, bsent: true });
+            } else {
+              this.setState({ sending: false, serr: true });
+            }
+          })
+          .catch(() => { this.setState({ sending: false, serr: true }); });
+      },
       consentOk: this.state.consent,
       toggleConsent: () => this.setState(s => ({ consent: !s.consent })),
-      submitBtnStyle: { marginTop:'12px', width:'100%', cursor: this.state.consent ? 'pointer' : 'not-allowed', border:'none', background: this.state.consent ? '#E42725' : 'rgba(255,255,255,0.12)', padding:'16px', borderRadius:'300px', color: this.state.consent ? '#fff' : 'rgba(255,255,255,0.4)', fontSize:'16px', fontWeight:'700', fontFamily:'inherit', transition:'background .2s, color .2s' },
+      submitBtnLabel: this.state.sending ? 'Отправляем…' : 'Отправить заявку',
+      submitBtnStyle: { marginTop:'12px', width:'100%', cursor: (this.state.consent && !this.state.sending) ? 'pointer' : 'not-allowed', border:'none', background: this.state.consent ? (this.state.sending ? 'rgba(228,39,37,0.6)' : '#E42725') : 'rgba(255,255,255,0.12)', padding:'16px', borderRadius:'300px', color: this.state.consent ? '#fff' : 'rgba(255,255,255,0.4)', fontSize:'16px', fontWeight:'700', fontFamily:'inherit', transition:'background .2s, color .2s' },
       checkboxBoxStyle: { flexShrink:0, marginTop:'2px', width:'18px', height:'18px', borderRadius:'5px', border: this.state.consent ? '1.5px solid rgba(228,39,37,0.8)' : '1.5px solid rgba(255,255,255,0.22)', background: this.state.consent ? 'rgba(228,39,37,0.12)' : 'transparent', display:'inline-flex', alignItems:'center', justifyContent:'center', transition:'border-color .18s, background .18s' },
       consentCheck: this.state.consent ? React.createElement('svg',{width:11,height:9,viewBox:'0 0 11 9',fill:'none'},React.createElement('path',{d:'M1 4.5L4 7.5L10 1.5',stroke:'#E42725',strokeWidth:2.2,strokeLinecap:'round',strokeLinejoin:'round'})) : null,
       calc: {
