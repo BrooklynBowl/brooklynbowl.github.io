@@ -340,7 +340,7 @@ class Component extends DCLogic {
     return {
       'Москва': { center:[55.86,37.66], zoom:11, site:null, points:[
         { name:'Красный Кит', addr:'Шараповский проезд, 2', hours:'Ежедневно, 10:00 – 0:00', lat:55.9116, lng:37.7308 },
-        { name:'Северное Сияние', addr:'Адрес уточняется', hours:'Ежедневно, 10:00 – 0:00', lat:55.7558, lng:37.6173 } ] },
+        { name:'Северное Сияние', addr:'бульвар Дмитрия Донского, 1', hours:'Ежедневно, 10:00 – 0:00', lat:55.7558, lng:37.6173 } ] },
       'Тюмень': { center:[57.12,65.54], zoom:11, site:'../tyumen/index.html', points:[
         { name:'СитиМолл', addr:'Тимофея Чаркова, 60', hours:'Ежедневно, 9:57 – 0:00', lat:57.1196, lng:65.6011 },
         { name:'Остров', addr:'Федюнинского, 67', hours:'Ежедневно, 9:57 – 0:00', lat:57.0946, lng:65.5633 },
@@ -406,7 +406,7 @@ class Component extends DCLogic {
     ];
     const VENUES = [
       { name:'Красный Кит', tag:'Центр города', addr:'Шараповский проезд, 2', mall:'ТРЦ «Красный Кит», 3 этаж', phone:'+7 499 490-33-66', tel:'tel:+74994903366', img:'https://brooklynbowl.bowlsoft.team/images/bowling-lane.jpg', route:'https://yandex.ru/maps/?rtext=~55.9116,37.7308&rtt=auto' },
-      { name:'Северное Сияние', tag:'Лесобаза', addr:'Адрес уточняется', mall:'ТРЦ «Северное Сияние»', phone:'+7 499 490-33-66', tel:'tel:+74994903366', img:'https://brooklynbowl.bowlsoft.team/images/food-hero.jpg', route:'https://yandex.ru/maps/?rtext=~55.7558,37.6173&rtt=auto' }
+      { name:'Северное Сияние', tag:'Лесобаза', addr:'бульвар Дмитрия Донского, 1', mall:'ТРЦ «Северное Сияние»', phone:'+7 499 490-33-66', tel:'tel:+74994903366', img:'https://brooklynbowl.bowlsoft.team/images/food-hero.jpg', route:'https://yandex.ru/maps/?rtext=~55.7558,37.6173&rtt=auto' }
     ];
     const vsel = (typeof this.state.venue === 'number') ? VENUES[this.state.venue] : null;
     const active = this.state.cat;

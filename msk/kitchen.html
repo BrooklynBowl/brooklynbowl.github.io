@@ -298,7 +298,7 @@ class Component extends DCLogic {
     const icon = L.divIcon({ html: ball, className: '', iconSize: [34, 42], iconAnchor: [17, 42], popupAnchor: [0, -40] });
     const pts = [
       { name:'Красный Кит', addr:'Шараповский проезд, 2', lat:55.9116, lng:37.7308 },
-      { name:'Северное Сияние', addr:'Адрес уточняется', lat:55.7558, lng:37.6173 },
+      { name:'Северное Сияние', addr:'бульвар Дмитрия Донского, 1', lat:55.7558, lng:37.6173 },
       { name:'Тюмень', addr:'Brooklyn Bowl', lat:57.1196, lng:65.6011 },
       { name:'Санкт-Петербург', addr:'Brooklyn Bowl', lat:59.9343, lng:30.3351 },
       { name:'Самара', addr:'Brooklyn Bowl', lat:53.1959, lng:50.1606 },
@@ -334,7 +334,7 @@ class Component extends DCLogic {
     ];
     const VENUES = [
       { name:'Красный Кит', tag:'Центр города', addr:'Шараповский проезд, 2', mall:'ТРЦ «Красный Кит», 3 этаж', phone:'+7 499 490-33-66', tel:'tel:+74994903366', img:'https://brooklynbowl.bowlsoft.team/images/bowling-lane.jpg', route:'https://yandex.ru/maps/?rtext=~55.9116,37.7308&rtt=auto' },
-      { name:'Северное Сияние', tag:'Лесобаза', addr:'Адрес уточняется', mall:'ТРЦ «Северное Сияние»', phone:'+7 499 490-33-66', tel:'tel:+74994903366', img:'https://brooklynbowl.bowlsoft.team/images/food-hero.jpg', route:'https://yandex.ru/maps/?rtext=~55.7558,37.6173&rtt=auto' }
+      { name:'Северное Сияние', tag:'Лесобаза', addr:'бульвар Дмитрия Донского, 1', mall:'ТРЦ «Северное Сияние»', phone:'+7 499 490-33-66', tel:'tel:+74994903366', img:'https://brooklynbowl.bowlsoft.team/images/food-hero.jpg', route:'https://yandex.ru/maps/?rtext=~55.7558,37.6173&rtt=auto' }
     ];
     const vsel = (typeof this.state.venue === 'number') ? VENUES[this.state.venue] : null;
     const active = this.state.cat;
