@@ -6,6 +6,7 @@
 <title>Brooklyn Bowl ТРЦ «Северное Сияние» — Москва</title>
 <meta name="description" content="Боулинг-ресторан Brooklyn Bowl в ТРЦ «Северное Сияние», Москве: адрес, часы работы, дорожки, кухня и бронь.">
 <script src="../support.js"></script>
+<script src="https://api-maps.yandex.ru/2.1/?apikey=30d33803-b9ee-44ff-94f6-a7bfe2eedc12&lang=ru_RU" type="text/javascript"></script>
 </head>
 <body>
 <x-dc>
@@ -145,9 +146,7 @@ mount();var n=0;var t=setInterval(function(){mount();if(++n>40){clearInterval(t)
   [data-m="chat-panel"]{ left:0 !important; right:0 !important; bottom:0 !important; width:100% !important; max-width:none !important; height:84vh !important; border-radius:22px 22px 0 0 !important; }
 }
 </style>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<style>.leaflet-container{background:#000000;}
+<style>
 /* BB-OVERLAY-GUARD: пока открыт оверлей — плавающие виджеты скрыты */
 html[data-bb-ovl="menu"] [data-m="fab-chat"], html[data-bb-ovl="menu"] [data-m="chat-panel"], html[data-bb-ovl="menu"] #waitly-widget-root,
 html[data-bb-ovl="modal"] [data-m="fab-chat"], html[data-bb-ovl="modal"] [data-m="chat-panel"], html[data-bb-ovl="modal"] #waitly-widget-root,
@@ -167,18 +166,29 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
 <script>
 (function initBBmap(){
   var el = document.getElementById('bb-map');
-  if(!el || !window.L){ return setTimeout(initBBmap, 250); }
-  if(el._leaflet_id){ return; }
-  var L = window.L;
-  var map = L.map(el, { scrollWheelZoom:false, attributionControl:false, zoomControl:true }).setView([55.5636, 37.5883], 16);
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
-  var _tp = map.getPane('tilePane'); if (_tp) { _tp.style.filter = 'invert(1) hue-rotate(180deg) brightness(0.86) contrast(0.95) saturate(0.55)'; }
-  var _bs = (window.innerWidth < 720 ? 26 : 36);
-  var ball = '<div style="width:'+_bs+'px;height:'+_bs+'px;"><img src="../bowling-pin.svg" alt="" style="width:100%;height:100%;display:block;filter:drop-shadow(0 3px 5px rgba(0,0,0,0.45));"></div>';
-  var icon = L.divIcon({ html: ball, className: '', iconSize: [_bs,_bs], iconAnchor: [_bs/2,_bs/2], popupAnchor: [0,-_bs/2] });
-  var route = 'https://yandex.ru/maps/?rtext=~55.5636,37.5883&rtt=auto';
-  L.marker([55.5636,37.5883], { icon:icon }).addTo(map)
-    .bindPopup('<div style="font-family:Montserrat,sans-serif;min-width:160px;"><div style="font-size:16px;font-weight:700;color:#191919;">Северное Сияние</div><div style="font-size:13px;color:rgba(25,25,25,0.55);margin:4px 0 8px;">бул. Дмитрия Донского, 1</div><a href="'+route+'" target="_blank" rel="noopener" style="display:inline-block;background:#FF2026;color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:8px 16px;border-radius:300px;">Построить маршрут</a></div>');
+  if(!el || !window.ymaps){ return setTimeout(initBBmap, 250); }
+  if(el._ymapInited){ return; }
+  el._ymapInited = true;
+  ymaps.ready(function(){
+    var _bs = (window.innerWidth < 720 ? 26 : 36);
+    var coords = [55.574945, 37.580232];
+    var map = new ymaps.Map(el, { center: coords, zoom: 16, controls: ['zoomControl'] }, { suppressMapOpenBlock: true });
+    map.behaviors.disable('scrollZoom');
+    try {
+      var _gp = map.panes.get('ground');
+      if (_gp && _gp.getElement) { _gp.getElement().style.filter = 'invert(1) hue-rotate(180deg) brightness(0.86) contrast(0.95) saturate(0.55)'; }
+    } catch(e) {}
+    var route = 'https://yandex.ru/maps/?rtext=~'+coords[0]+','+coords[1]+'&rtt=auto';
+    var placemark = new ymaps.Placemark(coords, {
+      balloonContent: '<div style="font-family:Montserrat,sans-serif;min-width:160px;"><div style="font-size:16px;font-weight:700;color:#191919;">Северное Сияние</div><div style="font-size:13px;color:rgba(25,25,25,0.55);margin:4px 0 8px;">бул. Дмитрия Донского, 1</div><a href="'+route+'" target="_blank" rel="noopener" style="display:inline-block;background:#FF2026;color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:8px 16px;border-radius:300px;">Построить маршрут</a></div>'
+    }, {
+      iconLayout: 'default#image',
+      iconImageHref: '../bowling-pin.svg',
+      iconImageSize: [_bs, _bs],
+      iconImageOffset: [-_bs/2, -_bs/2]
+    });
+    map.geoObjects.add(placemark);
+  });
 })();
 </script>
 </helmet>
