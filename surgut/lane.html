@@ -3,7 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<title>Просто поиграть в боулинг в Сургуте | Brooklyn Bowl</title>
+<meta name="description" content="Пришли компанией и заняли дорожку: цены по часам, правила, бронь онлайн. Brooklyn Bowl Сургут.">
+<script src="../support.js"></script>
 </head>
 <body>
 <x-dc>
@@ -11,17 +13,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/proxima-nova" rel="stylesheet">
-<style>*{box-sizing:border-box;} button,input,select,textarea{font-family:inherit;} html,body{margin:0; padding:0; font-family:'Proxima Nova','Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:#0B0B0C;}
-summary::-webkit-details-marker{display:none;} input::placeholder{color:#6E6C68;}
+<style>
+em, i, address, cite, dfn, var{ font-style:normal; }
+*{box-sizing:border-box;} button,input,select,textarea{font-family:inherit;} html,body{margin:0; padding:0; font-family:'Proxima Nova','Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:#000000;}
+summary::-webkit-details-marker{display:none;} input::placeholder{color:rgba(232,229,222,0.47);}
 #bbmenu:checked ~ [data-m="mobile-menu"]{ display:flex !important; }
+/* 769–1000px: меню шапки сжимается по-настоящему, чтобы пункты не срезались */
+@media (min-width:769px) and (max-width:1000px){
+  [data-m="nav"]{ gap:6px !important; overflow:visible !important; min-width:0 !important; flex-shrink:1 !important; }
+  [data-m="nav"] > a{ padding:8px 4px !important; font-size:13.5px !important; }
+}
 @media (max-width:768px){
     /* единая мобильная типографика */
     body h1:not(#_){ font-size:24px !important; line-height:1.2 !important; }
     body h2:not(#_){ font-size:20px !important; line-height:1.25 !important; }
     body h3:not(#_){ font-size:16px !important; line-height:1.3 !important; }
     body p:not(#_){ font-size:14px !important; line-height:1.5 !important; }
-  }
-  @media (max-width:1080px){
   [data-m="tabbar"]{display:block !important;}
   header{padding:0 16px !important; gap:10px !important; height:62px !important;}
   header nav{display:none !important;}
@@ -36,64 +43,167 @@ summary::-webkit-details-marker{display:none;} input::placeholder{color:#6E6C68;
   [style*="columns: 3"]{display:flex !important; overflow-x:auto !important; gap:14px !important; columns:auto !important; column-gap:0 !important; scroll-snap-type:x mandatory !important; padding-bottom:6px !important;}
   [style*="columns: 3"] > article{flex:0 0 86vw !important; scroll-snap-align:center !important; margin:0 !important;}
 }
+
+/* ===== ПОДВАЛ: устойчивая сетка ===== */
+footer > div:first-child{ align-items:flex-start; }
+footer div[data-m="footer-cols"]{
+  display:grid !important;
+  grid-template-columns:repeat(auto-fit, minmax(158px, 1fr)) !important;
+  gap:30px 26px !important; align-content:start; min-width:0 !important;
+}
+footer div[data-m="footer-cols"] > div{ min-width:0; }
+footer div[data-m="footer-cols"] > div > div:first-child{
+  font-size:12px !important; letter-spacing:0.06em !important; white-space:nowrap !important; margin-bottom:14px !important;
+}
+footer div[data-m="footer-cols"] > div > div:last-child{ gap:10px !important; }
+footer div[data-m="footer-cols"] a{ display:block; overflow-wrap:anywhere; hyphens:auto; line-height:1.35 !important; }
+@media (max-width:1100px){
+  footer div[data-m="footer-cols"]{ grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)) !important; }
+}
+@media (max-width:768px){
+  footer div[data-m="footer-cols"]{ grid-template-columns:1fr 1fr !important; gap:24px 18px !important; }
+}
+@media (max-width:430px){
+  footer div[data-m="footer-cols"]{ grid-template-columns:1fr !important; }
+}
+
+/* ===== ФИРМЕННАЯ ПАЛИТРА: ссылки по умолчанию ===== */
+a{ color:#FF2026; }
+a:hover{ color:#FFFFFF; }
+/* BB-BUTTON-COMPONENT v2 */
+[data-m="cta"]{
+  display:inline-flex !important; align-items:center !important; justify-content:center !important;
+  box-sizing:border-box !important; height:52px !important; min-height:52px !important;
+  min-width:260px !important; padding:0 32px !important; border:none !important; border-radius:300px !important;
+  font-family:inherit !important; font-size:14px !important; font-weight:800 !important;
+  letter-spacing:0.05em !important; line-height:1 !important; text-transform:uppercase !important;
+  text-decoration:none !important; white-space:nowrap !important; cursor:pointer !important;
+  background:#FF2026 !important; color:#FFFFFF !important;
+  transition:background-color .2s ease, color .2s ease !important;
+}
+[data-m="cta"]:hover{ background:#FFFFFF !important; color:#FF2026 !important; }
+/* на красной подложке — белая кнопка с чёрным текстом */
+[data-m="ev-hero"] [data-m="cta"],
+[style*="background:#FF2026"] [data-m="cta"],
+[style*="background: #FF2026"] [data-m="cta"]{ background:#FFFFFF !important; color:#000000 !important; }
+[data-m="ev-hero"] [data-m="cta"]:hover,
+[style*="background:#FF2026"] [data-m="cta"]:hover,
+[style*="background: #FF2026"] [data-m="cta"]:hover{ background:#000000 !important; color:#FFFFFF !important; }
+/* группа кнопок — равная ширина по самой длинной */
+[data-m="cta-row"]{ display:grid !important; grid-auto-flow:column !important; grid-auto-columns:1fr !important; width:fit-content !important; max-width:100% !important; gap:14px !important; align-items:stretch !important; }
+@media (max-width:768px){
+  [data-m="cta"]{ width:100% !important; min-width:0 !important; padding:0 20px !important; }
+  [data-m="cta-row"]{ grid-auto-flow:row !important; grid-auto-columns:auto !important; width:100% !important; }
+}
+/* 769–1180px: в хедере не хватает ширины на кнопку 260px — снимаем минимум, чтобы не срезало */
+@media (min-width:769px) and (max-width:1180px){
+  header [data-m="cta"]{ min-width:0 !important; padding:0 20px !important; flex:0 1 auto !important; }
+  [data-m="cta-row"] [data-m="cta"]{ min-width:0 !important; padding:0 20px !important; }
+  header{ min-width:0 !important; gap:18px !important; padding-left:20px !important; padding-right:20px !important; }
+  header > *{ min-width:0 !important; }
+  header > *:last-child{ flex:0 1 auto !important; gap:12px !important; }
+  header nav{ flex:0 1 auto !important; overflow:hidden !important; }
+}
+@media (min-width:769px) and (max-width:1040px){
+  header a[href^="tel:"]{ display:none !important; }
+}
+</style>
+<script>(function(){var n=0;function m(){var v=document.querySelectorAll('video');for(var i=0;i<v.length;i++){var el=v[i];if(!el.muted){el.muted=true;el.defaultMuted=true;el.setAttribute('muted','');}el.loop=true;if(!el.hasAttribute('loop')){el.setAttribute('loop','');}if(el.paused){var p=el.play();if(p&&p.catch){p.catch(function(){});}}}}m();var t=setInterval(function(){m();if(++n>40){clearInterval(t);}},500);document.addEventListener('DOMContentLoaded',m);})();</script>
+<script src="../_lightbox.js"></script>
+<!-- BB-CHAT -->
+<script src="../_chat.js"></script>
+<script src="../_ovl.js"></script>
+<style>
+[data-m="chat-body"]::-webkit-scrollbar{ width:6px; }
+[data-m="chat-body"]::-webkit-scrollbar-thumb{ background:rgba(255,255,255,0.16); border-radius:3px; }
+[data-m="chat-input"]::placeholder{ color:rgba(232,229,222,0.5); }
+/* плавающий виджет брони не должен перекрывать кнопки у правого края блоков */
+@media (min-width:769px){
+  [data-m="ev-row"]{ padding-right:150px !important; }
+}
+@media (max-width:980px){
+  [data-m="fab-chat"]{ bottom:90px !important; }
+}
+/* мобильная шапка: только логотип и выбор города — кнопка брони и телефон убраны */
+@media (max-width:768px){
+  header [data-m="cta"], header a[href*="waitly"], header a[href*="yclients"], header a[href^="tel:"]{ display:none !important; }
+  [data-m="fab-chat"]{ left:14px !important; }
+  [data-m="chat-panel"]{ left:0 !important; right:0 !important; bottom:0 !important; width:100% !important; max-width:none !important; height:84vh !important; border-radius:22px 22px 0 0 !important; }
+}
+
+/* BB-OVERLAY-GUARD: пока открыт оверлей — плавающие виджеты скрыты */
+html[data-bb-ovl="menu"] [data-m="fab-chat"], html[data-bb-ovl="menu"] [data-m="chat-panel"], html[data-bb-ovl="menu"] #waitly-widget-root,
+html[data-bb-ovl="modal"] [data-m="fab-chat"], html[data-bb-ovl="modal"] [data-m="chat-panel"], html[data-bb-ovl="modal"] #waitly-widget-root,
+html[data-bb-ovl="chat"] #waitly-widget-root,
+html[data-bb-ovl="book"] [data-m="fab-chat"], html[data-bb-ovl="book"] [data-m="chat-panel"]{ display:none !important; }
+/* чат не закрывает текст: гаснет, когда под кнопкой строка или картинка */
+html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-events:none !important; }
+[data-m="fab-chat"]{ transition:opacity .18s ease !important; }
+/* выбор города на мобильном: список у правого края и не шире экрана */
+@media (max-width:768px){
+  [data-m="city-pick"] > div{ left:auto !important; right:0 !important; width:auto !important; min-width:0 !important; max-width:calc(100vw - 32px) !important; }
+}
+/* шторка меню: список скроллится, нижний блок не наезжает на пункты */
+[data-m="mobile-menu"]{ overflow:hidden !important; }
+[data-m="mobile-menu"] nav{ min-height:0 !important; }
 </style>
 </helmet>
-<div style="font-family:'Proxima Nova','Montserrat',-apple-system,sans-serif; background:#0B0B0C; color:#fff; min-height:100vh; -webkit-font-smoothing:antialiased; overflow:hidden;">
+<div style="font-family:'Proxima Nova','Montserrat',-apple-system,sans-serif; background:#000000; color:#fff; min-height:100vh; -webkit-font-smoothing:antialiased; overflow:hidden;">
   <input type="checkbox" id="bbmenu" style="display:none;">
 
-  <header style="position:sticky; top:0; z-index:50; display:flex; align-items:center; gap:32px; height:74px; padding:0 40px; background:rgba(11,11,12,0.86); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(255,255,255,0.07);">
+  <header style="position:sticky; top:0; z-index:50; display:flex; align-items:center; gap:32px; height:74px; padding:0 40px; background:rgba(0,0,0,0.86); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(255,255,255,0.07);">
     <a href="index.html" style="display:flex; align-items:center; text-decoration:none; flex-shrink:0;"><img src="../uploads/Vector.svg" alt="Brooklyn Bowl" style="height:24px; width:auto; display:block; filter:brightness(0) invert(1);"></a>
     <nav style="display:flex; align-items:center; gap:30px; margin-left:14px;">
-      <a href="index.html" style="text-decoration:none; color:#B6B5B0; font-size:15px; font-weight:500;" style-hover="color:#fff !important;">Главная</a>
-      <a href="bowling.html" style="text-decoration:none; color:#B6B5B0; font-size:15px; font-weight:500;" style-hover="color:#fff !important;">Боулинг</a>
-      <a href="kitchen.html" style="text-decoration:none; color:#B6B5B0; font-size:15px; font-weight:500;" style-hover="color:#fff !important;">Кухня</a>
-      <a href="afisha.html" style="text-decoration:none; color:#B6B5B0; font-size:15px; font-weight:500;" style-hover="color:#fff !important;">Афиша</a>
+      <a href="index.html" style="text-decoration:none; color:rgba(232,229,222,0.8); font-size:15px; font-weight:500;" style-hover="color:#fff !important;">Главная</a>
+      <a href="bowling.html" style="text-decoration:none; color:rgba(232,229,222,0.8); font-size:15px; font-weight:500;" style-hover="color:#fff !important;">Боулинг</a>
+      <a href="kitchen.html" style="text-decoration:none; color:rgba(232,229,222,0.8); font-size:15px; font-weight:500;" style-hover="color:#fff !important;">Кухня</a>
+      <a href="afisha.html" style="text-decoration:none; color:rgba(232,229,222,0.8); font-size:15px; font-weight:500;" style-hover="color:#fff !important;">Афиша</a>
     </nav>
     <div style="display:flex; align-items:center; gap:18px; margin-left:auto; flex-shrink:0;">
-      <details data-m="city-pick" style="position:relative;"><summary style="list-style:none; cursor:pointer; display:flex; align-items:center; gap:7px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 1.5c-2.5 0-4.5 2-4.5 4.5 0 3.2 4.5 8 4.5 8s4.5-4.8 4.5-8c0-2.5-2-4.5-4.5-4.5Z" stroke="#E42725" stroke-width="1.4"></path><circle cx="8" cy="6" r="1.6" stroke="#E42725" stroke-width="1.4"></circle></svg><span style="color:#fff; font-size:15px; font-weight:500;">Сургут</span><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#9C9A95" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></summary><div style="position:absolute; top:calc(100% + 12px); left:0; z-index:120; min-width:240px; background:#141417; border:1px solid rgba(255,255,255,0.12); border-radius:16px; padding:8px; display:flex; flex-direction:column; gap:2px; box-shadow:0 20px 46px rgba(0,0,0,0.6);"><div style="padding:6px 12px 8px; font-size:11px; font-weight:700; letter-spacing:0.06em; color:#9C9A95;">ВЫБЕРИТЕ ГОРОД</div><a href="index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:700; color:#fff; background:rgba(228,39,37,0.18);" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Сургут</span><span style="font-size:12px; color:#9C9A95;">1 точка</span></a><a href="izhevsk/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:#C7C5BE; background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Ижевск</span><span style="font-size:12px; color:#9C9A95;">2 точки</span></a><a href="samara/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:#C7C5BE; background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Самара</span><span style="font-size:12px; color:#9C9A95;">2 точки</span></a><a href="msk/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:#C7C5BE; background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Москва</span><span style="font-size:12px; color:#9C9A95;">2 точки</span></a><a href="spb/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:#C7C5BE; background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Санкт-Петербург</span><span style="font-size:12px; color:#9C9A95;">1 точка</span></a><a href="surgut/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:#C7C5BE; background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Сургут</span><span style="font-size:12px; color:#9C9A95;">1 точка</span></a><a href="nv/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:#C7C5BE; background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Нижневартовск</span><span style="font-size:12px; color:#9C9A95;">1 точка</span></a></div></details>
-      <a href="tel:+73462744920" style="display:flex; align-items:center; gap:7px; text-decoration:none; color:#fff; font-size:15px; font-weight:600; white-space:nowrap;" style-hover="color:#FF5257 !important;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M5.5 2.5 6.8 5l-1.3 1.3a8 8 0 0 0 3.2 3.2L10 8.2 12.5 9.5c.4.2.6.6.5 1l-.4 1.6c-.1.5-.6.8-1.1.7C7.2 12.2 3.8 8.8 3.2 4.5c-.1-.5.2-1 .7-1.1l1.6-.4c.4-.1.8.1 1 .5Z" stroke="#E42725" stroke-width="1.4" stroke-linejoin="round"></path></svg>+7 3462 74-49-20</a>
-      <button onClick="{{ bookLane }}" style="cursor:pointer; border:none; background:#fff; padding:11px 22px; border-radius:300px; color:#0B0B0C; font-size:15px; font-weight:600; font-family:inherit;" style-hover="background:#E42725 !important; color:#fff !important;">Забронировать</button>
+      <details data-m="city-pick" style="position:relative;"><summary style="list-style:none; cursor:pointer; display:flex; align-items:center; gap:7px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 1.5c-2.5 0-4.5 2-4.5 4.5 0 3.2 4.5 8 4.5 8s4.5-4.8 4.5-8c0-2.5-2-4.5-4.5-4.5Z" stroke="#FF2026" stroke-width="1.4"></path><circle cx="8" cy="6" r="1.6" stroke="#FF2026" stroke-width="1.4"></circle></svg><span style="color:#fff; font-size:15px; font-weight:500;">Сургут</span><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="rgba(232,229,222,0.66)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></summary><div style="position:absolute; top:calc(100% + 12px); left:0; z-index:120; min-width:240px; background:#191919; border:1px solid rgba(255,255,255,0.12); border-radius:16px; padding:8px; display:flex; flex-direction:column; gap:2px; box-shadow:0 20px 46px rgba(0,0,0,0.6);"><div style="padding:6px 12px 8px; font-size:11px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">ВЫБЕРИТЕ ГОРОД</div><a href="../tyumen/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:700; color:#fff; background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Тюмень</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">3 точки</span></a><a href="../izhevsk/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Ижевск</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">2 точки</span></a><a href="../samara/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Самара</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">2 точки</span></a><a href="../msk/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Москва</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">2 точки</span></a><a href="../spb/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Санкт-Петербург</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">1 точка</span></a><a href="index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:rgba(255,32,38,0.18);" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Сургут</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">1 точка</span></a><a href="../nv/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Нижневартовск</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">1 точка</span></a></div></details>
+      <a href="tel:+73462744960" style="display:flex; align-items:center; gap:7px; text-decoration:none; color:#fff; font-size:15px; font-weight:600; white-space:nowrap;" style-hover="color:#FF2026 !important;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M5.5 2.5 6.8 5l-1.3 1.3a8 8 0 0 0 3.2 3.2L10 8.2 12.5 9.5c.4.2.6.6.5 1l-.4 1.6c-.1.5-.6.8-1.1.7C7.2 12.2 3.8 8.8 3.2 4.5c-.1-.5.2-1 .7-1.1l1.6-.4c.4-.1.8.1 1 .5Z" stroke="#FF2026" stroke-width="1.4" stroke-linejoin="round"></path></svg>+7 (346) 274-49-60</a>
+      <button data-m="cta" onClick="{{ bookLane }}" style="cursor:pointer; border:none; background:#fff; padding:16px 32px; border-radius:300px; color:#000000; font-size:14px; font-weight:800; font-family:inherit; letter-spacing:0.05em;" style-hover="background:#FF2026 !important; color:#fff !important;">Забронировать</button>
     </div>
   </header>
-  <div data-m="mobile-menu" style="display:none; position:fixed; inset:0; z-index:90; background:#0B0B0C; flex-direction:column; padding:16px 22px 36px;">
+  <div data-m="mobile-menu" style="display:none; position:fixed; inset:0; z-index:90; background:#000000; flex-direction:column; padding:16px 22px 36px;">
     <div style="display:flex; align-items:center; justify-content:space-between; height:42px; margin-bottom:14px;">
       <img src="../uploads/Vector.svg" alt="Brooklyn Bowl" style="height:22px; width:auto; filter:brightness(0) invert(1);">
-      <label for="bbmenu" style="width:42px; height:42px; border-radius:50%; background:#1C1C1F; border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; cursor:pointer;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="2" stroke-linecap="round"></path></svg></label>
+      <label for="bbmenu" style="width:42px; height:42px; border-radius:50%; background:#191919; border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; cursor:pointer;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="2" stroke-linecap="round"></path></svg></label>
     </div>
     <nav style="display:flex; flex-direction:column; gap:0; margin-top:12px; flex:1; overflow-y:auto; -webkit-overflow-scrolling:touch;">
-      <a href="index.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:6px 0;">Главная</a>
-      <a href="bowling.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:6px 0;">Боулинг</a>
-      <a href="kitchen.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:6px 0;">Кухня</a>
-      <a href="afisha.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:6px 0;">Афиша</a>
-      <div style="margin:16px 0 6px; font-size:11.5px; font-weight:700; letter-spacing:0.08em; color:#5E5C58;">ПРАЗДНИК #ВБРУКЛИНЕ</div>
-      <a href="dr.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Взрослый ДР</a>
-      <a href="dr-kids.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Детский ДР</a>
-      <a href="corporate.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Корпоратив</a>
-      <a href="graduation.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Выпускной</a>
-      <a href="friends.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">С друзьями</a>
-      <a href="family.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Семьёй</a>
+      <a href="index.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:6px 0;">Главная</a>
+      <a href="bowling.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:6px 0;">Боулинг</a>
+      <a href="kitchen.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:6px 0;">Кухня</a>
+      <a href="afisha.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:6px 0;">Афиша</a>
+      <div style="margin:16px 0 6px; font-size:11.5px; font-weight:700; letter-spacing:0.08em; color:rgba(232,229,222,0.4);">ПРАЗДНИК #ВБРУКЛИНЕ</div>
+      <a href="dr.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Взрослый ДР</a>
+      <a href="dr-kids.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Детский ДР</a>
+      <a href="corporate.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Корпоратив</a>
+      <a href="graduation.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Выпускной</a>
+      <a href="friends.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">С друзьями</a>
+      <a href="family.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Семьёй</a>
       <a href="lane.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#fff; padding:5px 0;">Просто поиграть</a>
-      <div style="margin:16px 0 6px; font-size:11.5px; font-weight:700; letter-spacing:0.08em; color:#5E5C58;">ЕЩЁ</div>
-      <a href="promo.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Акции</a>
-      <a href="loyalty.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Бонусы и приложение</a>
-      <a href="about.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">О нас</a>
-      <a href="contacts.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Контакты</a>
-      <div style="margin:16px 0 6px; font-size:11.5px; font-weight:700; letter-spacing:0.08em; color:#5E5C58;">ЗАЛ В СУРГУТЕ</div>
-      <a href="filial-aura.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Аура</a>
+      <div style="margin:16px 0 6px; font-size:11.5px; font-weight:700; letter-spacing:0.08em; color:rgba(232,229,222,0.4);">ЕЩЁ</div>
+      <a href="promo.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Акции</a>
+      <a href="loyalty.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Бонусы и приложение</a>
+      <a href="about.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">О нас</a>
+      <a href="contacts.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Контакты</a>
+      <div style="margin:16px 0 6px; font-size:11.5px; font-weight:700; letter-spacing:0.08em; color:rgba(232,229,222,0.4);">ЗАЛЫ В СУРГУТЕ</div>
+      <a href="filial-aura.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Аура</a>
     </nav>
     <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
-      <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 1.5c-2.5 0-4.5 2-4.5 4.5 0 3.2 4.5 8 4.5 8s4.5-4.8 4.5-8c0-2.5-2-4.5-4.5-4.5Z" stroke="#E42725" stroke-width="1.4"></path><circle cx="8" cy="6" r="1.6" stroke="#E42725" stroke-width="1.4"></circle></svg>
-      <span style="color:#9C9A95; font-size:15px;">Сургут</span>
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 1.5c-2.5 0-4.5 2-4.5 4.5 0 3.2 4.5 8 4.5 8s4.5-4.8 4.5-8c0-2.5-2-4.5-4.5-4.5Z" stroke="#FF2026" stroke-width="1.4"></path><circle cx="8" cy="6" r="1.6" stroke="#FF2026" stroke-width="1.4"></circle></svg>
+      <span style="color:rgba(232,229,222,0.66); font-size:15px;">Сургут</span>
     </div>
-    <a href="tel:+73462744920" style="text-decoration:none; color:#fff; font-size:20px; font-weight:700; margin-bottom:18px;">+7 3462 74-49-20</a>
-    <a href="https://widget.waitly.ru/ayBdk1LGn2HDcaNAuazgKg?theme=2-firm&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=surgut&utm_trc=aura" target="_blank" rel="noopener" style="display:block; box-sizing:border-box; text-align:center; text-decoration:none; width:100%; background:#E42725; padding:17px; border-radius:300px; color:#fff; font-size:17px; font-weight:600;">Бронь стола в зоне боулинга</a>
+    <a href="tel:+73462744960" style="text-decoration:none; color:#fff; font-size:20px; font-weight:700; margin-bottom:18px;">+7 (346) 274-49-60</a>
+    <a data-m="cta" href="https://widget.waitly.ru/ayBdk1LGn2HDcaNAuazgKg/2-firm?utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=surgut&utm_trc=all" target="_blank" rel="noopener" style="display:block; box-sizing:border-box; text-align:center; text-decoration:none; width:100%; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;">Бронь стола в зоне боулинга</a>
   </div>
-  <div data-m="tabbar" style="display:none; position:fixed; left:0; right:0; bottom:0; z-index:80; padding:30px 14px 16px; pointer-events:none; background:linear-gradient(180deg, rgba(11,11,12,0) 0%, rgba(11,11,12,0.82) 50%, #0B0B0C 100%);">
+  <div data-m="tabbar" style="display:none; position:fixed; left:0; right:0; bottom:0; z-index:80; padding:30px 14px 16px; pointer-events:none; background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.82) 50%, #000000 100%);">
     <div style="display:flex; align-items:center; gap:10px; max-width:460px; margin:0 auto; pointer-events:auto;">
-      <div style="flex:1; display:flex; align-items:center; gap:2px; background:#15151A; border:1px solid rgba(255,255,255,0.08); border-radius:300px; padding:6px; box-shadow:0 14px 34px rgba(0,0,0,0.55);">
+      <div style="flex:1; display:flex; align-items:center; gap:2px; background:#191919; border:1px solid rgba(255,255,255,0.08); border-radius:300px; padding:6px; box-shadow:0 14px 34px rgba(0,0,0,0.55);">
         <a href="index.html" aria-label="Главная" style="flex:1; display:flex; align-items:center; justify-content:center; padding:14px 0; text-decoration:none;"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M3.2 11 12 3.3 20.8 11M5.6 9.4V20h12.8V9.4" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><a href="bowling.html" aria-label="Боулинг" style="flex:1; display:flex; align-items:center; justify-content:center; padding:14px 0; text-decoration:none;"><svg width="25" height="23" viewBox="0 0 28 24" fill="none"><circle cx="9" cy="14.6" r="6.8" stroke="#fff" stroke-width="1.7"></circle><circle cx="6.7" cy="12.2" r="1" fill="#fff"></circle><circle cx="9.5" cy="11.4" r="1" fill="#fff"></circle><circle cx="8" cy="14.6" r="1" fill="#fff"></circle><path d="M21 3.4c-1.3 0-1.9 1-1.9 2.1 0 1 .6 1.7.6 3.2 0 2-1.2 3-1.2 6.4 0 2 .9 3.1 2.5 3.1s2.5-1.1 2.5-3.1c0-3.4-1.2-4.4-1.2-6.4 0-1.5.6-2.2.6-3.2 0-1.1-.6-2.1-1.9-2.1Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"></path></svg></a><a href="kitchen.html" aria-label="Кухня" style="flex:1; display:flex; align-items:center; justify-content:center; padding:14px 0; text-decoration:none;"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M3.6 6.6 12 20.8l8.4-14.2c-5.4-2.4-11.4-2.4-16.8 0Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"></path><path d="M5.6 7.3c4.1-1.5 8.7-1.5 12.8 0" stroke="#fff" stroke-width="1.4"></path><circle cx="10" cy="10.2" r="1.1" fill="#fff"></circle><circle cx="14" cy="11.2" r="1.1" fill="#fff"></circle><circle cx="12" cy="15" r="1.1" fill="#fff"></circle></svg></a><a href="afisha.html" aria-label="Афиша" style="flex:1; display:flex; align-items:center; justify-content:center; padding:14px 0; text-decoration:none;"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M20.6 3.4c-.8-.8-2-.7-2.8.1l-2.9 2.9c-.5.5-.7 1.2-.5 1.9l.2.9-3.3 3.3c-1-.4-2.2-.2-3 .6-1.2 1.2-1.2 3.1 0 4.3 1.2 1.2 3.1 1.2 4.3 0 .8-.8 1-2 .6-3l3.3-3.3.9.2c.7.2 1.4 0 1.9-.5l2.9-2.9c.8-.8.9-2 .1-2.8Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"></path><path d="m16.4 5.6 2 2" stroke="#fff" stroke-width="1.4" stroke-linecap="round"></path></svg></a>
       </div>
-      <label for="bbmenu" aria-label="Меню" style="flex-shrink:0; width:56px; height:56px; border-radius:50%; background:#15151A; border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 14px 34px rgba(0,0,0,0.55);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 9.5h14M5 14.5h14" stroke="#fff" stroke-width="2" stroke-linecap="round"></path></svg></label>
+      <label for="bbmenu" aria-label="Меню" style="flex-shrink:0; width:56px; height:56px; border-radius:50%; background:#191919; border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 14px 34px rgba(0,0,0,0.55);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 9.5h14M5 14.5h14" stroke="#fff" stroke-width="2" stroke-linecap="round"></path></svg></label>
     </div>
   </div>
 
@@ -101,96 +211,96 @@ summary::-webkit-details-marker{display:none;} input::placeholder{color:#6E6C68;
   <!-- HERO -->
   <section style="display:grid; grid-template-columns:1.05fr 0.95fr; gap:40px; align-items:center; padding:60px 44px 48px; max-width:1500px; margin:0 auto;">
     <div>
-      <span style="display:inline-flex; align-items:center; padding:7px 14px; border-radius:300px; background:rgba(228,39,37,0.16); font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:#F26B69;">БОУЛИНГ · ТЮМЕНЬ</span>
-      <h1 style="margin:22px 0 0; font-size:clamp(34px,4.4vw,58px); font-weight:800; line-height:1.03; letter-spacing:-0.02em; color:#fff;">Боулинг в Сургуте —<br><em style="color:#E42725; font-style:italic;">дорожка от 1 090 ₽/час</em></h1>
-      <p style="margin:22px 0 0; max-width:520px; font-size:17px; line-height:1.6; color:#9C9A95;">Дорожки Brunswick, до 6 человек. Обувь и одноразовые носки — бесплатно. В будни до 17:00 — самый дешёвый слот. Во вторник дорожка без оплаты часа при депозите на стол.</p>
+      <span style="display:inline-flex; align-items:center; padding:7px 14px; border-radius:300px; background:rgba(255,32,38,0.16); font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:#FF2026;">БОУЛИНГ · СУРГУТ</span>
+      <h1 style="margin:22px 0 0; font-size:clamp(34px,4.4vw,58px); font-weight:800; line-height:1.03; letter-spacing:-0.02em; color:#fff;">Боулинг в Сургуте —<br><em style="color:#FF2026; font-style:normal;">дорожка от 1 290 ₽/час</em></h1>
+      <p style="margin:22px 0 0; max-width:520px; font-size:17px; line-height:1.6; color:rgba(232,229,222,0.66);">Дорожки Brunswick, до 6 человек. Обувь и одноразовые носки — бесплатно. В будни до 18:00 — самый дешёвый слот. В акционный день дорожка без оплаты часа при депозите на стол.</p>
       <div style="display:flex; gap:12px; margin-top:30px; flex-wrap:wrap;">
-        <button onClick="{{ bookLane }}" style="cursor:pointer; border:none; font-family:inherit; display:inline-flex; align-items:center; background:#E42725; padding:15px 30px; border-radius:300px; color:#fff; font-size:16px; font-weight:700;" style-hover="background:#fff !important; color:#E42725 !important;">Бронь стола в зоне боулинга</button>
-        <a href="promo.html" style="text-decoration:none; display:inline-flex; align-items:center; background:transparent; border:1px solid rgba(255,255,255,0.28); padding:15px 30px; border-radius:300px; color:#fff; font-size:16px; font-weight:600;" style-hover="border-color:#fff !important;">Бесплатный вторник →</a>
+        <button data-m="cta" onClick="{{ bookLane }}" style="cursor:pointer; border:none; font-family:inherit; display:inline-flex; align-items:center; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Бронь стола в зоне боулинга</button>
+        <a href="promo.html" style="text-decoration:none; display:inline-flex; align-items:center; background:transparent; border:1px solid rgba(255,255,255,0.28); padding:15px 30px; border-radius:300px; color:#fff; font-size:16px; font-weight:600;" style-hover="border-color:#fff !important;">Бесплатный боулинг →</a>
       </div>
       <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:34px;">
-        <span style="padding:9px 15px; border-radius:300px; background:#141417; border:1px solid rgba(255,255,255,0.07); font-size:13px; color:#C7C5BE;">От 1 090 ₽ / час · будни до 17:00</span>
-        <span style="padding:9px 15px; border-radius:300px; background:#141417; border:1px solid rgba(255,255,255,0.07); font-size:13px; color:#C7C5BE;">Вторник до 18:00 — бесплатно с депозитом</span>
-        <span style="padding:9px 15px; border-radius:300px; background:#141417; border:1px solid rgba(255,255,255,0.07); font-size:13px; color:#C7C5BE;">Обувь, носки и шары в цене</span>
-        <span style="padding:9px 15px; border-radius:300px; background:#141417; border:1px solid rgba(255,255,255,0.07); font-size:13px; color:#C7C5BE;">Рейтинг 4.8 · Яндекс и 2ГИС</span>
+        <span style="padding:9px 15px; border-radius:300px; background:#191919; border:1px solid rgba(255,255,255,0.07); font-size:13px; color:rgba(232,229,222,0.86);">От 1 290 ₽ / час · будни до 18:00</span>
+        <span style="padding:9px 15px; border-radius:300px; background:#191919; border:1px solid rgba(255,255,255,0.07); font-size:13px; color:rgba(232,229,222,0.86);">Акционный день до 18:00 — бесплатно с депозитом</span>
+        <span style="padding:9px 15px; border-radius:300px; background:#191919; border:1px solid rgba(255,255,255,0.07); font-size:13px; color:rgba(232,229,222,0.86);">Обувь, носки и шары в цене</span>
+        <span style="padding:9px 15px; border-radius:300px; background:#191919; border:1px solid rgba(255,255,255,0.07); font-size:13px; color:rgba(232,229,222,0.86);">Рейтинг 4.8 · Яндекс и 2ГИС</span>
       </div>
     </div>
     <div style="position:relative; border-radius:20px; overflow:hidden; height:480px;">
-      <img src="../uploads/DSC_6209.jpg" alt="Игра в боулинг в Brooklyn Bowl" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+      <video muted="" defaultMuted="" playsinline="" autoplay="" loop="loop" poster="../uploads/DSC_6209.jpg" aria-label="Игра в боулинг в Brooklyn Bowl" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; cursor:pointer;"><source src="https://cdnv.boomstream.com/balancer/dZCqx6s4-zrFoAhCP.mp4" type="video/mp4"></video>
     </div>
   </section>
 
   <!-- ЦЕНЫ -->
   <section style="padding:40px 44px 70px; max-width:1500px; margin:0 auto;">
-    <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:#9C9A95;">ЦЕНЫ НА БОУЛИНГ</span>
+    <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">ЦЕНЫ НА БОУЛИНГ</span>
     <h2 style="margin:14px 0 8px; font-size:clamp(28px,3.4vw,40px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Час дорожки — сколько стоит и когда дешевле</h2>
-    <p style="margin:0 0 28px; font-size:15px; color:#9C9A95;">До 6 человек на одной дорожке. Обувь, носки и шары — в цене. Доплат нет.</p>
+    <p style="margin:0 0 28px; font-size:15px; color:rgba(232,229,222,0.66);">До 6 человек на одной дорожке. Обувь, носки и шары — в цене. Доплат нет.</p>
     <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:18px;">
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#0F0F11; padding:28px; display:flex; flex-direction:column; gap:10px; transition:all .22s ease; cursor:default;" style-hover="background:#E42725 !important; border-color:#E42725 !important;"><div style="font-size:13px; font-weight:700; letter-spacing:0.03em; color:#9C9A95;">ВТОРНИК · БЕСПЛАТНЫЙ</div><div style="font-size:34px; font-weight:800; color:#fff;">0 ₽</div><div style="font-size:14px; line-height:1.5; color:#9C9A95;">Час дорожки бесплатно при депозите на стол ~2 190 ₽. До 18:00, нужна бронь.</div></div>
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#0F0F11; padding:28px; display:flex; flex-direction:column; gap:10px; transition:all .22s ease; cursor:default;" style-hover="background:#E42725 !important; border-color:#E42725 !important;"><div style="font-size:13px; font-weight:700; letter-spacing:0.03em; color:#9C9A95;">БУДНИ ДО 17:00</div><div style="font-size:34px; font-weight:800; color:#fff;">1 090 ₽<span style="font-size:15px; color:#9C9A95; font-weight:600;"> / час</span></div><div style="font-size:14px; line-height:1.5; color:#9C9A95;">Самый дешёвый слот. До 6 человек, дорожки почти всегда свободны.</div></div>
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#0F0F11; padding:28px; display:flex; flex-direction:column; gap:10px; transition:all .22s ease; cursor:default;" style-hover="background:#E42725 !important; border-color:#E42725 !important;"><div style="font-size:13px; font-weight:700; letter-spacing:0.03em; color:#9C9A95;">БУДНИ ПОСЛЕ 17:00</div><div style="font-size:34px; font-weight:800; color:#fff;">1 590 ₽<span style="font-size:15px; color:#9C9A95; font-weight:600;"> / час</span></div><div style="font-size:14px; line-height:1.5; color:#9C9A95;">Вечер пн–чт — народу меньше, чем в выходные. Стол у дорожки бесплатно.</div></div>
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#0F0F11; padding:28px; display:flex; flex-direction:column; gap:10px; transition:all .22s ease; cursor:default;" style-hover="background:#E42725 !important; border-color:#E42725 !important;"><div style="font-size:13px; font-weight:700; letter-spacing:0.03em; color:#9C9A95;">ПТ–ВС И ПРАЗДНИКИ</div><div style="font-size:34px; font-weight:800; color:#fff;">1 590 ₽<span style="font-size:15px; color:#9C9A95; font-weight:600;"> / час</span></div><div style="font-size:14px; line-height:1.5; color:#9C9A95;">Пятница–воскресенье, каникулы. Бронируйте за день-два — слоты разбирают.</div></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:28px; display:flex; flex-direction:column; gap:10px; transition:all .22s ease; cursor:default;" style-hover="background:#FF2026 !important; border-color:#FF2026 !important;"><div style="font-size:13px; font-weight:700; letter-spacing:0.03em; color:rgba(232,229,222,0.66);">ВТОРНИК · БЕСПЛАТНЫЙ</div><div style="font-size:34px; font-weight:800; color:#fff;">0 ₽</div><div style="font-size:14px; line-height:1.5; color:rgba(232,229,222,0.66);">Час дорожки бесплатно при депозите на стол ~2 790 ₽. До 18:00, нужна бронь.</div></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:28px; display:flex; flex-direction:column; gap:10px; transition:all .22s ease; cursor:default;" style-hover="background:#FF2026 !important; border-color:#FF2026 !important;"><div style="font-size:13px; font-weight:700; letter-spacing:0.03em; color:rgba(232,229,222,0.66);">БУДНИ ДО 18:00</div><div style="font-size:34px; font-weight:800; color:#fff;">1 090 ₽<span style="font-size:15px; color:rgba(232,229,222,0.66); font-weight:600;"> / час</span></div><div style="font-size:14px; line-height:1.5; color:rgba(232,229,222,0.66);">Самый дешёвый слот. До 6 человек, дорожки почти всегда свободны.</div></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:28px; display:flex; flex-direction:column; gap:10px; transition:all .22s ease; cursor:default;" style-hover="background:#FF2026 !important; border-color:#FF2026 !important;"><div style="font-size:13px; font-weight:700; letter-spacing:0.03em; color:rgba(232,229,222,0.66);">БУДНИ ПОСЛЕ 18:00</div><div style="font-size:34px; font-weight:800; color:#fff;">1 590 ₽<span style="font-size:15px; color:rgba(232,229,222,0.66); font-weight:600;"> / час</span></div><div style="font-size:14px; line-height:1.5; color:rgba(232,229,222,0.66);">Вечер пн–чт — народу меньше, чем в выходные. Стол у дорожки бесплатно.</div></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:28px; display:flex; flex-direction:column; gap:10px; transition:all .22s ease; cursor:default;" style-hover="background:#FF2026 !important; border-color:#FF2026 !important;"><div style="font-size:13px; font-weight:700; letter-spacing:0.03em; color:rgba(232,229,222,0.66);">ПТ–ВС И ПРАЗДНИКИ</div><div style="font-size:34px; font-weight:800; color:#fff;">1 590 ₽<span style="font-size:15px; color:rgba(232,229,222,0.66); font-weight:600;"> / час</span></div><div style="font-size:14px; line-height:1.5; color:rgba(232,229,222,0.66);">Пятница–воскресенье, каникулы. Бронируйте за день-два — слоты разбирают.</div></div>
     </div>
   </section>
 
   <!-- ТРИ ШАГА -->
   <section style="padding:0 44px 70px; max-width:1500px; margin:0 auto;">
-    <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:#9C9A95;">КАК ЗАБРОНИРОВАТЬ БОУЛИНГ</span>
+    <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">КАК ЗАБРОНИРОВАТЬ БОУЛИНГ</span>
     <h2 style="margin:14px 0 32px; font-size:clamp(28px,3.4vw,40px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Три шага — от брони до первого броска</h2>
     <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#0F0F11; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="background:#E42725 !important; border-color:#E42725 !important; transform:translateY(-5px) !important;"><div style="font-size:40px; font-weight:800; color:#2A2A2E; line-height:1;">01</div><p style="margin:16px 0 0; font-size:15px; line-height:1.6; color:#C7C5BE;"><strong style="color:#fff;">Выберите слот.</strong> Точка, дата, время — онлайн или по телефону. Можно за 15 минут до прихода, если дорожка свободна. На выходные — лучше заранее.</p></div>
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#0F0F11; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="background:#E42725 !important; border-color:#E42725 !important; transform:translateY(-5px) !important;"><div style="font-size:40px; font-weight:800; color:#2A2A2E; line-height:1;">02</div><p style="margin:16px 0 0; font-size:15px; line-height:1.6; color:#C7C5BE;"><strong style="color:#fff;">Получите обувь на входе.</strong> Хостес выдаёт боулинговую обувь по размеру и одноразовые носки — бесплатно. Проводит к дорожке, включает подачу шаров.</p></div>
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#0F0F11; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="background:#E42725 !important; border-color:#E42725 !important; transform:translateY(-5px) !important;"><div style="font-size:40px; font-weight:800; color:#2A2A2E; line-height:1;">03</div><p style="margin:16px 0 0; font-size:15px; line-height:1.6; color:#C7C5BE;"><strong style="color:#fff;">Играйте и заказывайте.</strong> Еда и напитки — прямо с дорожки, приносит официант. За 5 минут до конца хостес спросит, нужно ли продлить.</p></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="background:#FF2026 !important; border-color:#FF2026 !important; transform:translateY(-5px) !important;"><div style="font-size:40px; font-weight:800; color:#191919; line-height:1;">01</div><p style="margin:16px 0 0; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.86);"><strong style="color:#fff;">Выберите слот.</strong> Точка, дата, время — онлайн или по телефону. Можно за 15 минут до прихода, если дорожка свободна. На выходные — лучше заранее.</p></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="background:#FF2026 !important; border-color:#FF2026 !important; transform:translateY(-5px) !important;"><div style="font-size:40px; font-weight:800; color:#191919; line-height:1;">02</div><p style="margin:16px 0 0; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.86);"><strong style="color:#fff;">Получите обувь на входе.</strong> Хостес выдаёт боулинговую обувь по размеру и одноразовые носки — бесплатно. Проводит к дорожке, включает подачу шаров.</p></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="background:#FF2026 !important; border-color:#FF2026 !important; transform:translateY(-5px) !important;"><div style="font-size:40px; font-weight:800; color:#191919; line-height:1;">03</div><p style="margin:16px 0 0; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.86);"><strong style="color:#fff;">Играйте и заказывайте.</strong> Еда и напитки — прямо с дорожки, приносит официант. За 5 минут до конца хостес спросит, нужно ли продлить.</p></div>
     </div>
   </section>
 
   <!-- ПЕРВЫЙ РАЗ -->
   <section style="padding:0 44px 70px; max-width:1500px; margin:0 auto;">
-    <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:#9C9A95;">ПЕРВЫЙ РАЗ В БОУЛИНГЕ?</span>
+    <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">ПЕРВЫЙ РАЗ В БОУЛИНГЕ?</span>
     <h2 style="margin:14px 0 32px; font-size:clamp(28px,3.4vw,40px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Что нужно знать до прихода</h2>
     <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#0F0F11; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="background:#E42725 !important; border-color:#E42725 !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:20px; font-weight:800; color:#fff;">Шары и техника броска</h3><p style="margin:0; font-size:15px; line-height:1.6; color:#9C9A95;">Хостес показывает за 2 минуты: хват, разгон, выпуск. Шары — в зале, разного веса. Детям с 5 лет — лёгкие шары 2,5 кг.</p></div>
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#0F0F11; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="background:#E42725 !important; border-color:#E42725 !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:20px; font-weight:800; color:#fff;">Детский боулинг — с бортиками</h3><p style="margin:0; font-size:15px; line-height:1.6; color:#9C9A95;">Бортики поднимаем по запросу — только на вашей дорожке. С 5 лет дети играют наравне со взрослыми, счёт считает система.</p></div>
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#0F0F11; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="background:#E42725 !important; border-color:#E42725 !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:20px; font-weight:800; color:#fff;">Обувь и носки — бесплатно</h3><p style="margin:0; font-size:15px; line-height:1.6; color:#9C9A95;">Специальная подошва защищает дорожки. Носки одноразовые — выдаём на входе. Ни обувь, ни носки не входят в счёт отдельной строкой.</p></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="background:#FF2026 !important; border-color:#FF2026 !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:20px; font-weight:800; color:#fff;">Шары и техника броска</h3><p style="margin:0; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.66);">Хостес показывает за 2 минуты: хват, разгон, выпуск. Шары — в зале, разного веса. Детям с 5 лет — лёгкие шары 2,5 кг.</p></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="background:#FF2026 !important; border-color:#FF2026 !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:20px; font-weight:800; color:#fff;">Детский боулинг — с бортиками</h3><p style="margin:0; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.66);">Бортики поднимаем по запросу — только на вашей дорожке. С 5 лет дети играют наравне со взрослыми, счёт считает система.</p></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="background:#FF2026 !important; border-color:#FF2026 !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:20px; font-weight:800; color:#fff;">Обувь и носки — бесплатно</h3><p style="margin:0; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.66);">Специальная подошва защищает дорожки. Носки одноразовые — выдаём на входе. Ни обувь, ни носки не входят в счёт отдельной строкой.</p></div>
     </div>
   </section>
 
   <!-- КАЛЬКУЛЯТОР -->
   <section style="padding:0 44px 70px; max-width:1500px; margin:0 auto;">
-    <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:#9C9A95;">КАЛЬКУЛЯТОР ЦЕН</span>
-    <h2 style="margin:14px 0 8px; font-size:clamp(28px,3.4vw,40px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Сколько стоит дорожка <em style="color:#E42725; font-style:italic;">конкретно для вас</em></h2>
-    <p style="margin:0 0 28px; max-width:620px; font-size:15px; line-height:1.6; color:#9C9A95;">Выберите день, время и число игроков. Калькулятор считает с депозитом во вторник.</p>
+    <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">КАЛЬКУЛЯТОР ЦЕН</span>
+    <h2 style="margin:14px 0 8px; font-size:clamp(28px,3.4vw,40px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Сколько стоит дорожка <em style="color:#FF2026; font-style:normal;">конкретно для вас</em></h2>
+    <p style="margin:0 0 28px; max-width:620px; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.66);">Выберите день, время и число игроков. Калькулятор считает с депозитом в акционный день.</p>
     <div style="display:grid; grid-template-columns:minmax(0,560px) 1fr; gap:24px; align-items:stretch;">
-      <div style="border-radius:24px; border:1px solid rgba(255,255,255,0.08); background:#0F0F11; padding:30px; display:flex; flex-direction:column; gap:18px;">
+      <div style="border-radius:24px; border:1px solid rgba(255,255,255,0.08); background:#191919; padding:30px; display:flex; flex-direction:column; gap:18px;">
         <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px;">
-          <span style="font-size:12px; font-weight:700; letter-spacing:0.06em; color:#9C9A95;">ПРИМЕРНЫЙ ЧЕК</span>
-          <span style="font-size:16px; font-weight:800; color:#fff;">≈ {{ calc.perPerson }} ₽ <span style="color:#9C9A95; font-weight:500; font-size:14px;">на человека</span></span>
+          <span style="font-size:12px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">ПРИМЕРНЫЙ ЧЕК</span>
+          <span style="font-size:16px; font-weight:800; color:#fff;">≈ {{ calc.perPerson }} ₽ <span style="color:rgba(232,229,222,0.66); font-weight:500; font-size:14px;">на человека</span></span>
         </div>
         <div style="display:flex; flex-direction:column; gap:8px;">
           <sc-for list="{{ calc.days }}" as="d" hint-placeholder-count="4"><button onClick="{{ d.pick }}" style="{{ d.style }}">{{ d.name }}</button></sc-for>
         </div>
         <div style="display:flex; flex-direction:column; gap:11px;">
-          <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-size:14px; color:#9C9A95;">Сколько часов</span><span style="font-size:20px; font-weight:800; color:#fff;">{{ calc.hours }}</span></div>
-          <input type="range" min="1" max="4" value="{{ calc.hours }}" onChange="{{ calc.onHours }}" style="width:100%; accent-color:#E42725; height:6px; cursor:pointer;">
+          <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-size:14px; color:rgba(232,229,222,0.66);">Сколько часов</span><span style="font-size:20px; font-weight:800; color:#fff;">{{ calc.hours }}</span></div>
+          <input type="range" min="1" max="2" value="{{ calc.hours }}" onChange="{{ calc.onHours }}" style="width:100%; accent-color:#FF2026; height:6px; cursor:pointer;">
         </div>
         <div style="display:flex; flex-direction:column; gap:11px;">
-          <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-size:14px; color:#9C9A95;">Сколько человек</span><span style="font-size:20px; font-weight:800; color:#fff;">{{ calc.players }}</span></div>
-          <input type="range" min="1" max="6" value="{{ calc.players }}" onChange="{{ calc.onPlayers }}" style="width:100%; accent-color:#E42725; height:6px; cursor:pointer;">
+          <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-size:14px; color:rgba(232,229,222,0.66);">Сколько человек</span><span style="font-size:20px; font-weight:800; color:#fff;">{{ calc.players }}</span></div>
+          <input type="range" min="1" max="6" value="{{ calc.players }}" onChange="{{ calc.onPlayers }}" style="width:100%; accent-color:#FF2026; height:6px; cursor:pointer;">
         </div>
         <div style="display:flex; flex-direction:column; gap:9px;">
-          <span style="font-size:12px; font-weight:700; letter-spacing:0.06em; color:#9C9A95;">ДОБАВИТЬ НА СТОЛ</span>
+          <span style="font-size:12px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">ДОБАВИТЬ НА СТОЛ</span>
           <sc-for list="{{ calc.addons }}" as="a" hint-placeholder-count="4">
-            <button onClick="{{ a.toggle }}" style="display:flex; align-items:center; gap:12px; text-align:left; background:#0B0B0C; border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:13px 15px; cursor:pointer; font-family:inherit;" style-hover="border-color:rgba(228,39,37,0.4) !important;">
-              <span style="{{ a.boxStyle }}">{{ a.check }}</span><span style="flex:1; min-width:0; font-size:14px; color:#EDEBE6;">{{ a.name }}</span><span style="flex-shrink:0; font-size:14px; font-weight:700; color:#fff;">{{ a.price }}</span>
+            <button onClick="{{ a.toggle }}" style="display:flex; align-items:center; gap:12px; text-align:left; background:#000000; border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:13px 15px; cursor:pointer; font-family:inherit;" style-hover="border-color:rgba(255,32,38,0.4) !important;">
+              <span style="{{ a.boxStyle }}">{{ a.check }}</span><span style="flex:1; min-width:0; font-size:14px; color:#E8E5DE;">{{ a.name }}</span><span style="flex-shrink:0; font-size:14px; font-weight:700; color:#fff;">{{ a.price }}</span>
             </button>
           </sc-for>
         </div>
         <div style="border-top:1px dashed rgba(255,255,255,0.14); padding-top:15px; display:flex; flex-direction:column; gap:9px;">
-          <div style="display:flex; align-items:flex-end; justify-content:space-between;"><span style="font-size:17px; font-weight:800; color:#fff;">Итого</span><span style="font-size:26px; font-weight:800; color:#E42725;">{{ calc.total }} ₽</span></div>
+          <div style="display:flex; align-items:flex-end; justify-content:space-between;"><span style="font-size:17px; font-weight:800; color:#fff;">Итого</span><span style="font-size:26px; font-weight:800; color:#FF2026;">{{ calc.total }} ₽</span></div>
         </div>
-        <div style="border-radius:16px; background:rgba(228,39,37,0.1); border:1px solid rgba(228,39,37,0.32); padding:16px 18px; display:flex; flex-direction:column; gap:12px;">
+        <div style="border-radius:16px; background:rgba(255,32,38,0.1); border:1px solid rgba(255,32,38,0.32); padding:16px 18px; display:flex; flex-direction:column; gap:12px;">
           <div style="font-size:14.5px; line-height:1.5; color:#fff;">{{ calc.reco }}</div>
-          <button onClick="{{ bookLane }}" style="cursor:pointer; border:none; font-family:inherit; display:flex; align-items:center; justify-content:center; background:#E42725; padding:13px; border-radius:300px; color:#fff; font-size:15px; font-weight:700;" style-hover="background:#fff !important; color:#E42725 !important;">Бронь стола в зоне боулинга</button>
+          <button data-m="cta" onClick="{{ bookLane }}" style="cursor:pointer; border:none; font-family:inherit; display:flex; align-items:center; justify-content:center; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Бронь стола в зоне боулинга</button>
         </div>
       </div>
       <div style="position:relative; border-radius:24px; overflow:hidden; min-height:440px;"><img src="../uploads/DSC_6564.jpg" alt="Боулинг в Brooklyn Bowl" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"></div>
@@ -198,35 +308,34 @@ summary::-webkit-details-marker{display:none;} input::placeholder{color:#6E6C68;
   </section>
 
   <!-- 3D-ТУР -->
-  <section style="padding:0 44px 70px; max-width:1500px; margin:0 auto;">
+  <section style="padding:0 44px 70px; max-width:1500px; margin:0 auto;"><sc-if value="{{ hasTour }}" hint-placeholder-val="{{ false }}">
     <div style="text-align:center; margin-bottom:30px;">
-      <span style="display:inline-flex; align-items:center; padding:7px 14px; border-radius:300px; background:rgba(228,39,37,0.16); font-size:12.5px; font-weight:700; letter-spacing:0.03em; color:#F26B69;">3D-ТУР</span>
-      <h2 style="margin:16px 0 0; font-size:clamp(28px,3.4vw,44px); font-weight:800; text-transform:uppercase; color:#E42725; letter-spacing:-0.01em; line-height:1.05;">Посмотрите, как выглядит<br>наш красивый боулинг</h2>
+      <span style="display:inline-flex; align-items:center; padding:7px 14px; border-radius:300px; background:rgba(255,32,38,0.16); font-size:12.5px; font-weight:700; letter-spacing:0.03em; color:#FF2026;">3D-ТУР</span>
+      <h2 style="margin:16px 0 0; font-size:clamp(28px,3.4vw,44px); font-weight:800; text-transform:uppercase; color:#FF2026; letter-spacing:-0.01em; line-height:1.05;">Посмотрите, как выглядит<br>наш красивый боулинг</h2>
     </div>
-    <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-bottom:24px;">
-      <sc-for list="{{ hallTabs }}" as="t" hint-placeholder-count="3"><button onClick="{{ t.pick }}" style="{{ t.style }}" style-hover="filter:brightness(1.15) !important;">{{ t.name }}</button></sc-for>
+    
+    <div style="position:relative; border-radius:26px; overflow:hidden; aspect-ratio:16 / 9; background:#191919;">
+      {{ tourFrameEl }}
     </div>
-    <div style="position:relative; border-radius:26px; overflow:hidden; aspect-ratio:16 / 9; background:#141417;">
-      <iframe src="{{ tourUrl }}" title="3D-тур Brooklyn Bowl" allowfullscreen="" style="position:absolute; inset:0; width:100%; height:100%; border:0;"></iframe>
-    </div>
-    <div style="text-align:center; margin-top:14px;"><a href="{{ tourUrl }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:7px; text-decoration:none; color:#B6B5B0; font-size:14px; font-weight:600;" style-hover="color:#fff !important;">Открыть в полном экране →</a></div>
+    <div style="text-align:center; margin-top:14px;"><a href="{{ tourUrl }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:7px; text-decoration:none; color:rgba(232,229,222,0.8); font-size:14px; font-weight:600;" style-hover="color:#fff !important;">Открыть в полном экране →</a></div>
+  </sc-if>
   </section>
 
   <!-- ОТЗЫВЫ -->
   <section style="padding:0 44px 80px; max-width:1500px; margin:0 auto;">
     <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:26px; flex-wrap:wrap; gap:14px;">
       <h2 style="margin:0; font-size:clamp(30px,3.6vw,42px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Гости о боулинге</h2>
-      <span style="display:inline-flex; align-items:center; gap:9px; padding:9px 16px; border-radius:300px; background:#1C1C1F; border:1px solid rgba(255,255,255,0.07); font-size:15px; font-weight:600; color:#fff;"><span style="color:#E42725; font-size:17px;">★</span> 4.8 · 1 247 оценок</span>
+      <span style="display:inline-flex; align-items:center; gap:9px; padding:9px 16px; border-radius:300px; background:#191919; border:1px solid rgba(255,255,255,0.07); font-size:15px; font-weight:600; color:#fff;"><span style="color:#FF2026; font-size:17px;">★</span> 4.8 · 1 247 оценок</span>
     </div>
     <div style="columns:3; column-gap:18px;">
       <sc-for list="{{ reviews }}" as="rv" hint-placeholder-count="6">
-        <article style="break-inside:avoid; margin:0 0 18px; border-radius:20px; padding:24px; border:1px solid rgba(255,255,255,0.06); background:#0f0f0f; display:flex; flex-direction:column; gap:14px;">
+        <article style="break-inside:avoid; margin:0 0 18px; border-radius:20px; padding:24px; border:1px solid rgba(255,255,255,0.06); background:#191919; display:flex; flex-direction:column; gap:14px;">
           <div style="display:flex; align-items:center; gap:13px;">
             <div style="flex-shrink:0; width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; color:#fff; background:{{ rv.avatarBg }};">{{ rv.initials }}</div>
-            <div style="min-width:0;"><div style="font-size:15px; font-weight:700; color:#fff;">{{ rv.author }}</div><div style="font-size:12.5px; color:#6E6C68; margin-top:2px;">{{ rv.platform }} · {{ rv.date }}</div></div>
+            <div style="min-width:0;"><div style="font-size:15px; font-weight:700; color:#fff;">{{ rv.author }}</div><div style="font-size:12.5px; color:rgba(232,229,222,0.47); margin-top:2px;">{{ rv.platform }} · {{ rv.date }}</div></div>
           </div>
-          <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;"><span style="color:#E42725; font-size:14px; letter-spacing:2px;">★★★★★</span><span style="display:inline-flex; padding:4px 10px; border-radius:300px; background:rgba(228,39,37,0.12); font-size:11.5px; font-weight:700; color:#F26B69;">{{ rv.tag }}</span></div>
-          <p style="margin:0; font-size:14.5px; line-height:1.55; color:#D6D4CE;">{{ rv.text }}</p>
+          <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;"><span style="color:#FF2026; font-size:14px; letter-spacing:2px;">★★★★★</span><span style="display:inline-flex; padding:4px 10px; border-radius:300px; background:rgba(255,32,38,0.12); font-size:11.5px; font-weight:700; color:#FF2026;">{{ rv.tag }}</span></div>
+          <p style="margin:0; font-size:14.5px; line-height:1.55; color:#E8E5DE;">{{ rv.text }}</p>
         </article>
       </sc-for>
     </div>
@@ -235,48 +344,45 @@ summary::-webkit-details-marker{display:none;} input::placeholder{color:#6E6C68;
   <!-- CTA -->
   <section style="padding:0 44px 80px; max-width:1500px; margin:0 auto;">
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; align-items:stretch; border-radius:20px; overflow:hidden;">
-      <div style="background:#0F0F11; border-radius:20px; padding:56px 48px; display:flex; flex-direction:column; justify-content:center;">
+      <div style="background:#191919; border-radius:20px; padding:56px 48px; display:flex; flex-direction:column; justify-content:center;">
         <h2 style="margin:0; font-size:clamp(28px,3.4vw,44px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Бронь стола в зоне боулинга</h2>
-        <p style="margin:16px 0 0; max-width:440px; font-size:16px; line-height:1.6; color:#9C9A95;">12 точек в 7 городах. Выберите адрес — подскажем ближайший зал и свободные слоты.</p>
-        <button onClick="{{ bookLane }}" style="cursor:pointer; border:none; font-family:inherit; display:inline-flex; align-self:flex-start; margin-top:28px; background:#E42725; padding:15px 30px; border-radius:300px; color:#fff; font-size:16px; font-weight:700;" style-hover="background:#fff !important; color:#E42725 !important;">Забронировать</button>
+        <p style="margin:16px 0 0; max-width:440px; font-size:16px; line-height:1.6; color:rgba(232,229,222,0.66);">12 точек в 7 городах. Выберите адрес — подскажем ближайший зал и свободные слоты.</p>
+        <button data-m="cta" onClick="{{ bookLane }}" style="cursor:pointer; border:none; font-family:inherit; display:inline-flex; align-self:flex-start; margin-top:28px; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Забронировать</button>
       </div>
-      <div style="position:relative; min-height:360px; border-radius:20px; overflow:hidden;"><img src="../uploads/DSC_6449%20(1)-aed20b42.jpg" alt="Компания в Brooklyn Bowl" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"></div>
+      <div style="position:relative; min-height:360px; border-radius:20px; overflow:hidden;"><img src="../uploads/DSC_6449%20%281%29-aed20b42.jpg" alt="Компания в Brooklyn Bowl" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"></div>
     </div>
   </section>
 
   <sc-if value="{{ bookingOpen }}" hint-placeholder-val="{{ false }}">
-    <div onClick="{{ closeBooking }}" style="position:fixed; inset:0; z-index:1300; background:rgba(5,5,6,0.82); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center; padding:24px;">
-      <div onClick="{{ stopProp }}" style="position:relative; width:min(480px,100%); max-height:92vh; overflow:auto; background:#141417; border:1px solid rgba(255,255,255,0.1); border-radius:24px; padding:32px;">
-        <button onClick="{{ closeBooking }}" style="position:absolute; top:16px; right:16px; width:38px; height:38px; border-radius:50%; border:none; cursor:pointer; background:#1C1C1F; color:#fff; font-size:17px;">✕</button>
+    <div onClick="{{ closeBooking }}" style="position:fixed; inset:0; z-index:1300; background:rgba(0,0,0,0.82); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center; padding:24px;">
+      <div onClick="{{ stopProp }}" style="position:relative; width:min(480px,100%); max-height:92vh; overflow:auto; background:#191919; border:1px solid rgba(255,255,255,0.1); border-radius:24px; padding:32px;">
+        <button onClick="{{ closeBooking }}" style="position:absolute; top:16px; right:16px; width:38px; height:38px; border-radius:50%; border:none; cursor:pointer; background:#191919; color:#fff; font-size:17px;">✕</button>
         <sc-if value="{{ bookingForm }}" hint-placeholder-val="{{ true }}">
           <div>
-            <span style="display:inline-flex; padding:7px 14px; border-radius:300px; background:rgba(228,39,37,0.16); font-size:12px; font-weight:700; letter-spacing:0.05em; color:#F26B69;">ЗАЯВКА</span>
+            <span style="display:inline-flex; padding:7px 14px; border-radius:300px; background:rgba(255,32,38,0.16); font-size:12px; font-weight:700; letter-spacing:0.05em; color:#FF2026;">ЗАЯВКА</span>
             <h3 style="margin:14px 0 4px; font-size:24px; font-weight:800; color:#fff;">Оставить заявку</h3>
-            <p style="margin:0 0 20px; font-size:14px; line-height:1.5; color:#9C9A95;">Перезвоним в течение двух часов, подтвердим слот и условия. Заявка уйдёт в выбранное заведение.</p>
+            <p style="margin:0 0 20px; font-size:14px; line-height:1.5; color:rgba(232,229,222,0.66);">Перезвоним в течение двух часов, подтвердим слот и условия. Заявка уйдёт в выбранное заведение.</p>
             <div style="display:flex; flex-direction:column; gap:12px;">
-              <input id="lane-f0" type="text" value="Просто поиграть" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
-              <select id="lane-f1" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit; appearance:none; cursor:pointer;"><option>Аура</option></select>
+              <input type="text" value="Просто поиграть" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+              <select style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit; appearance:none; cursor:pointer;"><option>Аура</option><option>Аура</option><option>Аура</option></select>
               <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
-                <input id="lane-f2" type="date" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
-                <input id="lane-f3" type="time" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+                <input type="date" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+                <input type="time" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
               </div>
-              <input id="lane-f4" type="number" min="1" placeholder="Сколько человек" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
-              <input id="lane-name" required type="text" placeholder="Ваше имя" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
-              <input id="lane-contact" required type="tel" placeholder="Телефон" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
-              <label style="display:flex; align-items:flex-start; gap:10px; margin-top:14px; cursor:pointer; user-select:none; -webkit-user-select:none;">
-              <span style="{{ checkboxBoxStyle }}" onClick="{{ toggleConsent }}">{{ consentCheck }}</span>
-              <span style="font-size:12px; line-height:1.5; color:#6E6C68; padding-top:1px;">Согласен(-на) с <a href="privacy.html" style="color:#E42725; text-decoration:underline; text-underline-offset:2px;">политикой обработки персональных данных</a></span>
-            </label>
-            <button onClick="{{ submitBooking }}" disabled="{{ !consentOk || sending }}" style="{{ submitBtnStyle }}">{{ submitBtnLabel }}</button>
+              <input type="number" min="1" placeholder="Сколько человек" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+              <input type="text" placeholder="Ваше имя" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+              <input type="tel" placeholder="Телефон" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+              <button data-m="cta" onClick="{{ submitBooking }}" style="margin-top:4px; width:100%; cursor:pointer; border:none; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; font-family:inherit; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Отправить заявку</button>
             </div>
+            <p style="margin:14px 0 0; font-size:12px; line-height:1.5; color:rgba(232,229,222,0.47);">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
           </div>
         </sc-if>
         <sc-if value="{{ bookingSent }}" hint-placeholder-val="{{ false }}">
           <div style="display:flex; flex-direction:column; align-items:center; text-align:center; padding:24px 6px;">
-            <div style="width:66px; height:66px; border-radius:50%; background:#E42725; display:flex; align-items:center; justify-content:center; font-size:32px; color:#fff;">✓</div>
+            <div style="width:66px; height:66px; border-radius:50%; background:#FF2026; display:flex; align-items:center; justify-content:center; font-size:32px; color:#fff;">✓</div>
             <h3 style="margin:20px 0 0; font-size:24px; font-weight:800; color:#fff;">Заявка принята</h3>
-            <p style="margin:12px 0 0; max-width:330px; font-size:15px; line-height:1.55; color:#9C9A95;">Администратор перезвонит в течение двух часов и подтвердит детали.</p>
-            <button onClick="{{ closeBooking }}" style="margin-top:22px; cursor:pointer; border:1px solid rgba(255,255,255,0.18); background:transparent; padding:13px 30px; border-radius:300px; color:#fff; font-size:15px; font-weight:600; font-family:inherit;" style-hover="border-color:#E42725 !important;">Готово</button>
+            <p style="margin:12px 0 0; max-width:330px; font-size:15px; line-height:1.55; color:rgba(232,229,222,0.66);">Администратор перезвонит в течение двух часов и подтвердит детали.</p>
+            <button onClick="{{ closeBooking }}" style="margin-top:22px; cursor:pointer; border:1px solid rgba(255,255,255,0.18); background:transparent; padding:13px 30px; border-radius:300px; color:#fff; font-size:15px; font-weight:600; font-family:inherit;" style-hover="border-color:#FF2026 !important;">Готово</button>
           </div>
         </sc-if>
       </div>
@@ -284,7 +390,7 @@ summary::-webkit-details-marker{display:none;} input::placeholder{color:#6E6C68;
   </sc-if>
 
   <!-- ============ ФУТЕР ============ -->
-  <footer style="padding:48px 48px 40px; background:#0F0F0F; border:1px solid rgba(255,255,255,0.06); margin:0 16px 16px; border-radius:30px;">
+  <footer style="padding:48px 48px 40px; background:#191919; border:1px solid rgba(255,255,255,0.06); margin:0 16px 16px; border-radius:30px;">
     <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:40px; flex-wrap:wrap; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,0.07);">
       <div>
         <img src="../uploads/Vector.svg" alt="Brooklyn Bowl" style="height:26px; width:auto; display:block; filter:brightness(0) invert(1); margin-bottom:18px;">
@@ -295,27 +401,27 @@ summary::-webkit-details-marker{display:none;} input::placeholder{color:#6E6C68;
           <span>Пт–Сб 10:00 – 02:00</span>
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=tyumen&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="../uploads/badge-appstore.svg" alt="App Store" style="height:36px; width:auto; display:block;"></a>
-          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=tyumen&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="../uploads/badge-googleplay.svg" alt="Google Play" style="height:36px; width:auto; display:block;"></a>
-          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=tyumen&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="../uploads/badge-rustore.svg" alt="RuStore" style="height:36px; width:auto; display:block;"></a>
+          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=surgut&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="../uploads/badge-appstore.svg" alt="App Store" style="height:36px; width:auto; display:block;"></a>
+          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=surgut&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="../uploads/badge-googleplay.svg" alt="Google Play" style="height:36px; width:auto; display:block;"></a>
+          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=surgut&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="../uploads/badge-rustore.svg" alt="RuStore" style="height:36px; width:auto; display:block;"></a>
         </div>
       </div>
       <div data-m="footer-cols" style="display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:24px; flex:1; min-width:0;">
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ВИЗИТЫ</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="https://widget.waitly.ru/ayBdk1LGn2HDcaNAuazgKg?theme=2-firm&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=surgut&utm_trc=aura" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Забронировать</a><a href="lane.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Просто поиграть</a><a href="friends.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">С друзьями</a><a href="family.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Семьёй</a><a href="dr.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">День рождения</a><a href="dr-kids.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Детский ДР</a><a href="corporate.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Корпоратив</a><a href="graduation.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Выпускной</a></div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="https://widget.waitly.ru/ayBdk1LGn2HDcaNAuazgKg/2-firm?utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=surgut&utm_trc=all" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Забронировать</a><a href="lane.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Просто поиграть</a><a href="friends.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">С друзьями</a><a href="family.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Семьёй</a><a href="dr.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">День рождения</a><a href="dr-kids.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Детский ДР</a><a href="corporate.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Корпоратив</a><a href="graduation.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Выпускной</a></div>
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ДЛЯ ГОСТЕЙ</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="kitchen.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Меню</a><a href="afisha.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Афиша</a><a href="promo.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Акции</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Сертификаты</a><a href="loyalty.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Карта гостя</a><a href="about.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">О нас</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Блог</a></div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="kitchen.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Меню</a><a href="afisha.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Афиша</a><a href="promo.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Акции</a><a href="https://certificate.surgut.brooklynbowl.ru/" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Сертификаты</a><a href="loyalty.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Карта гостя</a><a href="about.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">О нас</a><a href="blog.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Блог</a><a href="rabota.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Работа у нас</a></div>
         </div>
         <div>
-          <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ТОЧКИ СЕТИ</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="filial-aura.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Аура</a></div>
+          <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">НАШИ АДРЕСА</div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="filial-aura.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Аура</a><a href="contacts.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Все контакты</a><a href="rent.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Аренда площадки</a><a href="delivery.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Доставка</a><a href="franchise.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Франшиза</a></div>
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">В ДРУГИХ ГОРОДАХ</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="../tyumen/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Тюмень</a><a href="../izhevsk/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Ижевск</a><a href="../samara/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Самара</a><a href="../msk/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Москва</a><a href="../spb/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Санкт-Петербург</a><a href="../nv/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Нижневартовск</a></div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="../tyumen/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Тюмень</a><a href="../izhevsk/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Ижевск</a><a href="../nv/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Нижневартовск</a><a href="../samara/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Самара</a><a href="../msk/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Москва</a><a href="../spb/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Санкт-Петербург</a></div>
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ДОПОЛНИТЕЛЬНО</div>
@@ -324,26 +430,78 @@ summary::-webkit-details-marker{display:none;} input::placeholder{color:#6E6C68;
       </div>
     </div>
     <div style="display:flex; align-items:flex-end; justify-content:space-between; padding-top:28px; border-top:1px solid rgba(255,255,255,0.18); flex-wrap:wrap; gap:16px;">
-      <span style="font-size:13px; color:rgba(255,255,255,0.8);">© Brooklyn Bowl Сургут, 2017–2026 ·</span>
+      <span style="font-size:13px; color:rgba(255,255,255,0.8);">© 2016-2026 ООО "Кегли кухня рок-н-ролл" ·</span>
       <div style="text-align:right;">
         <div style="font-size:15px; font-weight:700; color:#fff;">Артём Рахмеев, основатель</div>
-        <a href="mailto:rakhmeev@brooklynbowl.ru" style="text-decoration: none; font-size: 14px; color: #dc0404" style-hover="color:rgba(255,255,255,0.72) !important;">rakhmeev@brooklynbowl.ru</a>
+        <a href="mailto:rakhmeev@brooklynbowl.ru" style="text-decoration: none; font-size: 14px; color: #FF2026" style-hover="color:rgba(255,255,255,0.72) !important;">rakhmeev@brooklynbowl.ru</a>
         <div style="font-size:12px; color:rgba(255,255,255,0.7); margin-top:2px;">Прямой адрес основателя. Читает сам.</div>
       </div>
     </div>
   </footer>
 
+  <sc-if value="{{ chatEnabled }}" hint-placeholder-val="{{ true }}">
+    <button data-m="fab-chat" onClick="{{ chatToggle }}" aria-label="Чат с Brooklyn Bowl" style="position:fixed; left:24px; bottom:24px; z-index:90; display:flex; align-items:center; justify-content:center; width:64px; height:64px; border:0; padding:0; cursor:pointer; border-radius:300px; background:#FF2026; box-shadow:0 12px 34px rgba(0,0,0,0.45); transition:transform .25s ease;" style-hover="transform:scale(1.06) !important;">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H8l-4 3v-4.5A8 8 0 0 1 13 4a8 8 0 0 1 8 8z"></path><path d="M9 11h8M9 15h5"></path></svg>
+    </button>
+    <sc-if value="{{ chatOpen }}" hint-placeholder-val="{{ false }}">
+      <div data-m="chat-panel" style="position:fixed; left:24px; bottom:104px; z-index:95; width:372px; max-width:calc(100vw - 48px); height:min(520px, calc(100vh - 160px)); display:flex; flex-direction:column; overflow:hidden; border-radius:22px; background:#191919; border:1px solid rgba(255,255,255,0.12); box-shadow:0 26px 70px rgba(0,0,0,0.6);">
+        <div style="background:#FF2026; padding:16px 18px 0;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+            <div style="font-size:15px; font-weight:800; letter-spacing:0.06em; color:#FFFFFF; text-transform:uppercase;">Brooklyn Bowl</div>
+            <button onClick="{{ chatClose }}" aria-label="Закрыть чат" style="display:flex; align-items:center; justify-content:center; width:30px; height:30px; border:0; padding:0; cursor:pointer; border-radius:300px; background:rgba(0,0,0,0.18);" style-hover="background:rgba(0,0,0,0.34) !important;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+            </button>
+          </div>
+          <div style="padding:10px 0 13px; font-size:12.5px; font-weight:600; color:rgba(255,255,255,0.88);">{{ chatHours }}</div>
+        </div>
+        <div data-m="chat-body" style="flex:1; min-height:0; overflow-y:auto; padding:18px; display:flex; flex-direction:column; gap:10px; background:#191919;">
+          <sc-for list="{{ messages }}" as="m" hint-placeholder-count="1">
+            <sc-if value="{{ m.mine }}" hint-placeholder-val="{{ false }}">
+              <div style="align-self:flex-end; max-width:82%; padding:11px 15px; border-radius:18px 18px 4px 18px; background:#FF2026; color:#FFFFFF; font-size:14.5px; line-height:1.5; text-wrap:pretty;">{{ m.text }}</div>
+            </sc-if>
+            <sc-if value="{{ m.theirs }}" hint-placeholder-val="{{ true }}">
+              <div style="align-self:flex-start; max-width:82%; padding:11px 15px; border-radius:18px 18px 18px 4px; background:rgba(232,229,222,0.1); color:#E8E5DE; font-size:14.5px; line-height:1.5; text-wrap:pretty;">{{ m.text }}</div>
+            </sc-if>
+          </sc-for>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; padding:12px 14px; border-top:1px solid rgba(255,255,255,0.1); background:#000000;">
+          <input data-m="chat-input" type="text" value="{{ draft }}" onChange="{{ chatType }}" onKeyDown="{{ chatKey }}" placeholder="Напишите сообщение" style="flex:1; min-width:0; height:42px; padding:0 14px; border:1px solid rgba(255,255,255,0.14); border-radius:300px; background:#191919; color:#FFFFFF; font-family:inherit; font-size:14.5px; outline:none;">
+          <button onClick="{{ chatSend }}" aria-label="Отправить" style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; flex-shrink:0; border:0; padding:0; cursor:pointer; border-radius:300px; background:#FF2026;" style-hover="filter:brightness(1.12) !important;">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"></path></svg>
+          </button>
+        </div>
+      </div>
+    </sc-if>
+  </sc-if>
+
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { consent: false, sending: false, serr: false, day: 1, hours: 2, players: 4, ad: {}, hallVenue: 'Аура', booking: false, bsent: false };
+  _scroll() {
+    requestAnimationFrame(() => {
+      const b = document.querySelector('[data-m="chat-body"]');
+      if (b) b.scrollTop = b.scrollHeight;
+    });
+  }
+  _send() {
+    const text = (this.state.draft || '').trim();
+    if (!text || this.state.sending) return;
+    this.setState({ draft: '', sending: true, log: (this.state.log || []).concat([{ mine: true, text }]) });
+    this._scroll();
+    const reply = (window.sendToOperator || (() => Promise.resolve('')))(text, { city: "Сургут" });
+    Promise.resolve(reply).then((answer) => {
+      this.setState({ sending: false, log: (this.state.log || []).concat(answer ? [{ mine: false, text: answer }] : []) });
+      this._scroll();
+    });
+  }
+  state = { chatOpen: false, draft: '', log: [], sending: false, day: 1, hours: 2, players: 4, ad: {}, hallVenue: 'Аура', booking: false, bsent: false };
   renderVals() {
     const DAYS = [
       { l: 'Вторник до 18:00 · бесплатно', r: 0 },
-      { l: 'Будни до 17:00', r: 1090 },
-      { l: 'Будни после 17:00', r: 1590 },
-      { l: 'Пт–вс и праздники', r: 1590 }
+      { l: 'Будни до 18:00', r: 1290 },
+      { l: 'Будни после 18:00', r: 1790 },
+      { l: 'Пт–вс и праздники', r: 2390 }
     ];
     const ADDONS = [
       { n: 'Куриные крылья BBQ', p: 799 },
@@ -351,106 +509,96 @@ class Component extends DCLogic {
       { n: 'Пивная тарелка «Полкило»', p: 1299 },
       { n: 'Сет бруклинских настоек × 9', p: 1699 }
     ];
-    const fmt = (n) => n.toLocaleString('ru-RU');
+    const fmt = (n) => Number(n || 0).toLocaleString('ru-RU');
     const st = this.state;
     const day = st.day, hours = st.hours, players = st.players, ad = st.ad || {};
     const laneCost = DAYS[day].r * hours;
-    const deposit = day === 0 ? 2190 : 0;
+    const deposit = day === 0 ? 2790 : 0;
     const addSum = ADDONS.reduce((a, x, k) => a + (ad[k] ? x.p : 0), 0);
     const total = laneCost + deposit + addSum;
     const perPerson = players > 0 ? Math.round(total / players) : total;
     const cash = Math.round(total * 0.10);
-    const dayBtn = (active) => 'text-align:left; cursor:pointer; border-radius:14px; padding:14px 18px; font-size:14px; font-weight:600; font-family:inherit; transition:all .2s ease; ' + (active ? 'background:#E42725; color:#fff; border:1px solid #E42725;' : 'background:#0B0B0C; color:#C7C5BE; border:1px solid rgba(255,255,255,0.1);');
+    const dayBtn = (active) => 'text-align:left; cursor:pointer; border-radius:14px; padding:14px 18px; font-size:14px; font-weight:600; font-family:inherit; transition:all .2s ease; ' + (active ? 'background:#FF2026; color:#fff; border:1px solid #FF2026;' : 'background:#000000; color:rgba(232,229,222,0.86); border:1px solid rgba(255,255,255,0.1);');
     const days = DAYS.map((d, i) => ({ name: d.l, style: dayBtn(day === i), pick: () => this.setState({ day: i }) }));
     const addons = ADDONS.map((x, k) => ({
       name: x.n, price: '+' + fmt(x.p) + ' ₽',
       toggle: () => this.setState((s) => ({ ad: { ...(s.ad || {}), [k]: !((s.ad || {})[k]) } })),
-      boxStyle: 'flex-shrink:0; width:22px; height:22px; border-radius:7px; border:1.5px solid ' + (ad[k] ? '#E42725' : 'rgba(255,255,255,0.25)') + '; background:' + (ad[k] ? '#E42725' : 'transparent') + '; display:flex; align-items:center; justify-content:center; color:#fff; font-size:13px;',
+      boxStyle: 'flex-shrink:0; width:22px; height:22px; border-radius:7px; border:1.5px solid ' + (ad[k] ? '#FF2026' : 'rgba(255,255,255,0.25)') + '; background:' + (ad[k] ? '#FF2026' : 'transparent') + '; display:flex; align-items:center; justify-content:center; color:#fff; font-size:13px;',
       check: ad[k] ? '✓' : ''
     }));
     const reco = day === 0
-      ? 'Во вторник час дорожки бесплатно — платите только депозит на стол ~2 190 ₽. Нужна бронь.'
+      ? 'В акционный день час дорожки бесплатно — платите только депозит на стол ~2 790 ₽. Нужна бронь.'
       : 'Оставьте заявку — подберём свободный слот в ближайшей точке и зафиксируем цену.';
     const HV = this.state.hallVenue || 'Аура';
     const _tb = 'padding:14px 26px; border-radius:300px; cursor:pointer; font-size:15px; font-weight:600; font-family:inherit; border:none; transition:background-color .2s ease, color .2s ease; white-space:nowrap;';
-    const hallTabs = ['Аура','Аура','Аура'].map((v) => ({ name: 'Бруклин ' + v, style: _tb + (v === HV ? ' background:#E42725; color:#fff;' : ' background:#1C1C1F; color:#C7C5BE;'), pick: () => this.setState({ hallVenue: v }) }));
-    const _tu = { 'Аура':'https://infoportal72.ru/190326/tour.html', 'Аура':'https://infoportal72.ru/040426/tour.html', 'Аура':'https://infoportal72.ru/26032026/tour.html' };
+    const hallTabs = ['Аура'].map((v) => ({ name: 'Бруклин ' + v, style: _tb + (v === HV ? ' background:#FF2026; color:#fff;' : ' background:#191919; color:rgba(232,229,222,0.86);'), pick: () => this.setState({ hallVenue: v }) }));
+    const _tu = {};
     const tourUrl = _tu[HV] || _tu['Аура'];
     return {
+      chatEnabled: this.props.chatEnabled ?? true,
+      chatHours: this.props.chatHours ?? 'Отвечаем ежедневно с 10:00 до 22:00',
+      chatOpen: !!this.state.chatOpen,
+      draft: this.state.draft || '',
+      messages: [{ mine: false, text: this.props.chatGreeting ?? 'Здравствуйте! Чем можем помочь?' }].concat(this.state.log || []).map((m) => ({ text: m.text, mine: !!m.mine, theirs: !m.mine })),
+      chatToggle: () => this.setState({ chatOpen: !this.state.chatOpen }),
+      chatClose: () => this.setState({ chatOpen: false }),
+      chatType: (e) => this.setState({ draft: e.target.value }),
+      chatKey: (e) => { if (e.key === 'Enter') { e.preventDefault(); this._send(); } },
+      chatSend: () => this._send(),
       hallTabs, tourUrl,
       reviews: [
-        { author: 'Юлия О.', text: 'Хороший боулинг, приятная атмосфера, кухня тоже понравилась. Играли 2 часа, ничего не зависло и не сломалось.', tag: 'Боулинг', platform: 'Яндекс Карты', date: '8 авг 2025', initials: 'ЮО', avatarBg: '#3A5C8A' },
-        { author: 'Алтынбек', text: 'Хорошее обслуживание, приветливый персонал, сама игра в боулинг лучшая в городе — были в других, здесь понравилось больше всего.', tag: 'Боулинг', platform: 'Яндекс Карты', date: '8 авг 2025', initials: 'А', avatarBg: '#E42725' },
-        { author: 'Тимир Мпри', text: 'Ходили всей семьёй, дети в восторге! Дорожки не зависают, всё работает чётко. Есть специальные бортики для детей.', tag: 'Боулинг', platform: 'Яндекс Карты', date: '29 мар 2026', initials: 'ТМ', avatarBg: '#3E6B4F' },
-        { author: 'Алексей Мошкин', text: 'Проводим ежегодные турниры на протяжении долгих лет, всё на высшем уровне, обслуживание и кухня достойны всяких похвал!', tag: 'Боулинг', platform: '2ГИС', date: '5 апр 2026', initials: 'АМ', avatarBg: '#9C6B2E' },
-        { author: 'Андрей Забелин', text: 'Всё хорошо, гостеприимный персонал, красиво, вкусная кухня! Хорошее место для отдыха взрослым и детям!', tag: 'Боулинг', platform: 'Яндекс Карты', date: '4 июн 2026', initials: 'АЗ', avatarBg: '#7A4E8C' },
-        { author: 'Равиль Сабирзянов', text: 'Замечательное место, прекрасный персонал, доброжелательные девушки на ресепшене, ходил бы в этот боулинг каждый день!', tag: 'Боулинг', platform: '2ГИС', date: '13 ноя 2025', initials: 'РС', avatarBg: '#4E7C7C' }
+        { author: 'Юлия О.', text: 'Хороший боулинг, приятная атмосфера, кухня тоже понравилась. Играли 2 часа, ничего не зависло и не сломалось.', tag: 'Боулинг', platform: 'Яндекс Карты', date: '8 авг 2025', initials: 'ЮО', avatarBg: '#191919' },
+        { author: 'Алтынбек', text: 'Хорошее обслуживание, приветливый персонал, сама игра в боулинг лучшая в городе — были в других, здесь понравилось больше всего.', tag: 'Боулинг', platform: 'Яндекс Карты', date: '8 авг 2025', initials: 'А', avatarBg: '#FF2026' },
+        { author: 'Тимир Мпри', text: 'Ходили всей семьёй, дети в восторге! Дорожки не зависают, всё работает чётко. Есть специальные бортики для детей.', tag: 'Боулинг', platform: 'Яндекс Карты', date: '29 мар 2026', initials: 'ТМ', avatarBg: '#E8E5DE' },
+        { author: 'Алексей Мошкин', text: 'Проводим ежегодные турниры на протяжении долгих лет, всё на высшем уровне, обслуживание и кухня достойны всяких похвал!', tag: 'Боулинг', platform: '2ГИС', date: '5 апр 2026', initials: 'АМ', avatarBg: '#E8E5DE' },
+        { author: 'Андрей Забелин', text: 'Всё хорошо, гостеприимный персонал, красиво, вкусная кухня! Хорошее место для отдыха взрослым и детям!', tag: 'Боулинг', platform: 'Яндекс Карты', date: '4 июн 2026', initials: 'АЗ', avatarBg: '#191919' },
+        { author: 'Равиль Сабирзянов', text: 'Замечательное место, прекрасный персонал, доброжелательные девушки на ресепшене, ходил бы в этот боулинг каждый день!', tag: 'Боулинг', platform: '2ГИС', date: '13 ноя 2025', initials: 'РС', avatarBg: '#E8E5DE' }
       ],
       calc: {
         perPerson: fmt(perPerson), total: fmt(total), cash: fmt(cash), hours, players, days, addons, note: 'Обувь, носки и шары — в цене. Точную сумму под вашу дату подтвердим по телефону.', reco,
-        onHours: (e) => this.setState({ hours: parseInt(e.target.value, 10) }),
+        onHours: (e) => this.setState({ hours: Math.min(2, parseInt(e.target.value, 10) || 1) }),
         onPlayers: (e) => this.setState({ players: parseInt(e.target.value, 10) })
       },
       bookingOpen: this.state.booking === true,
       bookingForm: this.state.bsent !== true,
       bookingSent: this.state.bsent === true,
       openBooking: () => this.setState({ booking: true, bsent: false }),
-      bookLane: () => window.open('https://widget.waitly.ru/ayBdk1LGn2HDcaNAuazgKg?theme=2-firm&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=surgut&utm_trc=aura', '_blank'),
+      bookLane: () => window.open('https://widget.waitly.ru/ayBdk1LGn2HDcaNAuazgKg/2-firm?utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=surgut&utm_trc=all', '_blank'),
       closeBooking: () => this.setState({ booking: false }),
-      submitBooking: (e) => {
-        if (e && e.preventDefault) e.preventDefault();
-        if (!this.state.consent || this.state.sending) return;
-        const val = (id) => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
-        const nameEl = document.getElementById('lane-name');
-        const contactEl = document.getElementById('lane-contact');
-        const name = val('lane-name');
-        const contact = val('lane-contact');
-        if (!name) { if (nameEl) nameEl.reportValidity(); return; }
-        if (!contact) { if (contactEl) contactEl.reportValidity(); return; }
-        const lines = [];
-        if (val('lane-f0')) lines.push('Тип мероприятия: ' + val('lane-f0'));
-        if (val('lane-f1')) lines.push('Точка: ' + val('lane-f1'));
-        if (val('lane-f2')) lines.push('Дата: ' + val('lane-f2'));
-        if (val('lane-f3')) lines.push('Время: ' + val('lane-f3'));
-        if (val('lane-f4')) lines.push('Сколько человек: ' + val('lane-f4'));
-        const fields = {
-          TITLE: 'SiteOP: Аренда дорожки, Сургут',
-          NAME: name,
-          COMMENTS: lines.join('\n'),
-          SOURCE_DESCRIPTION: 'Новый сайт, Сургут',
-        };
-        if (contact.indexOf('@') !== -1) fields.EMAIL = [{ VALUE: contact, VALUE_TYPE: 'WORK' }];
-        else fields.PHONE = [{ VALUE: contact, VALUE_TYPE: 'WORK' }];
-        this.setState({ sending: true, serr: false });
-        fetch('https://bbteam.bitrix24.ru/rest/119/4dwow62fd1jmzudi/crm.lead.add.json', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ fields: fields }),
-        })
-          .then((r) => r.json())
-          .then((data) => {
-            if (data && data.result) {
-              ['lane-f0','lane-f1','lane-f2','lane-f3','lane-f4','lane-name','lane-contact'].forEach((id) => {
-                const el = document.getElementById(id);
-                if (el) el.value = '';
-              });
-              this.setState({ sending: false, serr: false, bsent: true });
-            } else {
-              this.setState({ sending: false, serr: true });
-            }
-          })
-          .catch(() => { this.setState({ sending: false, serr: true }); });
-      },
-      consentOk: this.state.consent,
-      toggleConsent: () => this.setState(s => ({ consent: !s.consent })),
-      submitBtnLabel: this.state.sending ? 'Отправляем…' : 'Отправить заявку',
-      submitBtnStyle: { marginTop:'12px', width:'100%', cursor: (this.state.consent && !this.state.sending) ? 'pointer' : 'not-allowed', border:'none', background: this.state.consent ? (this.state.sending ? 'rgba(228,39,37,0.6)' : '#E42725') : 'rgba(255,255,255,0.12)', padding:'16px', borderRadius:'300px', color: this.state.consent ? '#fff' : 'rgba(255,255,255,0.4)', fontSize:'16px', fontWeight:'700', fontFamily:'inherit', transition:'background .2s, color .2s' },
-      checkboxBoxStyle: { flexShrink:0, marginTop:'2px', width:'18px', height:'18px', borderRadius:'5px', border: this.state.consent ? '1.5px solid rgba(228,39,37,0.8)' : '1.5px solid rgba(255,255,255,0.22)', background: this.state.consent ? 'rgba(228,39,37,0.12)' : 'transparent', display:'inline-flex', alignItems:'center', justifyContent:'center', transition:'border-color .18s, background .18s' },
-      consentCheck: this.state.consent ? React.createElement('svg',{width:11,height:9,viewBox:'0 0 11 9',fill:'none'},React.createElement('path',{d:'M1 4.5L4 7.5L10 1.5',stroke:'#E42725',strokeWidth:2.2,strokeLinecap:'round',strokeLinejoin:'round'})) : null,
+      submitBooking: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ bsent: true }); },
       stopProp: (e) => e.stopPropagation()
     };
   }
 }
 </script>
+<!-- BB-WAITLY: оригинальный код виджета брони Waitly (кнопка + панель с филиалами) -->
+<script>
+(function () {
+  var orig = Element.prototype.attachShadow;
+  Element.prototype.attachShadow = function (init) {
+    if (this.id === 'waitly-widget-root') { init = Object.assign({}, init, { mode: 'open' }); }
+    return orig.call(this, init);
+  };
+})();
+</script>
+<script src="https://widget.waitly.ru/waitly-widget.js" data-token="ayBdk1LGn2HDcaNAuazgKg" data-theme="2-firm" data-text="Бронируй дорожку!" data-color="#ed1c24" async></script>
+<script>
+(function () {
+  function fix() {
+    var root = document.getElementById('waitly-widget-root');
+    if (!root || !root.shadowRoot) { setTimeout(fix, 100); return; }
+    if (root.shadowRoot.getElementById('waitly-position-fix')) return;
+    var st = document.createElement('style');
+    st.id = 'waitly-position-fix';
+    st.textContent = '@media (max-width:980px){ .waitly-fab{ bottom:90px !important; } }';
+    root.shadowRoot.appendChild(st);
+  }
+  fix();
+  window.addEventListener('load', fix);
+  window.addEventListener('resize', fix);
+  setTimeout(fix, 500); setTimeout(fix, 1500); setTimeout(fix, 3000);
+})();
+</script>
+<!-- /BB-WAITLY -->
 </body>
 </html>

@@ -3,10 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/png" sizes="32x32" href="uploads/favicon-32x32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="uploads/apple-touch-icon.png">
-
-<script src="./support.js"></script>
+<title>Brooklyn Bowl ТРК «Красный Кит» — Москва</title>
+<meta name="description" content="Боулинг-ресторан Brooklyn Bowl в ТРК «Красный Кит», Москве: адрес, часы работы, дорожки, кухня и бронь.">
+<script src="../support.js"></script>
 </head>
 <body>
 <x-dc>
@@ -14,18 +13,23 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/proxima-nova" rel="stylesheet">
-<style>*{box-sizing:border-box;} button,input,select,textarea{font-family:inherit;} html,body{margin:0; padding:0; font-family:'Proxima Nova','Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:#0B0B0C;}
+<style>
+em, i, address, cite, dfn, var{ font-style:normal; }
+*{box-sizing:border-box;} button,input,select,textarea{font-family:inherit;} html,body{margin:0; padding:0; font-family:'Proxima Nova','Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:#000000;}
 summary::-webkit-details-marker{display:none;}
-a{color:#F26B69; text-decoration:none;} a:hover{color:#fff;}
+a{color:#FF2026; text-decoration:none;} a:hover{color:#fff;}
 #bbmenu:checked ~ [data-m="mobile-menu"]{ display:flex !important; }
+/* 769–1000px: меню шапки сжимается по-настоящему, чтобы пункты не срезались */
+@media (min-width:769px) and (max-width:1000px){
+  [data-m="nav"]{ gap:6px !important; overflow:visible !important; min-width:0 !important; flex-shrink:1 !important; }
+  [data-m="nav"] > a{ padding:8px 4px !important; font-size:13.5px !important; }
+}
 @media (max-width:768px){
     /* единая мобильная типографика */
     body h1:not(#_){ font-size:24px !important; line-height:1.2 !important; }
     body h2:not(#_){ font-size:20px !important; line-height:1.25 !important; }
     body h3:not(#_){ font-size:16px !important; line-height:1.3 !important; }
     body p:not(#_){ font-size:14px !important; line-height:1.5 !important; }
-  }
-  @media (max-width:1080px){
   [data-m="tabbar"]{display:block !important;}
   header{padding:0 16px !important; gap:10px !important; height:62px !important;}
   header nav{display:none !important;}
@@ -39,66 +43,205 @@ a{color:#F26B69; text-decoration:none;} a:hover{color:#fff;}
   footer{padding:34px 18px 26px !important; margin:0 8px 8px !important;}
   footer [data-m="footer-cols"]{grid-template-columns:1fr 1fr !important;}
 }
+
+/* ===== ПОДВАЛ: устойчивая сетка ===== */
+footer > div:first-child{ align-items:flex-start; }
+footer div[data-m="footer-cols"]{
+  display:grid !important;
+  grid-template-columns:repeat(auto-fit, minmax(158px, 1fr)) !important;
+  gap:30px 26px !important; align-content:start; min-width:0 !important;
+}
+footer div[data-m="footer-cols"] > div{ min-width:0; }
+footer div[data-m="footer-cols"] > div > div:first-child{
+  font-size:12px !important; letter-spacing:0.06em !important; white-space:nowrap !important; margin-bottom:14px !important;
+}
+footer div[data-m="footer-cols"] > div > div:last-child{ gap:10px !important; }
+footer div[data-m="footer-cols"] a{ display:block; overflow-wrap:anywhere; hyphens:auto; line-height:1.35 !important; }
+@media (max-width:1100px){
+  footer div[data-m="footer-cols"]{ grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)) !important; }
+}
+@media (max-width:768px){
+  footer div[data-m="footer-cols"]{ grid-template-columns:1fr 1fr !important; gap:24px 18px !important; }
+}
+@media (max-width:430px){
+  footer div[data-m="footer-cols"]{ grid-template-columns:1fr !important; }
+}
+
+/* ===== ФИРМЕННАЯ ПАЛИТРА: ссылки по умолчанию ===== */
+a{ color:#FF2026; }
+a:hover{ color:#FFFFFF; }
+/* BB-BUTTON-COMPONENT v2 */
+[data-m="cta"]{
+  display:inline-flex !important; align-items:center !important; justify-content:center !important;
+  box-sizing:border-box !important; height:52px !important; min-height:52px !important;
+  min-width:260px !important; padding:0 32px !important; border:none !important; border-radius:300px !important;
+  font-family:inherit !important; font-size:14px !important; font-weight:800 !important;
+  letter-spacing:0.05em !important; line-height:1 !important; text-transform:uppercase !important;
+  text-decoration:none !important; white-space:nowrap !important; cursor:pointer !important;
+  background:#FF2026 !important; color:#FFFFFF !important;
+  transition:background-color .2s ease, color .2s ease !important;
+}
+[data-m="cta"]:hover{ background:#FFFFFF !important; color:#FF2026 !important; }
+/* на красной подложке — белая кнопка с чёрным текстом */
+[data-m="ev-hero"] [data-m="cta"],
+[style*="background:#FF2026"] [data-m="cta"],
+[style*="background: #FF2026"] [data-m="cta"]{ background:#FFFFFF !important; color:#000000 !important; }
+[data-m="ev-hero"] [data-m="cta"]:hover,
+[style*="background:#FF2026"] [data-m="cta"]:hover,
+[style*="background: #FF2026"] [data-m="cta"]:hover{ background:#000000 !important; color:#FFFFFF !important; }
+/* группа кнопок — равная ширина по самой длинной */
+[data-m="cta-row"]{ display:grid !important; grid-auto-flow:column !important; grid-auto-columns:1fr !important; width:fit-content !important; max-width:100% !important; gap:14px !important; align-items:stretch !important; }
+@media (max-width:768px){
+  [data-m="cta"]{ width:100% !important; min-width:0 !important; padding:0 20px !important; }
+  [data-m="cta-row"]{ grid-auto-flow:row !important; grid-auto-columns:auto !important; width:100% !important; }
+}
+/* 769–1180px: в хедере не хватает ширины на кнопку 260px — снимаем минимум, чтобы не срезало */
+@media (min-width:769px) and (max-width:1180px){
+  header [data-m="cta"]{ min-width:0 !important; padding:0 20px !important; flex:0 1 auto !important; }
+  [data-m="cta-row"] [data-m="cta"]{ min-width:0 !important; padding:0 20px !important; }
+  header{ min-width:0 !important; gap:18px !important; padding-left:20px !important; padding-right:20px !important; }
+  header > *{ min-width:0 !important; }
+  header > *:last-child{ flex:0 1 auto !important; gap:12px !important; }
+  header nav{ flex:0 1 auto !important; overflow:hidden !important; }
+}
+@media (min-width:769px) and (max-width:1040px){
+  header a[href^="tel:"]{ display:none !important; }
+}
 </style>
-<script src="image-slot.js"></script>
+<script src="../image-slot.js"></script>
+<script>(function(){
+function icon(on){return on?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 9h3l5-4v14l-5-4H4V9Z" fill="#fff"/><path d="M16 9.5c1 1 1 4 0 5M18.5 7c2 2 2 8 0 10" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>':'<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 9h3l5-4v14l-5-4H4V9Z" fill="#fff"/><path d="M16 9l5 6M21 9l-5 6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>';}
+function setBtn(b,on){b.innerHTML=icon(on);b.setAttribute('aria-label',on?'Выключить звук':'Включить звук');}
+function toggle(v){var on=v.muted;v.muted=!on;v.defaultMuted=v.muted;if(v.muted){v.setAttribute('muted','');v.removeAttribute('data-user-sound');}else{v.removeAttribute('muted');v.setAttribute('data-user-sound','on');var p=v.play();if(p&&p.catch){p.catch(function(){});}}
+var b=v.parentNode&&v.parentNode.querySelector('[data-sound-toggle]');if(b)setBtn(b,!v.muted);}
+function mount(){var v=document.querySelectorAll('video');for(var i=0;i<v.length;i++){var el=v[i];
+ if(el.getAttribute('data-user-sound')!=='on'){if(!el.muted){el.muted=true;el.defaultMuted=true;el.setAttribute('muted','');}}
+ el.loop=true;if(!el.hasAttribute('loop')){el.setAttribute('loop','');}if(el.paused){var p=el.play();if(p&&p.catch){p.catch(function(){});}}
+ if(!el.__snd){el.__snd=1;el.style.cursor='pointer';el.addEventListener('click',function(e){e.stopPropagation();toggle(this);});
+  var par=el.parentNode;if(par&&!par.querySelector('[data-sound-toggle]')){
+   var cs=window.getComputedStyle(par);if(cs.position==='static'){par.style.position='relative';}
+   var b=document.createElement('button');b.setAttribute('data-sound-toggle','');b.type='button';
+   b.style.cssText='position:absolute;z-index:6;right:14px;bottom:14px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,0.22);background:rgba(0,0,0,0.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;';
+   setBtn(b,false);b.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();var vv=this.parentNode.querySelector('video');if(vv)toggle(vv);});
+   par.appendChild(b);}}}
+}
+mount();var n=0;var t=setInterval(function(){mount();if(++n>40){clearInterval(t);}},500);document.addEventListener('DOMContentLoaded',mount);})();</script>
+<script src="../_lightbox.js"></script>
+<!-- BB-CHAT -->
+<script src="../_chat.js"></script>
+<script src="../_ovl.js"></script>
+<style>
+[data-m="chat-body"]::-webkit-scrollbar{ width:6px; }
+[data-m="chat-body"]::-webkit-scrollbar-thumb{ background:rgba(255,255,255,0.16); border-radius:3px; }
+[data-m="chat-input"]::placeholder{ color:rgba(232,229,222,0.5); }
+/* плавающий виджет брони не должен перекрывать кнопки у правого края блоков */
+@media (min-width:769px){
+  [data-m="ev-row"]{ padding-right:150px !important; }
+}
+@media (max-width:980px){
+  [data-m="fab-chat"]{ bottom:90px !important; }
+}
+/* мобильная шапка: только логотип и выбор города — кнопка брони и телефон убраны */
+@media (max-width:768px){
+  header [data-m="cta"], header a[href*="waitly"], header a[href*="yclients"], header a[href^="tel:"]{ display:none !important; }
+  [data-m="fab-chat"]{ left:14px !important; }
+  [data-m="chat-panel"]{ left:0 !important; right:0 !important; bottom:0 !important; width:100% !important; max-width:none !important; height:84vh !important; border-radius:22px 22px 0 0 !important; }
+}
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>.leaflet-container{background:#000000;}
+/* BB-OVERLAY-GUARD: пока открыт оверлей — плавающие виджеты скрыты */
+html[data-bb-ovl="menu"] [data-m="fab-chat"], html[data-bb-ovl="menu"] [data-m="chat-panel"], html[data-bb-ovl="menu"] #waitly-widget-root,
+html[data-bb-ovl="modal"] [data-m="fab-chat"], html[data-bb-ovl="modal"] [data-m="chat-panel"], html[data-bb-ovl="modal"] #waitly-widget-root,
+html[data-bb-ovl="chat"] #waitly-widget-root,
+html[data-bb-ovl="book"] [data-m="fab-chat"], html[data-bb-ovl="book"] [data-m="chat-panel"]{ display:none !important; }
+/* чат не закрывает текст: гаснет, когда под кнопкой строка или картинка */
+html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-events:none !important; }
+[data-m="fab-chat"]{ transition:opacity .18s ease !important; }
+/* выбор города на мобильном: список у правого края и не шире экрана */
+@media (max-width:768px){
+  [data-m="city-pick"] > div{ left:auto !important; right:0 !important; width:auto !important; min-width:0 !important; max-width:calc(100vw - 32px) !important; }
+}
+/* шторка меню: список скроллится, нижний блок не наезжает на пункты */
+[data-m="mobile-menu"]{ overflow:hidden !important; }
+[data-m="mobile-menu"] nav{ min-height:0 !important; }
+</style>
+<script>
+(function initBBmap(){
+  var el = document.getElementById('bb-map');
+  if(!el || !window.L){ return setTimeout(initBBmap, 250); }
+  if(el._leaflet_id){ return; }
+  var L = window.L;
+  var map = L.map(el, { scrollWheelZoom:false, attributionControl:false, zoomControl:true }).setView([55.9116, 37.7308], 16);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+  var _tp = map.getPane('tilePane'); if (_tp) { _tp.style.filter = 'invert(1) hue-rotate(180deg) brightness(0.86) contrast(0.95) saturate(0.55)'; }
+  var _bs = (window.innerWidth < 720 ? 26 : 36);
+  var ball = '<div style="width:'+_bs+'px;height:'+_bs+'px;"><img src="../bowling-pin.svg" alt="" style="width:100%;height:100%;display:block;filter:drop-shadow(0 3px 5px rgba(0,0,0,0.45));"></div>';
+  var icon = L.divIcon({ html: ball, className: '', iconSize: [_bs,_bs], iconAnchor: [_bs/2,_bs/2], popupAnchor: [0,-_bs/2] });
+  var route = 'https://yandex.ru/maps/?rtext=~55.9116,37.7308&rtt=auto';
+  L.marker([55.9116,37.7308], { icon:icon }).addTo(map)
+    .bindPopup('<div style="font-family:Montserrat,sans-serif;min-width:160px;"><div style="font-size:16px;font-weight:700;color:#191919;">Красный Кит</div><div style="font-size:13px;color:rgba(25,25,25,0.55);margin:4px 0 8px;">Шараповский пр-д, 2, Мытищи</div><a href="'+route+'" target="_blank" rel="noopener" style="display:inline-block;background:#FF2026;color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:8px 16px;border-radius:300px;">Построить маршрут</a></div>');
+})();
+</script>
 </helmet>
-<div style="font-family:'Proxima Nova','Montserrat',-apple-system,sans-serif; background:#0B0B0C; color:#fff; min-height:100vh; -webkit-font-smoothing:antialiased; overflow:hidden;">
+<div style="font-family:'Proxima Nova','Montserrat',-apple-system,sans-serif; background:#000000; color:#fff; min-height:100vh; -webkit-font-smoothing:antialiased; overflow:hidden;">
   <input type="checkbox" id="bbmenu" style="display:none;">
 
-  <header style="position:sticky; top:0; z-index:50; display:flex; align-items:center; gap:32px; height:74px; padding:0 40px; background:rgba(11,11,12,0.86); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(255,255,255,0.07);">
-    <a href="index.html" style="display:flex; align-items:center; text-decoration:none; flex-shrink:0;"><img src="uploads/Vector.svg" alt="Brooklyn Bowl" style="height:24px; width:auto; display:block; filter:brightness(0) invert(1);"></a>
+  <header style="position:sticky; top:0; z-index:50; display:flex; align-items:center; gap:32px; height:74px; padding:0 40px; background:rgba(0,0,0,0.86); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(255,255,255,0.07);">
+    <a href="index.html" style="display:flex; align-items:center; text-decoration:none; flex-shrink:0;"><img src="../uploads/Vector.svg" alt="Brooklyn Bowl" style="height:24px; width:auto; display:block; filter:brightness(0) invert(1);"></a>
     <nav style="display:flex; align-items:center; gap:30px; margin-left:14px;">
-      <a href="index.html" style="text-decoration:none; color:#B6B5B0; font-size:15px; font-weight:500;" style-hover="color:#fff !important;">Главная</a>
-      <a href="bowling.html" style="text-decoration:none; color:#B6B5B0; font-size:15px; font-weight:500;" style-hover="color:#fff !important;">Боулинг</a>
-      <a href="kitchen.html" style="text-decoration:none; color:#B6B5B0; font-size:15px; font-weight:500;" style-hover="color:#fff !important;">Кухня</a>
-      <a href="afisha.html" style="text-decoration:none; color:#B6B5B0; font-size:15px; font-weight:500;" style-hover="color:#fff !important;">Афиша</a>
+      <a href="index.html" style="text-decoration:none; color:rgba(232,229,222,0.8); font-size:15px; font-weight:500;" style-hover="color:#fff !important;">Главная</a>
+      <a href="bowling.html" style="text-decoration:none; color:rgba(232,229,222,0.8); font-size:15px; font-weight:500;" style-hover="color:#fff !important;">Боулинг</a>
+      <a href="kitchen.html" style="text-decoration:none; color:rgba(232,229,222,0.8); font-size:15px; font-weight:500;" style-hover="color:#fff !important;">Кухня</a>
+      <a href="afisha.html" style="text-decoration:none; color:rgba(232,229,222,0.8); font-size:15px; font-weight:500;" style-hover="color:#fff !important;">Афиша</a>
     </nav>
     <div style="display:flex; align-items:center; gap:18px; margin-left:auto; flex-shrink:0;">
-      <details data-m="city-pick" style="position:relative;"><summary style="list-style:none; cursor:pointer; display:flex; align-items:center; gap:7px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 1.5c-2.5 0-4.5 2-4.5 4.5 0 3.2 4.5 8 4.5 8s4.5-4.8 4.5-8c0-2.5-2-4.5-4.5-4.5Z" stroke="#E42725" stroke-width="1.4"></path><circle cx="8" cy="6" r="1.6" stroke="#E42725" stroke-width="1.4"></circle></svg><span style="color:#fff; font-size:15px; font-weight:500;">Москва</span><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#9C9A95" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></summary><div style="position:absolute; top:calc(100% + 12px); left:0; z-index:120; min-width:240px; background:#141417; border:1px solid rgba(255,255,255,0.12); border-radius:16px; padding:8px; display:flex; flex-direction:column; gap:2px; box-shadow:0 20px 46px rgba(0,0,0,0.6);"><div style="padding:6px 12px 8px; font-size:11px; font-weight:700; letter-spacing:0.06em; color:#9C9A95;">ВЫБЕРИТЕ ГОРОД</div><a href="index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:700; color:#fff; background:rgba(228,39,37,0.18);" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Москва</span><span style="font-size:12px; color:#9C9A95;">2 точки</span></a><a href="../tyumen/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:#C7C5BE; background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Тюмень</span><span style="font-size:12px; color:#9C9A95;">3 точки</span></a><a href="../izhevsk/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:#C7C5BE; background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Ижевск</span><span style="font-size:12px; color:#9C9A95;">2 точки</span></a><a href="../samara/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:#C7C5BE; background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Самара</span><span style="font-size:12px; color:#9C9A95;">2 точки</span></a><a href="../spb/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:#C7C5BE; background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Санкт-Петербург</span><span style="font-size:12px; color:#9C9A95;">1 точка</span></a><a href="../surgut/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:#C7C5BE; background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Сургут</span><span style="font-size:12px; color:#9C9A95;">1 точка</span></a><a href="../nv/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:#C7C5BE; background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Нижневартовск</span><span style="font-size:12px; color:#9C9A95;">1 точка</span></a></div></details>
-      <a href="tel:+74994903366" style="display:flex; align-items:center; gap:7px; text-decoration:none; color:#fff; font-size:15px; font-weight:600; white-space:nowrap;" style-hover="color:#FF5257 !important;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M5.5 2.5 6.8 5l-1.3 1.3a8 8 0 0 0 3.2 3.2L10 8.2 12.5 9.5c.4.2.6.6.5 1l-.4 1.6c-.1.5-.6.8-1.1.7C7.2 12.2 3.8 8.8 3.2 4.5c-.1-.5.2-1 .7-1.1l1.6-.4c.4-.1.8.1 1 .5Z" stroke="#E42725" stroke-width="1.4" stroke-linejoin="round"></path></svg>+7 499 490-33-66</a>
-      <a href="https://b179805.yclients.com/" target="_blank" rel="noopener" style="text-decoration:none; background:#fff; padding:11px 22px; border-radius:300px; color:#0B0B0C; font-size:15px; font-weight:600;" style-hover="background:#E42725 !important; color:#fff !important;">Забронировать</a>
+      <details data-m="city-pick" style="position:relative;"><summary style="list-style:none; cursor:pointer; display:flex; align-items:center; gap:7px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 1.5c-2.5 0-4.5 2-4.5 4.5 0 3.2 4.5 8 4.5 8s4.5-4.8 4.5-8c0-2.5-2-4.5-4.5-4.5Z" stroke="#FF2026" stroke-width="1.4"></path><circle cx="8" cy="6" r="1.6" stroke="#FF2026" stroke-width="1.4"></circle></svg><span style="color:#fff; font-size:15px; font-weight:500;">Москва</span><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="rgba(232,229,222,0.66)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></summary><div style="position:absolute; top:calc(100% + 12px); left:0; z-index:120; min-width:240px; background:#191919; border:1px solid rgba(255,255,255,0.12); border-radius:16px; padding:8px; display:flex; flex-direction:column; gap:2px; box-shadow:0 20px 46px rgba(0,0,0,0.6);"><div style="padding:6px 12px 8px; font-size:11px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">ВЫБЕРИТЕ ГОРОД</div><a href="index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:700; color:#fff; background:rgba(255,32,38,0.18);" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Москва</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">3 точки</span></a><a href="../izhevsk/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Ижевск</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">2 точки</span></a><a href="../samara/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Самара</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">2 точки</span></a><a href="index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Москва</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">2 точки</span></a><a href="../spb/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Санкт-Петербург</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">1 точка</span></a><a href="../surgut/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Сургут</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">1 точка</span></a><a href="../nv/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Нижневартовск</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">1 точка</span></a></div></details>
+      <a href="tel:+74994903366" style="display:flex; align-items:center; gap:7px; text-decoration:none; color:#fff; font-size:15px; font-weight:600; white-space:nowrap;" style-hover="color:#FF2026 !important;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M5.5 2.5 6.8 5l-1.3 1.3a8 8 0 0 0 3.2 3.2L10 8.2 12.5 9.5c.4.2.6.6.5 1l-.4 1.6c-.1.5-.6.8-1.1.7C7.2 12.2 3.8 8.8 3.2 4.5c-.1-.5.2-1 .7-1.1l1.6-.4c.4-.1.8.1 1 .5Z" stroke="#FF2026" stroke-width="1.4" stroke-linejoin="round"></path></svg>+7 (499) 490-33-66</a>
+      <a data-m="cta" href="https://b1449291.yclients.com/" target="_blank" rel="noopener" style="text-decoration:none; background:#fff; padding:11px 22px; border-radius:300px; color:#000000; font-size:15px; font-weight:600;" style-hover="background:#FF2026 !important; color:#fff !important;">Забронировать</a>
     </div>
   </header>
 
-  <div data-m="mobile-menu" style="display:none; position:fixed; inset:0; z-index:90; background:#0B0B0C; flex-direction:column; padding:16px 22px 36px;">
+  <div data-m="mobile-menu" style="display:none; position:fixed; inset:0; z-index:90; background:#000000; flex-direction:column; padding:16px 22px 36px;">
     <div style="display:flex; align-items:center; justify-content:space-between; height:42px; margin-bottom:14px;">
-      <img src="uploads/Vector.svg" alt="Brooklyn Bowl" style="height:22px; width:auto; filter:brightness(0) invert(1);">
-      <label for="bbmenu" style="width:42px; height:42px; border-radius:50%; background:#1C1C1F; border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; cursor:pointer;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="2" stroke-linecap="round"></path></svg></label>
+      <img src="../uploads/Vector.svg" alt="Brooklyn Bowl" style="height:22px; width:auto; filter:brightness(0) invert(1);">
+      <label for="bbmenu" style="width:42px; height:42px; border-radius:50%; background:#191919; border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; cursor:pointer;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="2" stroke-linecap="round"></path></svg></label>
     </div>
     <nav style="display:flex; flex-direction:column; gap:0; margin-top:12px; flex:1; overflow-y:auto; -webkit-overflow-scrolling:touch;">
-      <a href="index.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:6px 0;">Главная</a>
-      <a href="bowling.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:6px 0;">Боулинг</a>
-      <a href="kitchen.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:6px 0;">Кухня</a>
-      <a href="afisha.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:6px 0;">Афиша</a>
-      <div style="margin:16px 0 6px; font-size:11.5px; font-weight:700; letter-spacing:0.08em; color:#5E5C58;">ПРАЗДНИК #ВБРУКЛИНЕ</div>
-      <a href="dr.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Взрослый ДР</a>
-      <a href="dr-kids.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Детский ДР</a>
-      <a href="corporate.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Корпоратив</a>
-      <a href="graduation.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Выпускной</a>
-      <a href="friends.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">С друзьями</a>
-      <a href="family.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Семьёй</a>
-      <a href="lane.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Просто поиграть</a>
-      <div style="margin:16px 0 6px; font-size:11.5px; font-weight:700; letter-spacing:0.08em; color:#5E5C58;">ЕЩЁ</div>
-      <a href="promo.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Акции</a>
-      <a href="loyalty.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Бонусы и приложение</a>
-      <a href="about.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">О нас</a>
-      <a href="contacts.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Контакты</a>
-      <div style="margin:16px 0 6px; font-size:11.5px; font-weight:700; letter-spacing:0.08em; color:#5E5C58;">ЗАЛЫ В МОСКВЕ</div>
-      <a href="filial-kit.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#fff; padding:5px 0;">Кит</a>
-      <a href="filial-siyanie.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Сияние</a>
+      <a href="index.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:6px 0;">Главная</a>
+      <a href="bowling.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:6px 0;">Боулинг</a>
+      <a href="kitchen.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:6px 0;">Кухня</a>
+      <a href="afisha.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:6px 0;">Афиша</a>
+      <div style="margin:16px 0 6px; font-size:11.5px; font-weight:700; letter-spacing:0.08em; color:rgba(232,229,222,0.4);">ПРАЗДНИК #ВБРУКЛИНЕ</div>
+      <a href="dr.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Взрослый ДР</a>
+      <a href="dr-kids.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Детский ДР</a>
+      <a href="corporate.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Корпоратив</a>
+      <a href="graduation.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Выпускной</a>
+      <a href="friends.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">С друзьями</a>
+      <a href="family.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Семьёй</a>
+      <a href="lane.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Просто поиграть</a>
+      <div style="margin:16px 0 6px; font-size:11.5px; font-weight:700; letter-spacing:0.08em; color:rgba(232,229,222,0.4);">ЕЩЁ</div>
+      <a href="promo.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Акции</a>
+      <a href="loyalty.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Бонусы и приложение</a>
+      <a href="about.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">О нас</a>
+      <a href="contacts.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Контакты</a>
+      <div style="margin:16px 0 6px; font-size:11.5px; font-weight:700; letter-spacing:0.08em; color:rgba(232,229,222,0.4);">ЗАЛЫ В МОСКВЕ</div>
+      <a href="filial-siyanie.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Северное Сияние</a>
+      <a href="filial-kit.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#fff; padding:5px 0;">Красный Кит</a>
     </nav>
-    <a href="tel:+74994903366" style="text-decoration:none; color:#fff; font-size:20px; font-weight:700; margin-bottom:18px;">+7 499 490-33-66</a>
-    <a href="https://b179805.yclients.com/" target="_blank" rel="noopener" style="display:block; box-sizing:border-box; text-align:center; text-decoration:none; width:100%; background:#E42725; padding:17px; border-radius:300px; color:#fff; font-size:17px; font-weight:600;">Бронь стола в зоне боулинга</a>
+    <a href="tel:+74994903366" style="text-decoration:none; color:#fff; font-size:20px; font-weight:700; margin-bottom:18px;">+7 (499) 490-33-66</a>
+    <a data-m="cta" href="https://b1449291.yclients.com/" target="_blank" rel="noopener" style="display:block; box-sizing:border-box; text-align:center; text-decoration:none; width:100%; background:#FF2026; padding:17px; border-radius:300px; color:#fff; font-size:17px; font-weight:600;">Бронь стола в зоне боулинга</a>
   </div>
-  <div data-m="tabbar" style="display:none; position:fixed; left:0; right:0; bottom:0; z-index:80; padding:30px 14px 16px; pointer-events:none; background:linear-gradient(180deg, rgba(11,11,12,0) 0%, rgba(11,11,12,0.82) 50%, #0B0B0C 100%);">
+  <div data-m="tabbar" style="display:none; position:fixed; left:0; right:0; bottom:0; z-index:80; padding:30px 14px 16px; pointer-events:none; background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.82) 50%, #000000 100%);">
     <div style="display:flex; align-items:center; gap:10px; max-width:460px; margin:0 auto; pointer-events:auto;">
-      <div style="flex:1; display:flex; align-items:center; gap:2px; background:#15151A; border:1px solid rgba(255,255,255,0.08); border-radius:300px; padding:6px; box-shadow:0 14px 34px rgba(0,0,0,0.55);">
+      <div style="flex:1; display:flex; align-items:center; gap:2px; background:#191919; border:1px solid rgba(255,255,255,0.08); border-radius:300px; padding:6px; box-shadow:0 14px 34px rgba(0,0,0,0.55);">
         <a href="index.html" aria-label="Главная" style="flex:1; display:flex; align-items:center; justify-content:center; padding:14px 0; text-decoration:none;"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M3.2 11 12 3.3 20.8 11M5.6 9.4V20h12.8V9.4" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
         <a href="bowling.html" aria-label="Боулинг" style="flex:1; display:flex; align-items:center; justify-content:center; padding:14px 0; text-decoration:none;"><svg width="25" height="23" viewBox="0 0 28 24" fill="none"><circle cx="9" cy="14.6" r="6.8" stroke="#fff" stroke-width="1.7"></circle><circle cx="8" cy="14.6" r="1" fill="#fff"></circle><path d="M21 3.4c-1.3 0-1.9 1-1.9 2.1 0 1 .6 1.7.6 3.2 0 2-1.2 3-1.2 6.4 0 2 .9 3.1 2.5 3.1s2.5-1.1 2.5-3.1c0-3.4-1.2-4.4-1.2-6.4 0-1.5.6-2.2.6-3.2 0-1.1-.6-2.1-1.9-2.1Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"></path></svg></a>
         <a href="kitchen.html" aria-label="Кухня" style="flex:1; display:flex; align-items:center; justify-content:center; padding:14px 0; text-decoration:none;"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M3.6 6.6 12 20.8l8.4-14.2c-5.4-2.4-11.4-2.4-16.8 0Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"></path><circle cx="12" cy="12" r="1.1" fill="#fff"></circle></svg></a>
         <a href="afisha.html" aria-label="Афиша" style="flex:1; display:flex; align-items:center; justify-content:center; padding:14px 0; text-decoration:none;"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M20.6 3.4c-.8-.8-2-.7-2.8.1l-2.9 2.9c-.5.5-.7 1.2-.5 1.9l.2.9-3.3 3.3c-1-.4-2.2-.2-3 .6-1.2 1.2-1.2 3.1 0 4.3 1.2 1.2 3.1 1.2 4.3 0 .8-.8 1-2 .6-3l3.3-3.3.9.2c.7.2 1.4 0 1.9-.5l2.9-2.9c.8-.8.9-2 .1-2.8Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"></path></svg></a>
       </div>
-      <label for="bbmenu" aria-label="Меню" style="flex-shrink:0; width:56px; height:56px; border-radius:50%; background:#15151A; border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 14px 34px rgba(0,0,0,0.55);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 9.5h14M5 14.5h14" stroke="#fff" stroke-width="2" stroke-linecap="round"></path></svg></label>
+      <label for="bbmenu" aria-label="Меню" style="flex-shrink:0; width:56px; height:56px; border-radius:50%; background:#191919; border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 14px 34px rgba(0,0,0,0.55);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 9.5h14M5 14.5h14" stroke="#fff" stroke-width="2" stroke-linecap="round"></path></svg></label>
     </div>
   </div>
 
@@ -106,16 +249,16 @@ a{color:#F26B69; text-decoration:none;} a:hover{color:#fff;}
   <section style="padding:56px 44px 40px; max-width:1500px; margin:0 auto;">
     <div style="display:grid; grid-template-columns:1.05fr 0.95fr; gap:32px; align-items:center;">
       <div>
-        <span style="display:inline-flex; align-items:center; padding:7px 14px; border-radius:300px; background:rgba(228,39,37,0.16); font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:#F26B69;">СИТИМОЛЛ</span>
-        <h1 style="margin:22px 0 0; font-size:clamp(38px,5vw,64px); font-weight:800; line-height:1.02; letter-spacing:-0.02em; color:#fff;">Brooklyn Bowl <em style="color:#E42725; font-style:italic;">Красный Кит</em></h1>
-        <p style="margin:22px 0 0; max-width:520px; font-size:17px; line-height:1.6; color:#9C9A95;">ТРЦ «Красный Кит». Боулинг, ресторан, сцена. Крупнейшая точка сети в Москве — 20 дорожек. Телефон точки: <a href="tel:+74994903366">+7 499 490-33-66</a>.</p>
+        <span style="display:inline-flex; align-items:center; padding:7px 14px; border-radius:300px; background:rgba(255,32,38,0.16); font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:#FF2026;">ОСТРОВ</span>
+        <h1 style="margin:22px 0 0; font-size:clamp(38px,5vw,64px); font-weight:800; line-height:1.02; letter-spacing:-0.02em; color:#fff;">Brooklyn Bowl <em style="color:#FF2026; font-style:normal;">Красный Кит</em></h1>
+        <p style="margin:22px 0 0; max-width:520px; font-size:17px; line-height:1.6; color:rgba(232,229,222,0.66);">ТРК «Красный Кит». Боулинг, ресторан, сцена. Уютная семейная точка — тихо, свободно, много столов. Телефон точки: <a href="tel:+74994903366">+7 (499) 490-33-66</a>.</p>
         <div style="display:flex; gap:12px; margin-top:30px; flex-wrap:wrap;">
-          <a href="https://b179805.yclients.com/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; background:#E42725; padding:15px 30px; border-radius:300px; color:#fff; font-size:16px; font-weight:700; text-decoration:none;" style-hover="background:#fff !important; color:#E42725 !important;">Забронировать на Красный Кит</a>
+          <a data-m="cta" href="https://b1449291.yclients.com/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; background:#FF2026; padding:15px 30px; border-radius:300px; color:#fff; font-size:16px; font-weight:700; text-decoration:none;" style-hover="background:#fff !important; color:#FF2026 !important;">Забронировать на Красный Кит</a>
           <a href="kitchen.html" style="display:inline-flex; align-items:center; background:transparent; border:1px solid rgba(255,255,255,0.28); padding:15px 30px; border-radius:300px; color:#fff; font-size:16px; font-weight:600; text-decoration:none;" style-hover="border-color:#fff !important;">Меню</a>
         </div>
       </div>
-      <div style="position:relative; border-radius:24px; overflow:hidden; min-height:380px; background:#141417;">
-        <image-slot id="filial-kit-hero" shape="rect" placeholder="Фото точки Красный Кит" style="position:absolute; inset:0; width:100%; height:100%;"></image-slot>
+      <div style="position:relative; border-radius:24px; overflow:hidden; min-height:380px; background:#191919;">
+        <img src="../uploads/2O3A9121.jpg" alt="Фото точки Красный Кит" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
       </div>
     </div>
   </section>
@@ -124,45 +267,44 @@ a{color:#F26B69; text-decoration:none;} a:hover{color:#fff;}
   <section style="padding:0 44px 70px; max-width:1500px; margin:0 auto;">
     <h2 style="margin:0 0 28px; font-size:clamp(26px,3vw,38px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Координаты</h2>
     <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:18px;">
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#0F0F11; padding:28px;"><div style="font-size:12px; font-weight:700; letter-spacing:0.04em; color:#9C9A95; margin-bottom:12px;">АДРЕС</div><div style="font-size:18px; font-weight:800; color:#fff;">Шараповский проезд, 2</div><div style="margin-top:6px; font-size:14px; line-height:1.5; color:#9C9A95;">ТРЦ «Красный Кит», 3 этаж</div></div>
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#0F0F11; padding:28px;"><div style="font-size:12px; font-weight:700; letter-spacing:0.04em; color:#9C9A95; margin-bottom:12px;">ЧАСЫ РАБОТЫ</div><div style="display:flex; flex-direction:column; gap:5px; font-size:14.5px; color:#EDEBE6;"><span><b style="color:#fff;">Пн:</b> 12:00–00:00</span><span><b style="color:#fff;">Вт–Чт, Вс:</b> 10:00–00:00</span><span><b style="color:#fff;">Пт–Сб:</b> 10:00–02:00</span></div></div>
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#0F0F11; padding:28px;"><div style="font-size:12px; font-weight:700; letter-spacing:0.04em; color:#9C9A95; margin-bottom:12px;">ТЕЛЕФОН</div><a href="tel:+74994903366" style="font-size:18px; font-weight:800; color:#fff; text-decoration:none;" style-hover="color:#F26B69 !important;">+7 499 490-33-66</a><div style="margin-top:6px; font-size:14px; line-height:1.5; color:#9C9A95;">Принимаем брони и отвечаем на вопросы.</div></div>
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#0F0F11; padding:28px;"><div style="font-size:12px; font-weight:700; letter-spacing:0.04em; color:#9C9A95; margin-bottom:12px;">ГОРОД</div><div style="font-size:16px; line-height:1.5; color:#EDEBE6;">Brooklyn Bowl в Москве.</div><a href="index.html#contacts" style="display:inline-block; margin-top:10px; font-size:14px;">Все точки сети →</a></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:28px;"><div style="font-size:12px; font-weight:700; letter-spacing:0.04em; color:rgba(232,229,222,0.66); margin-bottom:12px;">АДРЕС</div><div style="font-size:18px; font-weight:800; color:#fff;">Шараповский пр-д, 2, Мытищи</div><div style="margin-top:6px; font-size:14px; line-height:1.5; color:rgba(232,229,222,0.66);">ТРК «Красный Кит», 3 этаж</div></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:28px;"><div style="font-size:12px; font-weight:700; letter-spacing:0.04em; color:rgba(232,229,222,0.66); margin-bottom:12px;">ЧАСЫ РАБОТЫ</div><div style="display:flex; flex-direction:column; gap:5px; font-size:14.5px; color:#E8E5DE;"><span><b style="color:#fff;">Пн:</b> 12:00–00:00</span><span><b style="color:#fff;">Вт–Чт, Вс:</b> 10:00–00:00</span><span><b style="color:#fff;">Пт–Сб:</b> 10:00–00:00</span></div></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:28px;"><div style="font-size:12px; font-weight:700; letter-spacing:0.04em; color:rgba(232,229,222,0.66); margin-bottom:12px;">ТЕЛЕФОН</div><a href="tel:+74994903366" style="font-size:18px; font-weight:800; color:#fff; text-decoration:none;" style-hover="color:#FF2026 !important;">+7 (499) 490-33-66</a><div style="margin-top:6px; font-size:14px; line-height:1.5; color:rgba(232,229,222,0.66);">Принимаем брони и отвечаем на вопросы.</div></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:28px;"><div style="font-size:12px; font-weight:700; letter-spacing:0.04em; color:rgba(232,229,222,0.66); margin-bottom:12px;">ГОРОД</div><div style="font-size:16px; line-height:1.5; color:#E8E5DE;">Brooklyn Bowl в Москве.</div><a href="index.html#contacts" style="display:inline-block; margin-top:10px; font-size:14px;">Все наши адреса →</a></div>
     </div>
   </section>
 
   <!-- ОСОБЕННОСТИ -->
   <section style="padding:0 44px 70px; max-width:1500px; margin:0 auto;">
-    <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:#9C9A95;">ЧЕМ ЭТА ТОЧКА ОТЛИЧАЕТСЯ</span>
+    <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">ЧЕМ ЭТА ТОЧКА ОТЛИЧАЕТСЯ</span>
     <h2 style="margin:14px 0 32px; font-size:clamp(28px,3.4vw,40px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Красный Кит — особенности</h2>
-    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:18px;">
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#0F0F11; padding:28px; display:flex; flex-direction:column;"><span style="font-size:34px; font-weight:800; color:#E42725; line-height:1;">16</span><h3 style="margin:12px 0 0; font-size:17px; font-weight:800; color:#fff;">Дорожек — крупнейшая точка в Москве</h3></div>
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#0F0F11; padding:28px; display:flex; flex-direction:column;"><span style="font-size:34px; font-weight:800; color:#E42725; line-height:1;">Сб</span><h3 style="margin:12px 0 0; font-size:17px; font-weight:800; color:#fff;">Стендап-шоу по субботам, 21:00</h3></div>
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#0F0F11; padding:28px; display:flex; flex-direction:column;"><span style="font-size:34px; font-weight:800; color:#E42725; line-height:1;">50</span><h3 style="margin:12px 0 0; font-size:17px; font-weight:800; color:#fff;">Корпоративы до 50 человек</h3></div>
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#0F0F11; padding:28px; display:flex; flex-direction:column;"><span style="font-size:34px; font-weight:800; color:#E42725; line-height:1;">20–35</span><h3 style="margin:12px 0 0; font-size:17px; font-weight:800; color:#fff;">Молодёжная аудитория</h3></div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:28px; display:flex; flex-direction:column;"><span style="font-size:28px; font-weight:800; color:#FF2026; line-height:1;">Тихо</span><h3 style="margin:12px 0 0; font-size:17px; font-weight:800; color:#fff;">Свободно, много столов</h3></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:28px; display:flex; flex-direction:column;"><span style="font-size:28px; font-weight:800; color:#FF2026; line-height:1;">Семья</span><h3 style="margin:12px 0 0; font-size:17px; font-weight:800; color:#fff;">Семейная атмосфера</h3></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:28px; display:flex; flex-direction:column;"><span style="font-size:28px; font-weight:800; color:#FF2026; line-height:1;">Доставка</span><h3 style="margin:12px 0 0; font-size:17px; font-weight:800; color:#fff;">Единственная точка с доставкой по городу</h3></div>
     </div>
   </section>
 
   <!-- КАРТА -->
   <section style="padding:0 44px 70px; max-width:1500px; margin:0 auto;">
-    <div style="position:relative; border-radius:24px; overflow:hidden; aspect-ratio:21 / 9; background:#141417; border:1px solid rgba(255,255,255,0.08);">
-      <iframe src="https://yandex.ru/map-widget/v1/?ll=37.7308%2C55.9116&amp;z=16&amp;pt=37.7308%2C55.9116%2Cpm2rdm" title="Карта — Brooklyn Bowl Красный Кит" allowfullscreen="" style="position:absolute; inset:0; width:100%; height:100%; border:0; filter:invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.95) saturate(0.85);"></iframe>
+    <div style="position:relative; border-radius:24px; overflow:hidden; aspect-ratio:21 / 9; background:#191919; border:1px solid rgba(255,255,255,0.08);">
+      <div id="bb-map" style="position:absolute; inset:0;"></div>
     </div>
   </section>
 
   <!-- КУХНЯ -->
   <section style="padding:0 44px 70px; max-width:1500px; margin:0 auto;">
     <div data-m="kitchen-hero" style="display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:stretch;">
-      <div style="position:relative; border-radius:24px; overflow:hidden; min-height:420px; background:#141417;">
-        <video autoplay="" muted="" loop="" playsinline="" poster="uploads/%D0%A2%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%BE%D0%B5%20%D0%B2%20%D0%BF%D0%B5%D1%87%D0%B8%20%D0%B3%D0%BE%D0%B2%D1%8F%D0%B6%D1%8C%D0%B5%20%D1%80%D0%B5%D0%B1%D1%80%D0%BE.jpg" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"><source src="https://cdnv.boomstream.com/balancer/OdI2u8i4-zrFoAhCP.mp4" type="video/mp4"></video>
+      <div style="position:relative; border-radius:24px; overflow:hidden; min-height:420px; background:#191919;">
+        <img src="../uploads/DSC04917.jpg" alt="Зал Brooklyn Bowl" width="4317" height="6476" style="max-width: 100%; height: 423px; display: block; object-fit: cover; width: 632px; aspect-ratio: 4317 / 6476"><video defaultMuted="" muted="" playsinline="" autoplay="" loop="loop" poster="../uploads/%D0%A2%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%BE%D0%B5%20%D0%B2%20%D0%BF%D0%B5%D1%87%D0%B8%20%D0%B3%D0%BE%D0%B2%D1%8F%D0%B6%D1%8C%D0%B5%20%D1%80%D0%B5%D0%B1%D1%80%D0%BE.jpg" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"><source src="https://cdnv.boomstream.com/balancer/hLHb9Qn7-zrFoAhCP.mp4" type="video/mp4"></video>
       </div>
       <div style="display:flex; flex-direction:column; justify-content:center; padding:8px 0;">
-        <span style="display:inline-flex; align-self:flex-start; align-items:center; padding:7px 14px; border-radius:300px; background:rgba(228,39,37,0.16); font-size:12.5px; font-weight:700; letter-spacing:0.03em; color:#F26B69;">ЕДА И НАПИТКИ</span>
+        <span style="display:inline-flex; align-self:flex-start; align-items:center; padding:7px 14px; border-radius:300px; background:rgba(255,32,38,0.16); font-size:12.5px; font-weight:700; letter-spacing:0.03em; color:#FF2026;">ЕДА И НАПИТКИ</span>
         <h2 style="margin:22px 0 0; font-size:clamp(30px,3.4vw,44px); font-weight:800; line-height:1.04; letter-spacing:-0.01em; color:#fff;">Кухня — с шеф-подходом</h2>
-        <p style="margin:16px 0 0; max-width:90%; font-size:16px; line-height:1.55; color:#9C9A95;">64 позиции кухни и 80 позиций бара: пицца, бургеры, горячее, детское меню, десерты и большой бар.</p>
+        <p style="margin:16px 0 0; max-width:90%; font-size:16px; line-height:1.55; color:rgba(232,229,222,0.66);">64 позиции кухни и 80 позиций бара: пицца, бургеры, горячее, детское меню, десерты и большой бар.</p>
         <div style="display:flex; gap:12px; margin-top:28px; flex-wrap:wrap;">
-          <a href="kitchen.html" style="text-decoration:none; display:inline-flex; align-items:center; background:#fff; padding:14px 28px; border-radius:300px; color:#0B0B0C; font-size:15px; font-weight:600;" style-hover="background:#E42725 !important; color:#fff !important;">Смотреть меню</a>
-          <a href="https://brooklynbowl.bowlsoft.team/WEB_TMN_%D0%9C%D0%B5%D0%BD%D1%8E_%D0%9E%D0%A1%D0%9D%D0%AC_2025.pdf" target="_blank" rel="noopener" style="text-decoration:none; display:inline-flex; align-items:center; background:transparent; border:1px solid rgba(255,255,255,0.28); padding:14px 28px; border-radius:300px; color:#fff; font-size:15px; font-weight:600;" style-hover="border-color:#fff !important;">Скачать PDF-меню</a>
+          <a data-m="cta" href="kitchen.html" style="text-decoration:none; display:inline-flex; align-items:center; background:#fff; padding:14px 28px; border-radius:300px; color:#000000; font-size:15px; font-weight:600;" style-hover="background:#FF2026 !important; color:#fff !important;">Смотреть меню</a>
+          <a href="../uploads/%D0%92%D0%95%D0%91_TMN_%D0%9C%D0%B5%D0%BD%D1%8E_%D0%92%D0%95%D0%A1%D0%9D%D0%90%202026.pdf" target="_blank" rel="noopener" style="text-decoration:none; display:inline-flex; align-items:center; background:transparent; border:1px solid rgba(255,255,255,0.28); padding:14px 28px; border-radius:300px; color:#fff; font-size:15px; font-weight:600;" style-hover="border-color:#fff !important;">Скачать PDF-меню</a>
         </div>
       </div>
     </div>
@@ -170,49 +312,49 @@ a{color:#F26B69; text-decoration:none;} a:hover{color:#fff;}
 
   <!-- CTA -->
   <section style="padding:0 44px 70px; max-width:1500px; margin:0 auto;">
-    <div style="border-radius:24px; background:#0F0F11; border:1px solid rgba(255,255,255,0.08); padding:56px 48px; display:flex; flex-direction:column; align-items:center; text-align:center;">
+    <div style="border-radius:24px; background:#191919; border:1px solid rgba(255,255,255,0.08); padding:56px 48px; display:flex; flex-direction:column; align-items:center; text-align:center;">
       <h2 style="margin:0; font-size:clamp(28px,3.4vw,44px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Готовы?</h2>
-      <p style="margin:16px 0 0; max-width:520px; font-size:16px; line-height:1.6; color:#9C9A95;">Звоните на точку или бронируйте онлайн.</p>
+      <p style="margin:16px 0 0; max-width:520px; font-size:16px; line-height:1.6; color:rgba(232,229,222,0.66);">Звоните на точку или бронируйте онлайн.</p>
       <div style="display:flex; gap:12px; margin-top:28px; flex-wrap:wrap; justify-content:center;">
-        <a href="https://b179805.yclients.com/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; background:#E42725; padding:16px 36px; border-radius:300px; color:#fff; font-size:16px; font-weight:700; text-decoration:none;" style-hover="background:#fff !important; color:#E42725 !important;">Забронировать</a>
-        <a href="tel:+74994903366" style="display:inline-flex; align-items:center; background:transparent; border:1px solid rgba(255,255,255,0.28); padding:16px 36px; border-radius:300px; color:#fff; font-size:16px; font-weight:600; text-decoration:none;" style-hover="border-color:#fff !important;">+7 499 490-33-66</a>
+        <a data-m="cta" href="https://b1449291.yclients.com/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; background:#FF2026; padding:16px 36px; border-radius:300px; color:#fff; font-size:16px; font-weight:700; text-decoration:none;" style-hover="background:#fff !important; color:#FF2026 !important;">Забронировать</a>
+        <a href="tel:+74994903366" style="display:inline-flex; align-items:center; background:transparent; border:1px solid rgba(255,255,255,0.28); padding:16px 36px; border-radius:300px; color:#fff; font-size:16px; font-weight:600; text-decoration:none;" style-hover="border-color:#fff !important;">+7 (499) 490-33-66</a>
       </div>
     </div>
   </section>
 
   <!-- ФУТЕР -->
-  <footer style="padding:48px 48px 40px; background:#0F0F0F; border:1px solid rgba(255,255,255,0.06); margin:0 16px 16px; border-radius:30px;">
+  <footer style="padding:48px 48px 40px; background:#191919; border:1px solid rgba(255,255,255,0.06); margin:0 16px 16px; border-radius:30px;">
     <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:40px; flex-wrap:wrap; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,0.07);">
       <div>
-        <img src="uploads/Vector.svg" alt="Brooklyn Bowl" style="height:26px; width:auto; display:block; filter:brightness(0) invert(1); margin-bottom:18px;">
+        <img src="../uploads/Vector.svg" alt="Brooklyn Bowl" style="height:26px; width:auto; display:block; filter:brightness(0) invert(1); margin-bottom:18px;">
         <p style="margin:0 0 20px; max-width:280px; font-size:15px; line-height:1.5; color:rgba(255,255,255,0.85);">Боулинг, вкусная еда и живая музыка — всё сразу в одном месте.</p>
         <div style="display:flex; flex-direction:column; gap:4px; font-size:14px; font-weight:600; color:#fff; margin-bottom:22px;">
           <span>Пн 12:00 – 00:00</span>
           <span>Вт–Чт, Вс 10:00 – 00:00</span>
-          <span>Пт–Сб 10:00 – 02:00</span>
+          <span>Пт–Сб 10:00 – 00:00</span>
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=msk&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="uploads/badge-appstore.svg" alt="App Store" style="height:36px; width:auto; display:block;"></a>
-          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=msk&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="uploads/badge-googleplay.svg" alt="Google Play" style="height:36px; width:auto; display:block;"></a>
-          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=msk&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="uploads/badge-rustore.svg" alt="RuStore" style="height:36px; width:auto; display:block;"></a>
+          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=moscow&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="../uploads/badge-appstore.svg" alt="App Store" style="height:36px; width:auto; display:block;"></a>
+          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=moscow&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="../uploads/badge-googleplay.svg" alt="Google Play" style="height:36px; width:auto; display:block;"></a>
+          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=moscow&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="../uploads/badge-rustore.svg" alt="RuStore" style="height:36px; width:auto; display:block;"></a>
         </div>
       </div>
       <div data-m="footer-cols" style="display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:24px; flex:1; min-width:0;">
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ВИЗИТЫ</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="https://b179805.yclients.com/" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Забронировать</a><a href="lane.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Просто поиграть</a><a href="friends.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">С друзьями</a><a href="family.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Семьёй</a><a href="dr.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">День рождения</a><a href="dr-kids.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Детский ДР</a><a href="corporate.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Корпоратив</a><a href="graduation.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Выпускной</a></div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="https://b1449291.yclients.com/" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Забронировать</a><a href="lane.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Просто поиграть</a><a href="friends.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">С друзьями</a><a href="family.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Семьёй</a><a href="dr.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">День рождения</a><a href="dr-kids.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Детский ДР</a><a href="corporate.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Корпоратив</a><a href="graduation.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Выпускной</a></div>
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ДЛЯ ГОСТЕЙ</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="kitchen.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Меню</a><a href="afisha.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Афиша</a><a href="promo.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Акции</a><a href="https://certificate.brooklynbowl.ru/" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Сертификаты</a><a href="loyalty.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Карта гостя</a><a href="about.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">О нас</a><a href="contacts.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Контакты</a></div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="kitchen.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Меню</a><a href="afisha.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Афиша</a><a href="promo.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Акции</a><a href="https://certificate.msk.brooklynbowl.ru/" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Сертификаты</a><a href="loyalty.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Карта гостя</a><a href="about.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">О нас</a><a href="blog.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Блог</a><a href="rabota.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Работа у нас</a></div>
         </div>
         <div>
-          <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ТОЧКИ СЕТИ</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="filial-kit.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Красный Кит</a><a href="filial-siyanie.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Северное Сияние</a></div>
+          <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">НАШИ АДРЕСА</div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="filial-siyanie.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Северное Сияние</a><a href="filial-kit.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Красный Кит</a><a href="contacts.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Все контакты</a><a href="rent.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Аренда площадки</a><a href="delivery.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Доставка</a><a href="franchise.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Франшиза</a></div>
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">В ДРУГИХ ГОРОДАХ</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="../tyumen/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Тюмень</a><a href="../izhevsk/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Ижевск</a><a href="../samara/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Самара</a><a href="../spb/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Санкт-Петербург</a><a href="../surgut/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Сургут</a><a href="../nv/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Нижневартовск</a></div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="../tyumen/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Тюмень</a><a href="../izhevsk/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Ижевск</a><a href="../surgut/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Сургут</a><a href="../nv/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Нижневартовск</a><a href="../samara/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Самара</a><a href="../spb/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Санкт-Петербург</a></div>
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ДОПОЛНИТЕЛЬНО</div>
@@ -221,15 +363,92 @@ a{color:#F26B69; text-decoration:none;} a:hover{color:#fff;}
       </div>
     </div>
     <div style="display:flex; align-items:flex-end; justify-content:space-between; padding-top:28px; border-top:1px solid rgba(255,255,255,0.18); flex-wrap:wrap; gap:16px;">
-      <span style="font-size:13px; color:rgba(255,255,255,0.8);">© Brooklyn Bowl Москва, 2017–2026 ·</span>
+      <span style="font-size:13px; color:rgba(255,255,255,0.8);">© 2016-2026 ООО "Кегли кухня рок-н-ролл" ·</span>
       <div style="text-align:right;">
         <div style="font-size:15px; font-weight:700; color:#fff;">Артём Рахмеев, основатель</div>
-        <a href="mailto:rakhmeev@brooklynbowl.ru" style="text-decoration: none; font-size: 14px; color: #dc0404" style-hover="color:rgba(255,255,255,0.72) !important;">rakhmeev@brooklynbowl.ru</a>
+        <a href="mailto:rakhmeev@brooklynbowl.ru" style="text-decoration: none; font-size: 14px; color: #FF2026" style-hover="color:rgba(255,255,255,0.72) !important;">rakhmeev@brooklynbowl.ru</a>
         <div style="font-size:12px; color:rgba(255,255,255,0.7); margin-top:2px;">Прямой адрес основателя. Читает сам.</div>
       </div>
     </div>
   </footer>
+  <sc-if value="{{ chatEnabled }}" hint-placeholder-val="{{ true }}">
+    <button data-m="fab-chat" onClick="{{ chatToggle }}" aria-label="Чат с Brooklyn Bowl" style="position:fixed; left:24px; bottom:24px; z-index:90; display:flex; align-items:center; justify-content:center; width:64px; height:64px; border:0; padding:0; cursor:pointer; border-radius:300px; background:#FF2026; box-shadow:0 12px 34px rgba(0,0,0,0.45); transition:transform .25s ease;" style-hover="transform:scale(1.06) !important;">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H8l-4 3v-4.5A8 8 0 0 1 13 4a8 8 0 0 1 8 8z"></path><path d="M9 11h8M9 15h5"></path></svg>
+    </button>
+    <sc-if value="{{ chatOpen }}" hint-placeholder-val="{{ false }}">
+      <div data-m="chat-panel" style="position:fixed; left:24px; bottom:104px; z-index:95; width:372px; max-width:calc(100vw - 48px); height:min(520px, calc(100vh - 160px)); display:flex; flex-direction:column; overflow:hidden; border-radius:22px; background:#191919; border:1px solid rgba(255,255,255,0.12); box-shadow:0 26px 70px rgba(0,0,0,0.6);">
+        <div style="background:#FF2026; padding:16px 18px 0;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+            <div style="font-size:15px; font-weight:800; letter-spacing:0.06em; color:#FFFFFF; text-transform:uppercase;">Brooklyn Bowl</div>
+            <button onClick="{{ chatClose }}" aria-label="Закрыть чат" style="display:flex; align-items:center; justify-content:center; width:30px; height:30px; border:0; padding:0; cursor:pointer; border-radius:300px; background:rgba(0,0,0,0.18);" style-hover="background:rgba(0,0,0,0.34) !important;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+            </button>
+          </div>
+          <div style="padding:10px 0 13px; font-size:12.5px; font-weight:600; color:rgba(255,255,255,0.88);">{{ chatHours }}</div>
+        </div>
+        <div data-m="chat-body" style="flex:1; min-height:0; overflow-y:auto; padding:18px; display:flex; flex-direction:column; gap:10px; background:#191919;">
+          <sc-for list="{{ messages }}" as="m" hint-placeholder-count="1">
+            <sc-if value="{{ m.mine }}" hint-placeholder-val="{{ false }}">
+              <div style="align-self:flex-end; max-width:82%; padding:11px 15px; border-radius:18px 18px 4px 18px; background:#FF2026; color:#FFFFFF; font-size:14.5px; line-height:1.5; text-wrap:pretty;">{{ m.text }}</div>
+            </sc-if>
+            <sc-if value="{{ m.theirs }}" hint-placeholder-val="{{ true }}">
+              <div style="align-self:flex-start; max-width:82%; padding:11px 15px; border-radius:18px 18px 18px 4px; background:rgba(232,229,222,0.1); color:#E8E5DE; font-size:14.5px; line-height:1.5; text-wrap:pretty;">{{ m.text }}</div>
+            </sc-if>
+          </sc-for>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; padding:12px 14px; border-top:1px solid rgba(255,255,255,0.1); background:#000000;">
+          <input data-m="chat-input" type="text" value="{{ draft }}" onChange="{{ chatType }}" onKeyDown="{{ chatKey }}" placeholder="Напишите сообщение" style="flex:1; min-width:0; height:42px; padding:0 14px; border:1px solid rgba(255,255,255,0.14); border-radius:300px; background:#191919; color:#FFFFFF; font-family:inherit; font-size:14.5px; outline:none;">
+          <button onClick="{{ chatSend }}" aria-label="Отправить" style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; flex-shrink:0; border:0; padding:0; cursor:pointer; border-radius:300px; background:#FF2026;" style-hover="filter:brightness(1.12) !important;">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"></path></svg>
+          </button>
+        </div>
+      </div>
+    </sc-if>
+  </sc-if>
+
 </div>
 </x-dc>
+<script type="text/x-dc" data-dc-script="">
+class Component extends DCLogic {
+  state = { chatOpen: false, draft: '', log: [], sending: false };
+
+  _scroll() {
+    requestAnimationFrame(() => {
+      const b = document.querySelector('[data-m="chat-body"]');
+      if (b) b.scrollTop = b.scrollHeight;
+    });
+  }
+  _send() {
+    const text = (this.state.draft || '').trim();
+    if (!text || this.state.sending) return;
+    this.setState({ draft: '', sending: true, log: (this.state.log || []).concat([{ mine: true, text }]) });
+    this._scroll();
+    const reply = (window.sendToOperator || (() => Promise.resolve('')))(text, { city: "Москве" });
+    Promise.resolve(reply).then((answer) => {
+      this.setState({ sending: false, log: (this.state.log || []).concat(answer ? [{ mine: false, text: answer }] : []) });
+      this._scroll();
+    });
+  }
+  renderVals() {
+    return {
+      chatEnabled: this.props.chatEnabled ?? true,
+      chatHours: this.props.chatHours ?? 'Отвечаем ежедневно с 10:00 до 22:00',
+      chatOpen: !!this.state.chatOpen,
+      draft: this.state.draft || '',
+      messages: [{ mine: false, text: this.props.chatGreeting ?? 'Здравствуйте! Чем можем помочь?' }].concat(this.state.log || []).map((m) => ({ text: m.text, mine: !!m.mine, theirs: !m.mine })),
+      chatToggle: () => this.setState({ chatOpen: !this.state.chatOpen }),
+      chatClose: () => this.setState({ chatOpen: false }),
+      chatType: (e) => this.setState({ draft: e.target.value }),
+      chatKey: (e) => { if (e.key === 'Enter') { e.preventDefault(); this._send(); } },
+      chatSend: () => this._send(),
+    };
+  }
+}
+</script>
+<!-- BB-BOOKING: сюда вставляется виджет брони YClients.
+     Waitly в Москве не работает, код виджета даёт заказчица —
+     вставить на это место, в конец body, как на страницах остальных городов.
+     Ссылка брони города: https://b1449291.yclients.com/ -->
+<!-- /BB-BOOKING -->
 </body>
 </html>
