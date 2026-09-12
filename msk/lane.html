@@ -532,7 +532,7 @@ class Component extends DCLogic {
     const HV = this.state.hallVenue || 'Северное Сияние';
     const _tb = 'padding:14px 26px; border-radius:300px; cursor:pointer; font-size:15px; font-weight:600; font-family:inherit; border:none; transition:background-color .2s ease, color .2s ease; white-space:nowrap;';
     const hallTabs = ['Северное Сияние','Красный Кит'].map((v) => ({ name: 'Бруклин ' + v, style: _tb + (v === HV ? ' background:#FF2026; color:#fff;' : ' background:#191919; color:rgba(232,229,222,0.86);'), pick: () => this.setState({ hallVenue: v }) }));
-    const _tu = {};
+    const _tu = { 'Северное Сияние':'https://virtual360.ru/tour/brooklyn-bowl-bdd/', 'Красный Кит':'https://virtual360.ru/tour/brooklyn-bowl-m/' };
     const tourUrl = _tu[HV] || _tu['Северное Сияние'];
     return {
       chatEnabled: this.props.chatEnabled ?? true,

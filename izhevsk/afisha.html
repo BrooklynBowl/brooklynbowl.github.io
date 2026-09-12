@@ -715,7 +715,7 @@ class Component extends DCLogic {
     const _hs = { 'ПЕТРОВСКИЙ': 'https://drive.google.com/thumbnail?id=1WjD7E-xt6sCfK5ak5koizkEIQmeHKEsy&sz=w2400', 'Матрица': 'https://drive.google.com/thumbnail?id=1TONYWG-dvGr59iDSq5WdAzmbDUFOqvj2&sz=w2400' };
     const HALLSCHEME = _hs[HV] || null;
     const HALLFILTER = 'none';
-    const _tu = {};
+    const _tu = { 'ПЕТРОВСКИЙ':'https://demotur.ru/brooklyn-petrovskii/', 'Матрица':'https://demotur.ru/brooklyn-matrix/' };
     const TOURURL = _tu[HV] || _tu['ПЕТРОВСКИЙ'];
     const AORDER = ['СТЕНДАП','ПОТАНЦЕВАТЬ','БОУЛИНГ','КВИЗ','ФУТБОЛ','ДЕТЯМ'];
     const _acatsPresent = AORDER.filter((c) => EVENTS.some((e) => e.cat === c));

@@ -541,7 +541,7 @@ class Component extends DCLogic {
     const HV = this.state.hallVenue || 'ПЕТРОВСКИЙ';
     const _tb = 'padding:14px 26px; border-radius:300px; cursor:pointer; font-size:15px; font-weight:600; font-family:inherit; border:none; transition:background-color .2s ease, color .2s ease; white-space:nowrap;';
     const hallTabs = ['ПЕТРОВСКИЙ','Матрица'].map((v) => ({ name: 'Бруклин ' + v, style: _tb + (v === HV ? ' background:#FF2026; color:#fff;' : ' background:#191919; color:rgba(232,229,222,0.86);'), pick: () => this.setState({ hallVenue: v }) }));
-    const _tu = {};
+    const _tu = { 'ПЕТРОВСКИЙ':'https://demotur.ru/brooklyn-petrovskii/', 'Матрица':'https://demotur.ru/brooklyn-matrix/' };
     const tourUrl = _tu[HV] || _tu['ПЕТРОВСКИЙ'];
     return {
       chatEnabled: this.props.chatEnabled ?? true,
