@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -161,7 +161,7 @@
 footer > div:first-child{ align-items:flex-start; }
 footer div[data-m="footer-cols"]{
   display:grid !important;
-  grid-template-columns:repeat(auto-fit, minmax(158px, 1fr)) !important;
+  grid-template-columns:repeat(5, minmax(0,1fr)) !important;
   gap:30px 26px !important; align-content:start; min-width:0 !important;
 }
 footer div[data-m="footer-cols"] > div{ min-width:0; }
@@ -170,9 +170,6 @@ footer div[data-m="footer-cols"] > div > div:first-child{
 }
 footer div[data-m="footer-cols"] > div > div:last-child{ gap:10px !important; }
 footer div[data-m="footer-cols"] a{ display:block; overflow-wrap:anywhere; hyphens:auto; line-height:1.35 !important; }
-@media (max-width:1100px){
-  footer div[data-m="footer-cols"]{ grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)) !important; }
-}
 @media (max-width:768px){
   footer div[data-m="footer-cols"]{ grid-template-columns:1fr 1fr !important; gap:24px 18px !important; }
 }
@@ -683,12 +680,12 @@ class Component extends DCLogic {
       { title:'Живая музыка', tag:'LIVE', img:'../uploads/mrkypACsj8M.jpg', desc:'Кавер-группы, стендап-вечера, квизы и диджей-сеты — каждую неделю. Иногда живая музыка идёт прямо в стоимость дорожки. Полное расписание — в афише.', cta:'Афиша', act:'events' }
     ];
     const OCT = [
-      { name:'Москва', sub:'Перейти на сайт Brooklyn Bowl в Москве и Мытищах', url:'../msk/index.dc.html' },
-      { name:'Санкт-Петербург', sub:'Перейти на сайт Brooklyn Bowl в Санкт-Петербурге', url:'../spb/index.dc.html' },
-      { name:'Самара', sub:'Перейти на сайт Brooklyn Bowl в Самаре', url:'../samara/index.dc.html' },
-      { name:'Ижевск', sub:'Перейти на сайт Brooklyn Bowl в Ижевске', url:'../izhevsk/index.dc.html' },
-      { name:'Сургут', sub:'Перейти на сайт Brooklyn Bowl в Сургуте', url:'../surgut/index.dc.html' },
-      { name:'Нижневартовск', sub:'Перейти на сайт Brooklyn Bowl в Нижневартовске', url:'../nv/index.dc.html' }
+      { name:'Москва', sub:'Перейти на сайт Brooklyn Bowl в Москве и Мытищах', url:'../msk/index.html' },
+      { name:'Санкт-Петербург', sub:'Перейти на сайт Brooklyn Bowl в Санкт-Петербурге', url:'../spb/index.html' },
+      { name:'Самара', sub:'Перейти на сайт Brooklyn Bowl в Самаре', url:'index.html' },
+      { name:'Ижевск', sub:'Перейти на сайт Brooklyn Bowl в Ижевске', url:'../izhevsk/index.html' },
+      { name:'Сургут', sub:'Перейти на сайт Brooklyn Bowl в Сургуте', url:'../surgut/index.html' },
+      { name:'Нижневартовск', sub:'Перейти на сайт Brooklyn Bowl в Нижневартовске', url:'../nv/index.html' }
     ];
     const base = 'padding:12px 22px; border-radius:300px; cursor:pointer; font-size:15px; font-weight:600; font-family:inherit; transition:background-color .2s ease, color .2s ease, border-color .2s ease; white-space:nowrap;';
     const gbase = 'padding:14px 26px; border-radius:300px; cursor:pointer; font-size:15px; font-weight:700; font-family:inherit; white-space:nowrap; transition:background-color .2s ease, color .2s ease, border-color .2s ease;';
@@ -796,7 +793,7 @@ class Component extends DCLogic {
       closeHoliday: () => this.setState({ holiday: false }),
       points: PTS.map((p, i) => ({ ...p, imgEl: React.createElement('img', { src: p.img, alt: p.title, style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }), open: () => this.setState({ point: i }) })),
       pointOpen: this.state.point != null,
-      pd: (() => { const x = (this.state.point != null) ? PTS[this.state.point] : { title:'', tag:'', img:'../uploads/bb-bowling-lane.jpg', desc:'', cta:'', act:'' }; const fn = x.act === 'menu' ? () => { window.location.href = 'kitchen.dc.html'; } : x.act === 'events' ? () => { const el=document.querySelector('[data-comment-anchor=events]'); this.setState({ point: null }); if (el) setTimeout(()=>el.scrollIntoView({behavior:'smooth'}),60); } : () => window.open('https://widget.waitly.ru/KdVExXrnGIMLmqYlz2-39g/2-firm?utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=samara&utm_trc=all', '_blank'); return { ...x, imgEl: React.createElement('img', { src: x.img, alt: x.title, style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }), ctaFn: fn }; })(),
+      pd: (() => { const x = (this.state.point != null) ? PTS[this.state.point] : { title:'', tag:'', img:'../uploads/bb-bowling-lane.jpg', desc:'', cta:'', act:'' }; const fn = x.act === 'menu' ? () => { window.location.href = 'kitchen.html'; } : x.act === 'events' ? () => { const el=document.querySelector('[data-comment-anchor=events]'); this.setState({ point: null }); if (el) setTimeout(()=>el.scrollIntoView({behavior:'smooth'}),60); } : () => window.open('https://widget.waitly.ru/KdVExXrnGIMLmqYlz2-39g/2-firm?utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=samara&utm_trc=all', '_blank'); return { ...x, imgEl: React.createElement('img', { src: x.img, alt: x.title, style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }), ctaFn: fn }; })(),
       closePoint: () => this.setState({ point: null }),
       openP0: () => this.setState({ point: 0 }),
       openP1: () => this.setState({ point: 1 }),

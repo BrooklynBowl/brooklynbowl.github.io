@@ -8,30 +8,30 @@
   var FONT = '"Proxima Nova","Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif';
 
   var CITIES = [
-    { name: 'Тюмень', xy: [65.5343, 57.1530], site: 'Brooklyn Bowl - Главный.dc.html', venues: [
+    { name: 'Тюмень', xy: [65.5343, 57.1530], site: 'tyumen/index.html', venues: [
       { name: 'ТРЦ «Тюмень Сити Молл»', addr: 'улица Тимофея Чаркова, 60', floor: '3 этаж', page: 'filial-sitimoll.dc.html' },
       { name: 'ТРЦ «Колумб»', addr: 'Московский тракт, 118', floor: '4 этаж', page: 'filial-kolumb.dc.html' },
       { name: 'ТРЦ «Остров»', addr: 'улица Федюнинского, 67', floor: '3 этаж', page: 'filial-ostrov.dc.html' }
     ] },
-    { name: 'Ижевск', xy: [53.2045, 56.8527], site: 'izhevsk/index.dc.html', venues: [
+    { name: 'Ижевск', xy: [53.2045, 56.8527], site: 'izhevsk/index.html', venues: [
       { name: 'ТРЦ «МОЛЛ Матрица»', addr: 'улица Баранова, 87', floor: '3 этаж', page: 'izhevsk/filial-matrix.dc.html' },
       { name: 'ТРК «Петровский»', addr: 'улица Петрова, 31', floor: '0 этаж', page: 'izhevsk/filial-petrovsky.dc.html' }
     ] },
-    { name: 'Нижневартовск', xy: [76.5696, 60.9397], site: 'nv/index.dc.html', venues: [
+    { name: 'Нижневартовск', xy: [76.5696, 60.9397], site: 'nv/index.html', venues: [
       { name: 'ТРЦ «ЮГРАМолл»', addr: 'улица Ленина, 15П', floor: '4 этаж', page: 'nv/filial-yugra.dc.html' }
     ] },
-    { name: 'Сургут', xy: [73.3962, 61.2540], site: 'surgut/index.dc.html', venues: [
+    { name: 'Сургут', xy: [73.3962, 61.2540], site: 'surgut/index.html', venues: [
       { name: 'ТРЦ «Аура»', addr: 'Нефтеюганское шоссе, 1', floor: '1 этаж', page: 'surgut/filial-aura.dc.html' }
     ] },
-    { name: 'Самара', xy: [50.1500, 53.2000], site: 'samara/index.dc.html', venues: [
+    { name: 'Самара', xy: [50.1500, 53.2000], site: 'samara/index.html', venues: [
       { name: 'ТРЦ «Гудок»', addr: 'Красноармейская улица, 131', floor: '2 этаж', page: 'samara/filial-gudok.dc.html' },
       { name: 'Аутлет МОЛЛ ЛЕТАУТ', addr: 'Московское шоссе, 18-й км, 23', floor: '2 этаж', page: 'samara/filial-letout.dc.html' }
     ] },
-    { name: 'Москва', xy: [37.6173, 55.7558], site: 'msk/index.dc.html', venues: [
+    { name: 'Москва', xy: [37.6173, 55.7558], site: 'msk/index.html', venues: [
       { name: 'ТРЦ «Северное сияние»', addr: 'бульвар Дмитрия Донского, 1', floor: '3 этаж', page: 'msk/filial-siyanie.dc.html' },
       { name: 'ТРК «Красный Кит»', addr: 'Шараповский проезд, 2', floor: '3 этаж · Мытищи', page: 'msk/filial-kit.dc.html' }
     ] },
-    { name: 'Санкт-Петербург', xy: [30.3159, 59.9391], site: 'spb/index.dc.html', venues: [
+    { name: 'Санкт-Петербург', xy: [30.3159, 59.9391], site: 'spb/index.html', venues: [
       { name: 'ТРЦ «Июнь»', addr: 'Индустриальный проспект, 24', floor: '4 этаж', page: 'spb/filial-iyun.dc.html' }
     ] }
   ];
