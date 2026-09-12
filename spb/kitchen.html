@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/png" sizes="32x32" href="uploads/favicon-32x32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="uploads/apple-touch-icon.png">
-<script src="./support.js"></script>
+<title>Меню и кухня Brooklyn Bowl Санкт-Петербург — пицца, бургеры, бар</title>
+<meta name="description" content="64 позиции кухни и 80 позиций бара: пицца, бургеры, горячее, десерты и коктейли. Предзаказ и доставка в Санкт-Петербурге.">
+<script src="../support.js"></script>
 </head>
 <body>
 <x-dc>
@@ -18,7 +18,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
   *{ box-sizing:border-box; } button,input,select,textarea{font-family:inherit;}
-  html,body{ margin:0; padding:0; font-family:'Proxima Nova','Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:#0B0B0C; }
+  html,body{ margin:0; padding:0; font-family:'Proxima Nova','Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:#000000; }
   @keyframes bbScrollDot{ 0%{ transform:translateY(0); opacity:1 } 70%{ opacity:1 } 100%{ transform:translateY(11px); opacity:0 } }
   @property --bbAngle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
   @keyframes bbBorderGlow{ to{ --bbAngle: 360deg; } }
@@ -32,7 +32,33 @@
   /* ===================== MOBILE (≤768px) ===================== */
   [data-m="burger"]{ display:none; }
   #bbmenu:checked ~ [data-m="mobile-menu"]{ display:flex !important; }
-  @media (max-width:1080px){
+  [data-m="menu-grid"]{ scrollbar-width:thin; scrollbar-color:#FF2026 #191919; }
+  [data-m="menu-grid"]::-webkit-scrollbar{ height:8px; }
+  [data-m="menu-grid"]::-webkit-scrollbar-track{ background:#191919; border-radius:300px; }
+  [data-m="menu-grid"]::-webkit-scrollbar-thumb{ background:#FF2026; border-radius:300px; }
+  @media (min-width:769px) and (max-width:1080px){
+    header[data-comment-anchor="header"]{ gap:18px !important; padding:0 22px !important; }
+    [data-m="nav"]{ gap:16px !important; }
+    [data-m="nav"] > a{ font-size:14px !important; padding:8px 12px !important; white-space:nowrap !important; }
+    [data-m="hdr-right"]{ gap:12px !important; }
+    [data-m="hdr-right"] > a[href^="tel:"]{ display:none !important; }
+    [data-m="hdr-right"] > button{ padding:10px 18px !important; font-size:14px !important; white-space:nowrap !important; }
+    [data-m="footer-cols"]{ grid-template-columns:repeat(3,minmax(0,1fr)) !important; gap:22px 20px !important; min-width:100% !important; }
+    footer > div:first-child{ flex-wrap:wrap !important; }
+  }
+  /* 769–1000px: меню шапки сжимается по-настоящему, чтобы пункты не срезались */
+@media (min-width:769px) and (max-width:1000px){
+  [data-m="nav"]{ gap:6px !important; overflow:visible !important; min-width:0 !important; flex-shrink:1 !important; }
+  [data-m="nav"] > a{ padding:8px 4px !important; font-size:13.5px !important; }
+}
+@media (max-width:768px){
+    /* единая мобильная типографика */
+    body h1:not(#_){ font-size:24px !important; line-height:1.2 !important; }
+    body h2:not(#_){ font-size:20px !important; line-height:1.25 !important; }
+    body h3:not(#_){ font-size:16px !important; line-height:1.3 !important; }
+    body p:not(#_){ font-size:14px !important; line-height:1.5 !important; }
+  }
+  @media (max-width:768px){
     header[data-comment-anchor="header"]{ gap:0 !important; height:58px !important; padding:0 16px !important; }
     [data-m="nav"], [data-m="hdr-right"]{ display:none !important; }
     [data-m="burger"]{ display:none !important; }
@@ -68,10 +94,19 @@
     [data-m="tabs"] > button{ width:100% !important; padding:14px 12px !important; }
 
     /* menu grid -> 2 columns like the app */
-    [data-m="menu-grid"]{ display:flex !important; grid-template-columns:none !important; overflow-x:auto !important; scroll-snap-type:x mandatory; gap:12px !important; margin:20px -16px 0 !important; padding:2px 16px 10px !important; -webkit-overflow-scrolling:touch; }
+    [data-m="menu-grid"]{ display:flex !important; overflow-x:auto !important; scroll-snap-type:x mandatory; gap:12px !important; margin:12px -16px 0 !important; align-items:stretch !important; padding:2px 16px 10px !important; -webkit-overflow-scrolling:touch; }
     [data-m="menu-grid"] > article{ flex:0 0 74% !important; scroll-snap-align:start; }
+    [data-m="menu-grid"] > article > div:first-child{ height:190px !important; min-height:190px !important; }
+    [data-m="menu-grid"] > article > div:first-child img{ width:100% !important; height:100% !important; object-fit:cover !important; }
+    [data-m="menu-grid"]{ padding-left:16px !important; padding-right:16px !important; scroll-padding-left:16px !important; }
     [data-m="menu-grid"]::-webkit-scrollbar{ display:none; }
-    [data-m="nut-grid"]{ grid-template-columns:1fr 1fr !important; gap:14px 12px !important; }
+    [data-m="cart-bar"]{ padding-bottom:104px !important; }
+    [data-m="nut-grid"]{ grid-template-columns:repeat(4,minmax(0,1fr)) !important; gap:8px !important; }
+    [data-m="nut-grid"] div{ font-size:11px !important; }
+    [data-m="nut-grid"] > div > div:last-child{ font-size:15px !important; }
+    [data-m="dish-grid"]{ grid-template-columns:1fr !important; padding:16px !important; }
+    [data-m="dish-panel"]{ border-radius:22px !important; }
+    [data-m="sauce-grid"]{ grid-template-columns:1fr 1fr !important; }
 
     /* footer */
     footer{ padding:30px 20px !important; margin:0 8px 112px !important; }
@@ -82,162 +117,404 @@
     [data-m="contacts-list"]{ max-height:none !important; }
     [data-m="contacts-grid"] > div:last-child{ min-height:340px !important; }
   }
+
+/* ===== МОБИЛЬНЫЙ СЛОЙ — язык приложения ===== */
+@media (max-width:768px){
+  [data-mob-only]{ display:flex !important; }
+  [data-m="cta"], [data-mob="primary"]{
+    width:100% !important; box-sizing:border-box !important; justify-content:center !important;
+    background:#fff !important; color:#000000 !important; min-height:52px !important;
+    font-size:16px !important; font-weight:700 !important; border-radius:300px !important;
+  }
+  [data-mob="carousel"]{
+    display:grid !important; grid-auto-flow:column !important; grid-template-columns:none !important;
+    grid-auto-columns:78% !important; overflow-x:auto !important; overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory; gap:12px !important; padding:0 16px 8px !important; margin:0 -16px !important;
+    scrollbar-width:none; -ms-overflow-style:none;
+  }
+  [data-mob="carousel"]::-webkit-scrollbar{ display:none; }
+  [data-mob="carousel"] > *{ scroll-snap-align:start; }
+  [data-m="reviews-masonry"]{ columns:1 !important; }
+  [data-mob="hide"]{ display:none !important; }
+}
+
+/* ===== МОБИЛЬНЫЙ СЛОЙ v2 ===== */
+@media (max-width:768px){
+  /* переключатели — тёмная капсула, активный сегмент белый */
+  [data-m="tabs"]{
+    background:#191919 !important; border-radius:300px !important; padding:4px !important;
+    gap:4px !important; flex-wrap:nowrap !important; overflow-x:auto !important;
+    scrollbar-width:none; -ms-overflow-style:none;
+  }
+  [data-m="tabs"]::-webkit-scrollbar{ display:none; }
+  [data-m="tabs"] button{ min-height:44px !important; border:none !important; border-radius:300px !important; font-size:15px !important; white-space:nowrap; }
+  [data-m="tabs"] button[style*="#FF2026"]{ background:#fff !important; color:#000000 !important; border-color:#fff !important; }
+  /* аккордеоны */
+  details{ background:#191919 !important; border:none !important; border-radius:22px !important; overflow:hidden; }
+  details summary{ min-height:52px !important; display:flex; align-items:center; font-size:16px !important; }
+  /* служебные окна — нижняя шторка */
+  [data-mob="sheet"]{ align-items:flex-end !important; padding:0 !important; }
+  [data-mob="sheet"] > div{ width:100% !important; max-width:none !important; max-height:88vh !important; border-radius:24px 24px 0 0 !important; border-bottom:none !important; }
+}
+
+/* ===== ПОДВАЛ: устойчивая сетка ===== */
+footer > div:first-child{ align-items:flex-start; }
+footer div[data-m="footer-cols"]{
+  display:grid !important;
+  grid-template-columns:repeat(auto-fit, minmax(158px, 1fr)) !important;
+  gap:30px 26px !important; align-content:start; min-width:0 !important;
+}
+footer div[data-m="footer-cols"] > div{ min-width:0; }
+footer div[data-m="footer-cols"] > div > div:first-child{
+  font-size:12px !important; letter-spacing:0.06em !important; white-space:nowrap !important; margin-bottom:14px !important;
+}
+footer div[data-m="footer-cols"] > div > div:last-child{ gap:10px !important; }
+footer div[data-m="footer-cols"] a{ display:block; overflow-wrap:anywhere; hyphens:auto; line-height:1.35 !important; }
+@media (max-width:1100px){
+  footer div[data-m="footer-cols"]{ grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)) !important; }
+}
+@media (max-width:768px){
+  footer div[data-m="footer-cols"]{ grid-template-columns:1fr 1fr !important; gap:24px 18px !important; }
+}
+@media (max-width:430px){
+  footer div[data-m="footer-cols"]{ grid-template-columns:1fr !important; }
+}
+/* BB-BUTTON-COMPONENT v2 */
+[data-m="cta"]{
+  display:inline-flex !important; align-items:center !important; justify-content:center !important;
+  box-sizing:border-box !important; height:52px !important; min-height:52px !important;
+  min-width:260px !important; padding:0 32px !important; border:none !important; border-radius:300px !important;
+  font-family:inherit !important; font-size:14px !important; font-weight:800 !important;
+  letter-spacing:0.05em !important; line-height:1 !important; text-transform:uppercase !important;
+  text-decoration:none !important; white-space:nowrap !important; cursor:pointer !important;
+  background:#FF2026 !important; color:#FFFFFF !important;
+  transition:background-color .2s ease, color .2s ease !important;
+}
+[data-m="cta"]:hover{ background:#FFFFFF !important; color:#FF2026 !important; }
+/* на красной подложке — белая кнопка с чёрным текстом */
+[data-m="ev-hero"] [data-m="cta"],
+[style*="background:#FF2026"] [data-m="cta"],
+[style*="background: #FF2026"] [data-m="cta"]{ background:#FFFFFF !important; color:#000000 !important; }
+[data-m="ev-hero"] [data-m="cta"]:hover,
+[style*="background:#FF2026"] [data-m="cta"]:hover,
+[style*="background: #FF2026"] [data-m="cta"]:hover{ background:#000000 !important; color:#FFFFFF !important; }
+/* группа кнопок — равная ширина по самой длинной */
+[data-m="cta-row"]{ display:grid !important; grid-auto-flow:column !important; grid-auto-columns:1fr !important; width:fit-content !important; max-width:100% !important; gap:14px !important; align-items:stretch !important; }
+@media (max-width:768px){
+  [data-m="cta"]{ width:100% !important; min-width:0 !important; padding:0 20px !important; }
+  [data-m="cta-row"]{ grid-auto-flow:row !important; grid-auto-columns:auto !important; width:100% !important; }
+}
+/* 769–1180px: в хедере не хватает ширины на кнопку 260px — снимаем минимум, чтобы не срезало */
+@media (min-width:769px) and (max-width:1180px){
+  header [data-m="cta"]{ min-width:0 !important; padding:0 20px !important; flex:0 1 auto !important; }
+  [data-m="cta-row"] [data-m="cta"]{ min-width:0 !important; padding:0 20px !important; }
+  header{ min-width:0 !important; gap:18px !important; padding-left:20px !important; padding-right:20px !important; }
+  header > *{ min-width:0 !important; }
+  header > *:last-child{ flex:0 1 auto !important; gap:12px !important; }
+  header nav{ flex:0 1 auto !important; overflow:hidden !important; }
+}
+@media (min-width:769px) and (max-width:1040px){
+  header a[href^="tel:"]{ display:none !important; }
+}
 </style>
-<script>(function(){function s(){var e=document.querySelectorAll('section h1, section h2, section h3, article, details, [data-m=price-row]');if(!e.length){return setTimeout(s,150);}var o=new IntersectionObserver(function(x){x.forEach(function(t){if(t.isIntersecting){t.target.style.opacity='1';t.target.style.transform='none';o.unobserve(t.target);}});},{threshold:0.1,rootMargin:'0px 0px -7% 0px'});e.forEach(function(el){if(el.__rev)return;el.__rev=1;el.style.opacity='0';el.style.transform='translateY(26px)';el.style.transition='opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1)';o.observe(el);});setTimeout(s,900);}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',s);}else{s();}})();</script>
+<script>(function(){function s(){var e=document.querySelectorAll('section h1, section h2, section h3, article, details, [data-m=price-row]');if(!e.length){return setTimeout(s,150);}var o=new IntersectionObserver(function(x){x.forEach(function(t){if(t.isIntersecting){t.target.style.opacity='1';t.target.style.transform='none';o.unobserve(t.target);}});},{threshold:0.1,rootMargin:'0px 0px -7% 0px'});e.forEach(function(el){if(el.__rev)return;el.__rev=1;el.style.opacity='0';el.style.transform='translateY(26px)';el.style.transition='opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1)';o.observe(el);});requestAnimationFrame(function(){e.forEach(function(el){if(el.getBoundingClientRect().top<window.innerHeight){el.style.opacity='1';el.style.transform='none';o.unobserve(el);}});});setTimeout(function(){e.forEach(function(el){if(el.style.opacity==='0'){el.style.opacity='1';el.style.transform='none';o.unobserve(el);}});},2500);setTimeout(s,900);}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',s);}else{s();}})();</script>
+<script>(function(){
+function icon(on){return on?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 9h3l5-4v14l-5-4H4V9Z" fill="#fff"/><path d="M16 9.5c1 1 1 4 0 5M18.5 7c2 2 2 8 0 10" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>':'<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 9h3l5-4v14l-5-4H4V9Z" fill="#fff"/><path d="M16 9l5 6M21 9l-5 6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>';}
+function setBtn(b,on){b.innerHTML=icon(on);b.setAttribute('aria-label',on?'Выключить звук':'Включить звук');}
+function toggle(v){var on=v.muted;v.muted=!on;v.defaultMuted=v.muted;if(v.muted){v.setAttribute('muted','');v.removeAttribute('data-user-sound');}else{v.removeAttribute('muted');v.setAttribute('data-user-sound','on');var p=v.play();if(p&&p.catch){p.catch(function(){});}}
+var b=v.parentNode&&v.parentNode.querySelector('[data-sound-toggle]');if(b)setBtn(b,!v.muted);}
+function mount(){var v=document.querySelectorAll('video');for(var i=0;i<v.length;i++){var el=v[i];
+ if(el.getAttribute('data-user-sound')!=='on'){if(!el.muted){el.muted=true;el.defaultMuted=true;el.setAttribute('muted','');}}
+ el.loop=true;if(!el.hasAttribute('loop')){el.setAttribute('loop','');}if(el.paused){var p=el.play();if(p&&p.catch){p.catch(function(){});}}
+ if(!el.__snd){el.__snd=1;el.style.cursor='pointer';el.addEventListener('click',function(e){e.stopPropagation();toggle(this);});
+  var par=el.parentNode;if(par&&!par.querySelector('[data-sound-toggle]')){
+   var cs=window.getComputedStyle(par);if(cs.position==='static'){par.style.position='relative';}
+   var b=document.createElement('button');b.setAttribute('data-sound-toggle','');b.type='button';
+   b.style.cssText='position:absolute;z-index:6;right:14px;bottom:14px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,0.22);background:rgba(0,0,0,0.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;';
+   setBtn(b,false);b.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();var vv=this.parentNode.querySelector('video');if(vv)toggle(vv);});
+   par.appendChild(b);}}}
+}
+mount();var n=0;var t=setInterval(function(){mount();if(++n>40){clearInterval(t);}},500);document.addEventListener('DOMContentLoaded',mount);})();</script>
+<script src="../_lightbox.js"></script>
+<!-- BB-CHAT -->
+<script src="../_chat.js"></script>
+<script src="../_ovl.js"></script>
+<script src="../_events.js"></script>
+<style>
+[data-m="chat-body"]::-webkit-scrollbar{ width:6px; }
+[data-m="chat-body"]::-webkit-scrollbar-thumb{ background:rgba(255,255,255,0.16); border-radius:3px; }
+[data-m="chat-input"]::placeholder{ color:rgba(232,229,222,0.5); }
+/* плавающий виджет брони не должен перекрывать кнопки у правого края блоков */
+@media (min-width:769px){
+  [data-m="ev-row"]{ padding-right:150px !important; }
+}
+@media (max-width:980px){
+  [data-m="fab-chat"]{ bottom:90px !important; }
+}
+/* мобильная шапка: только логотип и выбор города — кнопка брони и телефон убраны */
+@media (max-width:768px){
+  header [data-m="cta"], header a[href*="waitly"], header a[href*="yclients"], header a[href^="tel:"]{ display:none !important; }
+  [data-m="fab-chat"]{ left:14px !important; }
+  [data-m="chat-panel"]{ left:0 !important; right:0 !important; bottom:0 !important; width:100% !important; max-width:none !important; height:84vh !important; border-radius:22px 22px 0 0 !important; }
+}
+
+/* BB-OVERLAY-GUARD: пока открыт оверлей — плавающие виджеты скрыты */
+html[data-bb-ovl="menu"] [data-m="fab-chat"], html[data-bb-ovl="menu"] [data-m="chat-panel"], html[data-bb-ovl="menu"] #waitly-widget-root,
+html[data-bb-ovl="modal"] [data-m="fab-chat"], html[data-bb-ovl="modal"] [data-m="chat-panel"], html[data-bb-ovl="modal"] #waitly-widget-root,
+html[data-bb-ovl="chat"] #waitly-widget-root,
+html[data-bb-ovl="book"] [data-m="fab-chat"], html[data-bb-ovl="book"] [data-m="chat-panel"]{ display:none !important; }
+/* чат не закрывает текст: гаснет, когда под кнопкой строка или картинка */
+html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-events:none !important; }
+[data-m="fab-chat"]{ transition:opacity .18s ease !important; }
+/* выбор города на мобильном: список у правого края и не шире экрана */
+@media (max-width:768px){
+  [data-m="city-pick"] > div{ left:auto !important; right:0 !important; width:auto !important; min-width:0 !important; max-width:calc(100vw - 32px) !important; }
+}
+/* шторка меню: список скроллится, нижний блок не наезжает на пункты */
+[data-m="mobile-menu"]{ overflow:hidden !important; }
+[data-m="mobile-menu"] nav{ min-height:0 !important; }
+</style>
 </helmet>
-<div data-screen-label="Brooklyn Bowl Кухня" style="font-family:'Proxima Nova','Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:#0B0B0C; color:#fff; min-height:100vh; width:100%; overflow:hidden; -webkit-font-smoothing:antialiased;">
+<div data-screen-label="Brooklyn Bowl Кухня" style="font-family:'Proxima Nova','Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:#000000; color:#fff; min-height:100vh; width:100%; overflow:hidden; -webkit-font-smoothing:antialiased;">
   <input type="checkbox" id="bbmenu" style="display:none;">
 
   <!-- ============ ШАПКА ============ -->
-  <header data-comment-anchor="header" style="position:sticky; top:0; z-index:50; display:flex; align-items:center; gap:32px; height:74px; padding:0 40px; background:rgba(11,11,12,0.82); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(255,255,255,0.07);">
+  <header data-comment-anchor="header" style="position:sticky; top:0; z-index:50; display:flex; align-items:center; gap:32px; height:74px; padding:0 40px; background:rgba(0,0,0,0.82); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(255,255,255,0.07);">
 
     <!-- Лого -->
     <a href="index.html" style="display:flex; align-items:center; text-decoration:none; flex-shrink:0;">
-      <img src="uploads/Vector.svg" alt="Brooklyn Bowl" style="height:24px; width:auto; display:block; filter:brightness(0) invert(1);">
+      <img src="../uploads/Vector.svg" alt="Brooklyn Bowl" style="height:24px; width:auto; display:block; filter:brightness(0) invert(1);">
     </a>
-    <div data-m="m-city" style="margin-left:auto; display:none; position:relative;"><button onClick="{{ toggleCity }}" style="display:flex; align-items:center; gap:6px; background:none; border:none; cursor:pointer; padding:6px 2px; font-family:inherit;"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1.5c-2.5 0-4.5 2-4.5 4.5 0 3.2 4.5 8 4.5 8s4.5-4.8 4.5-8c0-2.5-2-4.5-4.5-4.5Z" stroke="#E42725" stroke-width="1.4"></path><circle cx="8" cy="6" r="1.6" stroke="#E42725" stroke-width="1.4"></circle></svg><span style="color:#fff; font-size:15px; font-weight:600;">Санкт-Петербург</span><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 4.5 6 7.5 9 4.5" stroke="#8E8C87" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button><sc-if value="{{ cityOpen }}" hint-placeholder-val="{{ false }}"><div style="position:absolute; top:calc(100% + 12px); right:0; z-index:60; min-width:232px; background:#141417; border:1px solid rgba(255,255,255,0.1); border-radius:18px; padding:10px; box-shadow:0 24px 50px rgba(0,0,0,0.55); display:flex; flex-direction:column;"><a href="../tyumen/index.html" style="text-decoration:none; padding:12px 16px; border-radius:12px; font-size:16px; font-weight:500; color:#C7C5BE;" style-hover="background:#1C1C1F !important; color:#fff !important;">Тюмень</a><a href="../izhevsk/index.html" style="text-decoration:none; padding:12px 16px; border-radius:12px; font-size:16px; font-weight:500; color:#C7C5BE;" style-hover="background:#1C1C1F !important; color:#fff !important;">Ижевск</a><a href="../samara/index.html" style="text-decoration:none; padding:12px 16px; border-radius:12px; font-size:16px; font-weight:500; color:#C7C5BE;" style-hover="background:#1C1C1F !important; color:#fff !important;">Самара</a><a href="../msk/index.html" style="text-decoration:none; padding:12px 16px; border-radius:12px; font-size:16px; font-weight:500; color:#C7C5BE;" style-hover="background:#1C1C1F !important; color:#fff !important;">Москва</a><span style="padding:12px 16px; border-radius:12px; font-size:16px; font-weight:700; color:#E42725;">Санкт-Петербург</span><a href="../surgut/index.html" style="text-decoration:none; padding:12px 16px; border-radius:12px; font-size:16px; font-weight:500; color:#C7C5BE;" style-hover="background:#1C1C1F !important; color:#fff !important;">Сургут</a><a href="../nv/index.html" style="text-decoration:none; padding:12px 16px; border-radius:12px; font-size:16px; font-weight:500; color:#C7C5BE;" style-hover="background:#1C1C1F !important; color:#fff !important;">Нижневартовск</a></div></sc-if></div>
+    <div data-m="m-city" style="margin-left:auto; display:none; position:relative;"><button onClick="{{ toggleCity }}" style="display:flex; align-items:center; gap:6px; background:none; border:none; cursor:pointer; padding:6px 2px; font-family:inherit;"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1.5c-2.5 0-4.5 2-4.5 4.5 0 3.2 4.5 8 4.5 8s4.5-4.8 4.5-8c0-2.5-2-4.5-4.5-4.5Z" stroke="#FF2026" stroke-width="1.4"></path><circle cx="8" cy="6" r="1.6" stroke="#FF2026" stroke-width="1.4"></circle></svg><span style="color:#fff; font-size:15px; font-weight:600;">Санкт-Петербург</span><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 4.5 6 7.5 9 4.5" stroke="rgba(232,229,222,0.6)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button><sc-if value="{{ cityOpen }}" hint-placeholder-val="{{ false }}"><div style="position:absolute; top:calc(100% + 12px); right:0; z-index:60; min-width:232px; background:#191919; border:1px solid rgba(255,255,255,0.1); border-radius:18px; padding:10px; box-shadow:0 24px 50px rgba(0,0,0,0.55); display:flex; flex-direction:column;"><span style="padding:12px 16px; border-radius:12px; font-size:16px; font-weight:700; color:#FF2026;">Санкт-Петербург</span><a href="../tyumen/index.html" style="text-decoration:none; padding:12px 16px; border-radius:12px; font-size:16px; font-weight:500; color:rgba(232,229,222,0.86);" style-hover="background:#191919 !important; color:#fff !important;">Тюмень</a><a href="../izhevsk/index.html" style="text-decoration:none; padding:12px 16px; border-radius:12px; font-size:16px; font-weight:500; color:rgba(232,229,222,0.86);" style-hover="background:#191919 !important; color:#fff !important;">Ижевск</a><a href="../surgut/index.html" style="text-decoration:none; padding:12px 16px; border-radius:12px; font-size:16px; font-weight:500; color:rgba(232,229,222,0.86);" style-hover="background:#191919 !important; color:#fff !important;">Сургут</a><a href="../nv/index.html" style="text-decoration:none; padding:12px 16px; border-radius:12px; font-size:16px; font-weight:500; color:rgba(232,229,222,0.86);" style-hover="background:#191919 !important; color:#fff !important;">Нижневартовск</a><a href="../samara/index.html" style="text-decoration:none; padding:12px 16px; border-radius:12px; font-size:16px; font-weight:500; color:rgba(232,229,222,0.86);" style-hover="background:#191919 !important; color:#fff !important;">Самара</a><a href="../msk/index.html" style="text-decoration:none; padding:12px 16px; border-radius:12px; font-size:16px; font-weight:500; color:rgba(232,229,222,0.86);" style-hover="background:#191919 !important; color:#fff !important;">Москва</a></div></sc-if></div>
 
     <!-- Меню -->
     <nav data-m="nav" style="display:flex; align-items:center; gap:30px; margin-left:14px;">
-      <a href="index.html" style="text-decoration:none; color:#B6B5B0; font-size:15px; font-weight:500; transition:color .2s ease;" style-hover="color:#fff !important;">Главная</a>
-      <a href="bowling.html" style="text-decoration:none; color:#B6B5B0; font-size:15px; font-weight:500; transition:color .2s ease;" style-hover="color:#fff !important;">Боулинг</a>
-      <a href="#" style="text-decoration: none; color: #fff; padding: 9px 18px; border-radius: 300px; font-size: 15px; font-weight: 600; background-color: #0f0f0f">Кухня</a>
-      <a href="afisha.html" style="text-decoration:none; color:#B6B5B0; font-size:15px; font-weight:500; transition:color .2s ease;" style-hover="color:#fff !important;">Афиша</a>
-      <a href="about.html" style="text-decoration:none; color:#B6B5B0; font-size:15px; font-weight:500; transition:color .2s ease;" style-hover="color:#fff !important;">О нас</a>
+      <a href="index.html" style="text-decoration:none; color:rgba(232,229,222,0.8); font-size:15px; font-weight:500; transition:color .2s ease;" style-hover="color:#fff !important;">Главная</a>
+      <a href="bowling.html" style="text-decoration:none; color:rgba(232,229,222,0.8); font-size:15px; font-weight:500; transition:color .2s ease;" style-hover="color:#fff !important;">Боулинг</a>
+      <a href="#menu" style="text-decoration: none; color: #fff; padding: 9px 18px; border-radius: 300px; font-size: 15px; font-weight: 600; background-color: #191919">Кухня</a>
+      <a href="afisha.html" style="text-decoration:none; color:rgba(232,229,222,0.8); font-size:15px; font-weight:500; transition:color .2s ease;" style-hover="color:#fff !important;">Афиша</a>
+      <a href="about.html" style="text-decoration:none; color:rgba(232,229,222,0.8); font-size:15px; font-weight:500; transition:color .2s ease;" style-hover="color:#fff !important;">О нас</a>
     </nav>
 
     <!-- Правый блок -->
     <div data-m="hdr-right" style="display:flex; align-items:center; gap:18px; margin-left:auto; flex-shrink:0;">
       <div style="position:relative;">
         <button onClick="{{ toggleCity }}" style="display:flex; align-items:center; gap:7px; background:none; border:none; cursor:pointer; padding:6px 4px; font-family:inherit;">
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 1.5c-2.5 0-4.5 2-4.5 4.5 0 3.2 4.5 8 4.5 8s4.5-4.8 4.5-8c0-2.5-2-4.5-4.5-4.5Z" stroke="#E42725" stroke-width="1.4"></path><circle cx="8" cy="6" r="1.6" stroke="#E42725" stroke-width="1.4"></circle></svg>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 1.5c-2.5 0-4.5 2-4.5 4.5 0 3.2 4.5 8 4.5 8s4.5-4.8 4.5-8c0-2.5-2-4.5-4.5-4.5Z" stroke="#FF2026" stroke-width="1.4"></path><circle cx="8" cy="6" r="1.6" stroke="#FF2026" stroke-width="1.4"></circle></svg>
           <span style="color:#fff; font-size:15px; font-weight:500;">Санкт-Петербург</span>
-          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 4.5 6 7.5 9 4.5" stroke="#8E8C87" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 4.5 6 7.5 9 4.5" stroke="rgba(232,229,222,0.6)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         </button>
         <sc-if value="{{ cityOpen }}" hint-placeholder-val="{{ false }}">
-          <div style="position:absolute; top:calc(100% + 14px); left:0; z-index:60; min-width:248px; background:#141417; border:1px solid rgba(255,255,255,0.1); border-radius:18px; padding:10px; box-shadow:0 24px 50px rgba(0,0,0,0.55); display:flex; flex-direction:column;"><a href="../tyumen/index.html" style="text-decoration:none; padding:12px 16px; border-radius:12px; font-size:16px; font-weight:500; color:#C7C5BE;" style-hover="background:#1C1C1F !important; color:#fff !important;">Тюмень</a><a href="../izhevsk/index.html" style="text-decoration:none; padding:12px 16px; border-radius:12px; font-size:16px; font-weight:500; color:#C7C5BE;" style-hover="background:#1C1C1F !important; color:#fff !important;">Ижевск</a><a href="../samara/index.html" style="text-decoration:none; padding:12px 16px; border-radius:12px; font-size:16px; font-weight:500; color:#C7C5BE;" style-hover="background:#1C1C1F !important; color:#fff !important;">Самара</a><a href="../msk/index.html" style="text-decoration:none; padding:12px 16px; border-radius:12px; font-size:16px; font-weight:500; color:#C7C5BE;" style-hover="background:#1C1C1F !important; color:#fff !important;">Москва</a><span style="padding:12px 16px; border-radius:12px; font-size:16px; font-weight:700; color:#E42725;">Санкт-Петербург</span><a href="../surgut/index.html" style="text-decoration:none; padding:12px 16px; border-radius:12px; font-size:16px; font-weight:500; color:#C7C5BE;" style-hover="background:#1C1C1F !important; color:#fff !important;">Сургут</a><a href="../nv/index.html" style="text-decoration:none; padding:12px 16px; border-radius:12px; font-size:16px; font-weight:500; color:#C7C5BE;" style-hover="background:#1C1C1F !important; color:#fff !important;">Нижневартовск</a></div>
+          <div style="position:absolute; top:calc(100% + 14px); left:0; z-index:60; min-width:248px; background:#191919; border:1px solid rgba(255,255,255,0.1); border-radius:18px; padding:10px; box-shadow:0 24px 50px rgba(0,0,0,0.55); display:flex; flex-direction:column;">
+            <span style="padding:12px 16px; border-radius:12px; font-size:16px; font-weight:700; color:#FF2026;">Санкт-Петербург</span>
+            <a href="../tyumen/index.html" style="text-decoration:none; padding:12px 16px; border-radius:12px; font-size:16px; font-weight:500; color:rgba(232,229,222,0.86);" style-hover="background:#191919 !important; color:#fff !important;">Тюмень</a><a href="../izhevsk/index.html" style="text-decoration:none; padding:12px 16px; border-radius:12px; font-size:16px; font-weight:500; color:rgba(232,229,222,0.86);" style-hover="background:#191919 !important; color:#fff !important;">Ижевск</a><a href="../surgut/index.html" style="text-decoration:none; padding:12px 16px; border-radius:12px; font-size:16px; font-weight:500; color:rgba(232,229,222,0.86);" style-hover="background:#191919 !important; color:#fff !important;">Сургут</a><a href="../nv/index.html" style="text-decoration:none; padding:12px 16px; border-radius:12px; font-size:16px; font-weight:500; color:rgba(232,229,222,0.86);" style-hover="background:#191919 !important; color:#fff !important;">Нижневартовск</a><a href="../samara/index.html" style="text-decoration:none; padding:12px 16px; border-radius:12px; font-size:16px; font-weight:500; color:rgba(232,229,222,0.86);" style-hover="background:#191919 !important; color:#fff !important;">Самара</a><a href="../msk/index.html" style="text-decoration:none; padding:12px 16px; border-radius:12px; font-size:16px; font-weight:500; color:rgba(232,229,222,0.86);" style-hover="background:#191919 !important; color:#fff !important;">Москва</a>
+          </div>
         </sc-if>
       </div>
-      <a href="tel:+78127608095" style="display:flex; align-items:center; gap:7px; text-decoration:none; color:#fff; font-size:15px; font-weight:600; white-space:nowrap;" style-hover="color:#FF5257 !important;">
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M5.5 2.5 6.8 5l-1.3 1.3a8 8 0 0 0 3.2 3.2L10 8.2 12.5 9.5c.4.2.6.6.5 1l-.4 1.6c-.1.5-.6.8-1.1.7C7.2 12.2 3.8 8.8 3.2 4.5c-.1-.5.2-1 .7-1.1l1.6-.4c.4-.1.8.1 1 .5Z" stroke="#E42725" stroke-width="1.4" stroke-linejoin="round"></path></svg>
-        +7 812 760-80-95
+      <a href="tel:+78127608095" style="display:flex; align-items:center; gap:7px; text-decoration:none; color:#fff; font-size:15px; font-weight:600; white-space:nowrap;" style-hover="color:#FF2026 !important;">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M5.5 2.5 6.8 5l-1.3 1.3a8 8 0 0 0 3.2 3.2L10 8.2 12.5 9.5c.4.2.6.6.5 1l-.4 1.6c-.1.5-.6.8-1.1.7C7.2 12.2 3.8 8.8 3.2 4.5c-.1-.5.2-1 .7-1.1l1.6-.4c.4-.1.8.1 1 .5Z" stroke="#FF2026" stroke-width="1.4" stroke-linejoin="round"></path></svg>
+        +7 (812) 760-80-95
       </a>
-      <button onClick="{{ book }}" style="background:#fff; border:none; cursor:pointer; padding:11px 22px; border-radius:300px; color:#0B0B0C; font-size:15px; font-weight:600; font-family:inherit; transition:background-color .22s ease, color .22s ease;" style-hover="background:#E42725 !important; color:#fff !important;">Забронировать</button>
+      <button data-m="cta" onClick="{{ book }}" style="background:#fff; border:none; cursor:pointer; padding:16px 32px; border-radius:300px; color:#000000; font-size:14px; font-weight:800; font-family:inherit; transition:background-color .22s ease, color .22s ease; letter-spacing:0.05em;" style-hover="background:#FF2026 !important; color:#fff !important;">Забронировать</button>
     </div>
-  <label for="bbmenu" data-m="burger" style="margin-left:auto; width:42px; height:42px; border-radius:50%; background:#1C1C1F; border:1px solid rgba(255,255,255,0.08); align-items:center; justify-content:center; cursor:pointer; flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="#fff" stroke-width="2" stroke-linecap="round"></path></svg></label>
+  <label for="bbmenu" data-m="burger" style="margin-left:auto; width:42px; height:42px; border-radius:50%; background:#191919; border:1px solid rgba(255,255,255,0.08); align-items:center; justify-content:center; cursor:pointer; flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="#fff" stroke-width="2" stroke-linecap="round"></path></svg></label>
   </header>
 
-  <div data-m="mobile-menu" style="display:none; position:fixed; inset:0; z-index:90; background:#0B0B0C; flex-direction:column; padding:16px 22px 36px;">
+  <div data-m="mobile-menu" style="display:none; position:fixed; inset:0; z-index:90; background:#000000; flex-direction:column; padding:16px 22px 36px;">
     <div style="display:flex; align-items:center; justify-content:space-between; height:42px; margin-bottom:14px;">
-      <img src="uploads/Vector.svg" alt="Brooklyn Bowl" style="height:22px; width:auto; filter:brightness(0) invert(1);">
-      <label for="bbmenu" style="width:42px; height:42px; border-radius:50%; background:#1C1C1F; border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; cursor:pointer;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="2" stroke-linecap="round"></path></svg></label>
+      <img src="../uploads/Vector.svg" alt="Brooklyn Bowl" style="height:22px; width:auto; filter:brightness(0) invert(1);">
+      <label for="bbmenu" style="width:42px; height:42px; border-radius:50%; background:#191919; border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; cursor:pointer;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="2" stroke-linecap="round"></path></svg></label>
     </div>
-    <nav style="display:flex; flex-direction:column; gap:4px; margin-top:18px;">
-      <a href="index.html" style="text-decoration:none; font-size:26px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:6px 0;">Главная</a>
-      <a href="bowling.html" style="text-decoration:none; font-size:26px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:6px 0;">Боулинг</a>
-      <a href="kitchen.html" style="text-decoration:none; font-size:26px; font-weight:700; letter-spacing:-0.01em; color:#fff; padding:6px 0;">Кухня</a>
-      <a href="afisha.html" style="text-decoration:none; font-size:26px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:6px 0;">Афиша</a>
-      <a href="about.html" style="text-decoration:none; font-size:26px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:6px 0;">О нас</a>
+    <nav style="display:flex; flex-direction:column; gap:0; margin-top:12px; flex:1; overflow-y:auto; -webkit-overflow-scrolling:touch;">
+      <a href="index.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:6px 0;">Главная</a>
+      <a href="bowling.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:6px 0;">Боулинг</a>
+      <a href="kitchen.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:#fff; padding:6px 0;">Кухня</a>
+      <a href="afisha.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:6px 0;">Афиша</a>
+      <div style="margin:16px 0 6px; font-size:11.5px; font-weight:700; letter-spacing:0.08em; color:rgba(232,229,222,0.4);">ПРАЗДНИК #ВБРУКЛИНЕ</div>
+      <a href="dr.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Взрослый ДР</a>
+      <a href="dr-kids.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Детский ДР</a>
+      <a href="corporate.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Корпоратив</a>
+      <a href="graduation.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Выпускной</a>
+      <a href="friends.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">С друзьями</a>
+      <a href="family.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Семьёй</a>
+      <a href="lane.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Просто поиграть</a>
+      <div style="margin:16px 0 6px; font-size:11.5px; font-weight:700; letter-spacing:0.08em; color:rgba(232,229,222,0.4);">ЕЩЁ</div>
+      <a href="promo.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Акции</a>
+      <a href="loyalty.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Бонусы и приложение</a>
+      <a href="about.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">О нас</a>
+      <a href="contacts.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Контакты</a>
+      <div style="margin:16px 0 6px; font-size:11.5px; font-weight:700; letter-spacing:0.08em; color:rgba(232,229,222,0.4);">ЗАЛЫ В САНКТ-ПЕТЕРБУРГЕ</div>
+      <a href="filial-iyun.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Июнь</a>
     </nav>
-    <div style="flex:1;"></div>
     <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
-      <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 1.5c-2.5 0-4.5 2-4.5 4.5 0 3.2 4.5 8 4.5 8s4.5-4.8 4.5-8c0-2.5-2-4.5-4.5-4.5Z" stroke="#E42725" stroke-width="1.4"></path><circle cx="8" cy="6" r="1.6" stroke="#E42725" stroke-width="1.4"></circle></svg>
-      <span style="color:#9C9A95; font-size:15px;">Санкт-Петербург</span>
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 1.5c-2.5 0-4.5 2-4.5 4.5 0 3.2 4.5 8 4.5 8s4.5-4.8 4.5-8c0-2.5-2-4.5-4.5-4.5Z" stroke="#FF2026" stroke-width="1.4"></path><circle cx="8" cy="6" r="1.6" stroke="#FF2026" stroke-width="1.4"></circle></svg>
+      <span style="color:rgba(232,229,222,0.66); font-size:15px;">Санкт-Петербург</span>
     </div>
-    <a href="tel:+78127608095" style="text-decoration:none; color:#fff; font-size:20px; font-weight:700; margin-bottom:18px;">+7 812 760-80-95</a>
-    <button onClick="{{ book }}" style="width:100%; background:#E42725; border:none; cursor:pointer; padding:17px; border-radius:300px; color:#fff; font-size:17px; font-weight:600; font-family:inherit;">Бронь стола в зоне боулинга</button>
+    <a href="tel:+78127608095" style="text-decoration:none; color:#fff; font-size:20px; font-weight:700; margin-bottom:18px;">+7 (812) 760-80-95</a>
+    <button data-m="cta" onClick="{{ book }}" style="width:100%; background:#FF2026; border:none; cursor:pointer; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; font-family:inherit; letter-spacing:0.05em;">Бронь стола в зоне боулинга</button>
   </div>
-  <div data-m="tabbar" style="display:none; position:fixed; left:0; right:0; bottom:0; z-index:80; padding:30px 14px 16px; pointer-events:none; background:linear-gradient(180deg, rgba(11,11,12,0) 0%, rgba(11,11,12,0.82) 50%, #0B0B0C 100%);">
+  <div data-m="tabbar" style="display:none; position:fixed; left:0; right:0; bottom:0; z-index:80; padding:30px 14px 16px; pointer-events:none; background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.82) 50%, #000000 100%);">
     <div style="display:flex; align-items:center; gap:10px; max-width:460px; margin:0 auto; pointer-events:auto;">
-      <div style="flex:1; display:flex; align-items:center; gap:2px; background:#15151A; border:1px solid rgba(255,255,255,0.08); border-radius:300px; padding:6px; box-shadow:0 14px 34px rgba(0,0,0,0.55);">
+      <div style="flex:1; display:flex; align-items:center; gap:2px; background:#191919; border:1px solid rgba(255,255,255,0.08); border-radius:300px; padding:6px; box-shadow:0 14px 34px rgba(0,0,0,0.55);">
         <a href="index.html" aria-label="Главная" style="flex:1; display:flex; align-items:center; justify-content:center; padding:14px 0; text-decoration:none;"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M3.2 11 12 3.3 20.8 11M5.6 9.4V20h12.8V9.4" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
         <a href="bowling.html" aria-label="Боулинг" style="flex:1; display:flex; align-items:center; justify-content:center; padding:14px 0; text-decoration:none;"><svg width="25" height="23" viewBox="0 0 28 24" fill="none"><circle cx="9" cy="14.6" r="6.8" stroke="#fff" stroke-width="1.7"></circle><circle cx="6.7" cy="12.2" r="1" fill="#fff"></circle><circle cx="9.5" cy="11.4" r="1" fill="#fff"></circle><circle cx="8" cy="14.6" r="1" fill="#fff"></circle><path d="M21 3.4c-1.3 0-1.9 1-1.9 2.1 0 1 .6 1.7.6 3.2 0 2-1.2 3-1.2 6.4 0 2 .9 3.1 2.5 3.1s2.5-1.1 2.5-3.1c0-3.4-1.2-4.4-1.2-6.4 0-1.5.6-2.2.6-3.2 0-1.1-.6-2.1-1.9-2.1Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"></path></svg></a>
-        <a href="#" style="flex:1.8; display:flex; align-items:center; justify-content:center; gap:9px; padding:14px 8px; border-radius:300px; background:rgba(255,255,255,0.08); text-decoration:none;"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M3.6 6.6 12 20.8l8.4-14.2c-5.4-2.4-11.4-2.4-16.8 0Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"></path><path d="M5.6 7.3c4.1-1.5 8.7-1.5 12.8 0" stroke="#fff" stroke-width="1.4"></path><circle cx="10" cy="10.2" r="1.1" fill="#fff"></circle><circle cx="14" cy="11.2" r="1.1" fill="#fff"></circle><circle cx="12" cy="15" r="1.1" fill="#fff"></circle></svg><span style="font-size:15px; font-weight:600; color:#fff;">Кухня</span></a>
+        <a href="#menu" style="flex:1.8; display:flex; align-items:center; justify-content:center; gap:9px; padding:14px 8px; border-radius:300px; background:rgba(255,255,255,0.08); text-decoration:none;"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M3.6 6.6 12 20.8l8.4-14.2c-5.4-2.4-11.4-2.4-16.8 0Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"></path><path d="M5.6 7.3c4.1-1.5 8.7-1.5 12.8 0" stroke="#fff" stroke-width="1.4"></path><circle cx="10" cy="10.2" r="1.1" fill="#fff"></circle><circle cx="14" cy="11.2" r="1.1" fill="#fff"></circle><circle cx="12" cy="15" r="1.1" fill="#fff"></circle></svg><span style="font-size:15px; font-weight:600; color:#fff;">Кухня</span></a>
         <a href="afisha.html" aria-label="Афиша" style="flex:1; display:flex; align-items:center; justify-content:center; padding:14px 0; text-decoration:none;"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M20.6 3.4c-.8-.8-2-.7-2.8.1l-2.9 2.9c-.5.5-.7 1.2-.5 1.9l.2.9-3.3 3.3c-1-.4-2.2-.2-3 .6-1.2 1.2-1.2 3.1 0 4.3 1.2 1.2 3.1 1.2 4.3 0 .8-.8 1-2 .6-3l3.3-3.3.9.2c.7.2 1.4 0 1.9-.5l2.9-2.9c.8-.8.9-2 .1-2.8Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"></path><path d="m16.4 5.6 2 2" stroke="#fff" stroke-width="1.4" stroke-linecap="round"></path></svg></a>
       </div>
-      <label for="bbmenu" aria-label="Меню" style="flex-shrink:0; width:56px; height:56px; border-radius:50%; background:#15151A; border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 14px 34px rgba(0,0,0,0.55);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 9.5h14M5 14.5h14" stroke="#fff" stroke-width="2" stroke-linecap="round"></path></svg></label>
+      <label for="bbmenu" aria-label="Меню" style="flex-shrink:0; width:56px; height:56px; border-radius:50%; background:#191919; border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 14px 34px rgba(0,0,0,0.55);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 9.5h14M5 14.5h14" stroke="#fff" stroke-width="2" stroke-linecap="round"></path></svg></label>
     </div>
   </div>
 
   <!-- ============ КУХНЯ ============ -->
-  <section data-screen-label="Кухня" data-comment-anchor="kitchen" style="padding:18px 44px 84px; background:#0B0B0C;">
+  <section data-screen-label="Кухня" data-comment-anchor="kitchen" style="padding:18px 44px 84px; background:#000000;">
     <div data-m="kitchen-hero" style="display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:stretch;">
-      <div style="position:relative; border-radius:24px; overflow:hidden; min-height:420px; background:#141417;">
-        <video autoplay="" muted="" loop="" playsinline="" poster="uploads/%D0%A2%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%BE%D0%B5%20%D0%B2%20%D0%BF%D0%B5%D1%87%D0%B8%20%D0%B3%D0%BE%D0%B2%D1%8F%D0%B6%D1%8C%D0%B5%20%D1%80%D0%B5%D0%B1%D1%80%D0%BE.jpg" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"><source src="https://cdnv.boomstream.com/balancer/OdI2u8i4-zrFoAhCP.mp4" type="video/mp4"></video>
+      <div style="position:relative; border-radius:24px; overflow:hidden; min-height:420px; background:#191919;">
+        <video muted="" playsinline="" autoplay="" defaultMuted="" loop="loop" poster="../uploads/%D0%A2%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%BE%D0%B5%20%D0%B2%20%D0%BF%D0%B5%D1%87%D0%B8%20%D0%B3%D0%BE%D0%B2%D1%8F%D0%B6%D1%8C%D0%B5%20%D1%80%D0%B5%D0%B1%D1%80%D0%BE.jpg" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"><source src="https://cdnv.boomstream.com/balancer/6fK1I2t6-zrFoAhCP.mp4" type="video/mp4"></video>
       </div>
       <div style="display:flex; flex-direction:column; justify-content:center; padding:8px 0;">
-        <span style="display:inline-flex; align-self:flex-start; align-items:center; padding:7px 14px; border-radius:300px; background:rgba(228,39,37,0.16); font-size:12.5px; font-weight:700; letter-spacing:0.03em; color:#F26B69;">ЕДА И НАПИТКИ</span>
+        <span style="display:inline-flex; align-self:flex-start; align-items:center; padding:7px 14px; border-radius:300px; background:rgba(255,32,38,0.16); font-size:12.5px; font-weight:700; letter-spacing:0.03em; color:#FF2026;">ЕДА И НАПИТКИ</span>
         <h2 style="margin:22px 0 0; font-size:clamp(30px,3.4vw,44px); font-weight:800; line-height:1.04; letter-spacing:-0.01em; color:#fff;">Кухня — с Шеф-подходом</h2>
-        <p style="margin:16px 0 0; max-width:90%; font-size:16px; line-height:1.55; color:#9C9A95;">64 позиции кухни и 80 позиций бара: пицца, бургеры, горячее, детское меню и авторские коктейли.</p>
+        <p style="margin:16px 0 0; max-width:90%; font-size:16px; line-height:1.55; color:rgba(232,229,222,0.66);">64 позиции кухни и 80 позиций бара: пицца, бургеры, горячее, детское меню и авторские коктейли.</p>
         <div data-m="kitchen-cta" style="display:flex; gap:12px; margin-top:28px;">
-          <a href="uploads/%D0%92%D0%95%D0%91_TMN_%D0%9C%D0%B5%D0%BD%D1%8E_%D0%92%D0%95%D0%A1%D0%9D%D0%90%202026.pdf" target="_blank" rel="noopener" download="" style="text-decoration:none; display:inline-flex; align-items:center; background:#fff; border:none; cursor:pointer; padding:14px 28px; border-radius:300px; color:#0B0B0C; font-size:15px; font-weight:600; font-family:inherit; transition:background-color .22s ease, color .22s ease;" style-hover="background:#E42725 !important; color:#fff !important;">Скачать меню</a>
+          <a data-m="cta" href="../uploads/%D0%92%D0%95%D0%91_TMN_%D0%9C%D0%B5%D0%BD%D1%8E_%D0%92%D0%95%D0%A1%D0%9D%D0%90%202026.pdf" target="_blank" rel="noopener" download="" style="text-decoration:none; display:inline-flex; align-items:center; background:#fff; border:none; cursor:pointer; padding:16px 32px; border-radius:300px; color:#000000; font-size:14px; font-weight:800; font-family:inherit; transition:background-color .22s ease, color .22s ease; letter-spacing:0.05em;" style-hover="background:#FF2026 !important; color:#fff !important;">Скачать меню</a>
         </div>
       </div>
     </div>
-    <div data-m="tabs" style="display:flex; flex-wrap:wrap; gap:10px; margin-top:40px;">
-      <sc-for list="{{ cats }}" as="c" hint-placeholder-count="7"><button onClick="{{ c.pick }}" style="{{ c.style }}" style-hover="filter:brightness(1.18) !important;">{{ c.name }}</button></sc-for>
+
+    <div data-mob-only style="display:none; gap:10px; overflow-x:auto; scroll-snap-type:x mandatory; margin:0 -16px 24px; padding:0 16px 4px; scrollbar-width:none;">
+      <div style="flex:0 0 44%; scroll-snap-align:start; display:flex; flex-direction:column; gap:6px; border-radius:22px; background:#191919; padding:20px 18px;">
+        <span style="font-size:34px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;">4</span>
+        <span style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:rgba(232,229,222,0.6);">раздела меню</span>
+      </div>
+      <div style="flex:0 0 44%; scroll-snap-align:start; display:flex; flex-direction:column; gap:6px; border-radius:22px; background:#191919; padding:20px 18px;">
+        <span style="font-size:34px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;">12:00</span>
+        <span style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:rgba(232,229,222,0.6);">кухня открывается</span>
+      </div>
+      <div style="flex:0 0 44%; scroll-snap-align:start; display:flex; flex-direction:column; gap:6px; border-radius:22px; background:#191919; padding:20px 18px;">
+        <span style="font-size:34px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;">60</span>
+        <span style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:rgba(232,229,222,0.6);">позиций в карте</span>
+      </div>
+      <div style="flex:0 0 44%; scroll-snap-align:start; display:flex; flex-direction:column; gap:6px; border-radius:22px; background:#191919; padding:20px 18px;">
+        <span style="font-size:34px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;">3</span>
+        <span style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:rgba(232,229,222,0.6);">заведения в городе</span>
+      </div>
     </div>
-    <div data-m="menu-grid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:20px;">
-      <sc-for list="{{ dishes }}" as="d" hint-placeholder-count="4"><article onClick="{{ d.open }}" style="border-radius: 22px; padding: 14px 14px 18px; border: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 12px; cursor: pointer; transition: border-color .2s ease; background-color: #0f0f0f" style-hover="border-color:rgba(228,39,37,0.4) !important;"><div style="position:relative; height:180px; border-radius:16px; overflow:hidden; background:#0F0F11;">{{ d.imgEl }}</div><div style="padding:0 8px;"><div style="font-size:16px; font-weight:700; color:#fff; line-height:1.3;">{{ d.n }}{{ d.hotEl }}</div><div style="font-size:13px; color:#6E6C68; margin-top:4px;">{{ d.w }}</div></div><div style="margin-top:auto; padding:0 8px; display:flex; justify-content:space-between; align-items:center;"><span style="display:inline-flex; align-items:center; padding:11px 20px; border-radius:300px; background:#1C1C1F; font-size:16px; font-weight:700; color:#fff;">{{ d.p }}</span><button style="width:42px; height:42px; border-radius:50%; border:none; cursor:pointer; background:#E42725; color:#fff; font-size:24px; line-height:1; display:flex; align-items:center; justify-content:center; font-family:inherit;" style-hover="background:#fff !important; color:#E42725 !important;">+</button></div></article></sc-for>
+    <div id="menu" data-m="tabs" style="scroll-margin-top:90px; display:flex; flex-wrap:wrap; gap:10px; margin-top:40px;">
+      <sc-for list="{{ groups }}" as="g" hint-placeholder-count="3"><button onClick="{{ g.pick }}" style="{{ g.style }}" style-hover="filter:brightness(1.18) !important;">{{ g.name }}</button></sc-for>
     </div>
+    <div data-m="tabs" style="display:flex; flex-wrap:wrap; gap:10px; margin-top:14px;">
+      <sc-for list="{{ cats }}" as="c" hint-placeholder-count="9"><button onClick="{{ c.pick }}" style="{{ c.style }}" style-hover="filter:brightness(1.18) !important;">{{ c.name }}</button></sc-for>
+    </div>
+    <sc-if value="{{ isBar }}" hint-placeholder-val="{{ false }}">
+    <div style="margin-top:22px; border-radius:22px; border:1px solid rgba(255,255,255,0.08); background:#191919; padding:34px 36px; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;">
+      <div>
+        <h3 style="margin:0 0 8px; font-size:22px; font-weight:800; color:#fff;">Алкогольная карта бара</h3>
+        <p style="margin:0; font-size:15px; line-height:1.55; color:rgba(232,229,222,0.66);">80 позиций бара: коктейли, вино, пиво и настойки.</p>
+      </div>
+      <a data-m="cta" href="{{ barLink }}" target="_blank" rel="noopener" style="text-decoration:none; display:inline-flex; align-items:center; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Открыть карту бара</a>
+    </div>
+    </sc-if>
+    <sc-if value="{{ notBar }}" hint-placeholder-val="{{ true }}">
+    <div style="position:relative; margin-top:20px;">
+      <div style="display:flex; justify-content:flex-end; gap:10px; margin-bottom:12px;">
+        <button onClick="{{ menuPrev }}" aria-label="Назад" style="width:44px; height:44px; border-radius:50%; border:1px solid rgba(255,255,255,0.14); background:#191919; cursor:pointer; color:#fff; display:flex; align-items:center; justify-content:center; padding:0;" style-hover="border-color:#FF2026 !important;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M14.5 5 8 12l6.5 7" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        <button onClick="{{ menuNext }}" aria-label="Вперёд" style="width:44px; height:44px; border-radius:50%; border:1px solid rgba(255,255,255,0.14); background:#191919; cursor:pointer; color:#fff; display:flex; align-items:center; justify-content:center; padding:0;" style-hover="border-color:#FF2026 !important;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M9.5 5 16 12l-6.5 7" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      </div>
+    <div data-m="menu-grid" id="bb-menu-row" style="display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth; padding-bottom:6px;">
+      <sc-for list="{{ dishes }}" as="d" hint-placeholder-count="4"><article onClick="{{ d.open }}" style="flex:0 0 calc((100% - 48px) / 4); scroll-snap-align:start; border-radius: 22px; padding: 14px 14px 18px; border: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 12px; cursor: pointer; transition: border-color .2s ease; background-color: #191919" style-hover="border-color:rgba(255,32,38,0.4) !important;"><div style="position:relative; height:180px; border-radius:16px; overflow:hidden; background:#191919;">{{ d.imgEl }}</div><div style="padding:0 8px;"><div style="font-size:16px; font-weight:700; color:#fff; line-height:1.3;">{{ d.n }}{{ d.hotEl }}</div><div style="font-size:13px; color:rgba(232,229,222,0.47); margin-top:4px;">{{ d.w }}</div></div><div style="margin-top:auto; padding:0 8px; display:flex; justify-content:space-between; align-items:center;"><span style="display:inline-flex; align-items:center; padding:11px 20px; border-radius:300px; background:#191919; font-size:16px; font-weight:700; color:#fff;">{{ d.p }}</span><button onClick="{{ d.add }}" style="width:42px; height:42px; border-radius:50%; border:none; cursor:pointer; background:#FF2026; color:#fff; font-size:24px; line-height:1; display:flex; align-items:center; justify-content:center; font-family:inherit;" style-hover="background:#fff !important; color:#FF2026 !important;">+</button></div></article></sc-for>
+    </div>
+    </div>
+    </sc-if>
 
     <sc-if value="{{ dishOpen }}" hint-placeholder-val="{{ false }}">
-      <div onClick="{{ closeDish }}" style="position:fixed; inset:0; z-index:200; background:rgba(5,5,6,0.8); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center; padding:24px;">
-        <div onClick="{{ stopProp }}" style="position:relative; width:min(560px,100%); max-height:90vh; overflow:auto; background:#141417; border:1px solid rgba(255,255,255,0.1); border-radius:26px;">
-          <div style="position:relative; height:300px;">{{ sd.imgEl }}<div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(20,20,23,0) 55%, rgba(20,20,23,0.92) 100%); border-radius:26px 26px 0 0;"></div><button onClick="{{ closeDish }}" style="position:absolute; top:16px; right:16px; width:40px; height:40px; border-radius:50%; border:none; cursor:pointer; background:rgba(11,11,12,0.6); color:#fff; font-size:18px;">✕</button><span style="position:absolute; top:18px; left:18px; display:inline-flex; padding:7px 14px; border-radius:300px; background:rgba(11,11,12,0.6); backdrop-filter:blur(6px); font-size:12.5px; font-weight:700; color:#fff;">{{ sd.tag }}</span></div>
-          <div style="padding:26px 32px 32px;">
-            <h3 style="margin:0; font-size:27px; font-weight:800; letter-spacing:-0.01em; color:#fff;">{{ sd.n }} <span style="font-size:18px; font-weight:500; color:#9C9A95;">{{ sd.w }}</span>{{ sd.hotEl }}</h3>
-            <p style="margin:14px 0 0; font-size:15px; line-height:1.6; color:#C7C5BE;">{{ sd.desc }}</p>
-            <sc-if value="{{ sd.hasNut }}" hint-placeholder-val="{{ false }}">
-            <div style="height:1px; background:rgba(255,255,255,0.08); margin:22px 0 16px;"></div>
-            <div style="font-size:13px; font-weight:600; letter-spacing:0.03em; color:#9C9A95; margin-bottom:14px;">Пищевая ценность порции</div>
-            <div data-m="nut-grid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px;">
-              <div><div style="font-size:13px; color:#9C9A95;">Белки</div><div style="font-size:18px; font-weight:700; color:#fff; margin-top:3px;">{{ sd.nut.b }}</div></div>
-              <div><div style="font-size:13px; color:#9C9A95;">Жиры</div><div style="font-size:18px; font-weight:700; color:#fff; margin-top:3px;">{{ sd.nut.f }}</div></div>
-              <div><div style="font-size:13px; color:#9C9A95;">Углеводы</div><div style="font-size:18px; font-weight:700; color:#fff; margin-top:3px;">{{ sd.nut.c }}</div></div>
-              <div><div style="font-size:13px; color:#9C9A95;">Ккал</div><div style="font-size:18px; font-weight:700; color:#fff; margin-top:3px;">{{ sd.nut.kcal }}</div></div>
+      <div data-mob="sheet" onClick="{{ closeDish }}" style="position:fixed; inset:0; z-index:200; background:rgba(0,0,0,0.8); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center; padding:24px;">
+        <div data-m="dish-panel" onClick="{{ stopProp }}" style="position:relative; width:min(560px,100%); max-height:90vh; overflow:auto; background:#191919; border:1px solid rgba(255,255,255,0.1); border-radius:26px;">
+          <div style="position:relative; aspect-ratio:4/3; background:#191919; border-radius:26px 26px 0 0; overflow:hidden;">{{ sd.imgEl }}
+            <span style="position:absolute; left:16px; top:16px; padding:8px 14px; border-radius:300px; background:rgba(0,0,0,0.62); font-size:12px; font-weight:700; letter-spacing:0.04em; color:#fff;">{{ sd.cat }}</span>
+            <button onClick="{{ closeDish }}" aria-label="Закрыть" style="position:absolute; top:16px; right:16px; width:40px; height:40px; border-radius:50%; border:none; cursor:pointer; background:rgba(0,0,0,0.62); color:#fff; font-size:17px; line-height:1; font-family:inherit;">✕</button>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:16px; padding:24px 26px 26px;">
+            <h3 style="margin:0; font-size:clamp(22px,2.2vw,28px); font-weight:800; letter-spacing:-0.01em; color:#fff;">{{ sd.n }} <span style="font-size:15px; font-weight:600; letter-spacing:0; color:rgba(232,229,222,0.55);">{{ sd.w }}</span>{{ sd.hotEl }}</h3>
+            <p style="margin:0; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.72);">{{ sd.desc }}</p>
+            <div style="font-size:16px; font-style:normal; color:#fff;">Добавь соус</div>
+            <div data-m="sauce-grid" style="display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px;">
+              <sc-for list="{{ sauces }}" as="s" hint-placeholder-count="8">
+                <button onClick="{{ s.pick }}" style="{{ s.style }}" style-hover="border-color:#FF2026 !important;">
+                  <span style="{{ s.plaque }}">+99 ₽</span>
+                  <span style="{{ s.nameStyle }}">{{ s.name }}</span>
+                </button>
+              </sc-for>
             </div>
+            <sc-if value="{{ sd.hasNut }}" hint-placeholder-val="{{ false }}">
+              <div>
+                <div style="height:1px; background:rgba(255,255,255,0.1); margin:2px 0 18px;"></div>
+                <div style="font-size:12.5px; font-weight:600; letter-spacing:0.06em; color:rgba(232,229,222,0.6); margin-bottom:14px;">Пищевая ценность порции</div>
+                <div data-m="nut-grid" style="display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px;">
+                  <div><div style="font-size:13px; color:rgba(232,229,222,0.6);">Белки</div><div style="font-size:18px; font-weight:700; color:#fff; margin-top:3px;">{{ sd.nut.b }}</div></div>
+                  <div><div style="font-size:13px; color:rgba(232,229,222,0.6);">Жиры</div><div style="font-size:18px; font-weight:700; color:#fff; margin-top:3px;">{{ sd.nut.f }}</div></div>
+                  <div><div style="font-size:13px; color:rgba(232,229,222,0.6);">Углеводы</div><div style="font-size:18px; font-weight:700; color:#fff; margin-top:3px;">{{ sd.nut.c }}</div></div>
+                  <div><div style="font-size:13px; color:rgba(232,229,222,0.6);">Ккал</div><div style="font-size:18px; font-weight:700; color:#fff; margin-top:3px;">{{ sd.nut.kcal }}</div></div>
+                </div>
+              </div>
             </sc-if>
-            <button style="margin-top:26px; width:100%; background:#1C1C1F; border:none; cursor:pointer; padding:18px 14px; border-radius:300px; color:#fff; font-size:15px; font-weight:700; font-family:inherit; white-space:nowrap; transition:background-color .22s ease, color .22s ease;" style-hover="background:#E42725 !important; color:#fff !important;">Добавить в корзину · {{ sd.p }}</button>
+            <button onClick="{{ sdAdd }}" style="margin-top:6px; width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); cursor:pointer; padding:18px 14px; border-radius:300px; color:#fff; font-size:16px; font-weight:700; font-family:inherit; letter-spacing:0; transition:background-color .22s ease;" style-hover="background:#191919 !important;">Добавить в корзину · {{ sdTotal }} ₽</button>
           </div>
         </div>
       </div>
     </sc-if>
   </section>
 
+
+    <sc-if value="{{ cartHas }}" hint-placeholder-val="{{ false }}">
+      <div data-m="cart-bar" style="position:fixed; left:0; right:0; bottom:0; z-index:150; display:flex; justify-content:center; padding:18px 16px 22px; pointer-events:none;">
+        <div style="pointer-events:auto; display:flex; align-items:center; gap:18px; flex-wrap:wrap; max-width:820px; width:100%; background:#191919; border:1px solid rgba(255,255,255,0.12); border-radius:22px; padding:16px 20px; box-shadow:0 22px 50px rgba(0,0,0,0.6);">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="display:flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:50%; background:#FF2026; font-size:15px; font-weight:800; color:#fff;">{{ cartCount }}</span>
+            <span style="font-size:15px; font-weight:700; color:#fff;">В корзине · {{ cartSum }} ₽</span>
+          </div>
+          <div data-m="cart-rows" style="flex:1; min-width:220px; display:flex; flex-direction:column; gap:4px; max-height:96px; overflow-y:auto;">
+            <sc-for list="{{ cartRows }}" as="r" hint-placeholder-count="2">
+              <div style="display:flex; align-items:center; gap:10px; font-size:13.5px; color:rgba(232,229,222,0.86);"><span style="flex:1; min-width:0;">{{ r.name }}</span><span style="color:rgba(232,229,222,0.66);">{{ r.qty }}</span><span style="font-weight:700; color:#fff;">{{ r.sum }}</span><button onClick="{{ r.dec }}" aria-label="Убрать одну" style="width:24px; height:24px; border-radius:50%; border:1px solid rgba(255,255,255,0.16); background:#191919; color:#fff; cursor:pointer; font-size:15px; line-height:1; padding:0;">−</button></div>
+            </sc-for>
+          </div>
+          <button onClick="{{ cartClear }}" style="background:#191919; border:1px solid rgba(255,255,255,0.14); cursor:pointer; padding:13px 24px; border-radius:300px; color:#fff; font-size:14px; font-weight:600; font-family:inherit;" style-hover="border-color:#FF2026 !important;">Очистить</button>
+          <button data-m="cta" onClick="{{ book }}" style="background:#FF2026; border:none; cursor:pointer; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; font-family:inherit; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Бронь стола в зоне боулинга</button>
+        </div>
+      </div>
+    </sc-if>
   <!-- ============ ФУТЕР ============ -->
-  <footer style="padding:48px 48px 40px; background:#0F0F0F; border:1px solid rgba(255,255,255,0.06); margin:0 16px 16px; border-radius:30px;">
+  <footer style="padding:48px 48px 40px; background:#191919; border:1px solid rgba(255,255,255,0.06); margin:0 16px 16px; border-radius:30px;">
     <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:40px; flex-wrap:wrap; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,0.07);">
       <div>
-        <img src="uploads/Vector.svg" alt="Brooklyn Bowl" style="height:26px; width:auto; display:block; filter:brightness(0) invert(1); margin-bottom:18px;">
+        <img src="../uploads/Vector.svg" alt="Brooklyn Bowl" style="height:26px; width:auto; display:block; filter:brightness(0) invert(1); margin-bottom:18px;">
         <p style="margin:0 0 20px; max-width:280px; font-size:15px; line-height:1.5; color:rgba(255,255,255,0.85);">Боулинг, вкусная еда и живая музыка — всё сразу в одном месте.</p>
         <div style="display:flex; flex-direction:column; gap:4px; font-size:14px; font-weight:600; color:#fff; margin-bottom:22px;">
           <span>Пн 12:00 – 00:00</span>
           <span>Вт–Чт, Вс 10:00 – 00:00</span>
-          <span>Пт–Сб 10:00 – 02:00</span>
+          <span>Пт–Сб 10:00 – 00:00</span>
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=spb&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="uploads/badge-appstore.svg" alt="App Store" style="height:36px; width:auto; display:block;"></a>
-          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=spb&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="uploads/badge-googleplay.svg" alt="Google Play" style="height:36px; width:auto; display:block;"></a>
-          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=spb&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="uploads/badge-rustore.svg" alt="RuStore" style="height:36px; width:auto; display:block;"></a>
+          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=spb&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="../uploads/badge-appstore.svg" alt="App Store" style="height:36px; width:auto; display:block;"></a>
+          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=spb&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="../uploads/badge-googleplay.svg" alt="Google Play" style="height:36px; width:auto; display:block;"></a>
+          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=spb&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="../uploads/badge-rustore.svg" alt="RuStore" style="height:36px; width:auto; display:block;"></a>
         </div>
       </div>
       <div data-m="footer-cols" style="display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:24px; flex:1; min-width:0;">
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ВИЗИТЫ</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Забронировать</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Просто поиграть</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">С друзьями</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Семьёй</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">День рождения</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Детский ДР</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Корпоратив</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Выпускной</a></div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="https://b1620612.yclients.com/" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Забронировать</a><a href="lane.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Просто поиграть</a><a href="friends.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">С друзьями</a><a href="family.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Семьёй</a><a href="dr.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">День рождения</a><a href="dr-kids.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Детский ДР</a><a href="corporate.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Корпоратив</a><a href="graduation.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Выпускной</a></div>
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ДЛЯ ГОСТЕЙ</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Меню</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Афиша</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Акции</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Сертификаты</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Карта гостя</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">О нас</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Блог</a></div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="#menu" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Меню</a><a href="afisha.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Афиша</a><a href="promo.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Акции</a><a href="https://certificate.spb.brooklynbowl.ru/" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Сертификаты</a><a href="loyalty.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Карта гостя</a><a href="about.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">О нас</a><a href="blog.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Блог</a></div>
         </div>
         <div>
-          <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ТОЧКИ СЕТИ</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="filial-iyun.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Июнь</a></div>
+          <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">НАШИ АДРЕСА</div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="filial-iyun.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Июнь</a><a href="filial-iyun.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Июнь</a><a href="filial-iyun.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Июнь</a><a href="contacts.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Все контакты</a><a href="rent.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Аренда площадки</a><a href="delivery.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Доставка</a><a href="franchise.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Франшиза</a></div>
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">В ДРУГИХ ГОРОДАХ</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="../tyumen/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Тюмень</a><a href="../izhevsk/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Ижевск</a><a href="../samara/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Самара</a><a href="../msk/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Москва</a><a href="../surgut/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Сургут</a><a href="../nv/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Нижневартовск</a></div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="../tyumen/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Тюмень</a><a href="../izhevsk/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Ижевск</a><a href="../surgut/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Сургут</a><a href="../nv/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Нижневартовск</a><a href="../samara/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Самара</a><a href="../msk/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Москва</a></div>
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ДОПОЛНИТЕЛЬНО</div>
@@ -246,20 +523,72 @@
       </div>
     </div>
     <div style="display:flex; align-items:flex-end; justify-content:space-between; padding-top:28px; border-top:1px solid rgba(255,255,255,0.18); flex-wrap:wrap; gap:16px;">
-      <span style="font-size:13px; color:rgba(255,255,255,0.8);">© Brooklyn Bowl Санкт-Петербург, 2017–2026 ·</span>
+      <span style="font-size:13px; color:rgba(255,255,255,0.8);">© 2016-2026 ООО "Кегли кухня рок-н-ролл" ·</span>
       <div style="text-align:right;">
         <div style="font-size:15px; font-weight:700; color:#fff;">Артём Рахмеев, основатель</div>
-        <a href="mailto:rakhmeev@brooklynbowl.ru" style="text-decoration: none; font-size: 14px; color: #dc0404" style-hover="color:rgba(255,255,255,0.72) !important;">rakhmeev@brooklynbowl.ru</a>
+        <a href="mailto:rakhmeev@brooklynbowl.ru" style="text-decoration: none; font-size: 14px; color: #FF2026" style-hover="color:rgba(255,255,255,0.72) !important;">rakhmeev@brooklynbowl.ru</a>
         <div style="font-size:12px; color:rgba(255,255,255,0.7); margin-top:2px;">Прямой адрес основателя. Читает сам.</div>
       </div>
     </div>
   </footer>
 
+  <sc-if value="{{ chatEnabled }}" hint-placeholder-val="{{ true }}">
+    <button data-m="fab-chat" onClick="{{ chatToggle }}" aria-label="Чат с Brooklyn Bowl" style="position:fixed; left:24px; bottom:24px; z-index:90; display:flex; align-items:center; justify-content:center; width:64px; height:64px; border:0; padding:0; cursor:pointer; border-radius:300px; background:#FF2026; box-shadow:0 12px 34px rgba(0,0,0,0.45); transition:transform .25s ease;" style-hover="transform:scale(1.06) !important;">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H8l-4 3v-4.5A8 8 0 0 1 13 4a8 8 0 0 1 8 8z"></path><path d="M9 11h8M9 15h5"></path></svg>
+    </button>
+    <sc-if value="{{ chatOpen }}" hint-placeholder-val="{{ false }}">
+      <div data-m="chat-panel" style="position:fixed; left:24px; bottom:104px; z-index:95; width:372px; max-width:calc(100vw - 48px); height:min(520px, calc(100vh - 160px)); display:flex; flex-direction:column; overflow:hidden; border-radius:22px; background:#191919; border:1px solid rgba(255,255,255,0.12); box-shadow:0 26px 70px rgba(0,0,0,0.6);">
+        <div style="background:#FF2026; padding:16px 18px 0;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+            <div style="font-size:15px; font-weight:800; letter-spacing:0.06em; color:#FFFFFF; text-transform:uppercase;">Brooklyn Bowl</div>
+            <button onClick="{{ chatClose }}" aria-label="Закрыть чат" style="display:flex; align-items:center; justify-content:center; width:30px; height:30px; border:0; padding:0; cursor:pointer; border-radius:300px; background:rgba(0,0,0,0.18);" style-hover="background:rgba(0,0,0,0.34) !important;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+            </button>
+          </div>
+          <div style="padding:10px 0 13px; font-size:12.5px; font-weight:600; color:rgba(255,255,255,0.88);">{{ chatHours }}</div>
+        </div>
+        <div data-m="chat-body" style="flex:1; min-height:0; overflow-y:auto; padding:18px; display:flex; flex-direction:column; gap:10px; background:#191919;">
+          <sc-for list="{{ messages }}" as="m" hint-placeholder-count="1">
+            <sc-if value="{{ m.mine }}" hint-placeholder-val="{{ false }}">
+              <div style="align-self:flex-end; max-width:82%; padding:11px 15px; border-radius:18px 18px 4px 18px; background:#FF2026; color:#FFFFFF; font-size:14.5px; line-height:1.5; text-wrap:pretty;">{{ m.text }}</div>
+            </sc-if>
+            <sc-if value="{{ m.theirs }}" hint-placeholder-val="{{ true }}">
+              <div style="align-self:flex-start; max-width:82%; padding:11px 15px; border-radius:18px 18px 18px 4px; background:rgba(232,229,222,0.1); color:#E8E5DE; font-size:14.5px; line-height:1.5; text-wrap:pretty;">{{ m.text }}</div>
+            </sc-if>
+          </sc-for>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; padding:12px 14px; border-top:1px solid rgba(255,255,255,0.1); background:#000000;">
+          <input data-m="chat-input" type="text" value="{{ draft }}" onChange="{{ chatType }}" onKeyDown="{{ chatKey }}" placeholder="Напишите сообщение" style="flex:1; min-width:0; height:42px; padding:0 14px; border:1px solid rgba(255,255,255,0.14); border-radius:300px; background:#191919; color:#FFFFFF; font-family:inherit; font-size:14.5px; outline:none;">
+          <button onClick="{{ chatSend }}" aria-label="Отправить" style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; flex-shrink:0; border:0; padding:0; cursor:pointer; border-radius:300px; background:#FF2026;" style-hover="filter:brightness(1.12) !important;">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"></path></svg>
+          </button>
+        </div>
+      </div>
+    </sc-if>
+  </sc-if>
+
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { cat: 'Для компании', ev: null };
+  _scroll() {
+    requestAnimationFrame(() => {
+      const b = document.querySelector('[data-m="chat-body"]');
+      if (b) b.scrollTop = b.scrollHeight;
+    });
+  }
+  _send() {
+    const text = (this.state.draft || '').trim();
+    if (!text || this.state.sending) return;
+    this.setState({ draft: '', sending: true, log: (this.state.log || []).concat([{ mine: true, text }]) });
+    this._scroll();
+    const reply = (window.sendToOperator || (() => Promise.resolve('')))(text, { city: "Санкт-Петербурге" });
+    Promise.resolve(reply).then((answer) => {
+      this.setState({ sending: false, log: (this.state.log || []).concat(answer ? [{ mine: false, text: answer }] : []) });
+      this._scroll();
+    });
+  }
+  state = { chatOpen: false, draft: '', log: [], sending: false, cat: 'Для компании', ev: null };
   componentDidMount() {}
   componentDidUpdate() {}
   _initMap() {
@@ -270,13 +599,15 @@ class Component extends DCLogic {
     this._mapInited = true;
     const L = window.L;
     const map = L.map(el, { scrollWheelZoom: false, attributionControl: false, zoomControl: true }).setView([58.6, 62], 4);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom: 19, subdomains: 'abcd' }).addTo(map);
-    const ball = '<div style="width:34px;height:42px;display:flex;align-items:flex-start;justify-content:center;filter:drop-shadow(0 4px 6px rgba(0,0,0,0.5));"><svg width="34" height="42" viewBox="0 0 34 42" fill="none"><path d="M17 0C7.6 0 0 7.6 0 17c0 11 17 25 17 25s17-14 17-25C34 7.6 26.4 0 17 0Z" fill="#E42725"/><circle cx="17" cy="17" r="11" fill="#0B0B0C"/><circle cx="13.6" cy="13" r="1.7" fill="#fff"/><circle cx="18.4" cy="11.8" r="1.7" fill="#fff"/><circle cx="16" cy="17.4" r="1.7" fill="#fff"/></svg></div>';
-    const icon = L.divIcon({ html: ball, className: '', iconSize: [34, 42], iconAnchor: [17, 42], popupAnchor: [0, -40] });
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+    var _tp = map.getPane('tilePane'); if (_tp) { _tp.style.filter = 'invert(1) hue-rotate(180deg) brightness(0.86) contrast(0.95) saturate(0.55)'; }
+    var _bs = (window.innerWidth < 720 ? 26 : 36);
+    var ball = '<div style="width:'+_bs+'px;height:'+_bs+'px;"><img src="../bowling-pin.svg" alt="" style="width:100%;height:100%;display:block;filter:drop-shadow(0 3px 5px rgba(0,0,0,0.45));"></div>';
+    var icon = L.divIcon({ html: ball, className: '', iconSize: [_bs,_bs], iconAnchor: [_bs/2,_bs/2], popupAnchor: [0,-_bs/2] });
     const pts = [
-      { name:'Июнь', addr:'Индустриальный пр-т, 24', lat:59.9462, lng:30.4735 },
-      { name:'Тюмень', addr:'Brooklyn Bowl', lat:57.1196, lng:65.6011 },
+      { name:'Июнь', addr:'Индустриальный проспект, 24', lat:59.9557, lng:30.4489 },
       { name:'Москва', addr:'Brooklyn Bowl', lat:55.9116, lng:37.7308 },
+      { name:'Санкт-Петербург', addr:'Brooklyn Bowl', lat:59.9343, lng:30.3351 },
       { name:'Самара', addr:'Brooklyn Bowl', lat:53.1959, lng:50.1606 },
       { name:'Ижевск', addr:'Brooklyn Bowl', lat:56.8519, lng:53.2045 },
       { name:'Сургут', addr:'Brooklyn Bowl', lat:61.2540, lng:73.3962 },
@@ -285,68 +616,131 @@ class Component extends DCLogic {
     pts.forEach((p) => {
       const route = 'https://yandex.ru/maps/?rtext=~' + p.lat + ',' + p.lng + '&rtt=auto';
       L.marker([p.lat, p.lng], { icon }).addTo(map)
-        .bindPopup('<div style="font-family:Montserrat,sans-serif;min-width:160px;"><div style="font-size:16px;font-weight:700;color:#111;">' + p.name + '</div><div style="font-size:13px;color:#666;margin:4px 0 8px;">' + p.addr + '</div><a href="' + route + '" target="_blank" rel="noopener" style="display:inline-block;background:#E42725;color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:8px 16px;border-radius:300px;">Построить маршрут</a></div>');
+        .bindPopup('<div style="font-family:Montserrat,sans-serif;min-width:160px;"><div style="font-size:16px;font-weight:700;color:#191919;">' + p.name + '</div><div style="font-size:13px;color:rgba(232,229,222,0.45);margin:4px 0 8px;">' + p.addr + '</div><a data-m="cta" href="' + route + '" target="_blank" rel="noopener" style="display:inline-block;background:#FF2026;color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:8px 16px;border-radius:300px;">Построить маршрут</a></div>');
+    });
+  }
+  _cartAdd(n, p, d) {
+    this.setState((st) => {
+      const c = { ...(st.cart || {}) };
+      const cur = c[n] || { n: n, p: p, q: 0 };
+      const q = cur.q + d;
+      if (q > 0) { c[n] = { n: n, p: p, q: q }; } else { delete c[n]; }
+      return { cart: c };
     });
   }
   renderVals() {
+    const SAUCES = ['Чили-сладкий','Соус Гриль','Сметана','Кетчуп','Соус BBQ','Брусничный','Чесночный','Сырный','Тартар','Майонез','Йогуртовый','Цезарь','Чипотле','Шашлычный','Песто'];
     const MENU = {
-      "Для компании": [{n:"Хрустящие овощи",w:"550 г",p:"869 ₽",img:"uploads/%D0%A5%D1%80%D1%83%D1%81%D1%82%D1%8F%D1%89%D0%B8%D0%B5%20%D0%BE%D0%B2%D0%BE%D1%89%D0%B8.jpg",hot:false,desc:"Свежие огурцы, томаты, болгарский перец, сельдерей, редис, помидоры черри, зелень.",nut:{kcal:"147",b:"3,7",f:"8,4",c:"14"}},{n:"Сырная тарелка",w:"250 г",p:"1 479 ₽",img:"uploads/%D0%A1%D1%8B%D1%80%D0%BD%D0%B0%D1%8F%20%D1%82%D0%B0%D1%80%D0%B5%D0%BB%D0%BA%D0%B0.jpg",hot:false,desc:"Дорблю, бри, пармезан, чеддер, груша, розмарин, мёд, грецкий орех.",nut:{kcal:"962",b:"62,1",f:"60,8",c:"38,8"}},{n:"Пивная тарелка полкило",w:"500 г",p:"1 459 ₽",img:"uploads/%D0%9F%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F%20%D1%82%D0%B0%D1%80%D0%B5%D0%BB%D0%BA%D0%B0%20%D0%BF%D0%BE%D0%BB%D0%BA%D0%B8%D0%BB%D0%BE.jpg",hot:false,desc:"Чесночные гренки, картофель фри, куриные наггетсы, сырные палочки, луковые кольца, чипсы из пепперони, соус тар-тар, кетчуп и сырный соус.",nut:{kcal:"1749",b:"61,6",f:"93,8",c:"169,7"}},{n:"Тарелка мясных деликатесов",w:"150 г",p:"1 559 ₽",img:"uploads/%D0%A2%D0%B0%D1%80%D0%B5%D0%BB%D0%BA%D0%B0%20%D0%BC%D1%8F%D1%81%D0%BD%D1%8B%D1%85%20%D0%B4%D0%B5%D0%BB%D0%B8%D0%BA%D0%B0%D1%82%D0%B5%D1%81%D0%BE%D0%B2.jpg",hot:false,desc:"Сыровяленая коппа, трюфельная салями, тамбовский окорок, грисини, вяленые томаты, зелень.",nut:{kcal:"271",b:"20,4",f:"18,8",c:"4,8"}},{n:"Сообразим на троих",w:"1100 г",p:"1 899 ₽",img:"uploads/%D0%A1%D0%BE%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%B8%D0%BC%20%D0%BD%D0%B0%20%D1%82%D1%80%D0%BE%D0%B8%D1%85.jpg",hot:true,desc:"Картофель по-деревенски, сырные палочки, луковые кольца, куриные крокеты, хрустящие пирожки с цыплёнком, мини-чебуреки, кукуруза, сырный соус, соус чипотле и соус BBQ.",nut:{kcal:"3170",b:"128,1",f:"156,7",c:"276,3"}},{n:"Полстола Пиццы",w:"1600 г",p:"2 149 ₽",img:"uploads/%D0%9F%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%BB%D0%B0%20%D0%9F%D0%B8%D1%86%D1%86%D1%8B.jpg",hot:false,desc:"Любимые пиццы в одном: пепперони, цезарь, маргарита и мясная.",nut:{kcal:"4512",b:"190,2",f:"233,5",c:"412,2"}},{n:"Мясной Пир",w:"1300 г",p:"3 039 ₽",img:"uploads/%D0%9C%D1%8F%D1%81%D0%BD%D0%BE%D0%B8%CC%86%20%D0%9F%D0%B8%D1%80.jpg",hot:false,desc:"Шашлык из свинины, шашлык из курицы, крылышки на углях, кебаб из индейки, картофель черри, шампиньоны на гриле, красный лук, шашлычный соус, пшеничная лепёшка, перец чили.",nut:{kcal:"3096",b:"188,2",f:"199,4",c:"130,3"}},{n:"Сет Колбас",w:"1000 г",p:"3 039 ₽",img:"uploads/%D0%A1%D0%B5%D1%82%20%D0%9A%D0%BE%D0%BB%D0%B1%D0%B0%D1%81.jpg",hot:false,desc:"Ассорти колбас на гриле с пшеничной лепёшкой, кукурузой, перцем чили, салатами коул-слоу и ремулад, соусами релиш, BBQ и тар-тар.",nut:{kcal:"843",b:"14,9",f:"47,9",c:"88,1"}}],
-      "Бургеры": [{n:"Бруклин Бургер",w:"300/100 г",p:"999₽",img:"uploads/%D0%91%D1%80%D1%83%D0%BA%D0%BB%D0%B8%D0%BD%20%D0%91%D1%83%D1%80%D0%B3%D0%B5%D1%80.jpg",hot:false,desc:"Булочка для бургера, котлета из мраморной говядины, соус BBQ, соус тар-тар, листья салата, томаты, сыр чеддер, бекон, красный лук, картофель фри.",nut:{kcal:"1575",b:"50,9",f:"111,2",c:"121,9"}},{n:"Бургер с индейкой",w:"300/100 г",p:"999₽",img:"uploads/%D0%91%D1%83%D1%80%D0%B3%D0%B5%D1%80%20%D1%81%20%D0%98%D0%BD%D0%B4%D0%B5%D0%B8%CC%86%D0%BA%D0%BE%D0%B8%CC%86.jpg",hot:false,desc:"Булочка для бургера, котлета из индейки, соус гриль, листья салата, томаты, яйцо, лук фри, картофель фри.",nut:null},{n:"Цезарь среди бургеров",w:"300/100 г",p:"999₽",img:"uploads/%D0%A6%D0%B5%D0%B7%D0%B0%D1%80%D1%8C%20%D1%81%D1%80%D0%B5%D0%B4%D0%B8%20%D0%B1%D1%83%D1%80%D0%B3%D0%B5%D1%80%D0%BE%D0%B2.jpg",hot:false,desc:"Булочка для бургера, тигровые креветки в сладком чили, листья салата, томаты, пармезан, соус цезарь, картофель фри.",nut:null},{n:"Гориллаз 2.0",w:"300/100 г",p:"999₽",img:"uploads/%D0%93%D0%BE%D1%80%D0%B8%D0%BB%D0%BB%D0%B0%D0%B7%202.0.jpg",hot:true,desc:"Булочка для бургера, говяжья котлета, листья салата, томаты, сыр чеддер, соус тар-тар, халапеньо, картофель фри.",nut:null},{n:"Рибс Бургер",w:"400/100 г",p:"1 449 ₽",img:"uploads/%D0%A0%D0%B8%D0%B1%D1%81%20%D0%91%D1%83%D1%80%D0%B3%D0%B5%D1%80.jpg",hot:false,desc:"Булочка для бургера, говяжье ребро, сырный соус, коул-слоу, перец чили, карамелизированный лук, картофель фри.",nut:{kcal:"1843",b:"66,4",f:"94,4",c:"109,6"}}],
-      "Пицца": [{n:"Маргарита",w:"400 г",p:"999₽",img:"uploads/%D0%9F%D0%B8%D1%86%D1%86%D0%B0%20%D0%9C%D0%B0%D1%80%D0%B3%D0%B0%D1%80%D0%B8%D1%82%D0%B0.jpg",hot:false,desc:"Хрустящее тесто, томатный соус, сыр моцарелла.",nut:{kcal:"1343",b:"53,4",f:"63,7",c:"138,9"}},{n:"Пепперони",w:"500 г",p:"999₽",img:"uploads/%D0%9F%D0%B8%D1%86%D1%86%D0%B0%20%D0%9F%D0%B5%D0%BF%D0%BF%D0%B5%D1%80%D0%BE%D0%BD%D0%B8.jpg",hot:false,desc:"Хрустящее тесто, томатный соус, сыр моцарелла, пепперони.",nut:{kcal:"1544",b:"57,6",f:"84,4",c:"138,4"}},{n:"Грибная",w:"550 г",p:"999₽",img:"uploads/%D0%9F%D0%B8%D1%86%D1%86%D0%B0%20%D0%93%D1%80%D0%B8%D0%B1%D0%BD%D0%B0%D1%8F.jpg",hot:false,desc:"Хрустящее тесто, трюфельный соус, сыр моцарелла, шампиньоны.",nut:{kcal:"1274",b:"44",f:"75",c:"101,9"}},{n:"Цезарь",w:"550 г",p:"1 299₽",img:"uploads/%D0%9F%D0%B8%D1%86%D1%86%D0%B0%20%D0%A6%D0%B5%D0%B7%D0%B0%D1%80%D1%8C.jpg",hot:false,desc:"Хрустящее тесто, томатный соус, моцарелла, куриная грудка, листья салата, томаты черри, пармезан.",nut:{kcal:"1238",b:"59,9",f:"64",c:"105,4"}},{n:"Карбонара",w:"550 г",p:"1 299₽",img:"uploads/%D0%9F%D0%B8%D1%86%D1%86%D0%B0%20%D0%9A%D0%B0%D1%80%D0%B1%D0%BE%D0%BD%D0%B0%D1%80%D0%B0.jpg",hot:false,desc:"Хрустящее тесто, сливочный соус, моцарелла, бекон, вяленые томаты черри, руккола, пармезан.",nut:{kcal:"726",b:"28,4",f:"44",c:"53,9"}},{n:"Четыре сыра",w:"500 г",p:"1 299₽",img:"uploads/%D0%9F%D0%B8%D1%86%D1%86%D0%B0%20%D0%A7%D0%B5%D1%82%D1%8B%D1%80%D0%B5%20%D1%81%D1%8B%D1%80%D0%B0.jpg",hot:false,desc:"Хрустящее тесто, томатный соус, моцарелла, дор блю, камамбер, пармезан, шпинат.",nut:{kcal:"1394",b:"71,3",f:"74,2",c:"110,4"}},{n:"Мясная",w:"550 г",p:"1 299₽",img:"uploads/%D0%9F%D0%B8%D1%86%D1%86%D0%B0%20%D0%9C%D1%8F%D1%81%D0%BD%D0%B0%D1%8F.jpg",hot:true,desc:"Хрустящее тесто, томатный соус, моцарелла, бекон, тамбовский окорок, пепперони, халапеньо, красный лук, соус BBQ.",nut:{kcal:"1408",b:"50,3",f:"83,6",c:"113,2"}},{n:"Груша и горгонзола",w:"500 г",p:"1 299₽",img:"uploads/%D0%9F%D0%B8%D1%86%D1%86%D0%B0%20%D0%93%D1%80%D1%83%D1%88%D0%B0%20%D0%B8%20%D0%B3%D0%BE%D1%80%D0%B3%D0%BE%D0%BD%D0%B7%D0%BE%D0%BB%D0%B0.jpg",hot:false,desc:"Хрустящее тесто, сливочный сыр, моцарелла, спелая груша, горгонзола, мёд, кедровые орешки.",nut:{kcal:"1401",b:"52,8",f:"74,9",c:"128,8"}},{n:"Креветки и руккола",w:"550 г",p:"1 299₽",img:"uploads/%D0%9F%D0%B8%D1%86%D1%86%D0%B0%20%D0%9A%D1%80%D0%B5%D0%B2%D0%B5%D1%82%D0%BA%D0%B8%20%D0%B8%20%D1%80%D1%83%D0%BA%D0%BA%D0%BE%D0%BB%D0%B0.jpg",hot:false,desc:"Хрустящее тесто, томатный соус, моцарелла, томаты черри, тигровые креветки, руккола, пармезан.",nut:{kcal:"1406",b:"60,3",f:"78,6",c:"114,1"}}],
-      "Горячее": [{n:"Карбонара",w:"250 г",p:"559 ₽",img:"uploads/%D0%9A%D0%B0%D1%80%D0%B1%D0%BE%D0%BD%D0%B0%D1%80%D0%B0.jpg",hot:false,desc:"Бекон, чесночное масло, лингвини, яйцо, пармезан, шпинат, вяленые томаты черри.",nut:{kcal:"726",b:"28,4",f:"44",c:"53,9"}},{n:"Цыплёнок гриль",w:"250 г",p:"729 ₽",img:"uploads/%D0%A6%D1%8B%D0%BF%D0%BB%D0%B5%D0%BD%D0%BE%D0%BA%20%D0%B3%D1%80%D0%B8%D0%BB%D1%8C.jpg",hot:false,desc:"Куриное бедро, картофельное пюре, соус терияки, кинза, вяленые томаты черри.",nut:null},{n:"Вок с говядиной",w:"300 г",p:"739 ₽",img:"uploads/%D0%92%D0%BE%D0%BA%20%D1%81%20%D0%B3%D0%BE%D0%B2%D1%8F%D0%B4%D0%B8%D0%BD%D0%BE%D0%B8%CC%86.jpg",hot:false,desc:"Мраморная говядина, чесночное масло, морковь, цукини, болгарский перец, чили, сельдерей, кинза, кунжут, терияки, устричный соус.",nut:{kcal:"692",b:"25",f:"29,6",c:"81,3"}},{n:"Лингвини с тигровыми креветками",w:"250 г",p:"739 ₽",img:"uploads/%D0%9B%D0%B8%D0%BD%D0%B3%D0%B2%D0%B8%D0%BD%D0%B8%20%D1%81%20%D1%82%D0%B8%D0%B3%D1%80%D0%BE%D0%B2%D1%8B%D0%BC%D0%B8%20%D0%BA%D1%80%D0%B5%D0%B2%D0%B5%D1%82%D0%BA%D0%B0%D0%BC%D0%B8.jpg",hot:false,desc:"Тигровые креветки, сливочное масло, тимьян, чесночное масло, лингвини, томатный соус, оливковое масло, пармезан.",nut:{kcal:"536",b:"26,5",f:"20,9",c:"60,3"}},{n:"Кебаб в лаваше",w:"400 г",p:"899₽",img:"uploads/%D0%9A%D0%B5%D0%B1%D0%B0%D0%B1%20%D0%B2%20%D0%BB%D0%B0%D0%B2%D0%B0%D1%88%D0%B5.jpg",hot:false,desc:"Лаваш, салат романо, капуста, томаты, огурцы, болгарский перец, чесночный соус, соус гриль, люля-кебаб из индейки, карамелизированный лук, картофель фри, соус BBQ.",nut:{kcal:"899",b:"22,7",f:"51,3",c:"86,4"}},{n:"Стейк из свинины по-азиатски",w:"300 г",p:"759 ₽",img:"uploads/%D0%A1%D1%82%D0%B5%D0%B8%CC%86%D0%BA%20%D0%B8%D0%B7%20%D1%81%D0%B2%D0%B8%D0%BD%D0%B8%D0%BD%D1%8B%20%D0%BF%D0%BE-%D0%B0%D0%B7%D0%B8%D0%B0%D1%82%D1%81%D0%BA%D0%B8.jpg",hot:true,desc:"Свиная шея, соевый соус, ким-чи, дайкон, морковь, чили, имбирь, кунжут, терияки, кунжутное масло, кинза.",nut:{kcal:"996",b:"29",f:"90",c:"17,4"}},{n:"Шашлык из свиной шеи",w:"250 г",p:"699 ₽",img:"uploads/%D0%A8%D0%B0%D1%88%D0%BB%D1%8B%D0%BA%20%D0%B8%D0%B7%20%D1%81%D0%B2%D0%B8%D0%BD%D0%BE%D0%B8%CC%86%20%D1%88%D0%B5%D0%B8.jpg",hot:false,desc:"Шашлык из свиной шеи, пшеничная лепёшка, красный лук, томаты черри, кукуруза, мини-чили, шашлычный соус.",nut:{kcal:"322",b:"6,1",f:"10,7",c:"47,6"}},{n:"Шашлык из куриного бедра",w:"250 г",p:"599 ₽",img:"uploads/%D0%A8%D0%B0%D1%88%D0%BB%D1%8B%D0%BA%20%D0%B8%D0%B7%20%D0%BA%D1%83%D1%80%D0%B8%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%84%D0%B8%D0%BB%D0%B5.jpg",hot:false,desc:"Шашлык из куриного филе, пшеничная лепёшка, красный лук, томаты черри, кукуруза, мини-чили, шашлычный соус.",nut:{kcal:"819",b:"37,1",f:"53,2",c:"47,8"}},{n:"Кеббаб из индейки",w:"250 г",p:"759₽",img:"uploads/%D0%9A%D0%B5%D0%B1%D0%B1%D0%B0%D0%B1%20%D0%B8%D0%B7%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%B8%CC%86%D0%BA%D0%B8.jpg",hot:false,desc:"Кеббаб из индейки, пшеничная лепёшка, красный лук, томаты черри, кукуруза, мини-чили, шашлычный соус.",nut:{kcal:"794",b:"36,7",f:"49,6",c:"50"}},{n:"Кебаб из говядины",w:"150/100/30 г",p:"919 ₽",img:"uploads/%D0%9A%D0%B5%D0%B1%D0%B0%D0%B1%20%D0%B8%D0%B7%20%D0%B3%D0%BE%D0%B2%D1%8F%D0%B4%D0%B8%D0%BD%D1%8B.jpg",hot:false,desc:"Кеббаб из говядины, пшеничная лепёшка, красный лук, томаты черри, кукуруза, мини-чили, шашлычный соус.",nut:{kcal:"792",b:"38,7",f:"48,6",c:"49,8"}},{n:"Бифштекс с яйцом пашот",w:"250 г",p:"879 ₽",img:"uploads/%D0%91%D0%B8%D1%84%D1%88%D1%82%D0%B5%D0%BA%D1%81%20%D1%81%20%D1%8F%D0%B8%CC%86%D1%86%D0%BE%D0%BC%20%D0%BF%D0%B0%D1%88%D0%BE%D1%82%20%D0%B8%20%D0%BA%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%20%D0%BB%D1%83%D0%BA%D0%BE%D0%BC.jpg",hot:false,desc:"Бифштекс из говядины, яйцо, карамелизированный лук, кинза, вяленые черри, чесночный соус.",nut:null},{n:"Бефстроганов из мраморной говядины",w:"300 г",p:"879 ₽",img:"uploads/%D0%91%D0%B5%D1%84%D1%81%D1%82%D1%80%D0%BE%D0%B3%D0%B0%D0%BD%D0%BD%D0%BE%D0%B2%20%D0%B8%D0%B7%20%D0%BC%D1%80%D0%B0%D0%BC%D0%BE%D1%80%D0%BD%D0%BE%D0%B8%CC%86%20%D0%B3%D0%BE%D0%B2%D1%8F%D0%B4%D0%B8%D0%BD%D1%8B%20%D1%81%20%D0%BA%D0%B0%D1%80%D1%82%D0%BE%D1%84%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%BC%20%D0%BF%D1%8E%D1%80%D0%B5.jpg",hot:false,desc:"Мраморная говядина, лук, сливки, горчица, эстрагон, картофельное пюре, пикули, вяленые томаты.",nut:{kcal:"745",b:"21,7",f:"55,5",c:"39,3"}},{n:"Паста с форелью в сливочном песто",w:"220 г",p:"999₽",img:"uploads/%D0%9F%D0%B0%D1%81%D1%82%D0%B0%20%D1%81%20%D1%84%D0%BE%D1%80%D0%B5%D0%BB%D1%8C%D1%8E%20%D0%B2%20%D1%81%D0%BB%D0%B8%D0%B2%D0%BE%D1%87%D0%BD%D0%BE%D0%BC%20%D0%BF%D0%B5%D1%81%D1%82%D0%BE.jpg",hot:false,desc:"Форель, чесночное масло, конкильони, сливки, соус песто, пармезан, оливковое масло, вяленые томаты черри.",nut:{kcal:"570",b:"25,6",f:"27,7",c:"54,4"}},{n:"Свиные рёбра BBQ с кукурузой",w:"350 г",p:"859 ₽",img:"uploads/%D0%A1%D0%B2%D0%B8%D0%BD%D1%8B%D0%B5%20%D1%80%D0%B5%D0%B1%D1%80%D0%B0%20BBQ%20%D1%81%20%D0%BA%D1%83%D0%BA%D1%83%D1%80%D1%83%D0%B7%D0%BE%D0%B8%CC%86%20%D0%BD%D0%B0%20%D0%B3%D1%80%D0%B8%D0%BB%D0%B5.jpg",hot:false,desc:"Свиные рёбра, томлёные в печи, в соусе BBQ, лук фри, мини-чили, кукуруза.",nut:{kcal:"773",b:"47,7",f:"50",c:"33"}},{n:"Свиные рёбра Чили-Кола с попкорном",w:"350 г",p:"859 ₽",img:"uploads/%D0%A1%D0%B2%D0%B8%D0%BD%D1%8B%D0%B5%20%D1%80%D0%B5%D0%B1%D1%80%D0%B0%20%D0%A7%D0%B8%D0%BB%D0%B8-%D0%9A%D0%BE%D0%BB%D0%B0%20%D1%81%20%D0%BF%D0%BE%D0%BF%D0%BA%D0%BE%D1%80%D0%BD%D0%BE%D0%BC.jpg",hot:true,desc:"Свиные рёбра, томлёные в печи, в соусе чили-кола, попкорн, мини-чили, кукуруза.",nut:{kcal:"650",b:"41,8",f:"46,4",c:"15,9"}},{n:"Стейк из форели с рисом",w:"120/150 г",p:"1 399 ₽",img:"uploads/%D0%A1%D1%82%D0%B5%D0%B8%CC%86%D0%BA%20%D0%B8%D0%B7%20%D1%84%D0%BE%D1%80%D0%B5%D0%BB%D0%B8%20%D1%81%20%D1%80%D0%B8%D1%81%D0%BE%D0%BC.jpg",hot:false,desc:"Форель, листья шпината, рис, зелёное масло, кунжут, кунжутное масло.",nut:{kcal:"809",b:"38,8",f:"70,3",c:"4,5"}},{n:"Томлёное в печи говяжье ребро",w:"250/150 г",p:"1 159 ₽",img:"uploads/%D0%A2%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%BE%D0%B5%20%D0%B2%20%D0%BF%D0%B5%D1%87%D0%B8%20%D0%B3%D0%BE%D0%B2%D1%8F%D0%B6%D1%8C%D0%B5%20%D1%80%D0%B5%D0%B1%D1%80%D0%BE.jpg",hot:true,desc:"Говяжье ребро, чили, вяленый томат, ремулад.",nut:{kcal:"951",b:"52,4",f:"74,7",c:"17,2"}}],
-      "Салаты": [{n:"Салат с хрустящими баклажанами",w:"250 г",p:"599 ₽",img:"uploads/%D0%A1%D0%B0%D0%BB%D0%B0%D1%82%20%D1%81%20%D1%85%D1%80%D1%83%D1%81%D1%82%D1%8F%D1%89%D0%B8%D0%BC%D0%B8%20%D0%B1%D0%B0%D0%BA%D0%BB%D0%B0%D0%B6%D0%B0%D0%BD%D0%B0%D0%BC%D0%B8.jpg",hot:false,desc:"Хрустящие баклажаны, розовые томаты, руккола, вяленые томаты, рикотта, кунжутное масло, терияки и кунжут.",nut:{kcal:"272",b:"11,9",f:"9,1",c:"35,6"}},{n:"Цезарь с хрустящим цыплёнком",w:"200 г",p:"599 ₽",img:"uploads/%D0%A6%D0%B5%D0%B7%D0%B0%D1%80%D1%8C%20%D1%81%20%D1%85%D1%80%D1%83%D1%81%D1%82%D1%8F%D1%89%D0%B8%D0%BC%20%D1%86%D1%8B%D0%BF%D0%BB%D0%B5%D0%BD%D0%BA%D0%BE%D0%BC.jpg",hot:false,desc:"Листья салата, соус цезарь, томаты черри, перепелиные яйца, цыплёнок на гриле, гренки, пармезан.",nut:{kcal:"381",b:"16",f:"34",c:"2,6"}},{n:"Оливье с форелью",w:"200 г",p:"599 ₽",img:"uploads/%D0%9E%D0%BB%D0%B8%D0%B2%D1%8C%D0%B5%20%D1%81%20%D1%84%D0%BE%D1%80%D0%B5%D0%BB%D1%8C%D1%8E.jpg",hot:false,desc:"Картофель, морковь, яйцо, зелёный горошек, маринованный огурец, форель слабой соли, майонез.",nut:{kcal:"309",b:"13,3",f:"21,3",c:"16"}},{n:"Цезарь с креветкой",w:"200 г",p:"649 ₽",img:"uploads/%D0%A6%D0%B5%D0%B7%D0%B0%D1%80%D1%8C%20%D1%81%20%D0%BA%D1%80%D0%B5%D0%B2%D0%B5%D1%82%D0%BA%D0%BE%D0%B8%CC%86.jpg",hot:false,desc:"Листья салата, соус цезарь, томаты черри, перепелиные яйца, тигровые креветки, гренки, пармезан.",nut:{kcal:"352",b:"17,7",f:"29,3",c:"4,2"}},{n:"Греческий",w:"250 г",p:"649 ₽",img:"uploads/%D0%93%D1%80%D0%B5%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B8%CC%86.jpg",hot:false,desc:"Свежие овощи в сочетании с нежной брынзой, каперсами, греческими оливками и оливковым маслом.",nut:{kcal:"294",b:"11,9",f:"23,3",c:"8,8"}},{n:"Салат с креветкой и грейпфрутом",w:"200 г",p:"899₽",img:"uploads/%D0%A1%D0%B0%D0%BB%D0%B0%D1%82%20%D1%81%20%D0%BA%D1%80%D0%B5%D0%B2%D0%B5%D1%82%D0%BA%D0%B0%D0%BC%D0%B8%20%D0%B8%20%D0%B3%D1%80%D0%B5%D0%B8%CC%86%D0%BF%D1%84%D1%80%D1%83%D1%82%D0%BE%D0%BC.jpg",hot:false,desc:"Листья салата, филе грейпфрута, слайсы лайма, томаты черри, креветки темпура, сладкий чили, кунжут, кунжутное масло.",nut:{kcal:"248",b:"11,6",f:"10,4",c:"26,8"}},{n:"Стейк-салат",w:"250 г",p:"899₽",img:"uploads/%D0%A1%D1%82%D0%B5%D0%B8%CC%86%D0%BA%20%D0%A1%D0%B0%D0%BB%D0%B0%D1%82.jpg",hot:true,desc:"Листья салата, кинза, болгарский перец, огурец, томаты черри, красный лук, стейк пиканья, кунжут, соевый соус, терияки, чили, кунжутное масло, чеснок.",nut:{kcal:"242",b:"18,1",f:"12,1",c:"14,9"}},{n:"Капрезе",w:"200 г",p:"899₽",img:"uploads/%D0%9A%D0%B0%D0%BF%D1%80%D0%B5%D0%B7%D0%B5.jpg",hot:false,desc:"Розовые томаты, помидоры черри, сливочная моцарелла, соус песто, базилик.",nut:{kcal:"471",b:"22,5",f:"39,7",c:"6"}},{n:"Тар-тар из мраморной говядины",w:"200 г",p:"999₽",img:"uploads/%D0%A2%D0%B0%D1%80-%D0%A2%D0%B0%D1%80%20%D0%B8%D0%B7%20%D0%BC%D1%80%D0%B0%D0%BC%D0%BE%D1%80%D0%BD%D0%BE%D0%B8%CC%86%20%D0%B3%D0%BE%D0%B2%D1%8F%D0%B4%D0%B8%D0%BD%D1%8B.jpg",hot:false,desc:"Мраморная говядина, каперсы, маринованный огурец, красный лук, соус ворчестер, горчица, зелёное масло и пармезан.",nut:{kcal:"328",b:"25",f:"15",c:"22"}}],
-      "Супы": [{n:"Борщ с говядиной и сметаной",w:"300/100 г",p:"599 ₽",img:"uploads/%D0%91%D0%BE%D1%80%D1%89%20%D1%81%20%D0%B3%D0%BE%D0%B2%D1%8F%D0%B4%D0%B8%D0%BD%D0%BE%D0%B8%CC%86%20%D0%B8%20%D1%81%D0%BC%D0%B5%D1%82%D0%B0%D0%BD%D0%BE%D0%B8%CC%86..jpg",hot:false,desc:"Подаётся с ржаной чиабаттой, копчёным салом и сметаной.",nut:{kcal:"644",b:"14,6",f:"50,9",c:"27,1"}},{n:"Тыквенный крем-суп с креветками",w:"300/100 г",p:"599 ₽",img:"uploads/%D0%A2%D1%8B%D0%BA%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B8%CC%86%20%D0%BA%D1%80%D0%B5%D0%BC%20%D1%81%D1%83%D0%BF%20%D1%81%20%D1%82%D0%B8%D0%B3%D1%80%D0%BE%D0%B2%D1%8B%D0%BC%D0%B8%20%D0%BA%D1%80%D0%B5%D0%B2%D0%B5%D1%82%D0%BA%D0%B0%D0%BC%D0%B8.jpg",hot:false,desc:"Подаётся с чиабаттой и рикоттой.",nut:{kcal:"512",b:"14,1",f:"38,7",c:"26,2"}},{n:"Том-ям с тигровыми креветками",w:"300/100 г",p:"629 ₽",img:"uploads/%D0%A2%D0%BE%D0%BC-%D0%AF%D0%BC%20%D1%81%20%D1%82%D0%B8%D0%B3%D1%80%D0%BE%D0%B2%D1%8B%D0%BC%D0%B8%20%D0%BA%D1%80%D0%B5%D0%B2%D0%B5%D1%82%D0%BA%D0%B0%D0%BC%D0%B8..jpg",hot:true,desc:"Тигровые креветки, лайм, имбирь, шампиньоны, томаты черри, лемонграсс, паста том-ям, бульон, кокосовое молоко, кинза, кунжут, рис.",nut:{kcal:"217",b:"16,8",f:"4,1",c:"27,9"}}],
-      "Закуски": [{n:"Луковые кольца",w:"90/30 г · 8 шт",p:"379 ₽",img:"uploads/%D0%9B%D1%83%D0%BA%D0%BE%D0%B2%D1%8B%D0%B5%20%D0%BA%D0%BE%D0%BB%D1%8C%D1%86%D0%B0.jpg",hot:false,desc:"Луковые кольца с соусом тар-тар.",nut:{kcal:"484",b:"5,4",f:"33,4",c:"40,4"}},{n:"Куриные наггетсы",w:"110/30 г · 6 шт",p:"379 ₽",img:"uploads/%D0%9A%D1%83%D1%80%D0%B8%D0%BD%D1%8B%D0%B5%20%D0%BD%D0%B0%D0%B3%D0%B3%D0%B5%D1%82%D1%81%D1%8B.jpg",hot:false,desc:"Куриные наггетсы с сырным соусом.",nut:{kcal:"243",b:"17,5",f:"7,4",c:"26,3"}},{n:"Картофель фри",w:"200/30 г",p:"379 ₽",img:"uploads/%D0%9A%D0%B0%D1%80%D1%82%D0%BE%D1%84%D0%B5%D0%BB%D1%8C%20%D1%84%D1%80%D0%B8.jpg",hot:false,desc:"Картофель фри с сырным соусом.",nut:{kcal:"617",b:"6,6",f:"34,7",c:"67,4"}},{n:"Картофель по-деревенски",w:"200/30 г",p:"379 ₽",img:"uploads/%D0%9A%D0%B0%D1%80%D1%82%D0%BE%D1%84%D0%B5%D0%BB%D1%8C%20%D0%BF%D0%BE-%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B5%D0%BD%D1%81%D0%BA%D0%B8.jpg",hot:false,desc:"Картофель по-деревенски с соусом барбекю.",nut:{kcal:"441",b:"6,3",f:"12,4",c:"75,6"}},{n:"Бейби-картофель",w:"200 г",p:"469 ₽",img:"uploads/%D0%91%D0%B5%D0%B8%CC%86%D0%B1%D0%B8-%D0%BA%D0%B0%D1%80%D1%82%D0%BE%D1%84%D0%B5%D0%BB%D1%8C.jpg",hot:false,desc:"Картофель черри, тимьян, розмарин, соль, перец, чесночное и сливочное масло.",nut:null},{n:"Кукуруза гриль",w:"200 г",p:"469 ₽",img:"uploads/%D0%9A%D1%83%D0%BA%D1%83%D1%80%D1%83%D0%B7%D0%B0%20%D0%B3%D1%80%D0%B8%D0%BB%D1%8C.jpg",hot:false,desc:"Початок кукурузы, соль, перец, тимьян, чесночное и сливочное масло.",nut:null},{n:"Шампиньоны на гриле",w:"150 г",p:"469 ₽",img:"uploads/%D0%A8%D0%B0%D0%BC%D0%BF%D0%B8%D0%BD%D1%8C%D0%BE%D0%BD%D1%8B%20%D0%BD%D0%B0%20%D0%B3%D1%80%D0%B8%D0%BB%D0%B5.jpg",hot:false,desc:"Шампиньоны, соль, перец, орегано, чесночное масло, соус терияки.",nut:{kcal:"773",b:"47,7",f:"50",c:"33"}},{n:"Овощи гриль",w:"200 г",p:"469 ₽",img:"uploads/%D0%BE%D0%B2%D0%BE%D1%88%D0%B8%20%D0%B3%D1%80%D0%B8%D0%BB%D1%8C.jpg",hot:false,desc:"Баклажан, цукини, болгарский перец, кукуруза, шампиньоны, красный лук, соль, перец, чесночное масло, зелень.",nut:null},{n:"Сырные палочки",w:"150/30 г · 6 шт",p:"499 ₽",img:"uploads/%D0%A1%D1%8B%D1%80%D0%BD%D1%8B%D0%B5%20%D0%BF%D0%B0%D0%BB%D0%BE%D1%87%D0%BA%D0%B8.jpg",hot:false,desc:"Сырные палочки с брусничным соусом.",nut:{kcal:"445",b:"25,2",f:"17,1",c:"52,8"}},{n:"Мини-чебуреки с курицей",w:"150/30 г",p:"499 ₽",img:"uploads/%D0%9C%D0%B8%D0%BD%D0%B8-%D1%87%D0%B5%D0%B1%D1%83%D1%80%D0%B5%D0%BA%D0%B8%20%D1%81%20%D0%BA%D1%83%D1%80%D0%B8%D1%86%D0%B5%D0%B8%CC%86.jpg",hot:false,desc:"Мини-чебуреки с курицей и сырным соусом.",nut:{kcal:"750",b:"11,9",f:"56,6",c:"48"}},{n:"Ржаные гренки",w:"250 г",p:"499 ₽",img:"uploads/%D0%A0%D0%B6%D0%B0%D0%BD%D1%8B%D0%B5%20%D0%B3%D1%80%D0%B5%D0%BD%D0%BA%D0%B8.jpg",hot:true,desc:"Бородинский хлеб, чесночное масло, соль, паприка, тимьян, сырный соус, хлопья чили, лук фри.",nut:{kcal:"843",b:"20,1",f:"45,6",c:"87,9"}},{n:"Хрустящие пирожки с цыпой",w:"150/30 г",p:"649 ₽",img:"uploads/%D0%A5%D1%80%D1%83%D1%81%D1%82%D1%8F%D1%89%D0%B8%D0%B5%20%D0%BF%D0%B8%D1%80%D0%BE%D0%B6%D0%BA%D0%B8%20%D1%81%20%D1%86%D1%8B%D0%BF%D0%BE%D0%B8%CC%86.jpg",hot:true,desc:"Хрустящие пирожки с овощами, сыром и копчёным цыплёнком. Подаём со сметаной.",nut:{kcal:"549",b:"19,3",f:"35,5",c:"37,9"}},{n:"Креветки темпура",w:"120/30 г",p:"649 ₽",img:"uploads/%D0%9A%D1%80%D0%B5%D0%B2%D0%B5%D1%82%D0%BA%D0%B8%20%D1%82%D0%B5%D0%BC%D0%BF%D1%83%D1%80%D0%B0.jpg",hot:false,desc:"Креветки темпура с соусом сладкий чили.",nut:{kcal:"171",b:"17,7",f:"3,4",c:"17,4"}},{n:"Шарики и цыпы",w:"200/30 г",p:"649 ₽",img:"uploads/%D0%A8%D0%B0%D1%80%D0%B8%D0%BA%D0%B8%20%D0%B8%20%D1%86%D1%8B%D0%BF%D1%8B.jpg",hot:false,desc:"Куриные шарики с сыром и соусом барбекю.",nut:{kcal:"485",b:"37",f:"20,3",c:"14,9"}},{n:"Крылья BBQ с луком фри",w:"300 г",p:"999₽",img:"uploads/%D0%9A%D1%80%D1%8B%D0%BB%D1%8C%D1%8F%20BBQ%20%D1%81%20%D0%BB%D1%83%D0%BA%D0%BE%D0%BC%20%D1%84%D1%80%D0%B8.jpg",hot:false,desc:"Куриные крылышки в соусе BBQ, картофель фри, лук фри, лайм, мини-чили, зелень.",nut:{kcal:"823",b:"49,2",f:"40,4",c:"65,4"}},{n:"Крылья Чили-Кола с попкорном",w:"300 г",p:"999₽",img:"uploads/%D0%9A%D1%80%D1%8B%D0%BB%D1%8C%D1%8F%20%D0%A7%D0%B8%D0%BB%D0%B8-%D0%9A%D0%BE%D0%BB%D0%B0%20%D1%81%20%D0%BF%D0%BE%D0%BF%D0%BA%D0%BE%D1%80%D0%BD%D0%BE%D0%BC.jpg",hot:true,desc:"Куриные крылышки в соусе чили-кола, картофель фри, мини-чили, лайм, попкорн, зелень.",nut:{kcal:"802",b:"47,2",f:"45,7",c:"50,3"}}],
-      "Десерты": [{n:"Чизкейк",w:"150 г",p:"519 ₽",img:"uploads/%D0%A7%D0%B8%D0%B7%D0%BA%D0%B5%D0%B8%CC%86%D0%BA.jpg",hot:false,desc:"Сырный пирог с ягодным соусом.",nut:{kcal:"422",b:"9",f:"8",c:"77"}},{n:"Сметанник с лесными ягодами",w:"180 г",p:"519 ₽",img:"uploads/%D0%A1%D0%BC%D0%B5%D1%82%D0%B0%D0%BD%D0%BD%D0%B8%D0%BA%20%D1%81%20%D0%BB%D0%B5%D1%81%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%8F%D0%B3%D0%BE%D0%B4%D0%B0%D0%BC%D0%B8.jpg",hot:false,desc:"Лесные ягоды, сметанный крем, брауни.",nut:{kcal:"668",b:"9",f:"27,6",c:"95,8"}},{n:"Грушевый тарт",w:"200 г",p:"519 ₽",img:"uploads/%D0%93%D1%80%D1%83%D1%88%D0%B5%D0%B2%D1%8B%D0%B8%CC%86%20%D1%82%D0%B0%D1%80%D1%82.jpg",hot:false,desc:"Слоёное тесто, сахарная карамель, груша, шоколадный соус и мороженое.",nut:{kcal:"243",b:"2",f:"12",c:"29"}},{n:"Крейзи Айс-Крим",w:"250 г",p:"519 ₽",img:"uploads/%D0%9A%D1%80%D0%B5%D0%B8%CC%86%D0%B7%D0%B8%20%D0%BC%D0%BE%D1%80%D0%BE%D0%B6%D0%B5%D0%BD%D0%BD%D0%BE%D0%B5.jpg",hot:false,desc:"Ассорти мороженого, вафли, печенье орео, кондитерская посыпка, мята, маршмеллоу, шоколадный соус.",nut:{kcal:"613",b:"9,3",f:"26,7",c:"83,6"}}],
-      "Детское": [{n:"Хрустики",w:"150 г",p:"339₽",img:"uploads/%D0%A5%D1%80%D1%83%D1%81%D1%82%D0%B8%D0%BA%D0%B8.jpg",hot:false,desc:"Морковные и огуречные палочки со сметанкой.",nut:{kcal:"58",b:"1",f:"3",c:"4"}},{n:"Куриный суп с макарошками",w:"250 г",p:"339₽",img:"uploads/%D0%9A%D1%83%D1%80%D0%B8%D0%BD%D1%8B%D0%B8%CC%86%20%D1%81%D1%83%D0%BF%20%D1%81%20%D0%BC%D0%B0%D0%BA%D0%B0%D1%80%D0%BE%D1%88%D0%BA%D0%B0%D0%BC%D0%B8.jpg",hot:false,desc:"Куриный бульон, куриное филе, морковь, лук, макарошки.",nut:{kcal:"205",b:"13,9",f:"7,8",c:"19,7"}},{n:"Мне только картошку и наггетсы",w:"250 г",p:"429 ₽",img:"uploads/%D0%9C%D0%BD%D0%B5%20%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%BA%D0%B0%D1%80%D1%82%D0%BE%D1%88%D0%BA%D1%83%20%D0%B8%20%D0%BD%D0%B0%D0%B3%D0%B3%D0%B5%D1%82%D1%81%D1%8B.jpg",hot:false,desc:"Картофель фри и наггетсы встретились в одной тарелке.",nut:{kcal:"149",b:"7",f:"8",c:"11"}},{n:"Хот-дог",w:"160/100/30 г",p:"529 ₽",img:"uploads/%D0%A5%D0%BE%D1%82-%D0%B4%D0%BE%D0%B3.jpg",hot:false,desc:"С картошкой фри и кетчупом для самых голодных.",nut:null},{n:"Мини-чикен",w:"160/100/30 г",p:"529 ₽",img:"uploads/%D0%9C%D0%B8%D0%BD%D0%B8-%D1%87%D0%B8%D0%BA%D0%B5%D0%BD.jpg",hot:false,desc:"В сто раз вкуснее взрослого. С картошкой фри и кетчупом.",nut:{kcal:"152",b:"5",f:"8",c:"14"}},{n:"Крейзи мороженое",w:"250 г",p:"519 ₽",img:"uploads/%D0%9A%D1%80%D0%B5%D0%B8%CC%86%D0%B7%D0%B8%20%D0%BC%D0%BE%D1%80%D0%BE%D0%B6%D0%B5%D0%BD%D0%BD%D0%BE%D0%B5.jpg",hot:false,desc:"Мороженое в ассортименте, шоколадный топпинг, посыпка, вафли, мини печенье орео, маршмеллоу, мята.",nut:{kcal:"613",b:"9,3",f:"26,7",c:"83,6"}}],
+      "Для компании": [{n:"Хрустящие овощи",w:"550 г",p:"939 ₽",img:"../uploads/%D0%A5%D1%80%D1%83%D1%81%D1%82%D1%8F%D1%89%D0%B8%D0%B5%20%D0%BE%D0%B2%D0%BE%D1%89%D0%B8.jpg",hot:false,desc:"Свежие огурцы, томаты, болгарский перец, сельдерей, редис, помидоры черри, зелень.",nut:{kcal:"147",b:"3,7",f:"8,4",c:"14"}},{n:"Сырная тарелка",w:"250 г",p:"1 599 ₽",img:"../uploads/%D0%A1%D1%8B%D1%80%D0%BD%D0%B0%D1%8F%20%D1%82%D0%B0%D1%80%D0%B5%D0%BB%D0%BA%D0%B0.jpg",hot:false,desc:"Дорблю, бри, пармезан, чеддер, груша, розмарин, мёд, грецкий орех.",nut:{kcal:"962",b:"62,1",f:"60,8",c:"38,8"}},{n:"Пивная тарелка полкило",w:"500 г",p:"1 658 ₽",img:"../uploads/%D0%9F%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F%20%D1%82%D0%B0%D1%80%D0%B5%D0%BB%D0%BA%D0%B0%20%D0%BF%D0%BE%D0%BB%D0%BA%D0%B8%D0%BB%D0%BE.jpg",hot:false,desc:"Чесночные гренки, картофель фри, куриные наггетсы, сырные палочки, луковые кольца, чипсы из пепперони, соус тар-тар, кетчуп и сырный соус.",nut:{kcal:"1749",b:"61,6",f:"93,8",c:"169,7"}},{n:"Тарелка мясных деликатесов",w:"150 г",p:"1 758 ₽",img:"../uploads/%D0%A2%D0%B0%D1%80%D0%B5%D0%BB%D0%BA%D0%B0%20%D0%BC%D1%8F%D1%81%D0%BD%D1%8B%D1%85%20%D0%B4%D0%B5%D0%BB%D0%B8%D0%BA%D0%B0%D1%82%D0%B5%D1%81%D0%BE%D0%B2.jpg",hot:false,desc:"Сыровяленая коппа, трюфельная салями, тамбовский окорок, грисини, вяленые томаты, зелень.",nut:{kcal:"271",b:"20,4",f:"18,8",c:"4,8"}},{n:"Сообразим на троих",w:"1100 г",p:"2 198 ₽",img:"../uploads/%D0%A1%D0%BE%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%B8%D0%BC%20%D0%BD%D0%B0%20%D1%82%D1%80%D0%BE%D0%B8%D1%85.jpg",hot:true,desc:"Картофель по-деревенски, сырные палочки, луковые кольца, куриные крокеты, хрустящие пирожки с цыплёнком, мини-чебуреки, кукуруза, сырный соус, соус чипотле и соус BBQ.",nut:{kcal:"3170",b:"128,1",f:"156,7",c:"276,3"}},{n:"Полстола Пиццы",w:"1600 г",p:"2 698 ₽",img:"../uploads/%D0%9F%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%BB%D0%B0%20%D0%9F%D0%B8%D1%86%D1%86%D1%8B.jpg",hot:false,desc:"Любимые пиццы в одном: пепперони, цезарь, маргарита и мясная.",nut:{kcal:"4512",b:"190,2",f:"233,5",c:"412,2"}},{n:"Мясной Пир",w:"1300 г",p:"3 358 ₽",img:"../uploads/%D0%9C%D1%8F%D1%81%D0%BD%D0%BE%D0%B8%CC%86%20%D0%9F%D0%B8%D1%80.jpg",hot:false,desc:"Шашлык из свинины, шашлык из курицы, крылышки на углях, кебаб из индейки, картофель черри, шампиньоны на гриле, красный лук, шашлычный соус, пшеничная лепёшка, перец чили.",nut:{kcal:"3096",b:"188,2",f:"199,4",c:"130,3"}},{n:"Сет Колбас",w:"1000 г",p:"3 358 ₽",img:"../uploads/%D0%A1%D0%B5%D1%82%20%D0%9A%D0%BE%D0%BB%D0%B1%D0%B0%D1%81.jpg",hot:false,desc:"Ассорти колбас на гриле с пшеничной лепёшкой, кукурузой, перцем чили, салатами коул-слоу и ремулад, соусами релиш, BBQ и тар-тар.",nut:{kcal:"843",b:"14,9",f:"47,9",c:"88,1"}}],
+      "Бургеры": [{n:"Бруклин Бургер",w:"300/100 г",p:"869 ₽",img:"../uploads/%D0%91%D1%80%D1%83%D0%BA%D0%BB%D0%B8%D0%BD%20%D0%91%D1%83%D1%80%D0%B3%D0%B5%D1%80.jpg",hot:false,desc:"Булочка для бургера, котлета из мраморной говядины, соус BBQ, соус тар-тар, листья салата, томаты, сыр чеддер, бекон, красный лук, картофель фри.",nut:{kcal:"1575",b:"50,9",f:"111,2",c:"121,9"}},{n:"Бургер с индейкой",w:"300/100 г",p:"869 ₽",img:"../uploads/%D0%91%D1%83%D1%80%D0%B3%D0%B5%D1%80%20%D1%81%20%D0%98%D0%BD%D0%B4%D0%B5%D0%B8%CC%86%D0%BA%D0%BE%D0%B8%CC%86.jpg",hot:false,desc:"Булочка для бургера, котлета из индейки, соус гриль, листья салата, томаты, яйцо, лук фри, картофель фри.",nut:null},{n:"Цезарь среди бургеров",w:"300/100 г",p:"869 ₽",img:"../uploads/%D0%A6%D0%B5%D0%B7%D0%B0%D1%80%D1%8C%20%D1%81%D1%80%D0%B5%D0%B4%D0%B8%20%D0%B1%D1%83%D1%80%D0%B3%D0%B5%D1%80%D0%BE%D0%B2.jpg",hot:false,desc:"Булочка для бургера, тигровые креветки в сладком чили, листья салата, томаты, пармезан, соус цезарь, картофель фри.",nut:null},{n:"Гориллаз 2.0",w:"300/100 г",p:"869 ₽",img:"../uploads/%D0%93%D0%BE%D1%80%D0%B8%D0%BB%D0%BB%D0%B0%D0%B7%202.0.jpg",hot:true,desc:"Булочка для бургера, говяжья котлета, листья салата, томаты, сыр чеддер, соус тар-тар, халапеньо, картофель фри.",nut:null},{n:"Рибс Бургер",w:"400/100 г",p:"1 549 ₽",img:"../uploads/%D0%A0%D0%B8%D0%B1%D1%81%20%D0%91%D1%83%D1%80%D0%B3%D0%B5%D1%80.jpg",hot:false,desc:"Булочка для бургера, говяжье ребро, сырный соус, коул-слоу, перец чили, карамелизированный лук, картофель фри.",nut:{kcal:"1843",b:"66,4",f:"94,4",c:"109,6"}}],
+      "Пицца": [{n:"Маргарита",w:"400 г",p:"1 098 ₽",img:"../uploads/%D0%9F%D0%B8%D1%86%D1%86%D0%B0%20%D0%9C%D0%B0%D1%80%D0%B3%D0%B0%D1%80%D0%B8%D1%82%D0%B0.jpg",hot:false,desc:"Хрустящее тесто, томатный соус, сыр моцарелла.",nut:{kcal:"1343",b:"53,4",f:"63,7",c:"138,9"}},{n:"Пепперони",w:"500 г",p:"1 098 ₽",img:"../uploads/%D0%9F%D0%B8%D1%86%D1%86%D0%B0%20%D0%9F%D0%B5%D0%BF%D0%BF%D0%B5%D1%80%D0%BE%D0%BD%D0%B8.jpg",hot:false,desc:"Хрустящее тесто, томатный соус, сыр моцарелла, пепперони.",nut:{kcal:"1544",b:"57,6",f:"84,4",c:"138,4"}},{n:"Грибная",w:"550 г",p:"1 098 ₽",img:"../uploads/%D0%9F%D0%B8%D1%86%D1%86%D0%B0%20%D0%93%D1%80%D0%B8%D0%B1%D0%BD%D0%B0%D1%8F.jpg",hot:false,desc:"Хрустящее тесто, трюфельный соус, сыр моцарелла, шампиньоны.",nut:{kcal:"1274",b:"44",f:"75",c:"101,9"}},{n:"Цезарь",w:"550 г",p:"1 198 ₽",img:"../uploads/%D0%9F%D0%B8%D1%86%D1%86%D0%B0%20%D0%A6%D0%B5%D0%B7%D0%B0%D1%80%D1%8C.jpg",hot:false,desc:"Хрустящее тесто, томатный соус, моцарелла, куриная грудка, листья салата, томаты черри, пармезан.",nut:{kcal:"1238",b:"59,9",f:"64",c:"105,4"}},{n:"Карбонара",w:"550 г",p:"1 198 ₽",img:"../uploads/%D0%9F%D0%B8%D1%86%D1%86%D0%B0%20%D0%9A%D0%B0%D1%80%D0%B1%D0%BE%D0%BD%D0%B0%D1%80%D0%B0.jpg",hot:false,desc:"Хрустящее тесто, сливочный соус, моцарелла, бекон, вяленые томаты черри, руккола, пармезан.",nut:{kcal:"726",b:"28,4",f:"44",c:"53,9"}},{n:"Четыре сыра",w:"500 г",p:"1 198 ₽",img:"../uploads/%D0%9F%D0%B8%D1%86%D1%86%D0%B0%20%D0%A7%D0%B5%D1%82%D1%8B%D1%80%D0%B5%20%D1%81%D1%8B%D1%80%D0%B0.jpg",hot:false,desc:"Хрустящее тесто, томатный соус, моцарелла, дор блю, камамбер, пармезан, шпинат.",nut:{kcal:"1394",b:"71,3",f:"74,2",c:"110,4"}},{n:"Мясная",w:"550 г",p:"1 198 ₽",img:"../uploads/%D0%9F%D0%B8%D1%86%D1%86%D0%B0%20%D0%9C%D1%8F%D1%81%D0%BD%D0%B0%D1%8F.jpg",hot:true,desc:"Хрустящее тесто, томатный соус, моцарелла, бекон, тамбовский окорок, пепперони, халапеньо, красный лук, соус BBQ.",nut:{kcal:"1408",b:"50,3",f:"83,6",c:"113,2"}},{n:"Груша и горгонзола",w:"500 г",p:"1 298 ₽",img:"../uploads/%D0%9F%D0%B8%D1%86%D1%86%D0%B0%20%D0%93%D1%80%D1%83%D1%88%D0%B0%20%D0%B8%20%D0%B3%D0%BE%D1%80%D0%B3%D0%BE%D0%BD%D0%B7%D0%BE%D0%BB%D0%B0.jpg",hot:false,desc:"Хрустящее тесто, сливочный сыр, моцарелла, спелая груша, горгонзола, мёд, кедровые орешки.",nut:{kcal:"1401",b:"52,8",f:"74,9",c:"128,8"}},{n:"Креветки и руккола",w:"550 г",p:"1 298 ₽",img:"../uploads/%D0%9F%D0%B8%D1%86%D1%86%D0%B0%20%D0%9A%D1%80%D0%B5%D0%B2%D0%B5%D1%82%D0%BA%D0%B8%20%D0%B8%20%D1%80%D1%83%D0%BA%D0%BA%D0%BE%D0%BB%D0%B0.jpg",hot:false,desc:"Хрустящее тесто, томатный соус, моцарелла, томаты черри, тигровые креветки, руккола, пармезан.",nut:{kcal:"1406",b:"60,3",f:"78,6",c:"114,1"}}],
+      "Горячее": [{n:"Карбонара",w:"250 г",p:"649 ₽",img:"../uploads/%D0%9A%D0%B0%D1%80%D0%B1%D0%BE%D0%BD%D0%B0%D1%80%D0%B0.jpg",hot:false,desc:"Бекон, чесночное масло, лингвини, яйцо, пармезан, шпинат, вяленые томаты черри.",nut:{kcal:"726",b:"28,4",f:"44",c:"53,9"}},{n:"Цыплёнок гриль",w:"250 г",p:"769 ₽",img:"../uploads/%D0%A6%D1%8B%D0%BF%D0%BB%D0%B5%D0%BD%D0%BE%D0%BA%20%D0%B3%D1%80%D0%B8%D0%BB%D1%8C.jpg",hot:false,desc:"Куриное бедро, картофельное пюре, соус терияки, кинза, вяленые томаты черри.",nut:null},{n:"Вок с говядиной",w:"300 г",p:"799 ₽",img:"../uploads/%D0%92%D0%BE%D0%BA%20%D1%81%20%D0%B3%D0%BE%D0%B2%D1%8F%D0%B4%D0%B8%D0%BD%D0%BE%D0%B8%CC%86.jpg",hot:false,desc:"Мраморная говядина, чесночное масло, морковь, цукини, болгарский перец, чили, сельдерей, кинза, кунжут, терияки, устричный соус.",nut:{kcal:"692",b:"25",f:"29,6",c:"81,3"}},{n:"Лингвини с тигровыми креветками",w:"250 г",p:"799 ₽",img:"../uploads/%D0%9B%D0%B8%D0%BD%D0%B3%D0%B2%D0%B8%D0%BD%D0%B8%20%D1%81%20%D1%82%D0%B8%D0%B3%D1%80%D0%BE%D0%B2%D1%8B%D0%BC%D0%B8%20%D0%BA%D1%80%D0%B5%D0%B2%D0%B5%D1%82%D0%BA%D0%B0%D0%BC%D0%B8.jpg",hot:false,desc:"Тигровые креветки, сливочное масло, тимьян, чесночное масло, лингвини, томатный соус, оливковое масло, пармезан.",nut:{kcal:"536",b:"26,5",f:"20,9",c:"60,3"}},{n:"Кебаб в лаваше",w:"400 г",p:"789 ₽",img:"../uploads/%D0%9A%D0%B5%D0%B1%D0%B0%D0%B1%20%D0%B2%20%D0%BB%D0%B0%D0%B2%D0%B0%D1%88%D0%B5.jpg",hot:false,desc:"Лаваш, салат романо, капуста, томаты, огурцы, болгарский перец, чесночный соус, соус гриль, люля-кебаб из индейки, карамелизированный лук, картофель фри, соус BBQ.",nut:{kcal:"899",b:"22,7",f:"51,3",c:"86,4"}},{n:"Стейк из свинины по-азиатски",w:"300 г",p:"948 ₽",img:"../uploads/%D0%A1%D1%82%D0%B5%D0%B8%CC%86%D0%BA%20%D0%B8%D0%B7%20%D1%81%D0%B2%D0%B8%D0%BD%D0%B8%D0%BD%D1%8B%20%D0%BF%D0%BE-%D0%B0%D0%B7%D0%B8%D0%B0%D1%82%D1%81%D0%BA%D0%B8.jpg",hot:true,desc:"Свиная шея, соевый соус, ким-чи, дайкон, морковь, чили, имбирь, кунжут, терияки, кунжутное масло, кинза.",nut:{kcal:"996",b:"29",f:"90",c:"17,4"}},{n:"Шашлык из свиной шеи",w:"250 г",p:"749 ₽",img:"../uploads/%D0%A8%D0%B0%D1%88%D0%BB%D1%8B%D0%BA%20%D0%B8%D0%B7%20%D1%81%D0%B2%D0%B8%D0%BD%D0%BE%D0%B8%CC%86%20%D1%88%D0%B5%D0%B8.jpg",hot:false,desc:"Шашлык из свиной шеи, пшеничная лепёшка, красный лук, томаты черри, кукуруза, мини-чили, шашлычный соус.",nut:{kcal:"322",b:"6,1",f:"10,7",c:"47,6"}},{n:"Шашлык из куриного бедра",w:"250 г",p:"649 ₽",img:"../uploads/%D0%A8%D0%B0%D1%88%D0%BB%D1%8B%D0%BA%20%D0%B8%D0%B7%20%D0%BA%D1%83%D1%80%D0%B8%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%84%D0%B8%D0%BB%D0%B5.jpg",hot:false,desc:"Шашлык из куриного филе, пшеничная лепёшка, красный лук, томаты черри, кукуруза, мини-чили, шашлычный соус.",nut:{kcal:"819",b:"37,1",f:"53,2",c:"47,8"}},{n:"Кеббаб из индейки",w:"250 г",p:"729 ₽",img:"../uploads/%D0%9A%D0%B5%D0%B1%D0%B1%D0%B0%D0%B1%20%D0%B8%D0%B7%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%B8%CC%86%D0%BA%D0%B8.jpg",hot:false,desc:"Кеббаб из индейки, пшеничная лепёшка, красный лук, томаты черри, кукуруза, мини-чили, шашлычный соус.",nut:{kcal:"794",b:"36,7",f:"49,6",c:"50"}},{n:"Кебаб из говядины",w:"150/100/30 г",p:"919 ₽",img:"../uploads/%D0%9A%D0%B5%D0%B1%D0%B0%D0%B1%20%D0%B8%D0%B7%20%D0%B3%D0%BE%D0%B2%D1%8F%D0%B4%D0%B8%D0%BD%D1%8B.jpg",hot:false,desc:"Кеббаб из говядины, пшеничная лепёшка, красный лук, томаты черри, кукуруза, мини-чили, шашлычный соус.",nut:{kcal:"792",b:"38,7",f:"48,6",c:"49,8"}},{n:"Бифштекс с яйцом пашот",w:"250 г",p:"949 ₽",img:"../uploads/%D0%91%D0%B8%D1%84%D1%88%D1%82%D0%B5%D0%BA%D1%81%20%D1%81%20%D1%8F%D0%B8%CC%86%D1%86%D0%BE%D0%BC%20%D0%BF%D0%B0%D1%88%D0%BE%D1%82%20%D0%B8%20%D0%BA%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%20%D0%BB%D1%83%D0%BA%D0%BE%D0%BC.jpg",hot:false,desc:"Бифштекс из говядины, яйцо, карамелизированный лук, кинза, вяленые черри, чесночный соус.",nut:null},{n:"Бефстроганов из мраморной говядины",w:"300 г",p:"949 ₽",img:"../uploads/%D0%91%D0%B5%D1%84%D1%81%D1%82%D1%80%D0%BE%D0%B3%D0%B0%D0%BD%D0%BD%D0%BE%D0%B2%20%D0%B8%D0%B7%20%D0%BC%D1%80%D0%B0%D0%BC%D0%BE%D1%80%D0%BD%D0%BE%D0%B8%CC%86%20%D0%B3%D0%BE%D0%B2%D1%8F%D0%B4%D0%B8%D0%BD%D1%8B%20%D1%81%20%D0%BA%D0%B0%D1%80%D1%82%D0%BE%D1%84%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%BC%20%D0%BF%D1%8E%D1%80%D0%B5.jpg",hot:false,desc:"Мраморная говядина, лук, сливки, горчица, эстрагон, картофельное пюре, пикули, вяленые томаты.",nut:{kcal:"745",b:"21,7",f:"55,5",c:"39,3"}},{n:"Паста с форелью в сливочном песто",w:"220 г",p:"969 ₽",img:"../uploads/%D0%9F%D0%B0%D1%81%D1%82%D0%B0%20%D1%81%20%D1%84%D0%BE%D1%80%D0%B5%D0%BB%D1%8C%D1%8E%20%D0%B2%20%D1%81%D0%BB%D0%B8%D0%B2%D0%BE%D1%87%D0%BD%D0%BE%D0%BC%20%D0%BF%D0%B5%D1%81%D1%82%D0%BE.jpg",hot:false,desc:"Форель, чесночное масло, конкильони, сливки, соус песто, пармезан, оливковое масло, вяленые томаты черри.",nut:{kcal:"570",b:"25,6",f:"27,7",c:"54,4"}},{n:"Свиные рёбра BBQ с кукурузой",w:"350 г",p:"859 ₽",img:"../uploads/%D0%A1%D0%B2%D0%B8%D0%BD%D1%8B%D0%B5%20%D1%80%D0%B5%D0%B1%D1%80%D0%B0%20BBQ%20%D1%81%20%D0%BA%D1%83%D0%BA%D1%83%D1%80%D1%83%D0%B7%D0%BE%D0%B8%CC%86%20%D0%BD%D0%B0%20%D0%B3%D1%80%D0%B8%D0%BB%D0%B5.jpg",hot:false,desc:"Свиные рёбра, томлёные в печи, в соусе BBQ, лук фри, мини-чили, кукуруза.",nut:{kcal:"773",b:"47,7",f:"50",c:"33"}},{n:"Свиные рёбра Чили-Кола с попкорном",w:"350 г",p:"859 ₽",img:"../uploads/%D0%A1%D0%B2%D0%B8%D0%BD%D1%8B%D0%B5%20%D1%80%D0%B5%D0%B1%D1%80%D0%B0%20%D0%A7%D0%B8%D0%BB%D0%B8-%D0%9A%D0%BE%D0%BB%D0%B0%20%D1%81%20%D0%BF%D0%BE%D0%BF%D0%BA%D0%BE%D1%80%D0%BD%D0%BE%D0%BC.jpg",hot:true,desc:"Свиные рёбра, томлёные в печи, в соусе чили-кола, попкорн, мини-чили, кукуруза.",nut:{kcal:"650",b:"41,8",f:"46,4",c:"15,9"}},{n:"Стейк с соленым чизкейком",w:"250 г",p:"1 358 ₽",img:"../uploads/%D0%A1%D1%82%D0%B5%D0%B8%CC%86%D0%BA%20%D0%B8%D0%B7%20%D1%84%D0%BE%D1%80%D0%B5%D0%BB%D0%B8%20%D1%81%20%D1%80%D0%B8%D1%81%D0%BE%D0%BC.jpg",hot:false,desc:"Стейк из мраморной говядины с солёным чизкейком.",nut:null},{n:"Стейк из форели с рисом",w:"120/150 г",p:"1 499 ₽",img:"../uploads/%D0%A1%D1%82%D0%B5%D0%B8%CC%86%D0%BA%20%D0%B8%D0%B7%20%D1%84%D0%BE%D1%80%D0%B5%D0%BB%D0%B8%20%D1%81%20%D1%80%D0%B8%D1%81%D0%BE%D0%BC.jpg",hot:false,desc:"Форель, листья шпината, рис, зелёное масло, кунжут, кунжутное масло.",nut:{kcal:"809",b:"38,8",f:"70,3",c:"4,5"}},{n:"Томлёное в печи говяжье ребро",w:"250/150 г",p:"1 159 ₽",img:"../uploads/%D0%A2%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%BE%D0%B5%20%D0%B2%20%D0%BF%D0%B5%D1%87%D0%B8%20%D0%B3%D0%BE%D0%B2%D1%8F%D0%B6%D1%8C%D0%B5%20%D1%80%D0%B5%D0%B1%D1%80%D0%BE.jpg",hot:true,desc:"Говяжье ребро, чили, вяленый томат, ремулад.",nut:{kcal:"951",b:"52,4",f:"74,7",c:"17,2"}}],
+      "Салаты": [{n:"Салат с хрустящими баклажанами",w:"250 г",p:"699 ₽",img:"../uploads/%D0%A1%D0%B0%D0%BB%D0%B0%D1%82%20%D1%81%20%D1%85%D1%80%D1%83%D1%81%D1%82%D1%8F%D1%89%D0%B8%D0%BC%D0%B8%20%D0%B1%D0%B0%D0%BA%D0%BB%D0%B0%D0%B6%D0%B0%D0%BD%D0%B0%D0%BC%D0%B8.jpg",hot:false,desc:"Хрустящие баклажаны, розовые томаты, руккола, вяленые томаты, рикотта, кунжутное масло, терияки и кунжут.",nut:{kcal:"272",b:"11,9",f:"9,1",c:"35,6"}},{n:"Цезарь с хрустящим цыплёнком",w:"200 г",p:"699 ₽",img:"../uploads/%D0%A6%D0%B5%D0%B7%D0%B0%D1%80%D1%8C%20%D1%81%20%D1%85%D1%80%D1%83%D1%81%D1%82%D1%8F%D1%89%D0%B8%D0%BC%20%D1%86%D1%8B%D0%BF%D0%BB%D0%B5%D0%BD%D0%BA%D0%BE%D0%BC.jpg",hot:false,desc:"Листья салата, соус цезарь, томаты черри, перепелиные яйца, цыплёнок на гриле, гренки, пармезан.",nut:{kcal:"381",b:"16",f:"34",c:"2,6"}},{n:"Оливье с форелью",w:"200 г",p:"699 ₽",img:"../uploads/%D0%9E%D0%BB%D0%B8%D0%B2%D1%8C%D0%B5%20%D1%81%20%D1%84%D0%BE%D1%80%D0%B5%D0%BB%D1%8C%D1%8E.jpg",hot:false,desc:"Картофель, морковь, яйцо, зелёный горошек, маринованный огурец, форель слабой соли, майонез.",nut:{kcal:"309",b:"13,3",f:"21,3",c:"16"}},{n:"Цезарь с креветкой",w:"200 г",p:"749 ₽",img:"../uploads/%D0%A6%D0%B5%D0%B7%D0%B0%D1%80%D1%8C%20%D1%81%20%D0%BA%D1%80%D0%B5%D0%B2%D0%B5%D1%82%D0%BA%D0%BE%D0%B8%CC%86.jpg",hot:false,desc:"Листья салата, соус цезарь, томаты черри, перепелиные яйца, тигровые креветки, гренки, пармезан.",nut:{kcal:"352",b:"17,7",f:"29,3",c:"4,2"}},{n:"Греческий",w:"250 г",p:"749 ₽",img:"../uploads/%D0%93%D1%80%D0%B5%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B8%CC%86.jpg",hot:false,desc:"Свежие овощи в сочетании с нежной брынзой, каперсами, греческими оливками и оливковым маслом.",nut:{kcal:"294",b:"11,9",f:"23,3",c:"8,8"}},{n:"Салат с креветкой и грейпфрутом",w:"200 г",p:"799 ₽",img:"../uploads/%D0%A1%D0%B0%D0%BB%D0%B0%D1%82%20%D1%81%20%D0%BA%D1%80%D0%B5%D0%B2%D0%B5%D1%82%D0%BA%D0%B0%D0%BC%D0%B8%20%D0%B8%20%D0%B3%D1%80%D0%B5%D0%B8%CC%86%D0%BF%D1%84%D1%80%D1%83%D1%82%D0%BE%D0%BC.jpg",hot:false,desc:"Листья салата, филе грейпфрута, слайсы лайма, томаты черри, креветки темпура, сладкий чили, кунжут, кунжутное масло.",nut:{kcal:"248",b:"11,6",f:"10,4",c:"26,8"}},{n:"Стейк-салат",w:"250 г",p:"799 ₽",img:"../uploads/%D0%A1%D1%82%D0%B5%D0%B8%CC%86%D0%BA%20%D0%A1%D0%B0%D0%BB%D0%B0%D1%82.jpg",hot:true,desc:"Листья салата, кинза, болгарский перец, огурец, томаты черри, красный лук, стейк пиканья, кунжут, соевый соус, терияки, чили, кунжутное масло, чеснок.",nut:{kcal:"242",b:"18,1",f:"12,1",c:"14,9"}},{n:"Капрезе",w:"200 г",p:"799 ₽",img:"../uploads/%D0%9A%D0%B0%D0%BF%D1%80%D0%B5%D0%B7%D0%B5.jpg",hot:false,desc:"Розовые томаты, помидоры черри, сливочная моцарелла, соус песто, базилик.",nut:{kcal:"471",b:"22,5",f:"39,7",c:"6"}},{n:"Тар-тар из мраморной говядины",w:"200 г",p:"949 ₽",img:"../uploads/%D0%A2%D0%B0%D1%80-%D0%A2%D0%B0%D1%80%20%D0%B8%D0%B7%20%D0%BC%D1%80%D0%B0%D0%BC%D0%BE%D1%80%D0%BD%D0%BE%D0%B8%CC%86%20%D0%B3%D0%BE%D0%B2%D1%8F%D0%B4%D0%B8%D0%BD%D1%8B.jpg",hot:false,desc:"Мраморная говядина, каперсы, маринованный огурец, красный лук, соус ворчестер, горчица, зелёное масло и пармезан.",nut:{kcal:"328",b:"25",f:"15",c:"22"}}],
+      "Супы": [{n:"Борщ с говядиной и сметаной",w:"300/100 г",p:"649 ₽",img:"../uploads/%D0%91%D0%BE%D1%80%D1%89%20%D1%81%20%D0%B3%D0%BE%D0%B2%D1%8F%D0%B4%D0%B8%D0%BD%D0%BE%D0%B8%CC%86%20%D0%B8%20%D1%81%D0%BC%D0%B5%D1%82%D0%B0%D0%BD%D0%BE%D0%B8%CC%86..jpg",hot:false,desc:"Подаётся с ржаной чиабаттой, копчёным салом и сметаной.",nut:{kcal:"644",b:"14,6",f:"50,9",c:"27,1"}},{n:"Тыквенный крем-суп с креветками",w:"300/100 г",p:"649 ₽",img:"../uploads/%D0%A2%D1%8B%D0%BA%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B8%CC%86%20%D0%BA%D1%80%D0%B5%D0%BC%20%D1%81%D1%83%D0%BF%20%D1%81%20%D1%82%D0%B8%D0%B3%D1%80%D0%BE%D0%B2%D1%8B%D0%BC%D0%B8%20%D0%BA%D1%80%D0%B5%D0%B2%D0%B5%D1%82%D0%BA%D0%B0%D0%BC%D0%B8.jpg",hot:false,desc:"Подаётся с чиабаттой и рикоттой.",nut:{kcal:"512",b:"14,1",f:"38,7",c:"26,2"}},{n:"Том-ям с тигровыми креветками",w:"300/100 г",p:"749 ₽",img:"../uploads/%D0%A2%D0%BE%D0%BC-%D0%AF%D0%BC%20%D1%81%20%D1%82%D0%B8%D0%B3%D1%80%D0%BE%D0%B2%D1%8B%D0%BC%D0%B8%20%D0%BA%D1%80%D0%B5%D0%B2%D0%B5%D1%82%D0%BA%D0%B0%D0%BC%D0%B8..jpg",hot:true,desc:"Тигровые креветки, лайм, имбирь, шампиньоны, томаты черри, лемонграсс, паста том-ям, бульон, кокосовое молоко, кинза, кунжут, рис.",nut:{kcal:"217",b:"16,8",f:"4,1",c:"27,9"}}],
+      "Закуски": [{n:"Луковые кольца",w:"90/30 г · 8 шт",p:"528 ₽",img:"../uploads/%D0%9B%D1%83%D0%BA%D0%BE%D0%B2%D1%8B%D0%B5%20%D0%BA%D0%BE%D0%BB%D1%8C%D1%86%D0%B0.jpg",hot:false,desc:"Луковые кольца с соусом тар-тар.",nut:{kcal:"484",b:"5,4",f:"33,4",c:"40,4"}},{n:"Куриные наггетсы",w:"110/30 г · 6 шт",p:"528 ₽",img:"../uploads/%D0%9A%D1%83%D1%80%D0%B8%D0%BD%D1%8B%D0%B5%20%D0%BD%D0%B0%D0%B3%D0%B3%D0%B5%D1%82%D1%81%D1%8B.jpg",hot:false,desc:"Куриные наггетсы с сырным соусом.",nut:{kcal:"243",b:"17,5",f:"7,4",c:"26,3"}},{n:"Картофель фри",w:"200/30 г",p:"528 ₽",img:"../uploads/%D0%9A%D0%B0%D1%80%D1%82%D0%BE%D1%84%D0%B5%D0%BB%D1%8C%20%D1%84%D1%80%D0%B8.jpg",hot:false,desc:"Картофель фри с сырным соусом.",nut:{kcal:"617",b:"6,6",f:"34,7",c:"67,4"}},{n:"Картофель по-деревенски",w:"200/30 г",p:"528 ₽",img:"../uploads/%D0%9A%D0%B0%D1%80%D1%82%D0%BE%D1%84%D0%B5%D0%BB%D1%8C%20%D0%BF%D0%BE-%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B5%D0%BD%D1%81%D0%BA%D0%B8.jpg",hot:false,desc:"Картофель по-деревенски с соусом барбекю.",nut:{kcal:"441",b:"6,3",f:"12,4",c:"75,6"}},{n:"Бейби-картофель",w:"200 г",p:"598 ₽",img:"../uploads/%D0%91%D0%B5%D0%B8%CC%86%D0%B1%D0%B8-%D0%BA%D0%B0%D1%80%D1%82%D0%BE%D1%84%D0%B5%D0%BB%D1%8C.jpg",hot:false,desc:"Картофель черри, тимьян, розмарин, соль, перец, чесночное и сливочное масло.",nut:null},{n:"Кукуруза гриль",w:"200 г",p:"499 ₽",img:"../uploads/%D0%9A%D1%83%D0%BA%D1%83%D1%80%D1%83%D0%B7%D0%B0%20%D0%B3%D1%80%D0%B8%D0%BB%D1%8C.jpg",hot:false,desc:"Початок кукурузы, соль, перец, тимьян, чесночное и сливочное масло.",nut:null},{n:"Шампиньоны на гриле",w:"150 г",p:"499 ₽",img:"../uploads/%D0%A8%D0%B0%D0%BC%D0%BF%D0%B8%D0%BD%D1%8C%D0%BE%D0%BD%D1%8B%20%D0%BD%D0%B0%20%D0%B3%D1%80%D0%B8%D0%BB%D0%B5.jpg",hot:false,desc:"Шампиньоны, соль, перец, орегано, чесночное масло, соус терияки.",nut:{kcal:"773",b:"47,7",f:"50",c:"33"}},{n:"Овощи гриль",w:"200 г",p:"499 ₽",img:"../uploads/%D0%BE%D0%B2%D0%BE%D1%88%D0%B8%20%D0%B3%D1%80%D0%B8%D0%BB%D1%8C.jpg",hot:false,desc:"Баклажан, цукини, болгарский перец, кукуруза, шампиньоны, красный лук, соль, перец, чесночное масло, зелень.",nut:null},{n:"Сырные палочки",w:"150/30 г · 6 шт",p:"648 ₽",img:"../uploads/%D0%A1%D1%8B%D1%80%D0%BD%D1%8B%D0%B5%20%D0%BF%D0%B0%D0%BB%D0%BE%D1%87%D0%BA%D0%B8.jpg",hot:false,desc:"Сырные палочки с брусничным соусом.",nut:{kcal:"445",b:"25,2",f:"17,1",c:"52,8"}},{n:"Мини-чебуреки с курицей",w:"150/30 г",p:"648 ₽",img:"../uploads/%D0%9C%D0%B8%D0%BD%D0%B8-%D1%87%D0%B5%D0%B1%D1%83%D1%80%D0%B5%D0%BA%D0%B8%20%D1%81%20%D0%BA%D1%83%D1%80%D0%B8%D1%86%D0%B5%D0%B8%CC%86.jpg",hot:false,desc:"Мини-чебуреки с курицей и сырным соусом.",nut:{kcal:"750",b:"11,9",f:"56,6",c:"48"}},{n:"Ржаные гренки",w:"250 г",p:"648 ₽",img:"../uploads/%D0%A0%D0%B6%D0%B0%D0%BD%D1%8B%D0%B5%20%D0%B3%D1%80%D0%B5%D0%BD%D0%BA%D0%B8.jpg",hot:true,desc:"Бородинский хлеб, чесночное масло, соль, паприка, тимьян, сырный соус, хлопья чили, лук фри.",nut:{kcal:"843",b:"20,1",f:"45,6",c:"87,9"}},{n:"Хрустящие пирожки с цыпой",w:"150/30 г",p:"798 ₽",img:"../uploads/%D0%A5%D1%80%D1%83%D1%81%D1%82%D1%8F%D1%89%D0%B8%D0%B5%20%D0%BF%D0%B8%D1%80%D0%BE%D0%B6%D0%BA%D0%B8%20%D1%81%20%D1%86%D1%8B%D0%BF%D0%BE%D0%B8%CC%86.jpg",hot:true,desc:"Хрустящие пирожки с овощами, сыром и копчёным цыплёнком. Подаём со сметаной.",nut:{kcal:"549",b:"19,3",f:"35,5",c:"37,9"}},{n:"Креветки темпура",w:"120/30 г",p:"798 ₽",img:"../uploads/%D0%9A%D1%80%D0%B5%D0%B2%D0%B5%D1%82%D0%BA%D0%B8%20%D1%82%D0%B5%D0%BC%D0%BF%D1%83%D1%80%D0%B0.jpg",hot:false,desc:"Креветки темпура с соусом сладкий чили.",nut:{kcal:"171",b:"17,7",f:"3,4",c:"17,4"}},{n:"Шарики и цыпы",w:"200/30 г",p:"798 ₽",img:"../uploads/%D0%A8%D0%B0%D1%80%D0%B8%D0%BA%D0%B8%20%D0%B8%20%D1%86%D1%8B%D0%BF%D1%8B.jpg",hot:false,desc:"Куриные шарики с сыром и соусом барбекю.",nut:{kcal:"485",b:"37",f:"20,3",c:"14,9"}},{n:"Крылья BBQ с луком фри",w:"300 г",p:"948 ₽",img:"../uploads/%D0%9A%D1%80%D1%8B%D0%BB%D1%8C%D1%8F%20BBQ%20%D1%81%20%D0%BB%D1%83%D0%BA%D0%BE%D0%BC%20%D1%84%D1%80%D0%B8.jpg",hot:false,desc:"Куриные крылышки в соусе BBQ, картофель фри, лук фри, лайм, мини-чили, зелень.",nut:{kcal:"823",b:"49,2",f:"40,4",c:"65,4"}},{n:"Крылья Чили-Кола с попкорном",w:"300 г",p:"948 ₽",img:"../uploads/%D0%9A%D1%80%D1%8B%D0%BB%D1%8C%D1%8F%20%D0%A7%D0%B8%D0%BB%D0%B8-%D0%9A%D0%BE%D0%BB%D0%B0%20%D1%81%20%D0%BF%D0%BE%D0%BF%D0%BA%D0%BE%D1%80%D0%BD%D0%BE%D0%BC.jpg",hot:true,desc:"Куриные крылышки в соусе чили-кола, картофель фри, мини-чили, лайм, попкорн, зелень.",nut:{kcal:"802",b:"47,2",f:"45,7",c:"50,3"}}],
+      "Десерты": [{n:"Чизкейк",w:"150 г",p:"559 ₽",img:"../uploads/%D0%A7%D0%B8%D0%B7%D0%BA%D0%B5%D0%B8%CC%86%D0%BA.jpg",hot:false,desc:"Сырный пирог с ягодным соусом.",nut:{kcal:"422",b:"9",f:"8",c:"77"}},{n:"Сметанник с лесными ягодами",w:"180 г",p:"559 ₽",img:"../uploads/%D0%A1%D0%BC%D0%B5%D1%82%D0%B0%D0%BD%D0%BD%D0%B8%D0%BA%20%D1%81%20%D0%BB%D0%B5%D1%81%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%8F%D0%B3%D0%BE%D0%B4%D0%B0%D0%BC%D0%B8.jpg",hot:false,desc:"Лесные ягоды, сметанный крем, брауни.",nut:{kcal:"668",b:"9",f:"27,6",c:"95,8"}},{n:"Лимонный тарт с меренгой и ягодами",w:"200 г",p:"559 ₽",img:"../uploads/%D0%93%D1%80%D1%83%D1%88%D0%B5%D0%B2%D1%8B%D0%B8%CC%86%20%D1%82%D0%B0%D1%80%D1%82.jpg",hot:false,desc:"Песочная основа, лимонный крем, меренга и свежие ягоды.",nut:{kcal:"243",b:"2",f:"12",c:"29"}},{n:"Мини-Павлова с меренгой и ягодами",w:"150 г",p:"559 ₽",img:"../uploads/%D0%93%D1%80%D1%83%D1%88%D0%B5%D0%B2%D1%8B%D0%B8%CC%86%20%D1%82%D0%B0%D1%80%D1%82.jpg",hot:false,desc:"Хрустящая меренга, крем и свежие ягоды.",nut:null},{n:"Крейзи Айс-Крим",w:"250 г",p:"559 ₽",img:"../uploads/%D0%9A%D1%80%D0%B5%D0%B8%CC%86%D0%B7%D0%B8%20%D0%BC%D0%BE%D1%80%D0%BE%D0%B6%D0%B5%D0%BD%D0%BD%D0%BE%D0%B5.jpg",hot:false,desc:"Ассорти мороженого, вафли, печенье орео, кондитерская посыпка, мята, маршмеллоу, шоколадный соус.",nut:{kcal:"613",b:"9,3",f:"26,7",c:"83,6"}}],
+      "Милкшейки": [{n:"Джуниор шейк",w:"300 мл",p:"329 ₽",img:"../uploads/menu-dzhunior-sheyk.jpg",hot:false,desc:"Детский молочный коктейль.",nut:null},{n:"Крейзи шейк",w:"400 мл",p:"499 ₽",img:"../uploads/menu-kreyzi-sheyk.jpg",hot:false,desc:"Молочный коктейль с топпингами и декором.",nut:null}],
+      "Чай": [{n:"Фруктовые чаи",w:"600 мл",p:"449 ₽",img:"../uploads/menu-fruktovye-chai.jpg",hot:false,desc:"Фруктовая заварка в чайнике.",nut:null},{n:"Чёрные чаи",w:"600 мл",p:"449 ₽",img:"../uploads/menu-chernye-chai.jpg",hot:false,desc:"Листовой чёрный чай.",nut:null},{n:"Зелёные чаи",w:"600 мл",p:"449 ₽",img:"../uploads/menu-zelenye-chai.jpg",hot:false,desc:"Листовой зелёный чай.",nut:null},{n:"Облепиховый с имбирём",w:"600 мл",p:"649 ₽",img:"../uploads/menu-fruktovye-chai.jpg",hot:false,desc:"Облепиха, имбирь, чайная основа.",nut:null},{n:"Вишнёвый чай",w:"600 мл",p:"649 ₽",img:"../uploads/menu-vishnevyy-chay.jpg",hot:false,desc:"Вишня, чайная основа, специи.",nut:null},{n:"Грушевый чай",w:"600 мл",p:"649 ₽",img:"../uploads/menu-grushevyy-chay.jpg",hot:false,desc:"Груша, чайная основа, специи.",nut:null},{n:"Мандариновый чай",w:"600 мл",p:"649 ₽",img:"../uploads/menu-mandarinovyy-chay.jpg",hot:false,desc:"Мандарин, чайная основа, специи.",nut:null},{n:"Малиновый чай",w:"600 мл",p:"649 ₽",img:"../uploads/menu-malinovyy-chay.jpg",hot:false,desc:"Малина, чайная основа, специи.",nut:null}],
+      "Кофе": [{n:"Эспрессо",w:"40 мл",p:"229 ₽",img:"../uploads/menu-espresso.jpg",hot:false,desc:"Двойная порция зерна.",nut:null},{n:"Американо",w:"250 мл",p:"289 ₽",img:"../uploads/menu-amerikano.jpg",hot:false,desc:"Эспрессо и горячая вода.",nut:null},{n:"Капучино",w:"250 мл",p:"349 ₽",img:"../uploads/menu-kapuchino.jpg",hot:false,desc:"Эспрессо и молочная пена.",nut:null},{n:"Капучино на кокосовом",w:"250 мл",p:"449 ₽",img:"../uploads/menu-kapuchino.jpg",hot:false,desc:"Эспрессо и кокосовое молоко.",nut:null},{n:"Латте",w:"300 мл",p:"369 ₽",img:"../uploads/menu-latte.jpg",hot:false,desc:"Кофе с молоком.",nut:null},{n:"Латте на кокосовом",w:"300 мл",p:"459 ₽",img:"../uploads/menu-latte.jpg",hot:false,desc:"Кофе на кокосовом молоке.",nut:null},{n:"Раф",w:"300 мл",p:"479 ₽",img:"../uploads/menu-raf.jpg",hot:false,desc:"Кофе со сливками и ванильным сахаром.",nut:null}],
+      "Фреши": [{n:"Фреш апельсиновый",w:"250 мл",p:"329 ₽",img:"../uploads/menu-fresh-apelsinovyy.jpg",hot:false,desc:"Свежевыжатый.",nut:null},{n:"Фреш морковный",w:"250 мл",p:"289 ₽",img:"../uploads/menu-fresh-morkovnyy.jpg",hot:false,desc:"Свежевыжатый.",nut:null},{n:"Фреш яблочный",w:"250 мл",p:"329 ₽",img:"../uploads/menu-fresh-yablochnyy.jpg",hot:false,desc:"Свежевыжатый.",nut:null}],
+      "Напитки": [{n:"Морс ягодный",w:"1000 мл",p:"389 ₽",img:"../uploads/menu-mors-yagodnyy.jpg",hot:false,desc:"Клюква, брусника, смородина.",nut:null},{n:"Сок в ассортименте",w:"1000 мл",p:"499 ₽",img:"../uploads/menu-sok-v-assortimente.png",hot:false,desc:"Яблоко, апельсин, вишня.",nut:null},{n:"Evervess Кола",w:"250 мл",p:"259 ₽",img:"../uploads/menu-evervess-kola.png",hot:false,desc:"Газированный напиток.",nut:null},{n:"Evervess Искрящийся лимон-лайм",w:"250 мл",p:"259 ₽",img:"../uploads/menu-frustayl-limon-laym.png",hot:false,desc:"Газированный напиток.",nut:null},{n:"Тоник Evervess",w:"250 мл",p:"259 ₽",img:"../uploads/menu-tonik-evervess.png",hot:false,desc:"Газированный тоник.",nut:null},{n:"Adrenaline Rush",w:"250 мл",p:"249 ₽",img:"",hot:false,desc:"Энергетический напиток.",nut:null},{n:"Adrenaline Rush Zero",w:"250 мл",p:"249 ₽",img:"",hot:false,desc:"Энергетик без сахара.",nut:null},{n:"Вода «Аква Минерале»",w:"500 мл",p:"159 ₽",img:"../uploads/menu-voda-akva-minerale.jpg",hot:false,desc:"Питьевая вода.",nut:null}],
+      "Лимонады": [{n:"Лимонад «Мохито»",w:"400 мл",p:"349 ₽",img:"../uploads/menu-limonad-mohito.jpg",hot:false,desc:"Лайм, мята, тростниковый сахар. Большой 1000 мл — 649 ₽.",nut:null},{n:"Лимонад «Вишня-персик»",w:"400 мл",p:"349 ₽",img:"../uploads/menu-limonad-vishnya-persik.jpg",hot:false,desc:"Вишня, персик, лайм. Большой 1000 мл — 649 ₽.",nut:null},{n:"Лимонад «Груша-ваниль»",w:"400 мл",p:"349 ₽",img:"../uploads/menu-limonad-grusha-vanil.jpg",hot:false,desc:"Груша, ваниль, лайм. Большой 1000 мл — 649 ₽.",nut:null},{n:"Лимонад «Мандарин-смородина»",w:"400 мл",p:"349 ₽",img:"../uploads/menu-limonad-grusha-vanil.jpg",hot:false,desc:"Мандарин, смородина, лайм. Большой 1000 мл — 649 ₽.",nut:null},{n:"Лимонад «Малина-маракуйя»",w:"400 мл",p:"349 ₽",img:"../uploads/menu-limonad-malina-marakuyya.jpg",hot:false,desc:"Малина, маракуйя, лайм. Большой 1000 мл — 649 ₽.",nut:null}],
+      "Детское": [{n:"Хрустики",w:"150 г",p:"289 ₽",img:"../uploads/%D0%A5%D1%80%D1%83%D1%81%D1%82%D0%B8%D0%BA%D0%B8.jpg",hot:false,desc:"Морковные и огуречные палочки со сметанкой.",nut:{kcal:"58",b:"1",f:"3",c:"4"}},{n:"Куриный суп с макарошками",w:"250 г",p:"289 ₽",img:"../uploads/%D0%9A%D1%83%D1%80%D0%B8%D0%BD%D1%8B%D0%B8%CC%86%20%D1%81%D1%83%D0%BF%20%D1%81%20%D0%BC%D0%B0%D0%BA%D0%B0%D1%80%D0%BE%D1%88%D0%BA%D0%B0%D0%BC%D0%B8.jpg",hot:false,desc:"Куриный бульон, куриное филе, морковь, лук, макарошки.",nut:{kcal:"205",b:"13,9",f:"7,8",c:"19,7"}},{n:"Мне только картошку и наггетсы",w:"250 г",p:"459 ₽",img:"../uploads/%D0%9C%D0%BD%D0%B5%20%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%BA%D0%B0%D1%80%D1%82%D0%BE%D1%88%D0%BA%D1%83%20%D0%B8%20%D0%BD%D0%B0%D0%B3%D0%B3%D0%B5%D1%82%D1%81%D1%8B.jpg",hot:false,desc:"Картофель фри и наггетсы встретились в одной тарелке.",nut:{kcal:"149",b:"7",f:"8",c:"11"}},{n:"Хот-дог",w:"160/100/30 г",p:"569 ₽",img:"../uploads/%D0%A5%D0%BE%D1%82-%D0%B4%D0%BE%D0%B3.jpg",hot:false,desc:"С картошкой фри и кетчупом для самых голодных.",nut:null},{n:"Мини-чикен",w:"160/100/30 г",p:"569 ₽",img:"../uploads/%D0%9C%D0%B8%D0%BD%D0%B8-%D1%87%D0%B8%D0%BA%D0%B5%D0%BD.jpg",hot:false,desc:"В сто раз вкуснее взрослого. С картошкой фри и кетчупом.",nut:{kcal:"152",b:"5",f:"8",c:"14"}},{n:"Крейзи мороженое",w:"250 г",p:"559 ₽",img:"../uploads/%D0%9A%D1%80%D0%B5%D0%B8%CC%86%D0%B7%D0%B8%20%D0%BC%D0%BE%D1%80%D0%BE%D0%B6%D0%B5%D0%BD%D0%BD%D0%BE%D0%B5.jpg",hot:false,desc:"Мороженое в ассортименте, шоколадный топпинг, посыпка, вафли, мини печенье орео, маршмеллоу, мята.",nut:{kcal:"613",b:"9,3",f:"26,7",c:"83,6"}}],
     };
     const djDesc = 'Отдыхаем под музыку. Бронируй столик, танцуй, выбивай страйки и с друзьями круто время проводи. Вход свободный :)';
-    const EVENTS = [
-      {title:'Бесплатный боулинг — каждый вторник',date:'30.06.2026 · 18:00',venue:'Июнь',price:'Бесплатно',img:'https://brooklynbowl.bowlsoft.team/images/bowling-lane.jpg',desc:'Каждый вторник катай шары с друзьями 2 часа бесплатно — с депозитом дорожки 2 190 ₽ на кухню и бар.'},
-      {title:'Диджей-сеты',date:'19.06.2026 · 21:20',venue:'ТК «Июнь»',price:'Вход свободный',img:'uploads/afisha-band.png',desc:djDesc},
-      {title:'Диджей-сеты',date:'20.06.2026 · 21:20',venue:'ТК «Июнь»',price:'Вход свободный',img:'uploads/afisha-bass.png',desc:djDesc},
-      {title:'Диджей-сеты',date:'27.06.2026 · 21:20',venue:'ТК «Июнь»',price:'Вход свободный',img:'uploads/afisha-acdc.png',desc:djDesc},
-      {title:'Диджей-сеты',date:'28.06.2026 · 21:20',venue:'ТК «Июнь»',price:'Вход свободный',img:'uploads/afisha-dance.png',desc:djDesc}
+    const EVENTS_ALL = [
+      {title:'Бесплатный боулинг — каждый вторник',dt:'2026-06-30 18:00',weekly:2,date:'30.06.2026 · 18:00',venue:'Июнь · Июнь · Июнь',price:'Бесплатно',img:'../uploads/bb-bowling-lane.jpg',desc:'Каждый вторник катай шары с друзьями 2 часа бесплатно — с депозитом дорожки 2 990 ₽ на кухню и бар. Во всех нашей точке города.'},
+      {title:'Диджей-сеты',dt:'2026-06-19 21:20',weekly:5,date:'19.06.2026 · 21:20',venue:'ТРЦ «Июнь»',price:'Вход свободный',img:'../uploads/afisha-band.png',desc:djDesc},
+      {title:'Диджей-сеты',dt:'2026-06-20 21:20',weekly:6,date:'20.06.2026 · 21:20',venue:'ТРЦ «Июнь»',price:'Вход свободный',img:'../uploads/afisha-bass.png',desc:djDesc},
+      {title:'Диджей-сеты',dt:'2026-06-27 21:20',date:'27.06.2026 · 21:20',venue:'ТРЦ «Июнь»',price:'Вход свободный',img:'../uploads/afisha-acdc.png',desc:djDesc},
+      {title:'Диджей-сеты',dt:'2026-06-28 21:20',date:'28.06.2026 · 21:20',venue:'ТРЦ «Июнь»',price:'Вход свободный',img:'../uploads/afisha-dance.png',desc:djDesc}
     ];
+    const EVENTS = (function(){ try { return (window.bbEvents ? window.bbEvents(EVENTS_ALL) : EVENTS_ALL); } catch (e) { console.warn('bbEvents:', e); return EVENTS_ALL; } })();
     const VENUES = [
-      { name:'Июнь', tag:'Центр города', addr:'Индустриальный пр-т, 24', mall:'ТК «Июнь», 3 этаж', phone:'+7 812 760-80-95', tel:'tel:+78127608095', img:'https://brooklynbowl.bowlsoft.team/images/bowling-lane.jpg', route:'https://yandex.ru/maps/?rtext=~59.9462,30.4735&rtt=auto' }
+      { name:'Июнь', tag:'Центр города', addr:'Индустриальный проспект, 24', mall:'ТРЦ «Санкт-Петербург Июнь», 3 этаж', phone:'+7 (812) 760-80-95', tel:'tel:+78127608095', img:'../uploads/bb-bowling-lane.jpg', route:'https://yandex.ru/maps/?rtext=~59.9557,30.4489&rtt=auto' }
     ];
     const vsel = (typeof this.state.venue === 'number') ? VENUES[this.state.venue] : null;
-    const active = this.state.cat;
-    const FOOD = 'uploads/%D0%A2%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%BE%D0%B5%20%D0%B2%20%D0%BF%D0%B5%D1%87%D0%B8%20%D0%B3%D0%BE%D0%B2%D1%8F%D0%B6%D1%8C%D0%B5%20%D1%80%D0%B5%D0%B1%D1%80%D0%BE.jpg';
+    const GROUPS = [
+      { name:'Авторская кухня', cats:['Бургеры','Для компании','Пицца','Салаты','Супы','Горячее','Десерты','Закуски','Алкогольная карта бара'] },
+      { name:'Детское меню', cats:['Детское'] },
+      { name:'Безалкогольные вкусняшки', cats:['Милкшейки','Чай','Кофе','Фреши','Напитки','Лимонады'] }
+    ];
+    const gActive = this.state.group || 'Авторская кухня';
+    const gCats = (GROUPS.find((x) => x.name === gActive) || GROUPS[0]).cats;
+    const active = (gCats.indexOf(this.state.cat) >= 0) ? this.state.cat : gCats[0];
+    const isBar = active === 'Алкогольная карта бара';
+    const _price = (p) => parseInt(String(p).replace(/[^0-9]/g, ''), 10) || 0;
+    const _fmtRub = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    const _cart = this.state.cart || {};
+    const _cartItems = Object.keys(_cart).map((k) => _cart[k]).filter((x) => x && x.q > 0);
+    const FOOD = '../uploads/%D0%A2%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%BE%D0%B5%20%D0%B2%20%D0%BF%D0%B5%D1%87%D0%B8%20%D0%B3%D0%BE%D0%B2%D1%8F%D0%B6%D1%8C%D0%B5%20%D1%80%D0%B5%D0%B1%D1%80%D0%BE.jpg';
     const PTS = [
-      { title:'Современные дорожки', tag:'16 дорожек', img:'https://brooklynbowl.bowlsoft.team/images/bowling-lane.jpg', desc:'16 профессиональных дорожек с гладким покрытием и автоматическим подсчётом очков. Бортики поднимаются по запросу — ребёнок попадёт в кегли с первой попытки. Лёгкие шары от 2,5 кг и обувь с 23 размера.', cta:'Бронь стола в зоне боулинга', act:'book' },
-      { title:'Ресторан и кухня', tag:'150 мест', img:'uploads/7bZmH1sygk8.jpg', desc:'64 позиции кухни и 80 позиций бара: пицца, бургеры, горячее с гриля, детское меню и авторские коктейли. Зал на 150 мест — от ужина вдвоём до большого корпоратива.', cta:'Смотреть меню', act:'menu' },
-      { title:'Живая музыка', tag:'LIVE', img:'uploads/mrkypACsj8M.jpg', desc:'Кавер-группы, стендап-вечера, квизы и диджей-сеты — каждую неделю. Иногда живая музыка идёт прямо в стоимость дорожки. Полное расписание — в афише.', cta:'Афиша', act:'events' }
+      { title:'Современные дорожки', tag:'<span data-fact="lanes">20</span> дорожек', img:'../uploads/bb-bowling-lane.jpg', desc:'20 профессиональных дорожек с гладким покрытием и автоматическим подсчётом очков. Бортики поднимаются по запросу — ребёнок попадёт в кегли с первой попытки. Лёгкие шары от 2,5 кг и обувь с 23 размера.', cta:'Бронь стола в зоне боулинга', act:'book' },
+      { title:'Ресторан и кухня', tag:'150 мест', img:'../uploads/7bZmH1sygk8.jpg', desc:'64 позиции кухни и 80 позиций бара: пицца, бургеры, горячее с гриля, детское меню и авторские коктейли. Зал на 150 мест — от ужина вдвоём до большого корпоратива.', cta:'Смотреть меню', act:'menu' },
+      { title:'Живая музыка', tag:'LIVE', img:'../uploads/mrkypACsj8M.jpg', desc:'Кавер-группы, стендап-вечера, квизы и диджей-сеты — каждую неделю. Иногда живая музыка идёт прямо в стоимость дорожки. Полное расписание — в афише.', cta:'Афиша', act:'events' }
     ];
     const OCT = [
-      { name:'Москва', sub:'Перейти на сайт Brooklyn Bowl в Москве и Мытищах', url:'https://msk.brooklynbowl.ru/' },
-      { name:'Тюмень', sub:'Перейти на сайт Brooklyn Bowl в Тюмени', url:'https://brooklynbowl.ru' },
-      { name:'Самара', sub:'Перейти на сайт Brooklyn Bowl в Самаре', url:'https://smr.brooklynbowl.ru' },
-      { name:'Ижевск', sub:'Перейти на сайт Brooklyn Bowl в Ижевске', url:'https://iz.brooklynbowl.ru' },
-      { name:'Сургут', sub:'Перейти на сайт Brooklyn Bowl в Сургуте', url:'https://surgut.brooklynbowl.ru' },
-      { name:'Нижневартовск', sub:'Перейти на сайт Brooklyn Bowl в Нижневартовске', url:'https://nv.brooklynbowl.ru' }
+      { name:'Москва', sub:'Перейти на сайт Brooklyn Bowl в Москве и Мытищах', url:'../msk/index.dc.html' },
+      { name:'Санкт-Петербург', sub:'Перейти на сайт Brooklyn Bowl в Санкт-Петербурге', url:'../spb/index.dc.html' },
+      { name:'Самара', sub:'Перейти на сайт Brooklyn Bowl в Самаре', url:'../samara/index.dc.html' },
+      { name:'Ижевск', sub:'Перейти на сайт Brooklyn Bowl в Ижевске', url:'../izhevsk/index.dc.html' },
+      { name:'Сургут', sub:'Перейти на сайт Brooklyn Bowl в Сургуте', url:'../surgut/index.dc.html' },
+      { name:'Нижневартовск', sub:'Перейти на сайт Brooklyn Bowl в Нижневартовске', url:'../nv/index.dc.html' }
     ];
     const base = 'padding:12px 22px; border-radius:300px; cursor:pointer; font-size:15px; font-weight:600; font-family:inherit; transition:background-color .2s ease, color .2s ease, border-color .2s ease; white-space:nowrap;';
-    const cats = Object.keys(MENU).map((c) => ({
+    const gbase = 'padding:14px 26px; border-radius:300px; cursor:pointer; font-size:15px; font-weight:700; font-family:inherit; white-space:nowrap; transition:background-color .2s ease, color .2s ease, border-color .2s ease;';
+    const groups = GROUPS.map((g) => ({
+      name: g.name,
+      style: gbase + (g.name === gActive ? ' background:#FF2026; color:#fff; border:1px solid #FF2026;' : ' background:#191919; color:rgba(232,229,222,0.8); border:1px solid rgba(255,255,255,0.08);'),
+      pick: () => this.setState({ group: g.name, cat: g.cats[0] || null })
+    }));
+    const cats = gCats.map((c) => ({
       name: c,
-      style: base + (c === active ? ' background:#E42725; color:#fff; border:1px solid #E42725;' : ' background:#1C1C1F; color:#B6B5B0; border:1px solid rgba(255,255,255,0.08);'),
+      style: base + (c === active ? ' background:#FF2026; color:#fff; border:1px solid #FF2026;' : ' background:#191919; color:rgba(232,229,222,0.8); border:1px solid rgba(255,255,255,0.08);'),
       pick: () => this.setState({ cat: c })
     }));
     const e = this.state.ev != null ? EVENTS[this.state.ev] : null;
     return {
+      chatEnabled: this.props.chatEnabled ?? true,
+      chatHours: this.props.chatHours ?? 'Отвечаем ежедневно с 10:00 до 22:00',
+      chatOpen: !!this.state.chatOpen,
+      draft: this.state.draft || '',
+      messages: [{ mine: false, text: this.props.chatGreeting ?? 'Здравствуйте! Чем можем помочь?' }].concat(this.state.log || []).map((m) => ({ text: m.text, mine: !!m.mine, theirs: !m.mine })),
+      chatToggle: () => this.setState({ chatOpen: !this.state.chatOpen }),
+      chatClose: () => this.setState({ chatOpen: false }),
+      chatType: (e) => this.setState({ draft: e.target.value }),
+      chatKey: (e) => { if (e.key === 'Enter') { e.preventDefault(); this._send(); } },
+      chatSend: () => this._send(),
+      menuPrev: () => { const el = document.getElementById('bb-menu-row'); if (el) { const c = el.querySelector('article'); const step = c ? c.getBoundingClientRect().width + 16 : el.clientWidth * 0.8; el.scrollBy({ left: -step * 2, behavior: 'smooth' }); } },
+      menuNext: () => { const el = document.getElementById('bb-menu-row'); if (el) { const c = el.querySelector('article'); const step = c ? c.getBoundingClientRect().width + 16 : el.clientWidth * 0.8; el.scrollBy({ left: step * 2, behavior: 'smooth' }); } },
+      groups,
       cats,
-      dishes: (MENU[active] || []).map((d) => ({ ...d, hotEl: d.hot ? React.createElement('span', { style: { display:'inline-flex', alignItems:'center', padding:'4px 9px', borderRadius:'300px', background:'rgba(228,39,37,0.16)', fontSize:'11px', fontWeight:700, letterSpacing:'0.03em', color:'#F26B69', marginLeft:'8px', verticalAlign:'middle' } }, 'ОСТРОЕ') : null, imgEl: React.createElement('img', { src: d.img || FOOD, alt: d.n, loading:'lazy', style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }), open: () => this.setState({ dish: { ...d, tag: active } }) })),
+      isBar,
+      notBar: !isBar,
+      barLink: '../uploads/%D0%92%D0%95%D0%91_TMN_%D0%9C%D0%B5%D0%BD%D1%8E_%D0%92%D0%95%D0%A1%D0%9D%D0%90%202026.pdf',
+      isMuted: true,
+      cartCount: _cartItems.reduce((a, x) => a + x.q, 0),
+      cartSum: _fmtRub(_cartItems.reduce((a, x) => a + x.p * x.q, 0)),
+      cartHas: _cartItems.length > 0,
+      cartRows: _cartItems.map((x) => ({ name: x.n, qty: x.q + ' шт', sum: _fmtRub(x.p * x.q) + ' ₽', dec: () => this._cartAdd(x.n, x.p, -1) })),
+      cartClear: () => this.setState({ cart: {} }),
+      dishes: (MENU[active] || []).map((d) => ({ ...d, add: (e) => { if (e) { e.stopPropagation(); e.preventDefault(); } this._cartAdd(d.n, _price(d.p), 1); }, hotEl: d.hot ? React.createElement('span', { style: { display:'inline-flex', alignItems:'center', padding:'4px 9px', borderRadius:'300px', background:'rgba(255,32,38,0.16)', fontSize:'11px', fontWeight:700, letterSpacing:'0.03em', color:'#FF2026', marginLeft:'8px', verticalAlign:'middle' } }, 'ОСТРОЕ') : null, imgEl: d.img ? React.createElement('img', { src: d.img, alt: d.n, style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }) : React.createElement('span', { style: { position:'absolute', inset:0, display:'flex', alignItems:'center', justifyContent:'center', textAlign:'center', padding:'0 14px', background:'#191919', color:'rgba(232,229,222,0.4)', fontSize:'12px', fontWeight:700, letterSpacing:'0.06em' } }, 'ФОТО ГОТОВИТСЯ'), open: () => this.setState({ dish: { ...d, tag: active } }) })),
       dishOpen: this.state.dish != null,
-      sd: (() => { const x = this.state.dish || { n:'', w:'', p:'', tag:'', desc:'', img:'', hot:false, nut:null }; return { ...x, nut: x.nut || null, hasNut: !!x.nut, hotEl: x.hot ? React.createElement('span', { style: { display:'inline-flex', alignItems:'center', padding:'6px 12px', borderRadius:'300px', background:'rgba(228,39,37,0.16)', fontSize:'12px', fontWeight:700, letterSpacing:'0.03em', color:'#F26B69', marginLeft:'10px', verticalAlign:'middle' } }, 'ОСТРОЕ') : null, imgEl: React.createElement('img', { src: x.img || FOOD, alt: x.n, style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }) }; })(),
-      closeDish: () => this.setState({ dish: null }),
+      sdGram: String(this.state.gram == null ? 1 : this.state.gram),
+      sdGrams: (() => { const x = this.state.dish; if (!x) return []; const base = parseInt(String(x.w).replace(/\D+/g, ''), 10) || 0; const unit = /мл/.test(String(x.w)) ? 'мл' : 'г'; if (!base) return [{ v: '1', label: String(x.w) }]; return [{ v: '1', label: base + ' ' + unit }, { v: '2', label: base * 2 + ' ' + unit + ' · двойная порция' }]; })(),
+      sdPickGram: (e) => this.setState({ gram: Number(e.target.value) || 1 }),
+      sauces: SAUCES.map((name) => { const on = !!(this.state.sauce || {})[name]; return { name, pick: () => { const s = { ...(this.state.sauce || {}) }; if (on) delete s[name]; else s[name] = true; this.setState({ sauce: s }); }, style: 'display:flex; flex-direction:column; align-items:stretch; gap:8px; padding:8px; border-radius:16px; cursor:pointer; font-family:inherit; text-align:center; background:' + (on ? 'rgba(255,32,38,0.14)' : '#191919') + '; border:1px solid ' + (on ? '#FF2026' : 'rgba(255,255,255,0.08)') + '; transition:border-color .2s ease, background-color .2s ease;', plaque: 'display:block; border-radius:10px; background:#E8E5DE; padding:9px 4px; font-size:13px; font-weight:700; font-style:normal; color:#FF2026;', nameStyle: 'display:block; font-size:12.5px; line-height:1.3; color:' + (on ? '#fff' : 'rgba(232,229,222,0.66)') + ';' }; }),
+      sdTotal: (() => { const x = this.state.dish; if (!x) return '0'; const g = this.state.gram || 1; const n = Object.keys(this.state.sauce || {}).length; return _fmtRub(_price(x.p) * 1 + n * 99); })(),
+      sdAdd: () => { const x = this.state.dish; if (!x) return; const g = this.state.gram || 1; const list = Object.keys(this.state.sauce || {}); this._cartAdd(x.n + '', _price(x.p) * 1, 1); list.forEach((s) => this._cartAdd('Соус ' + s, 99, 1)); this.setState({ dish: null, sauce: {}, gram: 1 }); },
+      sd: (() => { const x = this.state.dish || { n:'', w:'', p:'', tag:'', desc:'', img:'', img2:'', hot:false, nut:null }; const ph = (r) => React.createElement('span', { style: { position:'absolute', inset:0, display:'flex', alignItems:'center', justifyContent:'center', background:'#191919', color:'rgba(232,229,222,0.4)', fontSize:'12px', fontWeight:700, letterSpacing:'0.06em' } }, 'ФОТО ГОТОВИТСЯ'); const im = (src) => src ? React.createElement('img', { src, alt: x.n, style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }) : ph(); return { ...x, cat: active || '', nut: x.nut || null, hasNut: !!x.nut, hotEl: x.hot ? React.createElement('span', { style: { display:'inline-flex', alignItems:'center', padding:'6px 12px', borderRadius:'300px', background:'rgba(255,32,38,0.16)', fontSize:'12px', fontWeight:700, letterSpacing:'0.03em', color:'#FF2026', marginLeft:'10px', verticalAlign:'middle' } }, 'ОСТРОЕ') : null, imgEl: im(x.img), imgEl2: im(x.img2 || x.img) }; })(),
+      closeDish: () => this.setState({ dish: null, sauce: {}, gram: 1 }),
       faqCats: [
         { title:'Первый визит', items:[
           {q:'Я никогда не был в боулинге. Что делать?', a:'Приходите и скажите хостес, что впервые. Покажет за две минуты: как брать шар, куда целиться. На столе — карточка с основами, а бортики можно поднять в любой момент.'},
-          {q:'Сколько стоит сходить?', a:'Дорожка от 1 300 ₽ в будни до 2 300 ₽ в пятницу-субботу вечером — за час, до 6 человек. Средний чек на вечер — около 1 500 ₽ на человека. По вторникам дорожка бесплатная.'},
+          {q:'Сколько стоит сходить?', a:'Дорожка от 1 490 ₽ в будни до 2 990 ₽ в пятницу-субботу вечером — за час, до 6 человек. Средний чек на вечер — около 1 500 ₽ на человека. По вторникам дорожка бесплатная.'},
           {q:'Нужно ли бронировать заранее?', a:'В будни до 18:00 можно без брони. Пятница–воскресенье с 18:00 и праздники — бронируйте за день-два, на сайте это минута.'},
           {q:'Что надевать?', a:'Удобную одежду, дресс-кода нет. Обувь и одноразовые носки выдаём бесплатно на входе, сумки можно оставить в шкафчиках у дорожки.'},
-          {q:'Как найти вход?', a:'Точка — в ТК «Июнь» Санкт-Петербурга (Июнь, Июнь, Июнь), на 3–4 этаже. Внутри есть указатели, снаружи — вывески Brooklyn Bowl.'}
+          {q:'Как найти вход?', a:'Все одна точка — в ТЦ Санкт-Петербурге (Июнь, Июнь, Июнь), на 3–4 этаже. Внутри есть указатели, снаружи — вывески Brooklyn Bowl.'}
         ]},
         { title:'С детьми', items:[
           {q:'С какого возраста можно играть?', a:'С пяти лет: лёгкие шары от 2,5 кг и бортики, превращающие дорожку в коридор без канавы.'},
@@ -357,7 +751,7 @@ class Component extends DCLogic {
           {q:'А если ребёнок убежит на чужую дорожку?', a:'Хостес объясняет правила при посадке, а семью с детьми сажаем на дорожку рядом со столом, чтобы ребёнок был на виду.'}
         ]},
         { title:'День рождения', items:[
-          {q:'Что входит в пакет за 5 000 ₽?', a:'Дорожка на час, меню на стол, поздравление и десерт имениннику, двойные баллы (20% кэшбек). Рассчитан на 4–6 человек.'},
+          {q:'Что входит в пакет за 5 000 ₽?', a:'Дорожка на час, меню на стол, поздравление и десерт имениннику, двойные баллы (20% бонусы). Рассчитан на 4–6 человек.'},
           {q:'Можно ли принести свой торт?', a:'Можно. Нарезку и пробковый сбор называем при бронировании, а не в конце. Подадим со свечой, когда попросите.'},
           {q:'Какой депозит на детский ДР в выходные?', a:'Сумму называем при бронировании и пишем в подтверждении. Депозит засчитывается в счёт, остаток возвращаем.'},
           {q:'Есть ли персональный координатор?', a:'При бронировании от 10 гостей назначаем координатора: ведёт от заявки до ухода, его имя и телефон — в подтверждении.'},
@@ -378,31 +772,28 @@ class Component extends DCLogic {
           {q:'Юбилей пожилого родственника — уместно?', a:'Берите будний день: тихо, дорожка с бортиками, стулья с подлокотниками. Гостям 70+ — скидка 50% на дорожку по звонку.'}
         ]},
         { title:'Общее', items:[
-          {q:'Во сколько открываетесь и закрываетесь?', a:'Пн с 11:57, Вт–Чт и Вс с 9:57 до 0:02, Пт–Сб с 9:57 до 0:02. Последний заказ на кухне — за 45 минут до закрытия.'},
+          {q:'Во сколько открываетесь и закрываетесь?', a:'Пн с 12:00, Вт–Чт и Вс с 10:00 до 0:00, Пт–Сб с 10:00 до 0:00. Последний заказ на кухне — за 45 минут до закрытия.'},
           {q:'Есть ли доставка?', a:'Большая часть меню — в Яндекс.Еде. Некоторые блюда (пицца полстола, Крейзи Айс-Крим) не доставляем, чтобы пробовать их в идеальном виде.'},
           {q:'Какие способы оплаты?', a:'Наличные, карты, СБП, Apple/Google/Mir Pay, сертификаты и бонусы карты гостя (до 50% чека). Для юрлиц — закрывающие документы.'},
-          {q:'Что такое карта гостя и двойные баллы?', a:'Программа лояльности: 10% кэшбек с покупок, в день рождения — 20%. Баллами можно оплатить до половины следующего чека.'},
+          {q:'Что такое карта гостя и двойные баллы?', a:'Программа лояльности: 10% бонусами с покупок, в день рождения — 20%. Баллами можно оплатить до половины следующего чека.'},
           {q:'Можно ли прийти одному?', a:'Конечно: поужинать за барной стойкой, посмотреть стендап или потренироваться на дорожке. Для постоянных игроков есть абонемент.'}
         ]}
       ],
       events: EVENTS.map((x, i) => ({ ...x, imgEl: React.createElement('img', { src: x.img, alt: '', style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }), open: () => this.setState({ ev: i }) })),
       closeE: () => this.setState({ ev: null }),
       stopProp: (ev) => ev.stopPropagation(),
-      book: () => window.open('https://b179805.yclients.com', '_blank'),
+      book: () => window.open('https://b1620612.yclients.com/', '_blank'),
       getApp: () => window.open('https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&utm_medium=footer&utm_city=spb&utm_trc=all', '_blank'),
       cityOpen: !!this.state.cityOpen,
       toggleCity: () => this.setState(s => ({ cityOpen: !s.cityOpen })),
-      cert: () => window.open('https://certificate.brooklynbowl.ru?utm_source=website&utm_medium=promoblock&utm_campaign=yclients&utm_content=certificate&utm_city=spb&utm_trc=all', '_blank'),
+      cert: () => window.open('https://certificate.spb.brooklynbowl.ru/?utm_source=website&utm_medium=promoblock&utm_campaign=yclients&utm_content=certificate&utm_city=spb&utm_trc=all', '_blank'),
       scrollPromos: () => { const el = document.querySelector('[data-comment-anchor=promos]'); if (el) el.scrollIntoView({ behavior:'smooth' }); },
       holidayOpen: this.state.holiday === true,
       openHoliday: () => this.setState({ holiday: true }),
       closeHoliday: () => this.setState({ holiday: false }),
-      bookKids: () => window.open('https://brooklynbowl.bowlsoft.team/dr-kids.html', '_blank'),
-      bookAdult: () => window.open('https://brooklynbowl.bowlsoft.team/dr.html', '_blank'),
-      bookCorp: () => window.open('https://brooklynbowl.bowlsoft.team/corporate.html', '_blank'),
       points: PTS.map((p, i) => ({ ...p, imgEl: React.createElement('img', { src: p.img, alt: p.title, style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }), open: () => this.setState({ point: i }) })),
       pointOpen: this.state.point != null,
-      pd: (() => { const x = (this.state.point != null) ? PTS[this.state.point] : { title:'', tag:'', img:'https://brooklynbowl.bowlsoft.team/images/bowling-lane.jpg', desc:'', cta:'', act:'' }; const fn = x.act === 'menu' ? () => window.open('https://brooklynbowl.bowlsoft.team/menu.html', '_blank') : x.act === 'events' ? () => { const el=document.querySelector('[data-comment-anchor=events]'); this.setState({ point: null }); if (el) setTimeout(()=>el.scrollIntoView({behavior:'smooth'}),60); } : () => window.open('https://b179805.yclients.com', '_blank'); return { ...x, imgEl: React.createElement('img', { src: x.img, alt: x.title, style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }), ctaFn: fn }; })(),
+      pd: (() => { const x = (this.state.point != null) ? PTS[this.state.point] : { title:'', tag:'', img:'../uploads/bb-bowling-lane.jpg', desc:'', cta:'', act:'' }; const fn = x.act === 'menu' ? () => { window.location.href = 'kitchen.dc.html'; } : x.act === 'events' ? () => { const el=document.querySelector('[data-comment-anchor=events]'); this.setState({ point: null }); if (el) setTimeout(()=>el.scrollIntoView({behavior:'smooth'}),60); } : () => window.open('https://b1620612.yclients.com/', '_blank'); return { ...x, imgEl: React.createElement('img', { src: x.img, alt: x.title, style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }), ctaFn: fn }; })(),
       closePoint: () => this.setState({ point: null }),
       openP0: () => this.setState({ point: 0 }),
       openP1: () => this.setState({ point: 1 }),
@@ -412,21 +803,21 @@ class Component extends DCLogic {
       ocity: this.state.ocity || { name:'', sub:'', url:'#' },
       closeOcity: () => this.setState({ ocity: null }),
       evOpen: e != null,
-      ev: ((x) => ({ ...x, imgEl: React.createElement('img', { src: x.img, alt: '', style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }) }))(e || { title: '', date: '', venue: '', price: '', img: 'https://brooklynbowl.bowlsoft.team/images/standup.jpg', desc: '' }),
+      ev: ((x) => ({ ...x, imgEl: React.createElement('img', { src: x.img, alt: '', style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }) }))(e || { title: '', date: '', venue: '', price: '', img: '../uploads/bb-standup.jpg', desc: '' }),
       scenarios: [
-        { tag:'ПЯТНИЦА · 3–6', img:'https://brooklynbowl.bowlsoft.team/images/friends.jpg', title:'Поиграем с друзьями', sub:'Собрать своих — и не париться.',
+        { tag:'ПЯТНИЦА · 3–6', img:'../uploads/bb-friends.jpg', title:'Поиграем с друзьями', sub:'Собрать своих — и не париться.',
           how:['Приходите после работы — хостес встречает и проводит к дорожке.','Дорожка проверена с утра, всё работает.','Вечером на сцене кавер-группа или стендап.','Когда бронь заканчивается — пересаживаетесь в ресторанную зону.'],
           learned:['Все дорожки проходят утреннюю проверку, поломки — вычтем время из чека.','Дресс-кода нет.','Напитки приносят за 15 минут, еду за 25.'],
           check:'≈ 2 698 ₽ на человека', note:'Пт-вечер, базовый расчёт.', quote:'Отмечали защиту проекта вдесятером. Когда время дорожки закончилось — не выгнали.', author:'Кирилл Р. · компания 10 · Июнь' },
-        { tag:'ВЫХОДНЫЕ · ДНЁМ', img:'https://brooklynbowl.bowlsoft.team/images/family.jpg', title:'Придём семьёй', sub:'Посидеть вместе, пока дети играют — и не мыть потом посуду.',
+        { tag:'ВЫХОДНЫЕ · ДНЁМ', img:'../uploads/bb-family.jpg', title:'Придём семьёй', sub:'Посидеть вместе, пока дети играют — и не мыть потом посуду.',
           how:['Вас встречает хостес.','Детскую обувь приносят прямо к дорожке.','Есть детское и взрослое меню, авторская кухня.','После игры можно задержаться в ресторане.'],
           learned:['Одноразовые носки и бахилы.','Обувь с 23 размера, шары от 2,5 кг.','Бортики поднимаются под рост ребёнка.','Бесплатный вторник — специально под семью.'],
           check:'≈ 870 ₽ на человека', note:'Выходной днём, базовый расчёт.', quote:'Обувь детских размеров принесли без просьбы. Во вторник за дорожку не взяли ни рубля.', author:'Анна М. · семья, 2 детей · Июнь' },
-        { tag:'ДР · 8–12 ДЕТЕЙ', img:'https://brooklynbowl.bowlsoft.team/images/kids-party.jpg', title:'Детский день рождения', sub:'Устроить праздник ребёнку — и выдохнуть самому.',
+        { tag:'ДР · 8–12 ДЕТЕЙ', img:'../uploads/bb-kids-party.jpg', title:'Детский день рождения', sub:'Устроить праздник ребёнку — и выдохнуть самому.',
           how:['Бронируете — связываемся обсудить детали.','За 24 часа СМС, за 2 часа звонок.','Стол накрыт, дорожка готова, предзаказ ждёт.','Поздравляем: выносим десерт со свечой.','Имениннику — двойные баллы на карту.'],
           learned:['Персональный координатор ведёт вас весь праздник.','Обувь с 23, шары 2,5–5 кг и бортики готовим заранее.','Свой торт можно, условия называем заранее.','Депозит озвучиваем сразу и пишем в подтверждении.'],
-          check:'≈ 1 299₽ на ребёнка', note:'Будни днём, двойные баллы имениннику.', quote:'Тортик со свечой вынесли — сын прослезился. Депозит назвали сразу, сюрпризов не было.', author:'Мария К. · ДР сына 8 лет · Июнь' },
-        { tag:'ВЕЧЕР · 8–15', img:'https://brooklynbowl.bowlsoft.team/images/adult-birthday.jpg', title:'Взрослый день рождения', sub:'Отметить — и чтобы за вас подумали обо всём.',
+          check:'≈ 999 ₽ на ребёнка', note:'Будни днём, двойные баллы имениннику.', quote:'Тортик со свечой вынесли — сын прослезился. Депозит назвали сразу, сюрпризов не было.', author:'Мария К. · ДР сына 8 лет · Июнь' },
+        { tag:'ВЕЧЕР · 8–15', img:'../uploads/bb-adult-birthday.jpg', title:'Взрослый день рождения', sub:'Отметить — и чтобы за вас подумали обо всём.',
           how:['Каждого встречает хостес.','Конфигурация под размер компании.','Предзаказ выносим по мере игры.','Десерт со свечой и поздравление от команды.','После боулинга — ресторан, двойные баллы.'],
           learned:['Фото делают официанты по просьбе.','Персональный координатор от 10 гостей.','Можно арендовать весь зал.','Счёт на юрлицо и закрывающие документы.','Большие сеты на компанию.'],
           check:'≈ 1 970 ₽ на гостя', note:'Сб-вечер, базовый расчёт.', quote:'Собрали на 33-летие 12 друзей. Счёт на юрлицо без вопросов, документы прислали через два дня.', author:'Алексей Д. · 33 года, 12 гостей · Июнь' }
@@ -435,7 +826,7 @@ class Component extends DCLogic {
       venueOpen: this.state.venue != null,
       pickerView: this.state.venue === 'list',
       detailView: typeof this.state.venue === 'number',
-      vd: ((x) => ({ ...x, imgEl: React.createElement('img', { src: x.img, alt: '', style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }) }))(vsel || { name:'', tag:'', addr:'', mall:'', phone:'', tel:'#', img:'https://brooklynbowl.bowlsoft.team/images/bowling-lane.jpg', route:'#' }),
+      vd: ((x) => ({ ...x, imgEl: React.createElement('img', { src: x.img, alt: '', style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }) }))(vsel || { name:'', tag:'', addr:'', mall:'', phone:'', tel:'#', img:'../uploads/bb-bowling-lane.jpg', route:'#' }),
       openVenueList: () => this.setState({ venue: 'list' }),
       closeVenue: () => this.setState({ venue: null }),
       backToList: () => this.setState({ venue: 'list' })
@@ -443,5 +834,10 @@ class Component extends DCLogic {
   }
 }
 </script>
+<!-- BB-BOOKING: сюда вставляется виджет брони YClients.
+     Waitly в Санкт-Петербурге не работает, код виджета даёт заказчица —
+     вставить на это место, в конец body, как на страницах остальных городов.
+     Ссылка брони города: https://b1620612.yclients.com/ -->
+<!-- /BB-BOOKING -->
 </body>
 </html>

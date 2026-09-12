@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/png" sizes="32x32" href="uploads/favicon-32x32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="uploads/apple-touch-icon.png">
-<script src="./support.js"></script>
+<title>Корпоратив в Ижевске — Brooklyn Bowl</title>
+<meta name="description" content="Корпоративные вечера с боулингом, банкетом и шоу-программой. Форматы, цены и расчёт стоимости.">
+<script src="../support.js"></script>
 </head>
 <body>
 <x-dc>
@@ -13,17 +13,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/proxima-nova" rel="stylesheet">
-<style>*{box-sizing:border-box;} button,input,select,textarea{font-family:inherit;} html,body{margin:0; padding:0; font-family:'Proxima Nova','Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:#0B0B0C;}
+<style>
+em, i, address, cite, dfn, var{ font-style:normal; }
+*{box-sizing:border-box;} button,input,select,textarea{font-family:inherit;} html,body{margin:0; padding:0; font-family:'Proxima Nova','Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:#000000;}
 summary::-webkit-details-marker{display:none;}
 #bbmenu:checked ~ [data-m="mobile-menu"]{ display:flex !important; }
+/* 769–1000px: меню шапки сжимается по-настоящему, чтобы пункты не срезались */
+@media (min-width:769px) and (max-width:1000px){
+  [data-m="nav"]{ gap:6px !important; overflow:visible !important; min-width:0 !important; flex-shrink:1 !important; }
+  [data-m="nav"] > a{ padding:8px 4px !important; font-size:13.5px !important; }
+}
 @media (max-width:768px){
     /* единая мобильная типографика */
     body h1:not(#_){ font-size:24px !important; line-height:1.2 !important; }
     body h2:not(#_){ font-size:20px !important; line-height:1.25 !important; }
     body h3:not(#_){ font-size:16px !important; line-height:1.3 !important; }
     body p:not(#_){ font-size:14px !important; line-height:1.5 !important; }
-  }
-  @media (max-width:1080px){
   [data-m="tabbar"]{display:block !important;}
   header{padding:0 16px !important; gap:10px !important; height:62px !important;}
   header nav{display:none !important;}
@@ -38,65 +43,177 @@ summary::-webkit-details-marker{display:none;}
   [style*="columns: 3"]{display:flex !important; overflow-x:auto !important; gap:14px !important; columns:auto !important; column-gap:0 !important; scroll-snap-type:x mandatory !important; padding-bottom:6px !important;}
   [style*="columns: 3"] > article{flex:0 0 86vw !important; scroll-snap-align:center !important; margin:0 !important;}
 }
+
+/* ===== ПОДВАЛ: устойчивая сетка ===== */
+footer > div:first-child{ align-items:flex-start; }
+footer div[data-m="footer-cols"]{
+  display:grid !important;
+  grid-template-columns:repeat(auto-fit, minmax(158px, 1fr)) !important;
+  gap:30px 26px !important; align-content:start; min-width:0 !important;
+}
+footer div[data-m="footer-cols"] > div{ min-width:0; }
+footer div[data-m="footer-cols"] > div > div:first-child{
+  font-size:12px !important; letter-spacing:0.06em !important; white-space:nowrap !important; margin-bottom:14px !important;
+}
+footer div[data-m="footer-cols"] > div > div:last-child{ gap:10px !important; }
+footer div[data-m="footer-cols"] a{ display:block; overflow-wrap:anywhere; hyphens:auto; line-height:1.35 !important; }
+@media (max-width:1100px){
+  footer div[data-m="footer-cols"]{ grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)) !important; }
+}
+@media (max-width:768px){
+  footer div[data-m="footer-cols"]{ grid-template-columns:1fr 1fr !important; gap:24px 18px !important; }
+}
+@media (max-width:430px){
+  footer div[data-m="footer-cols"]{ grid-template-columns:1fr !important; }
+}
+
+@media (min-width:769px) and (max-width:1100px){
+  header{ gap:16px !important; padding:0 20px !important; }
+  header > nav{ gap:12px !important; }
+  header > nav > a{ font-size:14px !important; padding:8px 8px !important; white-space:nowrap !important; }
+  header > div:last-child{ gap:10px !important; }
+  header a[href^="tel:"]{ display:none !important; }
+  header > div:last-child button, header > div:last-child > a[href*="waitly"], header > div:last-child > a[href*="yclients"]{ padding:10px 16px !important; font-size:14px !important; white-space:nowrap !important; }
+}
+
+/* ===== ФИРМЕННАЯ ПАЛИТРА: ссылки по умолчанию ===== */
+a{ color:#FF2026; }
+a:hover{ color:#FFFFFF; }
+/* BB-BUTTON-COMPONENT v2 */
+[data-m="cta"]{
+  display:inline-flex !important; align-items:center !important; justify-content:center !important;
+  box-sizing:border-box !important; height:52px !important; min-height:52px !important;
+  min-width:260px !important; padding:0 32px !important; border:none !important; border-radius:300px !important;
+  font-family:inherit !important; font-size:14px !important; font-weight:800 !important;
+  letter-spacing:0.05em !important; line-height:1 !important; text-transform:uppercase !important;
+  text-decoration:none !important; white-space:nowrap !important; cursor:pointer !important;
+  background:#FF2026 !important; color:#FFFFFF !important;
+  transition:background-color .2s ease, color .2s ease !important;
+}
+[data-m="cta"]:hover{ background:#FFFFFF !important; color:#FF2026 !important; }
+/* на красной подложке — белая кнопка с чёрным текстом */
+[data-m="ev-hero"] [data-m="cta"],
+[style*="background:#FF2026"] [data-m="cta"],
+[style*="background: #FF2026"] [data-m="cta"]{ background:#FFFFFF !important; color:#000000 !important; }
+[data-m="ev-hero"] [data-m="cta"]:hover,
+[style*="background:#FF2026"] [data-m="cta"]:hover,
+[style*="background: #FF2026"] [data-m="cta"]:hover{ background:#000000 !important; color:#FFFFFF !important; }
+/* группа кнопок — равная ширина по самой длинной */
+[data-m="cta-row"]{ display:grid !important; grid-auto-flow:column !important; grid-auto-columns:1fr !important; width:fit-content !important; max-width:100% !important; gap:14px !important; align-items:stretch !important; }
+@media (max-width:768px){
+  [data-m="cta"]{ width:100% !important; min-width:0 !important; padding:0 20px !important; }
+  [data-m="cta-row"]{ grid-auto-flow:row !important; grid-auto-columns:auto !important; width:100% !important; }
+}
+/* 769–1180px: в хедере не хватает ширины на кнопку 260px — снимаем минимум, чтобы не срезало */
+@media (min-width:769px) and (max-width:1180px){
+  header [data-m="cta"]{ min-width:0 !important; padding:0 20px !important; flex:0 1 auto !important; }
+  [data-m="cta-row"] [data-m="cta"]{ min-width:0 !important; padding:0 20px !important; }
+  header{ min-width:0 !important; gap:18px !important; padding-left:20px !important; padding-right:20px !important; }
+  header > *{ min-width:0 !important; }
+  header > *:last-child{ flex:0 1 auto !important; gap:12px !important; }
+  header nav{ flex:0 1 auto !important; overflow:hidden !important; }
+}
+@media (min-width:769px) and (max-width:1040px){
+  header a[href^="tel:"]{ display:none !important; }
+}
+</style>
+<script>(function(){var n=0;function m(){var v=document.querySelectorAll('video');for(var i=0;i<v.length;i++){var el=v[i];if(!el.muted){el.muted=true;el.defaultMuted=true;el.setAttribute('muted','');}if(el.paused){var p=el.play();if(p&&p.catch){p.catch(function(){});}}}}m();var t=setInterval(function(){m();if(++n>40){clearInterval(t);}},500);document.addEventListener('DOMContentLoaded',m);})();</script>
+<script src="../_lightbox.js"></script>
+<!-- BB-CHAT -->
+<script src="../_chat.js"></script>
+<script src="../_ovl.js"></script>
+<style>
+[data-m="chat-body"]::-webkit-scrollbar{ width:6px; }
+[data-m="chat-body"]::-webkit-scrollbar-thumb{ background:rgba(255,255,255,0.16); border-radius:3px; }
+[data-m="chat-input"]::placeholder{ color:rgba(232,229,222,0.5); }
+/* плавающий виджет брони не должен перекрывать кнопки у правого края блоков */
+@media (min-width:769px){
+  [data-m="ev-row"]{ padding-right:150px !important; }
+}
+@media (max-width:980px){
+  [data-m="fab-chat"]{ bottom:90px !important; }
+}
+/* мобильная шапка: только логотип и выбор города — кнопка брони и телефон убраны */
+@media (max-width:768px){
+  header [data-m="cta"], header a[href*="waitly"], header a[href*="yclients"], header a[href^="tel:"]{ display:none !important; }
+  [data-m="fab-chat"]{ left:14px !important; }
+  [data-m="chat-panel"]{ left:0 !important; right:0 !important; bottom:0 !important; width:100% !important; max-width:none !important; height:84vh !important; border-radius:22px 22px 0 0 !important; }
+}
+
+/* BB-OVERLAY-GUARD: пока открыт оверлей — плавающие виджеты скрыты */
+html[data-bb-ovl="menu"] [data-m="fab-chat"], html[data-bb-ovl="menu"] [data-m="chat-panel"], html[data-bb-ovl="menu"] #waitly-widget-root,
+html[data-bb-ovl="modal"] [data-m="fab-chat"], html[data-bb-ovl="modal"] [data-m="chat-panel"], html[data-bb-ovl="modal"] #waitly-widget-root,
+html[data-bb-ovl="chat"] #waitly-widget-root,
+html[data-bb-ovl="book"] [data-m="fab-chat"], html[data-bb-ovl="book"] [data-m="chat-panel"]{ display:none !important; }
+/* чат не закрывает текст: гаснет, когда под кнопкой строка или картинка */
+html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-events:none !important; }
+[data-m="fab-chat"]{ transition:opacity .18s ease !important; }
+/* выбор города на мобильном: список у правого края и не шире экрана */
+@media (max-width:768px){
+  [data-m="city-pick"] > div{ left:auto !important; right:0 !important; width:auto !important; min-width:0 !important; max-width:calc(100vw - 32px) !important; }
+}
+/* шторка меню: список скроллится, нижний блок не наезжает на пункты */
+[data-m="mobile-menu"]{ overflow:hidden !important; }
+[data-m="mobile-menu"] nav{ min-height:0 !important; }
 </style>
 </helmet>
-<div style="font-family:'Proxima Nova','Montserrat',-apple-system,sans-serif; background:#0B0B0C; color:#fff; min-height:100vh; -webkit-font-smoothing:antialiased; overflow:hidden;">
+<div style="font-family:'Proxima Nova','Montserrat',-apple-system,sans-serif; background:#000000; color:#fff; min-height:100vh; -webkit-font-smoothing:antialiased; overflow:hidden;">
   <input type="checkbox" id="bbmenu" style="display:none;">
 
-  <header style="position:sticky; top:0; z-index:50; display:flex; align-items:center; gap:32px; height:74px; padding:0 40px; background:rgba(11,11,12,0.86); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(255,255,255,0.07);">
-    <a href="index.html" style="display:flex; align-items:center; text-decoration:none; flex-shrink:0;"><img src="uploads/Vector.svg" alt="Brooklyn Bowl" style="height:24px; width:auto; display:block; filter:brightness(0) invert(1);"></a>
+  <header style="position:sticky; top:0; z-index:50; display:flex; align-items:center; gap:32px; height:74px; padding:0 40px; background:rgba(0,0,0,0.86); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(255,255,255,0.07);">
+    <a href="index.html" style="display:flex; align-items:center; text-decoration:none; flex-shrink:0;"><img src="../uploads/Vector.svg" alt="Brooklyn Bowl" style="height:24px; width:auto; display:block; filter:brightness(0) invert(1);"></a>
     <nav style="display:flex; align-items:center; gap:30px; margin-left:14px;">
-      <a href="index.html" style="text-decoration:none; color:#B6B5B0; font-size:15px; font-weight:500;" style-hover="color:#fff !important;">Главная</a>
-      <a href="bowling.html" style="text-decoration:none; color:#B6B5B0; font-size:15px; font-weight:500;" style-hover="color:#fff !important;">Боулинг</a>
-      <a href="kitchen.html" style="text-decoration:none; color:#B6B5B0; font-size:15px; font-weight:500;" style-hover="color:#fff !important;">Кухня</a>
-      <a href="afisha.html" style="text-decoration:none; color:#B6B5B0; font-size:15px; font-weight:500;" style-hover="color:#fff !important;">Афиша</a>
+      <a href="index.html" style="text-decoration:none; color:rgba(232,229,222,0.8); font-size:15px; font-weight:500;" style-hover="color:#fff !important;">Главная</a>
+      <a href="bowling.html" style="text-decoration:none; color:rgba(232,229,222,0.8); font-size:15px; font-weight:500;" style-hover="color:#fff !important;">Боулинг</a>
+      <a href="kitchen.html" style="text-decoration:none; color:rgba(232,229,222,0.8); font-size:15px; font-weight:500;" style-hover="color:#fff !important;">Кухня</a>
+      <a href="afisha.html" style="text-decoration:none; color:rgba(232,229,222,0.8); font-size:15px; font-weight:500;" style-hover="color:#fff !important;">Афиша</a>
     </nav>
     <div style="display:flex; align-items:center; gap:18px; margin-left:auto; flex-shrink:0;">
-      <details data-m="city-pick" style="position:relative;"><summary style="list-style:none; cursor:pointer; display:flex; align-items:center; gap:7px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 1.5c-2.5 0-4.5 2-4.5 4.5 0 3.2 4.5 8 4.5 8s4.5-4.8 4.5-8c0-2.5-2-4.5-4.5-4.5Z" stroke="#E42725" stroke-width="1.4"></path><circle cx="8" cy="6" r="1.6" stroke="#E42725" stroke-width="1.4"></circle></svg><span style="color:#fff; font-size:15px; font-weight:500;">Ижевск</span><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#9C9A95" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></summary><div style="position:absolute; top:calc(100% + 12px); left:0; z-index:120; min-width:240px; background:#141417; border:1px solid rgba(255,255,255,0.12); border-radius:16px; padding:8px; display:flex; flex-direction:column; gap:2px; box-shadow:0 20px 46px rgba(0,0,0,0.6);"><div style="padding:6px 12px 8px; font-size:11px; font-weight:700; letter-spacing:0.06em; color:#9C9A95;">ВЫБЕРИТЕ ГОРОД</div><a href="../tyumen/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:#C7C5BE; background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Тюмень</span><span style="font-size:12px; color:#9C9A95;">3 точки</span></a><a href="index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:700; color:#fff; background:rgba(228,39,37,0.18);" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Ижевск</span><span style="font-size:12px; color:#9C9A95;">2 точки</span></a><a href="../samara/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:#C7C5BE; background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Самара</span><span style="font-size:12px; color:#9C9A95;">2 точки</span></a><a href="../msk/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:#C7C5BE; background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Москва</span><span style="font-size:12px; color:#9C9A95;">2 точки</span></a><a href="../spb/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:#C7C5BE; background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Санкт-Петербург</span><span style="font-size:12px; color:#9C9A95;">1 точка</span></a><a href="../surgut/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:#C7C5BE; background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Сургут</span><span style="font-size:12px; color:#9C9A95;">1 точка</span></a><a href="../nv/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:#C7C5BE; background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Нижневартовск</span><span style="font-size:12px; color:#9C9A95;">1 точка</span></a></div></details>
-      <a href="tel:+73412707813" style="display:flex; align-items:center; gap:7px; text-decoration:none; color:#fff; font-size:15px; font-weight:600; white-space:nowrap;" style-hover="color:#FF5257 !important;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M5.5 2.5 6.8 5l-1.3 1.3a8 8 0 0 0 3.2 3.2L10 8.2 12.5 9.5c.4.2.6.6.5 1l-.4 1.6c-.1.5-.6.8-1.1.7C7.2 12.2 3.8 8.8 3.2 4.5c-.1-.5.2-1 .7-1.1l1.6-.4c.4-.1.8.1 1 .5Z" stroke="#E42725" stroke-width="1.4" stroke-linejoin="round"></path></svg>+7 3412 70-78-13</a>
-      <a onClick="{{ bookLane }}" style="cursor:pointer; text-decoration:none; background:#fff; border:none; cursor:pointer; padding:11px 22px; border-radius:300px; color:#0B0B0C; font-size:15px; font-weight:600;" style-hover="background:#E42725 !important; color:#fff !important;">Запросить КП</a>
+      <details data-m="city-pick" style="position:relative;"><summary style="list-style:none; cursor:pointer; display:flex; align-items:center; gap:7px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 1.5c-2.5 0-4.5 2-4.5 4.5 0 3.2 4.5 8 4.5 8s4.5-4.8 4.5-8c0-2.5-2-4.5-4.5-4.5Z" stroke="#FF2026" stroke-width="1.4"></path><circle cx="8" cy="6" r="1.6" stroke="#FF2026" stroke-width="1.4"></circle></svg><span style="color:#fff; font-size:15px; font-weight:500;">Ижевск</span><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="rgba(232,229,222,0.66)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></summary><div style="position:absolute; top:calc(100% + 12px); left:0; z-index:120; min-width:240px; background:#191919; border:1px solid rgba(255,255,255,0.12); border-radius:16px; padding:8px; display:flex; flex-direction:column; gap:2px; box-shadow:0 20px 46px rgba(0,0,0,0.6);"><div style="padding:6px 12px 8px; font-size:11px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">ВЫБЕРИТЕ ГОРОД</div><a href="../tyumen/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Тюмень</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">3 точки</span></a><a href="index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Ижевск</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">2 точки</span></a><a href="../samara/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Самара</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">2 точки</span></a><a href="../msk/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Москва</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">2 точки</span></a><a href="../spb/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Санкт-Петербург</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">1 точка</span></a><a href="../surgut/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Сургут</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">1 точка</span></a><a href="../nv/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Нижневартовск</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">1 точка</span></a></div></details>
+      <a href="tel:+73412708440" style="display:flex; align-items:center; gap:7px; text-decoration:none; color:#fff; font-size:15px; font-weight:600; white-space:nowrap;" style-hover="color:#FF2026 !important;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M5.5 2.5 6.8 5l-1.3 1.3a8 8 0 0 0 3.2 3.2L10 8.2 12.5 9.5c.4.2.6.6.5 1l-.4 1.6c-.1.5-.6.8-1.1.7C7.2 12.2 3.8 8.8 3.2 4.5c-.1-.5.2-1 .7-1.1l1.6-.4c.4-.1.8.1 1 .5Z" stroke="#FF2026" stroke-width="1.4" stroke-linejoin="round"></path></svg>+7 (341) 270-84-40</a>
+      <a data-m="cta" onClick="{{ bookLane }}" style="cursor:pointer; text-decoration:none; background:#fff; border:none; cursor:pointer; padding:16px 32px; border-radius:300px; color:#000000; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#FF2026 !important; color:#fff !important;">Запросить КП</a>
     </div>
   </header>
-  <div data-m="mobile-menu" style="display:none; position:fixed; inset:0; z-index:90; background:#0B0B0C; flex-direction:column; padding:16px 22px 36px;">
+  <div data-m="mobile-menu" style="display:none; position:fixed; inset:0; z-index:90; background:#000000; flex-direction:column; padding:16px 22px 36px;">
     <div style="display:flex; align-items:center; justify-content:space-between; height:42px; margin-bottom:14px;">
-      <img src="uploads/Vector.svg" alt="Brooklyn Bowl" style="height:22px; width:auto; filter:brightness(0) invert(1);">
-      <label for="bbmenu" style="width:42px; height:42px; border-radius:50%; background:#1C1C1F; border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; cursor:pointer;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="2" stroke-linecap="round"></path></svg></label>
+      <img src="../uploads/Vector.svg" alt="Brooklyn Bowl" style="height:22px; width:auto; filter:brightness(0) invert(1);">
+      <label for="bbmenu" style="width:42px; height:42px; border-radius:50%; background:#191919; border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; cursor:pointer;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="2" stroke-linecap="round"></path></svg></label>
     </div>
     <nav style="display:flex; flex-direction:column; gap:0; margin-top:12px; flex:1; overflow-y:auto; -webkit-overflow-scrolling:touch;">
-      <a href="index.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:6px 0;">Главная</a>
-      <a href="bowling.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:6px 0;">Боулинг</a>
-      <a href="kitchen.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:6px 0;">Кухня</a>
-      <a href="afisha.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:6px 0;">Афиша</a>
-      <div style="margin:16px 0 6px; font-size:11.5px; font-weight:700; letter-spacing:0.08em; color:#5E5C58;">ПРАЗДНИК #ВБРУКЛИНЕ</div>
-      <a href="dr.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Взрослый ДР</a>
-      <a href="dr-kids.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Детский ДР</a>
+      <a href="index.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:6px 0;">Главная</a>
+      <a href="bowling.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:6px 0;">Боулинг</a>
+      <a href="kitchen.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:6px 0;">Кухня</a>
+      <a href="afisha.html" style="text-decoration:none; font-size:22px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:6px 0;">Афиша</a>
+      <div style="margin:16px 0 6px; font-size:11.5px; font-weight:700; letter-spacing:0.08em; color:rgba(232,229,222,0.4);">ПРАЗДНИК #ВБРУКЛИНЕ</div>
+      <a href="dr.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Взрослый ДР</a>
+      <a href="dr-kids.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Детский ДР</a>
       <a href="corporate.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#fff; padding:5px 0;">Корпоратив</a>
-      <a href="graduation.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Выпускной</a>
-      <a href="friends.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">С друзьями</a>
-      <a href="family.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Семьёй</a>
-      <a href="lane.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Просто поиграть</a>
-      <div style="margin:16px 0 6px; font-size:11.5px; font-weight:700; letter-spacing:0.08em; color:#5E5C58;">ЕЩЁ</div>
-      <a href="promo.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Акции</a>
-      <a href="loyalty.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Бонусы и приложение</a>
-      <a href="about.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">О нас</a>
-      <a href="contacts.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Контакты</a>
-      <div style="margin:16px 0 6px; font-size:11.5px; font-weight:700; letter-spacing:0.08em; color:#5E5C58;">ЗАЛЫ В ИЖЕВСКЕ</div>
-      <a href="filial-matrix.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Матрица</a>
-      <a href="filial-petrovsky.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#8E8C87; padding:5px 0;">Петровский</a>
+      <a href="graduation.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Выпускной</a>
+      <a href="friends.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">С друзьями</a>
+      <a href="family.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Семьёй</a>
+      <a href="lane.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Просто поиграть</a>
+      <div style="margin:16px 0 6px; font-size:11.5px; font-weight:700; letter-spacing:0.08em; color:rgba(232,229,222,0.4);">ЕЩЁ</div>
+      <a href="promo.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Акции</a>
+      <a href="loyalty.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Бонусы и приложение</a>
+      <a href="about.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">О нас</a>
+      <a href="contacts.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Контакты</a>
+      <div style="margin:16px 0 6px; font-size:11.5px; font-weight:700; letter-spacing:0.08em; color:rgba(232,229,222,0.4);">ЗАЛЫ В ИЖЕВСКЕ</div>
+      <a href="filial-petrovsky.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">ПЕТРОВСКИЙ</a>
+      <a href="filial-matrix.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Матрица</a>
     </nav>
     <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
-      <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 1.5c-2.5 0-4.5 2-4.5 4.5 0 3.2 4.5 8 4.5 8s4.5-4.8 4.5-8c0-2.5-2-4.5-4.5-4.5Z" stroke="#E42725" stroke-width="1.4"></path><circle cx="8" cy="6" r="1.6" stroke="#E42725" stroke-width="1.4"></circle></svg>
-      <span style="color:#9C9A95; font-size:15px;">Ижевск</span>
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 1.5c-2.5 0-4.5 2-4.5 4.5 0 3.2 4.5 8 4.5 8s4.5-4.8 4.5-8c0-2.5-2-4.5-4.5-4.5Z" stroke="#FF2026" stroke-width="1.4"></path><circle cx="8" cy="6" r="1.6" stroke="#FF2026" stroke-width="1.4"></circle></svg>
+      <span style="color:rgba(232,229,222,0.66); font-size:15px;">Ижевск</span>
     </div>
-    <a href="tel:+73412707813" style="text-decoration:none; color:#fff; font-size:20px; font-weight:700; margin-bottom:18px;">+7 3412 70-78-13</a>
-    <a href="https://b851103.yclients.com/" target="_blank" rel="noopener" style="display:block; box-sizing:border-box; text-align:center; text-decoration:none; width:100%; background:#E42725; padding:17px; border-radius:300px; color:#fff; font-size:17px; font-weight:600;">Бронь стола в зоне боулинга</a>
+    <a href="tel:+73412708440" style="text-decoration:none; color:#fff; font-size:20px; font-weight:700; margin-bottom:18px;">+7 (341) 270-84-40</a>
+    <a data-m="cta" href="https://widget.waitly.ru/BDFFLs8L1bKypCM9XH0KZg/2-firm?utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=izhevsk&utm_trc=all" target="_blank" rel="noopener" style="display:block; box-sizing:border-box; text-align:center; text-decoration:none; width:100%; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;">Бронь стола в зоне боулинга</a>
   </div>
-  <div data-m="tabbar" style="display:none; position:fixed; left:0; right:0; bottom:0; z-index:80; padding:30px 14px 16px; pointer-events:none; background:linear-gradient(180deg, rgba(11,11,12,0) 0%, rgba(11,11,12,0.82) 50%, #0B0B0C 100%);">
+  <div data-m="tabbar" style="display:none; position:fixed; left:0; right:0; bottom:0; z-index:80; padding:30px 14px 16px; pointer-events:none; background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.82) 50%, #000000 100%);">
     <div style="display:flex; align-items:center; gap:10px; max-width:460px; margin:0 auto; pointer-events:auto;">
-      <div style="flex:1; display:flex; align-items:center; gap:2px; background:#15151A; border:1px solid rgba(255,255,255,0.08); border-radius:300px; padding:6px; box-shadow:0 14px 34px rgba(0,0,0,0.55);">
+      <div style="flex:1; display:flex; align-items:center; gap:2px; background:#191919; border:1px solid rgba(255,255,255,0.08); border-radius:300px; padding:6px; box-shadow:0 14px 34px rgba(0,0,0,0.55);">
         <a href="index.html" aria-label="Главная" style="flex:1; display:flex; align-items:center; justify-content:center; padding:14px 0; text-decoration:none;"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M3.2 11 12 3.3 20.8 11M5.6 9.4V20h12.8V9.4" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><a href="bowling.html" aria-label="Боулинг" style="flex:1; display:flex; align-items:center; justify-content:center; padding:14px 0; text-decoration:none;"><svg width="25" height="23" viewBox="0 0 28 24" fill="none"><circle cx="9" cy="14.6" r="6.8" stroke="#fff" stroke-width="1.7"></circle><circle cx="6.7" cy="12.2" r="1" fill="#fff"></circle><circle cx="9.5" cy="11.4" r="1" fill="#fff"></circle><circle cx="8" cy="14.6" r="1" fill="#fff"></circle><path d="M21 3.4c-1.3 0-1.9 1-1.9 2.1 0 1 .6 1.7.6 3.2 0 2-1.2 3-1.2 6.4 0 2 .9 3.1 2.5 3.1s2.5-1.1 2.5-3.1c0-3.4-1.2-4.4-1.2-6.4 0-1.5.6-2.2.6-3.2 0-1.1-.6-2.1-1.9-2.1Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"></path></svg></a><a href="kitchen.html" aria-label="Кухня" style="flex:1; display:flex; align-items:center; justify-content:center; padding:14px 0; text-decoration:none;"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M3.6 6.6 12 20.8l8.4-14.2c-5.4-2.4-11.4-2.4-16.8 0Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"></path><path d="M5.6 7.3c4.1-1.5 8.7-1.5 12.8 0" stroke="#fff" stroke-width="1.4"></path><circle cx="10" cy="10.2" r="1.1" fill="#fff"></circle><circle cx="14" cy="11.2" r="1.1" fill="#fff"></circle><circle cx="12" cy="15" r="1.1" fill="#fff"></circle></svg></a><a href="afisha.html" aria-label="Афиша" style="flex:1; display:flex; align-items:center; justify-content:center; padding:14px 0; text-decoration:none;"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M20.6 3.4c-.8-.8-2-.7-2.8.1l-2.9 2.9c-.5.5-.7 1.2-.5 1.9l.2.9-3.3 3.3c-1-.4-2.2-.2-3 .6-1.2 1.2-1.2 3.1 0 4.3 1.2 1.2 3.1 1.2 4.3 0 .8-.8 1-2 .6-3l3.3-3.3.9.2c.7.2 1.4 0 1.9-.5l2.9-2.9c.8-.8.9-2 .1-2.8Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"></path><path d="m16.4 5.6 2 2" stroke="#fff" stroke-width="1.4" stroke-linecap="round"></path></svg></a>
       </div>
-      <label for="bbmenu" aria-label="Меню" style="flex-shrink:0; width:56px; height:56px; border-radius:50%; background:#15151A; border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 14px 34px rgba(0,0,0,0.55);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 9.5h14M5 14.5h14" stroke="#fff" stroke-width="2" stroke-linecap="round"></path></svg></label>
+      <label for="bbmenu" aria-label="Меню" style="flex-shrink:0; width:56px; height:56px; border-radius:50%; background:#191919; border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 14px 34px rgba(0,0,0,0.55);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 9.5h14M5 14.5h14" stroke="#fff" stroke-width="2" stroke-linecap="round"></path></svg></label>
     </div>
   </div>
 
@@ -104,264 +221,174 @@ summary::-webkit-details-marker{display:none;}
   <!-- HERO -->
   <section style="display:grid; grid-template-columns:1.05fr 0.95fr; gap:40px; align-items:center; padding:64px 44px 56px; max-width:1500px; margin:0 auto;">
     <div>
-      <span style="display:inline-flex; align-items:center; padding:7px 14px; border-radius:300px; background:rgba(228,39,37,0.16); font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:#F26B69;">КОРПОРАТИВ · 10–100 ГОСТЕЙ</span>
-      <h1 style="margin:22px 0 0; font-size:clamp(38px,5vw,64px); font-weight:800; line-height:1.02; letter-spacing:-0.02em; color:#fff;">Корпоратив в Ижевске —<br><em style="color:#E42725; font-style:italic; font-size:0.5em;">с шоу-программой и под ключ</em></h1>
-      <p style="margin:22px 0 0; max-width:540px; font-size:17px; line-height:1.6; color:#9C9A95;">Новый год, итоги года, тимбилдинг — арендуете зону или весь зал. Персональный координатор ведёт проект от первого звонка до закрывающих документов. Мафия с Павлом, квиз-лото, кавер-группа — выбираете программу под формат. Счёт на юрлицо, оплата безналом.</p>
+      <span style="display:inline-flex; align-items:center; padding:7px 14px; border-radius:300px; background:rgba(255,32,38,0.16); font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:#FF2026;">КОРПОРАТИВ · 10–100 ГОСТЕЙ</span>
+      <h1 style="margin:22px 0 0; font-size:clamp(38px,5vw,64px); font-weight:800; line-height:1.02; letter-spacing:-0.02em; color:#fff;">Корпоратив в Ижевске —<br><em style="color:#FF2026; font-style:normal; font-size:0.5em;">с шоу-программой и под ключ</em></h1>
+      <p style="margin:22px 0 0; max-width:540px; font-size:17px; line-height:1.6; color:rgba(232,229,222,0.66);">Новый год, итоги года, тимбилдинг — арендуете зону или весь зал. Персональный координатор ведёт проект от первого звонка до закрывающих документов. Мафия с Павлом, квиз-лото, кавер-группа — выбираете программу под формат. Счёт на юрлицо, оплата безналом.</p>
       <div style="display:flex; gap:12px; margin-top:30px; flex-wrap:wrap;">
-        <a onClick="{{ openBooking }}" style="cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; background:#E42725; padding:15px 30px; border-radius:300px; color:#fff; font-size:16px; font-weight:700;" style-hover="background:#fff !important; color:#E42725 !important;">Запросить КП</a>
-        <a href="tel:+73412707813" style="text-decoration:none; display:inline-flex; align-items:center; background:transparent; border:1px solid rgba(255,255,255,0.28); padding:15px 30px; border-radius:300px; color:#fff; font-size:16px; font-weight:600;" style-hover="border-color:#fff !important;">Позвонить</a>
+        <a data-m="cta" onClick="{{ openBooking }}" style="cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Запросить КП</a>
+        <a href="tel:+73412708440" style="text-decoration:none; display:inline-flex; align-items:center; background:transparent; border:1px solid rgba(255,255,255,0.28); padding:15px 30px; border-radius:300px; color:#fff; font-size:16px; font-weight:600;" style-hover="border-color:#fff !important;">Позвонить</a>
       </div>
       <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:34px;">
-        <span style="padding:9px 15px; border-radius:300px; background:#141417; border:1px solid rgba(255,255,255,0.07); font-size:13px; color:#C7C5BE;">Персональный координатор на весь проект</span>
-        <span style="padding:9px 15px; border-radius:300px; background:#141417; border:1px solid rgba(255,255,255,0.07); font-size:13px; color:#C7C5BE;">Счёт · акт · счёт-фактура</span>
-        <span style="padding:9px 15px; border-radius:300px; background:#141417; border:1px solid rgba(255,255,255,0.07); font-size:13px; color:#C7C5BE;">Мафия · квиз · кавер-группа</span>
-        <span style="padding:9px 15px; border-radius:300px; background:#141417; border:1px solid rgba(255,255,255,0.07); font-size:13px; color:#C7C5BE;">До 150 гостей при аренде зала</span>
+        <span style="padding:9px 15px; border-radius:300px; background:#191919; border:1px solid rgba(255,255,255,0.07); font-size:13px; color:rgba(232,229,222,0.86);">Персональный координатор на весь проект</span>
+        <span style="padding:9px 15px; border-radius:300px; background:#191919; border:1px solid rgba(255,255,255,0.07); font-size:13px; color:rgba(232,229,222,0.86);">Счёт · акт · счёт-фактура</span>
+        <span style="padding:9px 15px; border-radius:300px; background:#191919; border:1px solid rgba(255,255,255,0.07); font-size:13px; color:rgba(232,229,222,0.86);">Мафия · квиз · кавер-группа</span>
+        <span style="padding:9px 15px; border-radius:300px; background:#191919; border:1px solid rgba(255,255,255,0.07); font-size:13px; color:rgba(232,229,222,0.86);">До 150 гостей при аренде зала</span>
       </div>
     </div>
     <div style="position:relative; border-radius:24px; overflow:hidden; height:480px;">
-      <img src="https://brooklynbowl.bowlsoft.team/images/corporate.jpg" alt="Корпоратив в Brooklyn Bowl — команда на дорожках и за столом" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
-      <div style="position:absolute; left:24px; bottom:24px; padding:12px 18px; border-radius:16px; background:rgba(11,11,12,0.62); backdrop-filter:blur(8px); font-size:14px; font-weight:600; color:#fff;">Боулинг + шоу-программа + банкет</div>
+      <video muted="" defaultMuted="" playsinline="" autoplay="" loop="loop" poster="../uploads/bb-corporate.jpg" aria-label="Корпоратив в Brooklyn Bowl — команда на дорожках и за столом" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 22%; cursor:pointer;"><source src="https://cdnv.boomstream.com/balancer/6d3K0CKj-D1yXAlKD.mp4" type="video/mp4"></video>
+      <div style="position:absolute; left:24px; bottom:24px; padding:12px 18px; border-radius:16px; background:rgba(0,0,0,0.62); backdrop-filter:blur(8px); font-size:14px; font-weight:600; color:#fff;">Боулинг + шоу-программа + банкет</div>
     </div>
   </section>
 
   <!-- ЧТО ВХОДИТ -->
   <section style="padding:40px 44px 70px; max-width:1500px; margin:0 auto;">
-    <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:#9C9A95;">ЧТО ВХОДИТ</span>
+    <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">ЧТО ВХОДИТ</span>
     <h2 style="margin:14px 0 32px; font-size:clamp(28px,3.4vw,40px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Почему корпоратив здесь проходит без накладок</h2>
     <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#0F0F11; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color:#E42725 !important; background:#190d0e !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:19px; font-weight:800; color:#fff;">Один контакт на весь проект</h3><p style="margin:0; font-size:14.5px; line-height:1.6; color:#9C9A95;">Персональный координатор ведёт корпоратив от первого письма до закрывающих документов. Знает, кто не ест глютен, у кого день рождения, когда подать шампанское. HR не бегает между кухней и официантами — всё через одного человека.</p></div>
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#0F0F11; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color:#E42725 !important; background:#190d0e !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:19px; font-weight:800; color:#fff;">Мафия с ведущим Павлом</h3><p style="margin:0; font-size:14.5px; line-height:1.6; color:#9C9A95;">Павел — ведущий с опытом 300+ корпоративов. Берёт даже тех, кто «я не буду играть», и через 20 минут они уже обвиняют коллег. Игра идёт 2–3 часа, от 10 участников. Включает реквизит и микрофон.</p></div>
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#0F0F11; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color:#E42725 !important; background:#190d0e !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:19px; font-weight:800; color:#fff;">Квиз и музыкальное лото</h3><p style="margin:0; font-size:14.5px; line-height:1.6; color:#9C9A95;">Для компаний, где часть сотрудников предпочитает смотреть, а не играть. Квиз — по командам 4–6 человек, вопросы адаптируем под вашу отрасль. Лото — угадайте песню за 10 секунд. Оба формата от 12 человек.</p></div>
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#0F0F11; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color:#E42725 !important; background:#190d0e !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:19px; font-weight:800; color:#fff;">Шеринг-меню на стол</h3><p style="margin:0; font-size:14.5px; line-height:1.6; color:#9C9A95;">Большие порции, которые ставят на стол команде, — не индивидуальные тарелки. «Пицца полстола» (1,6 кг на 6–8 человек), «Мясной Пир» (1,3 кг). Бар: кувшины коктейлей, настойки сетом по 50 мл.</p></div>
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#0F0F11; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color:#E42725 !important; background:#190d0e !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:19px; font-weight:800; color:#fff;">Кавер-группа и живой звук</h3><p style="margin:0; font-size:14.5px; line-height:1.6; color:#9C9A95;">Для корпоративов от 20 человек — живая кавер-группа на сцене или диджей. Репертуар согласуем за неделю: рок, поп, 80–90-е, хиты 2000-х — под ваш коллектив. Заказ под дату, не по расписанию афиши.</p></div>
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#0F0F11; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color:#E42725 !important; background:#190d0e !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:19px; font-weight:800; color:#fff;">Закрывающие документы на email</h3><p style="margin:0; font-size:14.5px; line-height:1.6; color:#9C9A95;">Счёт, акт, счёт-фактура — отправляем на корпоративную почту в течение 3 рабочих дней после мероприятия. Работаем по договору: предоплата 30% при подписании, остаток — до дня мероприятия. НДС при необходимости.</p></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color:#FF2026 !important; background:#191919 !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:19px; font-weight:800; color:#fff;">Один контакт на весь проект</h3><p style="margin:0; font-size:14.5px; line-height:1.6; color:rgba(232,229,222,0.66);">Персональный координатор ведёт корпоратив от первого письма до закрывающих документов. Знает, кто не ест глютен, у кого день рождения, когда подать шампанское. HR не бегает между кухней и официантами — всё через одного человека.</p></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color:#FF2026 !important; background:#191919 !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:19px; font-weight:800; color:#fff;">Мафия с ведущим Павлом</h3><p style="margin:0; font-size:14.5px; line-height:1.6; color:rgba(232,229,222,0.66);">Павел — ведущий с опытом 300+ корпоративов. Берёт даже тех, кто «я не буду играть», и через 20 минут они уже обвиняют коллег. Игра идёт 2–3 часа, от 10 участников. Включает реквизит и микрофон.</p></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color:#FF2026 !important; background:#191919 !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:19px; font-weight:800; color:#fff;">Квиз и музыкальное лото</h3><p style="margin:0; font-size:14.5px; line-height:1.6; color:rgba(232,229,222,0.66);">Для компаний, где часть сотрудников предпочитает смотреть, а не играть. Квиз — по командам 4–6 человек, вопросы адаптируем под вашу отрасль. Лото — угадайте песню за 10 секунд. Оба формата от 12 человек.</p></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color:#FF2026 !important; background:#191919 !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:19px; font-weight:800; color:#fff;">Шеринг-меню на стол</h3><p style="margin:0; font-size:14.5px; line-height:1.6; color:rgba(232,229,222,0.66);">Большие порции, которые ставят на стол команде, — не индивидуальные тарелки. «Пицца полстола» (1,6 кг на 6–8 человек), «Мясной Пир» (1,3 кг). Бар: кувшины коктейлей, настойки сетом по 50 мл.</p></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color:#FF2026 !important; background:#191919 !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:19px; font-weight:800; color:#fff;">Кавер-группа и живой звук</h3><p style="margin:0; font-size:14.5px; line-height:1.6; color:rgba(232,229,222,0.66);">Для корпоративов от 20 человек — живая кавер-группа на сцене или диджей. Репертуар согласуем за неделю: рок, поп, 80–90-е, хиты 2000-х — под ваш коллектив. Заказ под дату, не по расписанию афиши.</p></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color:#FF2026 !important; background:#191919 !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:19px; font-weight:800; color:#fff;">Закрывающие документы на email</h3><p style="margin:0; font-size:14.5px; line-height:1.6; color:rgba(232,229,222,0.66);">Счёт, акт, счёт-фактура — отправляем на корпоративную почту в течение 3 рабочих дней после мероприятия. Работаем по договору: предоплата 30% при подписании, остаток — до дня мероприятия. НДС при необходимости.</p></div>
     </div>
   </section>
 
   <!-- ПАКЕТЫ -->
   <section style="padding:0 44px 70px; max-width:1500px; margin:0 auto;">
-    <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:#9C9A95;">ПАКЕТЫ</span>
+    <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">ПАКЕТЫ</span>
     <h2 style="margin:14px 0 8px; font-size:clamp(28px,3.4vw,40px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Готовые пакеты на корпоратив</h2>
-    <p style="margin:0 0 32px; max-width:640px; font-size:15px; line-height:1.6; color:#9C9A95;">Дорожка на 2 часа, до 6 гостей и всё меню на столе. Цена зависит от дня и времени — фиксируем при бронировании. Для больших групп соберём смету отдельно.</p>
+    <p style="margin:0 0 32px; max-width:640px; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.66);">Дорожка на 2 часа, до 6 гостей и всё меню на столе. Цена зависит от дня и времени — фиксируем при бронировании. Для больших групп соберём смету отдельно.</p>
     <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px; align-items:stretch;">
 
-      <div style="border-radius:22px; border:1px solid rgba(255,255,255,0.08); background:#0F0F11; padding:32px; display:flex; flex-direction:column; transition:border-color .25s ease, transform .25s ease;" style-hover="border-color:#E42725 !important; transform:translateY(-5px) !important;">
+      <div style="border-radius:22px; border:1px solid rgba(255,255,255,0.08); background:#191919; padding:32px; display:flex; flex-direction:column; transition:border-color .25s ease, transform .25s ease;" style-hover="border-color:#FF2026 !important; transform:translateY(-5px) !important;">
         <h3 style="margin:0; font-size:24px; font-weight:800; letter-spacing:-0.01em; color:#fff;">Мини</h3>
-        <div style="margin:10px 0 2px; font-size:13px; color:#9C9A95;">Дорожка 2 часа · до 6 гостей</div>
-        <div style="margin:14px 0 0; display:flex; align-items:baseline; gap:8px;"><span style="font-size:13px; color:#9C9A95;">от</span><span style="font-size:30px; font-weight:800; color:#fff;">11 490 ₽</span></div>
+        <div style="margin:10px 0 2px; font-size:13px; color:rgba(232,229,222,0.66);">Дорожка 2 часа · до 6 гостей</div>
+        <div style="margin:14px 0 0; display:flex; align-items:baseline; gap:8px;"><span style="font-size:13px; color:rgba(232,229,222,0.66);">от</span><span style="font-size:30px; font-weight:800; color:#fff;">11 490 ₽</span></div>
         <div style="margin:16px 0 0; display:flex; flex-direction:column; gap:8px; border-top:1px solid rgba(255,255,255,0.08); padding-top:16px;">
-          <div style="display:flex; justify-content:space-between; gap:10px; font-size:13.5px;"><span style="color:#9C9A95;">Будни до 18:00</span><span style="color:#fff; font-weight:700;">11 490 ₽</span></div>
-          <div style="display:flex; justify-content:space-between; gap:10px; font-size:13.5px;"><span style="color:#9C9A95;">Будни после 18:00</span><span style="color:#fff; font-weight:700;">12 490 ₽</span></div>
-          <div style="display:flex; justify-content:space-between; gap:10px; font-size:13.5px;"><span style="color:#9C9A95;">Пт после 18:00, сб–вс</span><span style="color:#fff; font-weight:700;">13 490 ₽</span></div>
+          <div style="display:flex; justify-content:space-between; gap:10px; font-size:13.5px;"><span style="color:rgba(232,229,222,0.66);">Будни до 18:00</span><span style="color:#fff; font-weight:700;">11 490 ₽</span></div>
+          <div style="display:flex; justify-content:space-between; gap:10px; font-size:13.5px;"><span style="color:rgba(232,229,222,0.66);">Будни после 18:00</span><span style="color:#fff; font-weight:700;">12 490 ₽</span></div>
+          <div style="display:flex; justify-content:space-between; gap:10px; font-size:13.5px;"><span style="color:rgba(232,229,222,0.66);">Пт после 18:00, сб–вс</span><span style="color:#fff; font-weight:700;">13 490 ₽</span></div>
         </div>
-        <div style="margin:18px 0 0; font-size:12px; font-weight:700; letter-spacing:0.05em; color:#9C9A95;">В ПАКЕТЕ</div>
-        <div style="margin:10px 0 0; display:flex; flex-direction:column; gap:9px;">
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Пицца «Пепперони»</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#9C9A95;">520 г / 1 шт</span></div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Пицца «Чикаго»</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#9C9A95;">520 г / 1 шт</span></div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Пивная тарелка полкило</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#9C9A95;">500 г / 1 шт</span></div>
-            <div style="margin-top:3px; font-size:11.5px; line-height:1.4; color:#8E8C87;">Чесночные гренки, сыр в панировке, наггетсы, картофельные дольки, сыр чечил, соусы руй, тартар и кетчуп</div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Луковые кольца</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#9C9A95;">12 шт</span></div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Картошка фри</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#9C9A95;">200 г / 2 шт</span></div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Хрустящие овощи</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#9C9A95;">550 г / 1 шт</span></div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Мясной пир</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#9C9A95;">1100 г / 1 шт</span></div>
-            <div style="margin-top:3px; font-size:11.5px; line-height:1.4; color:#8E8C87;">Шашлык из свинины, шашлык из курицы, кебаб из говядины, охотничьи колбаски на гриле, цыплёнок гриль, крылья BBQ, картофельные дольки и зелёный салат</div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Соус сальса</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#9C9A95;">30 г / 6 шт</span></div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Морс</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#9C9A95;">1000 мл / 2 шт</span></div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Авторский чай</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#9C9A95;">500 мл / 2 шт</span></div>
-          </div>
-        </div>
-        <a onClick="{{ bookMini }}" style="cursor:pointer; margin-top:24px; display:flex; align-items:center; justify-content:center; text-decoration:none; background:#1C1C1F; border:1px solid rgba(255,255,255,0.14); padding:14px; border-radius:300px; color:#fff; font-size:15px; font-weight:700;" style-hover="border-color:#E42725 !important;">Оставить заявку</a>
+        <div style="margin:18px 0 0; font-size:12px; font-weight:700; letter-spacing:0.05em; color:rgba(232,229,222,0.66);">В ПАКЕТЕ</div>
+        <ul style="margin:10px 0 0; padding:0 0 0 18px; display:flex; flex-direction:column; gap:7px; list-style:disc;">
+          <li style="font-size:13.5px; line-height:1.5; color:rgba(232,229,222,0.86);">Пивная тарелка «Полкило», 500 г</li>
+          <li style="font-size:13.5px; line-height:1.5; color:rgba(232,229,222,0.86);">Пицца (Пепперони или Чикаго), 520 г</li>
+          <li style="font-size:13.5px; line-height:1.5; color:rgba(232,229,222,0.86);">«Мясной Пир», 1100 г</li>
+          <li style="font-size:13.5px; line-height:1.5; color:rgba(232,229,222,0.86);">Луковые кольца ×2 · картофель фри 200 г ×2</li>
+          <li style="font-size:13.5px; line-height:1.5; color:rgba(232,229,222,0.86);">Хрустящие овощи 550 г · соус сальса ×6</li>
+          <li style="font-size:13.5px; line-height:1.5; color:rgba(232,229,222,0.86);">Морс 1 л ×2 · авторский чай 500 мл ×2</li>
+        </ul>
+        <a onClick="{{ bookMini }}" style="cursor:pointer; margin-top:24px; display:flex; align-items:center; justify-content:center; text-decoration:none; background:#191919; border:1px solid rgba(255,255,255,0.14); padding:14px; border-radius:300px; color:#fff; font-size:15px; font-weight:700;" style-hover="border-color:#FF2026 !important;">Оставить заявку</a>
       </div>
 
-      <div style="border-radius:22px; border:1px solid #E42725; background:#190d0e; padding:32px; display:flex; flex-direction:column; transition:transform .25s ease;" style-hover="transform:translateY(-5px) !important;">
-        <span style="display:inline-flex; align-self:flex-start; padding:5px 11px; border-radius:300px; background:#E42725; font-size:11px; font-weight:700; letter-spacing:0.03em; color:#fff; margin-bottom:14px;">ЧАЩЕ ВСЕГО БЕРУТ</span>
+      <div style="border-radius:22px; border:1px solid #FF2026; background:#191919; padding:32px; display:flex; flex-direction:column; transition:transform .25s ease;" style-hover="transform:translateY(-5px) !important;">
+        <span style="display:inline-flex; align-self:flex-start; padding:5px 11px; border-radius:300px; background:#FF2026; font-size:11px; font-weight:700; letter-spacing:0.03em; color:#fff; margin-bottom:14px;">ЧАЩЕ ВСЕГО БЕРУТ</span>
         <h3 style="margin:0; font-size:24px; font-weight:800; letter-spacing:-0.01em; color:#fff;">Хит</h3>
-        <div style="margin:10px 0 2px; font-size:13px; color:#C7C5BE;">Дорожка 2 часа · до 6 гостей</div>
-        <div style="margin:14px 0 0; display:flex; align-items:baseline; gap:8px;"><span style="font-size:13px; color:#C7C5BE;">от</span><span style="font-size:30px; font-weight:800; color:#fff;">15 490 ₽</span></div>
+        <div style="margin:10px 0 2px; font-size:13px; color:rgba(232,229,222,0.86);">Дорожка 2 часа · до 6 гостей</div>
+        <div style="margin:14px 0 0; display:flex; align-items:baseline; gap:8px;"><span style="font-size:13px; color:rgba(232,229,222,0.86);">от</span><span style="font-size:30px; font-weight:800; color:#fff;">15 490 ₽</span></div>
         <div style="margin:16px 0 0; display:flex; flex-direction:column; gap:8px; border-top:1px solid rgba(255,255,255,0.14); padding-top:16px;">
-          <div style="display:flex; justify-content:space-between; gap:10px; font-size:13.5px;"><span style="color:#C7C5BE;">Будни до 18:00</span><span style="color:#fff; font-weight:700;">15 490 ₽</span></div>
-          <div style="display:flex; justify-content:space-between; gap:10px; font-size:13.5px;"><span style="color:#C7C5BE;">Будни после 18:00</span><span style="color:#fff; font-weight:700;">16 490 ₽</span></div>
-          <div style="display:flex; justify-content:space-between; gap:10px; font-size:13.5px;"><span style="color:#C7C5BE;">Пт после 18:00, сб–вс</span><span style="color:#fff; font-weight:700;">17 490 ₽</span></div>
+          <div style="display:flex; justify-content:space-between; gap:10px; font-size:13.5px;"><span style="color:rgba(232,229,222,0.86);">Будни до 18:00</span><span style="color:#fff; font-weight:700;">15 490 ₽</span></div>
+          <div style="display:flex; justify-content:space-between; gap:10px; font-size:13.5px;"><span style="color:rgba(232,229,222,0.86);">Будни после 18:00</span><span style="color:#fff; font-weight:700;">16 490 ₽</span></div>
+          <div style="display:flex; justify-content:space-between; gap:10px; font-size:13.5px;"><span style="color:rgba(232,229,222,0.86);">Пт после 18:00, сб–вс</span><span style="color:#fff; font-weight:700;">17 490 ₽</span></div>
         </div>
-        <div style="margin:18px 0 0; font-size:12px; font-weight:700; letter-spacing:0.05em; color:#F26B69;">В ПАКЕТЕ</div>
-        <div style="margin:10px 0 0; display:flex; flex-direction:column; gap:9px;">
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Пицца «Баварская»</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#C7C5BE;">520 г / 1 шт</span></div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Дуосет</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#C7C5BE;">500 г / 2 шт</span></div>
-            <div style="margin-top:3px; font-size:11.5px; line-height:1.4; color:#B9B4AE;">Картофель фри, луковые кольца, брусочки кукурузы, свиные байтсы, чипсы из пепперони, с соусом руй, тартар и кетчуп</div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Сырная тарелка</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#C7C5BE;">220 г / 1 шт</span></div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Креветки темпура</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#C7C5BE;">120 г / 2 шт</span></div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Наггетсы</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#C7C5BE;">12 шт</span></div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Гренки</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#C7C5BE;">100 г / 2 шт</span></div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Мясной пир</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#C7C5BE;">1100 г / 1 шт</span></div>
-            <div style="margin-top:3px; font-size:11.5px; line-height:1.4; color:#B9B4AE;">Шашлык из свинины, шашлык из курицы, кебаб из говядины, охотничьи колбаски на гриле, цыплёнок гриль, крылья BBQ, картофельные дольки и зелёный салат</div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Соус сальса</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#C7C5BE;">30 г / 6 шт</span></div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Морс</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#C7C5BE;">1000 мл / 2 шт</span></div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Лимонад</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#C7C5BE;">700 мл / 2 шт</span></div>
-            <div style="margin-top:3px; font-size:11.5px; line-height:1.4; color:#B9B4AE;">клубника-маракуйя</div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Жираф пива</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#C7C5BE;">пшеничное / 3 л</span></div>
-          </div>
-        </div>
-        <a onClick="{{ bookHit }}" style="cursor:pointer; margin-top:24px; display:flex; align-items:center; justify-content:center; text-decoration:none; background:#E42725; border:none; padding:14px; border-radius:300px; color:#fff; font-size:15px; font-weight:700;" style-hover="background:#fff !important; color:#E42725 !important;">Оставить заявку</a>
+        <div style="margin:18px 0 0; font-size:12px; font-weight:700; letter-spacing:0.05em; color:#FF2026;">В ПАКЕТЕ</div>
+        <ul style="margin:10px 0 0; padding:0 0 0 18px; display:flex; flex-direction:column; gap:7px; list-style:disc;">
+          <li style="font-size:13.5px; line-height:1.5; color:#E8E5DE;">Пицца «Баварская», 520 г</li>
+          <li style="font-size:13.5px; line-height:1.5; color:#E8E5DE;">«Дуосет», 500 г ×2</li>
+          <li style="font-size:13.5px; line-height:1.5; color:#E8E5DE;">«Мясной Пир», 1100 г</li>
+          <li style="font-size:13.5px; line-height:1.5; color:#E8E5DE;">Сырная тарелка 220 г · креветки темпура ×2</li>
+          <li style="font-size:13.5px; line-height:1.5; color:#E8E5DE;">Наггетсы ×2 · гренки 100 г ×2 · соус сальса ×6</li>
+          <li style="font-size:13.5px; line-height:1.5; color:#E8E5DE;">Морс 1 л ×2 · лимонад 700 мл ×2 · жираф пшеничного пива 3 л</li>
+        </ul>
+        <a data-m="cta" onClick="{{ bookHit }}" style="cursor:pointer; margin-top:24px; display:flex; align-items:center; justify-content:center; text-decoration:none; background:#FF2026; border:none; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Оставить заявку</a>
       </div>
 
-      <div style="border-radius:22px; border:1px solid rgba(255,255,255,0.08); background:#0F0F11; padding:32px; display:flex; flex-direction:column; transition:border-color .25s ease, transform .25s ease;" style-hover="border-color:#E42725 !important; transform:translateY(-5px) !important;">
+      <div style="border-radius:22px; border:1px solid rgba(255,255,255,0.08); background:#191919; padding:32px; display:flex; flex-direction:column; transition:border-color .25s ease, transform .25s ease;" style-hover="border-color:#FF2026 !important; transform:translateY(-5px) !important;">
         <h3 style="margin:0; font-size:24px; font-weight:800; letter-spacing:-0.01em; color:#fff;">Макс</h3>
-        <div style="margin:10px 0 2px; font-size:13px; color:#9C9A95;">Дорожка 2 часа · до 6 гостей</div>
-        <div style="margin:14px 0 0; display:flex; align-items:baseline; gap:8px;"><span style="font-size:13px; color:#9C9A95;">от</span><span style="font-size:30px; font-weight:800; color:#fff;">20 490 ₽</span></div>
+        <div style="margin:10px 0 2px; font-size:13px; color:rgba(232,229,222,0.66);">Дорожка 2 часа · до 6 гостей</div>
+        <div style="margin:14px 0 0; display:flex; align-items:baseline; gap:8px;"><span style="font-size:13px; color:rgba(232,229,222,0.66);">от</span><span style="font-size:30px; font-weight:800; color:#fff;">20 490 ₽</span></div>
         <div style="margin:16px 0 0; display:flex; flex-direction:column; gap:8px; border-top:1px solid rgba(255,255,255,0.08); padding-top:16px;">
-          <div style="display:flex; justify-content:space-between; gap:10px; font-size:13.5px;"><span style="color:#9C9A95;">Будни до 18:00</span><span style="color:#fff; font-weight:700;">20 490 ₽</span></div>
-          <div style="display:flex; justify-content:space-between; gap:10px; font-size:13.5px;"><span style="color:#9C9A95;">Будни после 18:00</span><span style="color:#fff; font-weight:700;">21 490 ₽</span></div>
-          <div style="display:flex; justify-content:space-between; gap:10px; font-size:13.5px;"><span style="color:#9C9A95;">Пт после 18:00, сб–вс</span><span style="color:#fff; font-weight:700;">22 490 ₽</span></div>
+          <div style="display:flex; justify-content:space-between; gap:10px; font-size:13.5px;"><span style="color:rgba(232,229,222,0.66);">Будни до 18:00</span><span style="color:#fff; font-weight:700;">20 490 ₽</span></div>
+          <div style="display:flex; justify-content:space-between; gap:10px; font-size:13.5px;"><span style="color:rgba(232,229,222,0.66);">Будни после 18:00</span><span style="color:#fff; font-weight:700;">21 490 ₽</span></div>
+          <div style="display:flex; justify-content:space-between; gap:10px; font-size:13.5px;"><span style="color:rgba(232,229,222,0.66);">Пт после 18:00, сб–вс</span><span style="color:#fff; font-weight:700;">22 490 ₽</span></div>
         </div>
-        <div style="margin:18px 0 0; font-size:12px; font-weight:700; letter-spacing:0.05em; color:#9C9A95;">В ПАКЕТЕ</div>
-        <div style="margin:10px 0 0; display:flex; flex-direction:column; gap:9px;">
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Сообразим на троих</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#9C9A95;">1000 г / 1 шт</span></div>
-            <div style="margin-top:3px; font-size:11.5px; line-height:1.4; color:#8E8C87;">Картофель фри, луковые кольца, брусочки кукурузы, свиные байтсы, чипсы из пепперони, чесночные гренки, сыр в панировке, наггетсы, картофельные дольки, соус руй, тартар и кетчуп</div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Тарелка мясных деликатесов</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#9C9A95;">130 г / 1 шт</span></div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Сырная тарелка</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#9C9A95;">220 г / 1 шт</span></div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Салат с ростбифом</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#9C9A95;">210 г / 3 шт</span></div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Брусуаз</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#9C9A95;">180 г / 3 шт</span></div>
-            <div style="margin-top:3px; font-size:11.5px; line-height:1.4; color:#8E8C87;">Тунец татаки, картофель, хрустящие свежие овощи с медово-горчичным соусом</div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Цыплёнок гриль</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#9C9A95;">250 г / 6 шт</span></div>
-            <div style="margin-top:3px; font-size:11.5px; line-height:1.4; color:#8E8C87;">с молодым картофелем со сливочным соусом дзадзыки</div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Овощи гриль</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#9C9A95;">170 г / 3 шт</span></div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Хрустящие овощи</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#9C9A95;">550 г / 1 шт</span></div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Лимонад</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#9C9A95;">700 мл / 2 шт</span></div>
-            <div style="margin-top:3px; font-size:11.5px; line-height:1.4; color:#8E8C87;">клубника-маракуйя</div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Морс</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#9C9A95;">1000 мл / 2 шт</span></div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Жираф пива</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#9C9A95;">пшеничное / 3 л</span></div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;"><span style="font-size:13.5px; font-weight:700; line-height:1.35; color:#fff;">Сет настоек</span><span style="font-size:12.5px; font-weight:600; white-space:nowrap; color:#9C9A95;">9 × 50</span></div>
-          </div>
-        </div>
-        <a onClick="{{ bookMaks }}" style="cursor:pointer; margin-top:24px; display:flex; align-items:center; justify-content:center; text-decoration:none; background:#1C1C1F; border:1px solid rgba(255,255,255,0.14); padding:14px; border-radius:300px; color:#fff; font-size:15px; font-weight:700;" style-hover="border-color:#E42725 !important;">Оставить заявку</a>
+        <div style="margin:18px 0 0; font-size:12px; font-weight:700; letter-spacing:0.05em; color:rgba(232,229,222,0.66);">В ПАКЕТЕ</div>
+        <ul style="margin:10px 0 0; padding:0 0 0 18px; display:flex; flex-direction:column; gap:7px; list-style:disc;">
+          <li style="font-size:13.5px; line-height:1.5; color:rgba(232,229,222,0.86);">Тарелка мясных деликатесов · сырная тарелка</li>
+          <li style="font-size:13.5px; line-height:1.5; color:rgba(232,229,222,0.86);">Салат с ростбифом ×3 · цыплёнок гриль ×6</li>
+          <li style="font-size:13.5px; line-height:1.5; color:rgba(232,229,222,0.86);">Овощи гриль ×3 · хрустящие овощи ×2</li>
+          <li style="font-size:13.5px; line-height:1.5; color:rgba(232,229,222,0.86);">«Сообразим на троих», 1000 г · «Брусуаз» 180 г ×3</li>
+          <li style="font-size:13.5px; line-height:1.5; color:rgba(232,229,222,0.86);">Сет настоек 9×50 · морс ×2 · лимонад ×2</li>
+          <li style="font-size:13.5px; line-height:1.5; color:rgba(232,229,222,0.86);">Жираф пшеничного пива 3 л</li>
+        </ul>
+        <a onClick="{{ bookMaks }}" style="cursor:pointer; margin-top:24px; display:flex; align-items:center; justify-content:center; text-decoration:none; background:#191919; border:1px solid rgba(255,255,255,0.14); padding:14px; border-radius:300px; color:#fff; font-size:15px; font-weight:700;" style-hover="border-color:#FF2026 !important;">Оставить заявку</a>
       </div>
     </div>
 
-    <div style="margin-top:18px; border-radius:18px; border:1px solid rgba(255,255,255,0.08); background:#0F0F11; padding:22px 26px; display:flex; align-items:center; flex-wrap:wrap; gap:10px 26px;">
-      <span style="font-size:12px; font-weight:700; letter-spacing:0.05em; color:#9C9A95;">ШОУ-ПРОГРАММА</span>
-      <span style="font-size:14px; color:#EDEBE6;">Мафия с ведущим — <b style="color:#fff;">8 000 ₽</b></span>
+    <div style="margin-top:18px; border-radius:18px; border:1px solid rgba(255,255,255,0.08); background:#191919; padding:22px 26px; display:flex; align-items:center; flex-wrap:wrap; gap:10px 26px;">
+      <span style="font-size:12px; font-weight:700; letter-spacing:0.05em; color:rgba(232,229,222,0.66);">ШОУ-ПРОГРАММА</span>
+      <span style="font-size:14px; color:#E8E5DE;">Мафия с ведущим — <b style="color:#fff;">8 000 ₽</b></span>
       <span style="color:rgba(255,255,255,0.2);">·</span>
-      <span style="font-size:14px; color:#EDEBE6;">Квиз по командам — <b style="color:#fff;">6 000 ₽</b></span>
+      <span style="font-size:14px; color:#E8E5DE;">Квиз по командам — <b style="color:#fff;">6 000 ₽</b></span>
       <span style="color:rgba(255,255,255,0.2);">·</span>
-      <span style="font-size:14px; color:#EDEBE6;">Кавер-группа (1 сет) — <b style="color:#fff;">15 000 ₽</b></span>
+      <span style="font-size:14px; color:#E8E5DE;">Кавер-группа (1 сет) — <b style="color:#fff;">15 000 ₽</b></span>
     </div>
   </section>
 
   <!-- КООРДИНАТОР -->
   <section style="padding:0 44px 70px; max-width:1500px; margin:0 auto;">
     <div style="display:grid; grid-template-columns:0.85fr 1.15fr; gap:24px; align-items:stretch;">
-      <div style="position:relative; border-radius:24px; overflow:hidden; min-height:360px;"><img src="uploads/UchfdE9ya-Q%20(1).jpg" alt="Координатор ведёт корпоратив в Brooklyn Bowl" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"></div>
-      <div style="border-radius:24px; border:1px solid rgba(255,255,255,0.08); background:#0F0F11; padding:40px; display:flex; flex-direction:column; justify-content:center;">
-        <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:#9C9A95;">КООРДИНАТОР</span>
-        <h2 style="margin:14px 0 14px; font-size:clamp(26px,3vw,38px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Персональный координатор — <em style="color: rgb(228, 39, 37); font-style: italic;">ваш один контакт</em></h2>
-        <p style="margin:0; max-width:560px; font-size:16px; line-height:1.65; color:#9C9A95;">Договор, меню, программа, размеры боулинговой обуви, закрывающие документы — всё через одного человека. Пишите в мессенджер, звоните в рабочее время. HR занимается людьми, не логистикой вечера.</p>
+      <div style="position:relative; border-radius:24px; overflow:hidden; min-height:360px;"><img src="../uploads/UchfdE9ya-Q%20%281%29.jpg" alt="Координатор ведёт корпоратив в Brooklyn Bowl" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 22%;"></div>
+      <div style="border-radius:24px; border:1px solid rgba(255,255,255,0.08); background:#191919; padding:40px; display:flex; flex-direction:column; justify-content:center;">
+        <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">КООРДИНАТОР</span>
+        <h2 style="margin:14px 0 14px; font-size:clamp(26px,3vw,38px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Персональный координатор — <em style="color: rgb(255,32,38); font-style:normal;">ваш один контакт</em></h2>
+        <p style="margin:0; max-width:560px; font-size:16px; line-height:1.65; color:rgba(232,229,222,0.66);">Договор, меню, программа, размеры боулинговой обуви, закрывающие документы — всё через одного человека. Пишите в мессенджер, звоните в рабочее время. HR занимается людьми, не логистикой вечера.</p>
         <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:24px;">
-          <span style="padding:9px 15px; border-radius:300px; background:#0B0B0C; border:1px solid rgba(255,255,255,0.08); font-size:13px; color:#C7C5BE;">Один контакт от заявки до акта</span>
-          <span style="padding:9px 15px; border-radius:300px; background:#0B0B0C; border:1px solid rgba(255,255,255,0.08); font-size:13px; color:#C7C5BE;">Согласует меню, программу, тайминг</span>
-          <span style="padding:9px 15px; border-radius:300px; background:#0B0B0C; border:1px solid rgba(255,255,255,0.08); font-size:13px; color:#C7C5BE;">Закреплён при 20+ гостях</span>
+          <span style="padding:9px 15px; border-radius:300px; background:#000000; border:1px solid rgba(255,255,255,0.08); font-size:13px; color:rgba(232,229,222,0.86);">Один контакт от заявки до акта</span>
+          <span style="padding:9px 15px; border-radius:300px; background:#000000; border:1px solid rgba(255,255,255,0.08); font-size:13px; color:rgba(232,229,222,0.86);">Согласует меню, программу, тайминг</span>
+          <span style="padding:9px 15px; border-radius:300px; background:#000000; border:1px solid rgba(255,255,255,0.08); font-size:13px; color:rgba(232,229,222,0.86);">Закреплён при 20+ гостях</span>
         </div>
-        <a onClick="{{ openBooking }}" style="cursor:pointer; display:inline-flex; align-self:flex-start; margin-top:26px; text-decoration:none; background:#E42725; padding:15px 30px; border-radius:300px; color:#fff; font-size:16px; font-weight:700;" style-hover="background:#fff !important; color:#E42725 !important;">Запросить КП</a>
+        <a data-m="cta" onClick="{{ openBooking }}" style="cursor:pointer; display:inline-flex; align-self:flex-start; margin-top:26px; text-decoration:none; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Запросить КП</a>
       </div>
     </div>
   </section>
 
   <!-- КАЛЬКУЛЯТОР -->
   <section style="padding:0 44px 70px; max-width:1500px; margin:0 auto;">
-    <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:#9C9A95;">КАЛЬКУЛЯТОР</span>
-    <h2 style="margin:14px 0 8px; font-size:clamp(28px,3.4vw,40px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Сколько стоит корпоратив <em style="color:#E42725; font-style:italic;">на человека</em></h2>
-    <p style="margin:0 0 28px; max-width:620px; font-size:15px; line-height:1.6; color:#9C9A95;">Укажите число гостей и выберите программу — калькулятор покажет ориентир с мафией, квизом или кавер-группой. Точную смету под вашу дату и точку подтвердит координатор.</p>
-    <div style="display:grid; grid-template-columns:minmax(0,560px) 1fr; gap:24px; align-items:stretch;"><div style="border-radius:24px; border:1px solid rgba(255,255,255,0.08); background:#0F0F11; padding:30px; display:flex; flex-direction:column; gap:18px;">
+    <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">КАЛЬКУЛЯТОР</span>
+    <h2 style="margin:14px 0 8px; font-size:clamp(28px,3.4vw,40px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Сколько стоит корпоратив <em style="color:#FF2026; font-style:normal;">на человека</em></h2>
+    <p style="margin:0 0 28px; max-width:620px; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.66);">Укажите число гостей и выберите программу — калькулятор покажет ориентир с мафией, квизом или кавер-группой. Точную смету под вашу дату и точку подтвердит координатор.</p>
+    <div style="display:grid; grid-template-columns:minmax(0,560px) 1fr; gap:24px; align-items:stretch;"><div style="border-radius:24px; border:1px solid rgba(255,255,255,0.08); background:#191919; padding:30px; display:flex; flex-direction:column; gap:18px;">
       <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px;">
-        <span style="font-size:12px; font-weight:700; letter-spacing:0.06em; color:#9C9A95;">ПРИМЕРНЫЙ ЧЕК</span>
-        <span style="font-size:16px; font-weight:800; color:#fff;">≈ {{ calc.perPerson }} ₽ <span style="color:#9C9A95; font-weight:500; font-size:14px;">на {{ calc.unit }}</span></span>
+        <span style="font-size:12px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">ПРИМЕРНЫЙ ЧЕК</span>
+        <span style="font-size:16px; font-weight:800; color:#fff;">≈ {{ calc.perPerson }} ₽ <span style="color:rgba(232,229,222,0.66); font-weight:500; font-size:14px;">на {{ calc.unit }}</span></span>
       </div>
-      <div style="display:flex; flex-direction:column; gap:6px; background:#0B0B0C; border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:4px;">
+      <div style="display:flex; flex-direction:column; gap:6px; background:#000000; border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:4px;">
         <sc-for list="{{ calc.days }}" as="d" hint-placeholder-count="3">
           <button onClick="{{ d.set }}" style="{{ d.style }}">{{ d.label }}</button>
         </sc-for>
       </div>
       <div style="display:flex; flex-direction:column; gap:11px;">
-        <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-size:14px; color:#9C9A95;">{{ calc.guestsLabel }}</span><span style="font-size:20px; font-weight:800; color:#fff;">{{ calc.guests }}</span></div>
-        <input type="range" min="{{ calc.min }}" max="{{ calc.max }}" value="{{ calc.guests }}" onChange="{{ calc.onSlide }}" style="width:100%; accent-color:#E42725; height:6px; cursor:pointer;">
+        <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-size:14px; color:rgba(232,229,222,0.66);">{{ calc.guestsLabel }}</span><span style="font-size:20px; font-weight:800; color:#fff;">{{ calc.guests }}</span></div>
+        <input type="range" min="{{ calc.min }}" max="{{ calc.max }}" value="{{ calc.guests }}" onChange="{{ calc.onSlide }}" style="width:100%; accent-color:#FF2026; height:6px; cursor:pointer;">
       </div>
       <div style="display:flex; flex-direction:column; gap:9px;">
-        <span style="font-size:12px; font-weight:700; letter-spacing:0.06em; color:#9C9A95;">ДОБАВИТЬ ПРОГРАММУ</span>
+        <span style="font-size:12px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">ДОБАВИТЬ ПРОГРАММУ</span>
         <sc-for list="{{ calc.addons }}" as="a" hint-placeholder-count="5">
           <div style="position:relative;" onMouseEnter="{{ a.onEnter }}" onMouseLeave="{{ a.onLeave }}">
             <sc-if value="{{ a.hasPhoto }}" hint-placeholder-val="{{ false }}">
             <div style="{{ a.previewStyle }}">
               {{ a.previewImgEl }}
-              <div style="padding:9px 12px; font-size:12px; font-weight:600; color:#EDEBE6; background:#141417; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ a.name }}</div>
+              <div style="padding:9px 12px; font-size:12px; font-weight:600; color:#E8E5DE; background:#191919; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ a.name }}</div>
             </div>
             </sc-if>
-            <div onClick="{{ a.toggle }}" style="display:flex; align-items:center; gap:12px; text-align:left; background:#0B0B0C; border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:13px 15px; cursor:pointer; font-family:inherit;" style-hover="border-color:rgba(228,39,37,0.4) !important;">
+            <div onClick="{{ a.toggle }}" style="display:flex; align-items:center; gap:12px; text-align:left; background:#000000; border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:13px 15px; cursor:pointer; font-family:inherit;" style-hover="border-color:rgba(255,32,38,0.4) !important;">
               <span style="{{ a.boxStyle }}">{{ a.check }}</span>
-              <span style="flex:1; min-width:0; font-size:14px; color:#EDEBE6;">{{ a.name }}</span>
+              <span style="flex:1; min-width:0; font-size:14px; color:#E8E5DE;">{{ a.name }}</span>
               <sc-if value="{{ a.hasPhoto }}" hint-placeholder-val="{{ false }}">
-              <button onClick="{{ a.tapPhoto }}" aria-label="Фото блюда" style="flex-shrink:0; width:30px; height:30px; border-radius:8px; border:1px solid rgba(255,255,255,0.14); background:#141417; cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0;" style-hover="border-color:#E42725 !important;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="#9C9A95" stroke-width="1.8"></rect><circle cx="8.5" cy="10" r="1.6" fill="#9C9A95"></circle><path d="M4 17l5-4 4 3 3-2 4 3" stroke="#9C9A95" stroke-width="1.8" stroke-linejoin="round"></path></svg></button>
+              <button onClick="{{ a.tapPhoto }}" aria-label="Фото блюда" style="flex-shrink:0; width:30px; height:30px; border-radius:8px; border:1px solid rgba(255,255,255,0.14); background:#191919; cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0;" style-hover="border-color:#FF2026 !important;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="rgba(232,229,222,0.66)" stroke-width="1.8"></rect><circle cx="8.5" cy="10" r="1.6" fill="rgba(232,229,222,0.66)"></circle><path d="M4 17l5-4 4 3 3-2 4 3" stroke="rgba(232,229,222,0.66)" stroke-width="1.8" stroke-linejoin="round"></path></svg></button>
               </sc-if>
               <span style="flex-shrink:0; font-size:14px; font-weight:700; color:#fff;">{{ a.price }}</span>
             </div>
@@ -369,28 +396,28 @@ summary::-webkit-details-marker{display:none;}
         </sc-for>
       </div>
       <div style="border-top:1px dashed rgba(255,255,255,0.14); padding-top:15px; display:flex; flex-direction:column; gap:9px;">
-        <div style="display:flex; align-items:flex-end; justify-content:space-between;"><span style="font-size:17px; font-weight:800; color:#fff;">Итого</span><span style="font-size:26px; font-weight:800; color:#E42725;">{{ calc.total }} ₽</span></div>
-        <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-size:13px; color:#9C9A95;">{{ calc.cashLabel }}</span><span style="font-size:14px; font-weight:700; color:#9C9A95;">{{ calc.cash }} ₽</span></div>
+        <div style="display:flex; align-items:flex-end; justify-content:space-between;"><span style="font-size:17px; font-weight:800; color:#fff;">Итого</span><span style="font-size:26px; font-weight:800; color:#FF2026;">{{ calc.total }} ₽</span></div>
+        <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-size:13px; color:rgba(232,229,222,0.66);">{{ calc.cashLabel }}</span><span style="font-size:14px; font-weight:700; color:rgba(232,229,222,0.66);">{{ calc.cash }} ₽</span></div>
       </div>
-      <div style="border-radius:16px; background:rgba(228,39,37,0.1); border:1px solid rgba(228,39,37,0.32); padding:16px 18px; display:flex; flex-direction:column; gap:12px;">
+      <div style="border-radius:16px; background:rgba(255,32,38,0.1); border:1px solid rgba(255,32,38,0.32); padding:16px 18px; display:flex; flex-direction:column; gap:12px;">
         <div style="font-size:14.5px; line-height:1.5; color:#fff;">{{ calc.reco }}</div>
-        <a onClick="{{ openBooking }}" style="cursor:pointer; display:flex; align-items:center; justify-content:center; text-decoration:none; background:#E42725; padding:13px; border-radius:300px; color:#fff; font-size:15px; font-weight:700;" style-hover="background:#fff !important; color:#E42725 !important;">Запросить КП</a>
+        <a data-m="cta" onClick="{{ openBooking }}" style="cursor:pointer; display:flex; align-items:center; justify-content:center; text-decoration:none; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Запросить КП</a>
       </div>
       </div>
-      <div style="position:relative; border-radius:24px; overflow:hidden; min-height:440px;"><img src="uploads/BB_New%20Year%202025-199.jpg" alt="Ведущий корпоратива на дорожках Brooklyn Bowl" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"></div>
+      <div style="position:relative; border-radius:24px; overflow:hidden; min-height:440px;"><img src="../uploads/BB_New%20Year%202025-199.jpg" alt="Ведущий корпоратива на дорожках Brooklyn Bowl" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 22%;"></div>
     </div>
   </section>
 
   <!-- БЛЮДА -->
   <section style="padding:0 44px 70px; max-width:1500px; margin:0 auto;">
-    <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:#9C9A95;">ШЕРИНГ-МЕНЮ — БОЛЬШИЕ ПОЗИЦИИ НА СТОЛ</span>
+    <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">ШЕРИНГ-МЕНЮ — БОЛЬШИЕ ПОЗИЦИИ НА СТОЛ</span>
     <h2 style="margin:14px 0 8px; font-size:clamp(28px,3.4vw,40px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Заказываете один раз — хватает на всех</h2>
-    <p style="margin:0 0 28px; font-size:15px; color:#9C9A95;">Нажмите на блюдо — покажем состав и вес. Это позиции, которые чаще всего берут на компанию.</p>
+    <p style="margin:0 0 28px; font-size:15px; color:rgba(232,229,222,0.66);">Нажмите на блюдо — покажем состав и вес. Это позиции, которые чаще всего берут на компанию.</p>
     <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
       <sc-for list="{{ dishes }}" as="d" hint-placeholder-count="3">
-        <article onClick="{{ d.open }}" style="border-radius:20px; overflow:hidden; border:1px solid rgba(255,255,255,0.07); background:#0F0F11; cursor:pointer; transition:border-color .2s ease, transform .2s ease;" style-hover="border-color:rgba(228,39,37,0.45) !important; transform:translateY(-4px) !important;">
+        <article onClick="{{ d.open }}" style="border-radius:20px; overflow:hidden; border:1px solid rgba(255,255,255,0.07); background:#191919; cursor:pointer; transition:border-color .2s ease, transform .2s ease;" style-hover="border-color:rgba(255,32,38,0.45) !important; transform:translateY(-4px) !important;">
           <div style="position:relative; height:200px;">{{ d.imgEl }}<span style="position:absolute; top:14px; left:14px; padding:6px 12px; border-radius:300px; background:{{ d.tagBg }}; backdrop-filter:blur(6px); font-size:12px; font-weight:700; color:#fff;">{{ d.w }}</span></div>
-          <div style="padding:22px 24px;"><div style="display:flex; justify-content:space-between; gap:10px; align-items:baseline;"><h3 style="margin:0; font-size:18px; font-weight:700; color:#fff;">{{ d.name }}</h3><span style="font-size:16px; font-weight:800; color:#E42725; white-space:nowrap;">{{ d.p }}</span></div><p style="margin:8px 0 0; font-size:14px; line-height:1.5; color:#9C9A95;">{{ d.desc }}</p></div>
+          <div style="padding:22px 24px;"><div style="display:flex; justify-content:space-between; gap:10px; align-items:baseline;"><h3 style="margin:0; font-size:18px; font-weight:700; color:#fff;">{{ d.name }}</h3><span style="font-size:16px; font-weight:800; color:#FF2026; white-space:nowrap;">{{ d.p }}</span></div><p style="margin:8px 0 0; font-size:14px; line-height:1.5; color:rgba(232,229,222,0.66);">{{ d.desc }}</p></div>
         </article>
       </sc-for>
     </div>
@@ -398,12 +425,12 @@ summary::-webkit-details-marker{display:none;}
 
   <!-- КАК ВЫГЛЯДИТ -->
   <section style="padding:0 44px 70px; max-width:1500px; margin:0 auto;">
-    <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:#9C9A95;">КАК ВЫГЛЯДИТ</span>
-    <h2 style="margin:14px 0 8px; font-size:clamp(28px,3.4vw,40px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Зал, шоу-программа, еда — <em style="color:#E42725; font-style:italic;">фото с реальных корпоративов</em></h2>
-    <p style="margin:0 0 28px; max-width:620px; font-size:15px; line-height:1.6; color:#9C9A95;">Дорожки команд, мафия с Павлом, шеринг-меню на столе, кавер-группа на сцене, стендап, финальное фото коллектива.</p>
+    <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">КАК ВЫГЛЯДИТ</span>
+    <h2 style="margin:14px 0 8px; font-size:clamp(28px,3.4vw,40px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Зал, шоу-программа, еда — <em style="color:#FF2026; font-style:normal;">фото с реальных корпоративов</em></h2>
+    <p style="margin:0 0 28px; max-width:620px; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.66);">Дорожки команд, мафия с Павлом, шеринг-меню на столе, кавер-группа на сцене, стендап, финальное фото коллектива.</p>
     <div style="display:grid; grid-template-columns:repeat(3,1fr); grid-auto-rows:230px; gap:14px;">
       <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="6">
-        <figure style="position:relative; margin:0; border-radius:18px; overflow:hidden;">{{ g.imgEl }}<figcaption style="position:absolute; left:14px; bottom:12px; padding:6px 12px; border-radius:300px; background:rgba(11,11,12,0.6); backdrop-filter:blur(6px); font-size:12.5px; font-weight:600; color:#fff;">{{ g.cap }}</figcaption></figure>
+        <figure style="position:relative; margin:0; border-radius:18px; overflow:hidden;">{{ g.imgEl }}<figcaption style="position:absolute; left:14px; bottom:12px; padding:6px 12px; border-radius:300px; background:rgba(0,0,0,0.6); backdrop-filter:blur(6px); font-size:12.5px; font-weight:600; color:#fff;">{{ g.cap }}</figcaption></figure>
       </sc-for>
     </div>
   </section>
@@ -412,29 +439,29 @@ summary::-webkit-details-marker{display:none;}
   <section style="padding:0 44px 80px; max-width:1500px; margin:0 auto;">
     <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:26px; flex-wrap:wrap; gap:14px;">
       <h2 style="margin:0; font-size:clamp(30px,3.6vw,42px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Как прошли корпоративы у других компаний</h2>
-      <span style="display:inline-flex; align-items:center; gap:9px; padding:9px 16px; border-radius:300px; background:#1C1C1F; border:1px solid rgba(255,255,255,0.07); font-size:15px; font-weight:600; color:#fff;"><span style="color:#E42725; font-size:17px;">★</span> 4.8 · 1 247 оценок</span>
+      <span style="display:inline-flex; align-items:center; gap:9px; padding:9px 16px; border-radius:300px; background:#191919; border:1px solid rgba(255,255,255,0.07); font-size:15px; font-weight:600; color:#fff;"><span style="color:#FF2026; font-size:17px;">★</span> 4.8 · 1 247 оценок</span>
     </div>
     <div style="columns:3; column-gap:18px;">
       <sc-for list="{{ reviewsShown }}" as="rv" hint-placeholder-count="9">
-        <article style="break-inside:avoid; margin:0 0 18px; border-radius:20px; padding:24px; border:1px solid rgba(255,255,255,0.06); background:#0f0f0f; display:flex; flex-direction:column; gap:14px;">
+        <article style="break-inside:avoid; margin:0 0 18px; border-radius:20px; padding:24px; border:1px solid rgba(255,255,255,0.06); background:#191919; display:flex; flex-direction:column; gap:14px;">
           <div style="display:flex; align-items:center; gap:13px;">
             <div style="flex-shrink:0; width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; color:#fff; background:{{ rv.avatarBg }};">{{ rv.initials }}</div>
             <div style="min-width:0;">
               <div style="font-size:15px; font-weight:700; color:#fff;">{{ rv.author }}</div>
-              <div style="font-size:12.5px; color:#6E6C68; margin-top:2px;">{{ rv.platform }} · {{ rv.date }}</div>
+              <div style="font-size:12.5px; color:rgba(232,229,222,0.47); margin-top:2px;">{{ rv.platform }} · {{ rv.date }}</div>
             </div>
           </div>
           <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-            <span style="color:#E42725; font-size:14px; letter-spacing:2px;">★★★★★</span>
-            <span style="display:inline-flex; padding:4px 10px; border-radius:300px; background:rgba(228,39,37,0.12); font-size:11.5px; font-weight:700; letter-spacing:0.02em; color:#F26B69;">{{ rv.tag }}</span>
+            <span style="color:#FF2026; font-size:14px; letter-spacing:2px;">★★★★★</span>
+            <span style="display:inline-flex; padding:4px 10px; border-radius:300px; background:rgba(255,32,38,0.12); font-size:11.5px; font-weight:700; letter-spacing:0.02em; color:#FF2026;">{{ rv.tag }}</span>
           </div>
-          <p style="margin:0; font-size:14.5px; line-height:1.55; color:#D6D4CE;">{{ rv.text }}</p>
+          <p style="margin:0; font-size:14.5px; line-height:1.55; color:#E8E5DE;">{{ rv.text }}</p>
         </article>
       </sc-for>
     </div>
     <sc-if value="{{ revHasMore }}" hint-placeholder-val="{{ true }}">
       <div style="display:flex; justify-content:center; margin-top:26px;">
-        <button onClick="{{ revToggle }}" style="display:inline-flex; align-items:center; gap:9px; background:#1C1C1F; border:1px solid rgba(255,255,255,0.1); cursor:pointer; padding:14px 32px; border-radius:300px; color:#fff; font-size:15px; font-weight:600; font-family:inherit;" style-hover="border-color:#E42725 !important;">{{ revMoreLabel }}</button>
+        <button onClick="{{ revToggle }}" style="display:inline-flex; align-items:center; gap:9px; background:#191919; border:1px solid rgba(255,255,255,0.1); cursor:pointer; padding:14px 32px; border-radius:300px; color:#fff; font-size:15px; font-weight:600; font-family:inherit;" style-hover="border-color:#FF2026 !important;">{{ revMoreLabel }}</button>
       </div>
     </sc-if>
   </section>
@@ -442,70 +469,61 @@ summary::-webkit-details-marker{display:none;}
   <!-- CTA -->
   <section style="padding:0 44px 80px; max-width:1500px; margin:0 auto;">
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; align-items:stretch; border-radius:20px; overflow:hidden;">
-      <div style="background:#0F0F11; border-radius:20px; padding:56px 48px; display:flex; flex-direction:column; justify-content:center;">
+      <div style="background:#191919; border-radius:20px; padding:56px 48px; display:flex; flex-direction:column; justify-content:center;">
         <h2 style="margin:0; font-size:clamp(28px,3.4vw,44px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Собираете коллектив на корпоратив?&nbsp;</h2>
-        <p style="margin:16px 0 0; max-width:460px; font-size:16px; line-height:1.6; color:#9C9A95;">Напишите число гостей и дату — координатор пришлёт смету и варианты программы в течение дня. Цена фиксируется в договоре, без доплат в день мероприятия.</p>
-        <a onClick="{{ openBooking }}" style="cursor:pointer; display:inline-flex; align-self:flex-start; margin-top:28px; text-decoration:none; background:#E42725; padding:15px 30px; border-radius:300px; color:#fff; font-size:16px; font-weight:700;" style-hover="background:#fff !important; color:#E42725 !important;">Запросить КП</a>
+        <p style="margin:16px 0 0; max-width:460px; font-size:16px; line-height:1.6; color:rgba(232,229,222,0.66);">Напишите число гостей и дату — координатор пришлёт смету и варианты программы в течение дня. Цена фиксируется в договоре, без доплат в день мероприятия.</p>
+        <a data-m="cta" onClick="{{ openBooking }}" style="cursor:pointer; display:inline-flex; align-self:flex-start; margin-top:28px; text-decoration:none; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Запросить КП</a>
       </div>
       <div style="position:relative; min-height:360px; border-radius:20px; overflow:hidden;">
-        <img src="uploads/DSC_4743%20(1).jpg" alt="Коллектив на корпоративе в Brooklyn Bowl" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+        <img src="../uploads/DSC_4743%20%281%29.jpg" alt="Коллектив на корпоративе в Brooklyn Bowl" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
       </div>
     </div>
   </section>
 
   <sc-if value="{{ dishOpen }}" hint-placeholder-val="{{ false }}">
-    <div onClick="{{ closeDish }}" style="position:fixed; inset:0; z-index:1200; background:rgba(5,5,6,0.8); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center; padding:24px;">
-      <div onClick="{{ stopProp }}" style="position:relative; width:min(540px,100%); max-height:90vh; overflow:auto; background:#141417; border:1px solid rgba(255,255,255,0.1); border-radius:26px;">
-        <div style="position:relative; height:300px;">{{ sd.imgEl }}<button onClick="{{ closeDish }}" style="position:absolute; top:16px; right:16px; width:40px; height:40px; border-radius:50%; border:none; cursor:pointer; background:rgba(11,11,12,0.6); color:#fff; font-size:18px;">✕</button></div>
-        <div style="padding:26px 32px 32px;"><div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px;"><h3 style="margin:0; font-size:25px; font-weight:800; letter-spacing:-0.01em; color:#fff;">{{ sd.name }}</h3><span style="font-size:20px; font-weight:800; color:#E42725; white-space:nowrap;">{{ sd.p }}</span></div><div style="margin:8px 0 16px; font-size:14px; color:#9C9A95;">{{ sd.w }}</div><p style="margin:0; font-size:16px; line-height:1.6; color:#C7C5BE;">{{ sd.desc }}</p><a href="kitchen.html" style="display:inline-flex; margin-top:24px; text-decoration:none; background:#E42725; padding:14px 28px; border-radius:300px; color:#fff; font-size:15px; font-weight:600;" style-hover="background:#fff !important; color:#E42725 !important;">Всё меню</a></div>
+    <div onClick="{{ closeDish }}" style="position:fixed; inset:0; z-index:1200; background:rgba(0,0,0,0.8); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center; padding:24px;">
+      <div onClick="{{ stopProp }}" style="position:relative; width:min(540px,100%); max-height:90vh; overflow:auto; background:#191919; border:1px solid rgba(255,255,255,0.1); border-radius:26px;">
+        <div style="position:relative; height:300px;">{{ sd.imgEl }}<button onClick="{{ closeDish }}" style="position:absolute; top:16px; right:16px; width:40px; height:40px; border-radius:50%; border:none; cursor:pointer; background:rgba(0,0,0,0.6); color:#fff; font-size:18px;">✕</button></div>
+        <div style="padding:26px 32px 32px;"><div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px;"><h3 style="margin:0; font-size:25px; font-weight:800; letter-spacing:-0.01em; color:#fff;">{{ sd.name }}</h3><span style="font-size:20px; font-weight:800; color:#FF2026; white-space:nowrap;">{{ sd.p }}</span></div><div style="margin:8px 0 16px; font-size:14px; color:rgba(232,229,222,0.66);">{{ sd.w }}</div><p style="margin:0; font-size:16px; line-height:1.6; color:rgba(232,229,222,0.86);">{{ sd.desc }}</p><a data-m="cta" href="kitchen.html" style="display:inline-flex; margin-top:24px; text-decoration:none; background:#FF2026; padding:14px 28px; border-radius:300px; color:#fff; font-size:15px; font-weight:600;" style-hover="background:#fff !important; color:#FF2026 !important;">Всё меню</a></div>
       </div>
     </div>
   </sc-if>
 
   <sc-if value="{{ bookingOpen }}" hint-placeholder-val="{{ false }}">
-    <div onClick="{{ closeBooking }}" style="position:fixed; inset:0; z-index:1300; background:rgba(5,5,6,0.82); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center; padding:24px;">
-      <div onClick="{{ stopProp }}" style="position:relative; width:min(480px,100%); max-height:92vh; overflow:auto; background:#141417; border:1px solid rgba(255,255,255,0.1); border-radius:24px; padding:32px;">
-        <button onClick="{{ closeBooking }}" style="position:absolute; top:16px; right:16px; width:38px; height:38px; border-radius:50%; border:none; cursor:pointer; background:#1C1C1F; color:#fff; font-size:17px;">✕</button>
+    <div onClick="{{ closeBooking }}" style="position:fixed; inset:0; z-index:1300; background:rgba(0,0,0,0.82); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center; padding:24px;">
+      <div onClick="{{ stopProp }}" style="position:relative; width:min(480px,100%); max-height:92vh; overflow:auto; background:#191919; border:1px solid rgba(255,255,255,0.1); border-radius:24px; padding:32px;">
+        <button onClick="{{ closeBooking }}" style="position:absolute; top:16px; right:16px; width:38px; height:38px; border-radius:50%; border:none; cursor:pointer; background:#191919; color:#fff; font-size:17px;">✕</button>
         <sc-if value="{{ bookingForm }}" hint-placeholder-val="{{ true }}">
           <div>
-            <span style="display:inline-flex; padding:7px 14px; border-radius:300px; background:rgba(228,39,37,0.16); font-size:12px; font-weight:700; letter-spacing:0.05em; color:#F26B69;">ЗАЯВКА НА КП</span>
+            <span style="display:inline-flex; padding:7px 14px; border-radius:300px; background:rgba(255,32,38,0.16); font-size:12px; font-weight:700; letter-spacing:0.05em; color:#FF2026;">ЗАЯВКА НА КП</span>
             <h3 style="margin:14px 0 4px; font-size:24px; font-weight:800; color:#fff;">Запросить КП на корпоратив</h3>
-            <p style="margin:0 0 20px; font-size:14px; line-height:1.5; color:#9C9A95;">Координатор пришлёт смету и варианты программы в течение дня, согласует дату и точку. Оплата от юрлица, закрывающие документы — на email.</p>
+            <p style="margin:0 0 20px; font-size:14px; line-height:1.5; color:rgba(232,229,222,0.66);">Координатор пришлёт смету и варианты программы в течение дня, согласует дату и точку. Оплата от юрлица, закрывающие документы — на email.</p>
             <sc-if value="{{ hasPkg }}" hint-placeholder-val="{{ false }}">
-            <div style="display:flex; align-items:center; gap:10px; margin:0 0 16px; padding:12px 15px; border-radius:12px; background:rgba(228,39,37,0.12); border:1px solid rgba(228,39,37,0.3);">
-              <span style="font-size:13px; color:#C7C5BE;">Выбран пакет</span>
+            <div style="display:flex; align-items:center; gap:10px; margin:0 0 16px; padding:12px 15px; border-radius:12px; background:rgba(255,32,38,0.12); border:1px solid rgba(255,32,38,0.3);">
+              <span style="font-size:13px; color:rgba(232,229,222,0.86);">Выбран пакет</span>
               <span style="margin-left:auto; font-size:15px; font-weight:800; color:#fff;">{{ pkg }}</span>
             </div>
             </sc-if>
-              <input id="corp-f0" type="text" value="Корпоратив" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
-              <select id="corp-f1" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit; appearance:none; cursor:pointer;"><option>Петровский</option><option>Матрица</option></select>
+              <input type="text" value="Корпоратив" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+              <select style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit; appearance:none; cursor:pointer;"><option>ПЕТРОВСКИЙ</option><option>Матрица</option></select>
               <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
-                <input id="corp-f2" type="date" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
-                <input id="corp-f3" type="number" min="10" placeholder="Сколько гостей" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+                <input type="date" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+                <input type="number" min="10" placeholder="Сколько гостей" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
               </div>
-              <input id="corp-f4" type="text" placeholder="Компания / ИНН" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
-              <input id="corp-name" required type="text" placeholder="Контактное лицо" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
-              <input id="corp-contact" required type="tel" placeholder="Телефон или email" style="width:100%; background:#0B0B0C; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
-              <label style="display:flex; align-items:flex-start; gap:10px; margin-top:14px; cursor:pointer; user-select:none; -webkit-user-select:none;"><span style="{{ checkboxBoxStyle }}" onClick="{{ toggleConsent }}">{{ consentCheck }}</span><span style="font-size:12px; line-height:1.5; color:#6E6C68; padding-top:1px;">Я согласен с <a href="privacy.html" style="color:#E42725; text-decoration:underline; text-underline-offset:2px;">политикой конфиденциальности</a> персональных данных и даю свое согласие на их обработку</span></label>
-            <button onClick="{{ submitBooking }}" disabled="{{ !consentOk || sending }}" style="{{ submitBtnStyle }}">{{ submitBtnLabel }}</button>
+              <input type="text" placeholder="Компания / ИНН" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+              <input type="text" placeholder="Контактное лицо" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+              <input type="tel" placeholder="Телефон или email" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+              <button data-m="cta" onClick="{{ submitBooking }}" style="margin-top:4px; width:100%; cursor:pointer; border:none; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; font-family:inherit; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Отправить заявку</button>
             </div>
+            <p style="margin:14px 0 0; font-size:12px; line-height:1.5; color:rgba(232,229,222,0.47);">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
           </div>
         </sc-if>
         <sc-if value="{{ bookingSent }}" hint-placeholder-val="{{ false }}">
           <div style="display:flex; flex-direction:column; align-items:center; text-align:center; padding:24px 6px;">
-            <div style="width:66px; height:66px; border-radius:50%; background:#E42725; display:flex; align-items:center; justify-content:center; font-size:32px; color:#fff;">✓</div>
+            <div style="width:66px; height:66px; border-radius:50%; background:#FF2026; display:flex; align-items:center; justify-content:center; font-size:32px; color:#fff;">✓</div>
             <h3 style="margin:20px 0 0; font-size:24px; font-weight:800; color:#fff;">Заявка принята</h3>
-            <p style="margin:12px 0 0; max-width:330px; font-size:15px; line-height:1.55; color:#9C9A95;">Заявка отправлена, координатор свяжется с вами в течение дня.</p>
-            <button onClick="{{ closeBooking }}" style="margin-top:22px; cursor:pointer; border:1px solid rgba(255,255,255,0.18); background:transparent; padding:13px 30px; border-radius:300px; color:#fff; font-size:15px; font-weight:600; font-family:inherit;" style-hover="border-color:#E42725 !important;">Готово</button>
-          </div>
-        </sc-if>
-        <sc-if value="{{ bookingError }}" hint-placeholder-val="{{ false }}">
-          <div style="display:flex; flex-direction:column; align-items:center; text-align:center; padding:24px 6px;">
-            <div style="width:66px; height:66px; border-radius:50%; background:rgba(228,39,37,0.16); border:1.5px solid #E42725; display:flex; align-items:center; justify-content:center; font-size:30px; font-weight:800; color:#E42725;">!</div>
-            <h3 style="margin:20px 0 0; font-size:24px; font-weight:800; color:#fff;">Не получилось отправить</h3>
-            <p style="margin:12px 0 0; max-width:330px; font-size:15px; line-height:1.55; color:#9C9A95;">Позвоните нам напрямую — координатор оформит заявку по телефону:</p>
-            <a href="tel:+73412707813" style="margin-top:14px; text-decoration:none; font-size:20px; font-weight:700; color:#fff;" style-hover="color:#FF5257 !important;">+7 3412 70-78-13</a>
-            <button onClick="{{ closeBooking }}" style="margin-top:22px; cursor:pointer; border:1px solid rgba(255,255,255,0.18); background:transparent; padding:13px 30px; border-radius:300px; color:#fff; font-size:15px; font-weight:600; font-family:inherit;" style-hover="border-color:#E42725 !important;">Закрыть</button>
+            <p style="margin:12px 0 0; max-width:330px; font-size:15px; line-height:1.55; color:rgba(232,229,222,0.66);">Координатор пришлёт смету и варианты программы в течение дня. Подготовит договор, счёт и закрывающие документы под ваше юрлицо.</p>
+            <button onClick="{{ closeBooking }}" style="margin-top:22px; cursor:pointer; border:1px solid rgba(255,255,255,0.18); background:transparent; padding:13px 30px; border-radius:300px; color:#fff; font-size:15px; font-weight:600; font-family:inherit;" style-hover="border-color:#FF2026 !important;">Готово</button>
           </div>
         </sc-if>
       </div>
@@ -513,38 +531,38 @@ summary::-webkit-details-marker{display:none;}
   </sc-if>
 
   <!-- ФУТЕР -->
-  <footer style="padding:48px 48px 40px; background:#0F0F0F; border:1px solid rgba(255,255,255,0.06); margin:0 16px 16px; border-radius:30px;">
+  <footer style="padding:48px 48px 40px; background:#191919; border:1px solid rgba(255,255,255,0.06); margin:0 16px 16px; border-radius:30px;">
     <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:40px; flex-wrap:wrap; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,0.07);">
       <div>
-        <img src="uploads/Vector.svg" alt="Brooklyn Bowl" style="height:26px; width:auto; display:block; filter:brightness(0) invert(1); margin-bottom:18px;">
+        <img src="../uploads/Vector.svg" alt="Brooklyn Bowl" style="height:26px; width:auto; display:block; filter:brightness(0) invert(1); margin-bottom:18px;">
         <p style="margin:0 0 20px; max-width:280px; font-size:15px; line-height:1.5; color:rgba(255,255,255,0.85);">Боулинг, вкусная еда и живая музыка — всё сразу в одном месте.</p>
         <div style="display:flex; flex-direction:column; gap:4px; font-size:14px; font-weight:600; color:#fff; margin-bottom:22px;">
           <span>Пн 12:00 – 00:00</span>
-          <span>Вт–Чт, Вс 10:00 – 00:00</span>
-          <span>Пт–Сб 10:00 – 02:00</span>
+          <span>Вт–Чт 10:00 – 00:00</span>
+          <span>Пт–Вс 10:00 – 00:00</span>
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=tyumen&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="uploads/badge-appstore.svg" alt="App Store" style="height:36px; width:auto; display:block;"></a>
-          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=tyumen&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="uploads/badge-googleplay.svg" alt="Google Play" style="height:36px; width:auto; display:block;"></a>
-          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=tyumen&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="uploads/badge-rustore.svg" alt="RuStore" style="height:36px; width:auto; display:block;"></a>
+          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=izhevsk&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="../uploads/badge-appstore.svg" alt="App Store" style="height:36px; width:auto; display:block;"></a>
+          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=izhevsk&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="../uploads/badge-googleplay.svg" alt="Google Play" style="height:36px; width:auto; display:block;"></a>
+          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=izhevsk&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="../uploads/badge-rustore.svg" alt="RuStore" style="height:36px; width:auto; display:block;"></a>
         </div>
       </div>
       <div data-m="footer-cols" style="display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:24px; flex:1; min-width:0;">
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ВИЗИТЫ</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="https://b851103.yclients.com/" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Забронировать</a><a href="lane.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Просто поиграть</a><a href="friends.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">С друзьями</a><a href="family.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Семьёй</a><a href="dr.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">День рождения</a><a href="dr-kids.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Детский ДР</a><a href="corporate.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Корпоратив</a><a href="graduation.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Выпускной</a></div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="https://widget.waitly.ru/BDFFLs8L1bKypCM9XH0KZg/2-firm?utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=izhevsk&utm_trc=all" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Забронировать</a><a href="lane.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Просто поиграть</a><a href="friends.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">С друзьями</a><a href="family.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Семьёй</a><a href="dr.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">День рождения</a><a href="dr-kids.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Детский ДР</a><a href="corporate.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Корпоратив</a><a href="graduation.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Выпускной</a></div>
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ДЛЯ ГОСТЕЙ</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="kitchen.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Меню</a><a href="afisha.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Афиша</a><a href="promo.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Акции</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Сертификаты</a><a href="loyalty.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Карта гостя</a><a href="about.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">О нас</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Блог</a></div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="kitchen.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Меню</a><a href="afisha.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Афиша</a><a href="promo.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Акции</a><a href="https://certificate.iz.brooklynbowl.ru/" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Сертификаты</a><a href="loyalty.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Карта гостя</a><a href="about.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">О нас</a><a href="blog.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Блог</a><a href="rabota.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Работа у нас</a></div>
         </div>
         <div>
-          <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ТОЧКИ СЕТИ</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="filial-petrovsky.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Петровский</a><a href="filial-matrix.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Матрица</a><a href="contacts.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Все контакты</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Аренда площадки</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Доставка</a><a href="#" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Франшиза</a></div>
+          <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">НАШИ АДРЕСА</div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="filial-petrovsky.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">ПЕТРОВСКИЙ</a><a href="filial-matrix.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Матрица</a><a href="contacts.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Все контакты</a><a href="rent.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Аренда площадки</a><a href="delivery.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Доставка</a><a href="franchise.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Франшиза</a></div>
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">В ДРУГИХ ГОРОДАХ</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="../msk/index.html" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Москва</a><a href="../spb/index.html" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Санкт-Петербург</a><a href="../samara/index.html" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Самара</a><a href="../izhevsk/index.html" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Ижевск</a><a href="../surgut/index.html" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Сургут</a><a href="../nv/index.html" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Нижневартовск</a></div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="../tyumen/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Тюмень</a><a href="../surgut/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Сургут</a><a href="../nv/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Нижневартовск</a><a href="../samara/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Самара</a><a href="../msk/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Москва</a><a href="../spb/index.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Санкт-Петербург</a></div>
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ДОПОЛНИТЕЛЬНО</div>
@@ -553,20 +571,72 @@ summary::-webkit-details-marker{display:none;}
       </div>
     </div>
     <div style="display:flex; align-items:flex-end; justify-content:space-between; padding-top:28px; border-top:1px solid rgba(255,255,255,0.18); flex-wrap:wrap; gap:16px;">
-      <span style="font-size:13px; color:rgba(255,255,255,0.8);">© Brooklyn Bowl Ижевск, 2017–2026 ·</span>
+      <span style="font-size:13px; color:rgba(255,255,255,0.8);">© 2016-2026 ООО "Кегли кухня рок-н-ролл"</span>
       <div style="text-align:right;">
         <div style="font-size:15px; font-weight:700; color:#fff;">Артём Рахмеев, основатель</div>
-        <a href="mailto:rakhmeev@brooklynbowl.ru" style="text-decoration: none; font-size: 14px; color: #dc0404" style-hover="color:rgba(255,255,255,0.72) !important;">rakhmeev@brooklynbowl.ru</a>
+        <a href="mailto:rakhmeev@brooklynbowl.ru" style="text-decoration: none; font-size: 14px; color: #FF2026" style-hover="color:rgba(255,255,255,0.72) !important;">rakhmeev@brooklynbowl.ru</a>
         <div style="font-size:12px; color:rgba(255,255,255,0.7); margin-top:2px;">Прямой адрес основателя. Читает сам.</div>
       </div>
     </div>
   </footer>
 
+  <sc-if value="{{ chatEnabled }}" hint-placeholder-val="{{ true }}">
+    <button data-m="fab-chat" onClick="{{ chatToggle }}" aria-label="Чат с Brooklyn Bowl" style="position:fixed; left:24px; bottom:24px; z-index:90; display:flex; align-items:center; justify-content:center; width:64px; height:64px; border:0; padding:0; cursor:pointer; border-radius:300px; background:#FF2026; box-shadow:0 12px 34px rgba(0,0,0,0.45); transition:transform .25s ease;" style-hover="transform:scale(1.06) !important;">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H8l-4 3v-4.5A8 8 0 0 1 13 4a8 8 0 0 1 8 8z"></path><path d="M9 11h8M9 15h5"></path></svg>
+    </button>
+    <sc-if value="{{ chatOpen }}" hint-placeholder-val="{{ false }}">
+      <div data-m="chat-panel" style="position:fixed; left:24px; bottom:104px; z-index:95; width:372px; max-width:calc(100vw - 48px); height:min(520px, calc(100vh - 160px)); display:flex; flex-direction:column; overflow:hidden; border-radius:22px; background:#191919; border:1px solid rgba(255,255,255,0.12); box-shadow:0 26px 70px rgba(0,0,0,0.6);">
+        <div style="background:#FF2026; padding:16px 18px 0;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+            <div style="font-size:15px; font-weight:800; letter-spacing:0.06em; color:#FFFFFF; text-transform:uppercase;">Brooklyn Bowl</div>
+            <button onClick="{{ chatClose }}" aria-label="Закрыть чат" style="display:flex; align-items:center; justify-content:center; width:30px; height:30px; border:0; padding:0; cursor:pointer; border-radius:300px; background:rgba(0,0,0,0.18);" style-hover="background:rgba(0,0,0,0.34) !important;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+            </button>
+          </div>
+          <div style="padding:10px 0 13px; font-size:12.5px; font-weight:600; color:rgba(255,255,255,0.88);">{{ chatHours }}</div>
+        </div>
+        <div data-m="chat-body" style="flex:1; min-height:0; overflow-y:auto; padding:18px; display:flex; flex-direction:column; gap:10px; background:#191919;">
+          <sc-for list="{{ messages }}" as="m" hint-placeholder-count="1">
+            <sc-if value="{{ m.mine }}" hint-placeholder-val="{{ false }}">
+              <div style="align-self:flex-end; max-width:82%; padding:11px 15px; border-radius:18px 18px 4px 18px; background:#FF2026; color:#FFFFFF; font-size:14.5px; line-height:1.5; text-wrap:pretty;">{{ m.text }}</div>
+            </sc-if>
+            <sc-if value="{{ m.theirs }}" hint-placeholder-val="{{ true }}">
+              <div style="align-self:flex-start; max-width:82%; padding:11px 15px; border-radius:18px 18px 18px 4px; background:rgba(232,229,222,0.1); color:#E8E5DE; font-size:14.5px; line-height:1.5; text-wrap:pretty;">{{ m.text }}</div>
+            </sc-if>
+          </sc-for>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; padding:12px 14px; border-top:1px solid rgba(255,255,255,0.1); background:#000000;">
+          <input data-m="chat-input" type="text" value="{{ draft }}" onChange="{{ chatType }}" onKeyDown="{{ chatKey }}" placeholder="Напишите сообщение" style="flex:1; min-width:0; height:42px; padding:0 14px; border:1px solid rgba(255,255,255,0.14); border-radius:300px; background:#191919; color:#FFFFFF; font-family:inherit; font-size:14.5px; outline:none;">
+          <button onClick="{{ chatSend }}" aria-label="Отправить" style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; flex-shrink:0; border:0; padding:0; cursor:pointer; border-radius:300px; background:#FF2026;" style-hover="filter:brightness(1.12) !important;">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"></path></svg>
+          </button>
+        </div>
+      </div>
+    </sc-if>
+  </sc-if>
+
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { consent: false, sending: false, serr: false, g: 30, alt: false, ad: {}, dish: null };
+  state = { chatOpen: false, draft: '', log: [], sending: false };
+  _scroll() {
+    requestAnimationFrame(() => {
+      const b = document.querySelector('[data-m="chat-body"]');
+      if (b) b.scrollTop = b.scrollHeight;
+    });
+  }
+  _send() {
+    const text = (this.state.draft || '').trim();
+    if (!text || this.state.sending) return;
+    this.setState({ draft: '', sending: true, log: (this.state.log || []).concat([{ mine: true, text }]) });
+    this._scroll();
+    const reply = (window.sendToOperator || (() => Promise.resolve('')))(text, { city: "Ижевск" });
+    Promise.resolve(reply).then((answer) => {
+      this.setState({ sending: false, log: (this.state.log || []).concat(answer ? [{ mine: false, text: answer }] : []) });
+      this._scroll();
+    });
+  }
   renderVals() {
     const REVIEWS = [
       {"author":"Алексей Мошкин","text":"Проводим праздники и турниры на протяжении долгих лет, всё на высшем уровне, обслуживание и кухня достойны всяких похвал!","tag":"Турнир","platform":"2ГИС","date":"5 апр 2026"},
@@ -579,27 +649,27 @@ class Component extends DCLogic {
       {"author":"Мария Васильева","text":"Спасибо за чудесную обстановку и гостеприимство, кухня безумно вкусная, вернёмся ещё не раз. Отдельно спасибо за организацию.","tag":"Кухня","platform":"2ГИС","date":"8 авг 2025"},
       {"author":"Каролина Титова","text":"Замечательное местечко, собирались коллективом, еда очень вкусная, персонал очень вежливый, остались приятные впечатления, атмосфера приятная, придём ещё.","tag":"Атмосфера","platform":"Яндекс Карты","date":"14 мая 2026"}
     ];
-    const _avp = ['#E42725','#3E6B4F','#3A5C8A','#7A4E8C','#9C6B2E','#4E7C7C','#B5462E','#9C6B2E','#A23E5C'];
+    const _avp = ['#FF2026','#E8E5DE','#191919','#191919','#E8E5DE','#E8E5DE','#FF2026','#E8E5DE','#FF2026'];
     const revData = REVIEWS.map((r, i) => { const a = r.author.split('(')[0].trim(); const p = a.split(' ').filter(Boolean); const ini = ((p[0] && p[0][0]) || '') + ((p[1] && p[1][0]) || ''); return { author: a, text: r.text, tag: r.tag, platform: r.platform, date: r.date, initials: ini.toUpperCase(), avatarBg: _avp[i % _avp.length] }; });
     const _revAll = this.state.revAll === true;
     const reviewsShown = _revAll ? revData : revData.slice(0, 9);
 
     const GAL = [
-      { img:'uploads/Brooklyn 13.09.24 (88)_resized.jpg', cap:'Команды на дорожках' },
-      { img:'https://brooklynbowl.bowlsoft.team/images/comedian.jpg', cap:'Мафия с ведущим Павлом' },
-      { img:'https://brooklynbowl.bowlsoft.team/images/standup.jpg', cap:'Стендап · сб 21:00' },
-      { img:'uploads/%D0%9F%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%BB%D0%B0%20%D0%9F%D0%B8%D1%86%D1%86%D1%8B.jpg', cap:'Шеринг-меню на столе' },
-      { img:'uploads/yChfrxrt2Bo.jpg', cap:'Кавер-группа · 1 сет' },
-      { img:'https://brooklynbowl.bowlsoft.team/images/comedian-2.jpg', cap:'Квиз-лото на команды' }
+      { img:'../uploads/Brooklyn 13.09.24 (88)_resized.jpg', cap:'Команды на дорожках' },
+      { img:'../uploads/bb-comedian.jpg', cap:'Мафия с ведущим Павлом' },
+      { img:'../uploads/bb-standup.jpg', cap:'Стендап · сб 21:00' },
+      { img:'../uploads/%D0%9F%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%BB%D0%B0%20%D0%9F%D0%B8%D1%86%D1%86%D1%8B.jpg', cap:'Шеринг-меню на столе' },
+      { img:'../uploads/yChfrxrt2Bo.jpg', cap:'Кавер-группа · 1 сет' },
+      { img:'../uploads/bb-comedian-2.jpg', cap:'Квиз-лото на команды' }
     ];
     const gallery = GAL.map((g) => ({ cap:g.cap, imgEl: React.createElement('img', { src:g.img, alt:g.cap, style:{ position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }) }));
 
     const DISHES = [
-      { n:'Пицца полстола', w:'Хит · 1 600 г', p:'1 899 ₽', img:'uploads/%D0%9F%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%BB%D0%B0%20%D0%9F%D0%B8%D1%86%D1%86%D1%8B.jpg', desc:'По массе — как пять обычных пицц. Разные начинки на одной доске. Делится на 6–8 человек — ставите одну на стол команде.', hot:true },
-      { n:'Пивная тарелка «Полкило»', w:'500 г', p:'1 299 ₽', img:'uploads/%D0%9F%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F%20%D1%82%D0%B0%D1%80%D0%B5%D0%BB%D0%BA%D0%B0%20%D0%BF%D0%BE%D0%BB%D0%BA%D0%B8%D0%BB%D0%BE.jpg', desc:'Крылья, луковые кольца, сырные палочки, картофель фри, три соуса. Классика под пиво на компанию за столом.', hot:false },
-      { n:'Сет бруклинских настоек', w:'Бар · 9 × 50 мл', p:'1 699 ₽', img:'uploads/%D0%A1%D0%B5%D1%82%20%D0%9A%D0%BE%D0%BB%D0%B1%D0%B0%D1%81.jpg', desc:'Девять фирменных настоек в маленьких шотах. Ягодные, травяные, пряные — для тоста за коллектив и итоги года.', hot:false }
+      { n:'Пицца полстола', w:'Хит · 1 600 г', p:'1 899 ₽', img:'../uploads/%D0%9F%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%BB%D0%B0%20%D0%9F%D0%B8%D1%86%D1%86%D1%8B.jpg', desc:'По массе — как пять обычных пицц. Разные начинки на одной доске. Делится на 6–8 человек — ставите одну на стол команде.', hot:true },
+      { n:'Пивная тарелка «Полкило»', w:'500 г', p:'1 299 ₽', img:'../uploads/%D0%9F%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F%20%D1%82%D0%B0%D1%80%D0%B5%D0%BB%D0%BA%D0%B0%20%D0%BF%D0%BE%D0%BB%D0%BA%D0%B8%D0%BB%D0%BE.jpg', desc:'Крылья, луковые кольца, сырные палочки, картофель фри, три соуса. Классика под пиво на компанию за столом.', hot:false },
+      { n:'Сет бруклинских настоек', w:'Бар · 9 × 50 мл', p:'1 699 ₽', img:'../uploads/%D0%A1%D0%B5%D1%82%20%D0%9A%D0%BE%D0%BB%D0%B1%D0%B0%D1%81.jpg', desc:'Девять фирменных настоек в маленьких шотах. Ягодные, травяные, пряные — для тоста за коллектив и итоги года.', hot:false }
     ];
-    const dishes = DISHES.map((d, i) => ({ name:d.n, w:d.w, p:d.p, hot:d.hot, tagBg: d.hot ? '#E42725' : 'rgba(11,11,12,0.6)', desc:d.desc, imgEl: React.createElement('img', { src:d.img, alt:d.n, style:{ position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }), open: () => this.setState({ dish: i }) }));
+    const dishes = DISHES.map((d, i) => ({ name:d.n, w:d.w, p:d.p, hot:d.hot, tagBg: d.hot ? '#FF2026' : 'rgba(0,0,0,0.6)', desc:d.desc, imgEl: React.createElement('img', { src:d.img, alt:d.n, style:{ position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }), open: () => this.setState({ dish: i }) }));
     const dishOpen = this.state.dish != null;
     const _sd = (this.state.dish != null) ? DISHES[this.state.dish] : { n:'', w:'', p:'', img:'', desc:'' };
     const sd = { name:_sd.n, w:_sd.w, p:_sd.p, desc:_sd.desc, imgEl: React.createElement('img', { src:_sd.img, alt:_sd.n, style:{ position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }) };
@@ -618,18 +688,18 @@ class Component extends DCLogic {
     };
     const DAYS = [{ label: 'Будни ПН–ЧТ до 18:00', pp: 2500 }, { label: 'Будни с 18:00 · Пт до 18:00', pp: 3000 }, { label: 'Пт вечер · выходные', pp: 3500 }];
     const g = this.state.g, di = (this.state.di != null ? this.state.di : 0), ad = this.state.ad || {};
-    const fmt = (n) => n.toLocaleString('ru-RU');
-    const pp = DAYS[di].pp;
+    const fmt = (n) => Number(n || 0).toLocaleString('ru-RU');
+    const pp = (DAYS[di] && DAYS[di].pp) || 0;
     const addSum = cfg.addons.reduce((acc, x, k) => acc + (ad[k] ? x.p : 0), 0);
     const total = pp * g + addSum;
     const cash = Math.round(total * cfg.prepayRate);
     const recoName = total < 40000 ? 'Мини' : (total < 90000 ? 'Хит' : 'Макси');
     const reco = 'Вам подойдёт тариф «' + recoName + '» — координатор соберёт смету под вашу дату, зафиксирует цену в договоре и подготовит закрывающие документы, чтобы бухгалтерия ничего не считала вручную.';
     const tB = 'text-align:center; cursor:pointer; border:none; padding:11px 0; border-radius:12px; font-size:13.5px; font-weight:700; font-family:inherit; transition:background-color .2s ease, color .2s ease;';
-    const tOn = tB + ' width:100%; background:#E42725; color:#fff;';
-    const tOff = tB + ' width:100%; background:transparent; color:#9C9A95;';
+    const tOn = tB + ' width:100%; background:#FF2026; color:#fff;';
+    const tOff = tB + ' width:100%; background:transparent; color:rgba(232,229,222,0.66);';
     const dayRows = DAYS.map((d, k) => ({ label: d.label, set: () => this.setState({ di: k }), style: (k === di ? tOn : tOff) }));
-    const pvBase = 'position:absolute; left:0; width:190px; max-width:100%; z-index:20; bottom:calc(100% + 8px); border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.12); box-shadow:0 18px 40px rgba(0,0,0,0.55); background:#141417; transform-origin:bottom left; transition:opacity .22s ease, transform .22s ease; pointer-events:none;';
+    const pvBase = 'position:absolute; left:0; width:190px; max-width:100%; z-index:20; bottom:calc(100% + 8px); border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.12); box-shadow:0 18px 40px rgba(0,0,0,0.55); background:#191919; transform-origin:bottom left; transition:opacity .22s ease, transform .22s ease; pointer-events:none;';
     const pv = this.state.preview;
     const addons = cfg.addons.map((x, k) => { const active = pv === k; return {
       name: x.n, price: '+' + fmt(x.p) + ' ₽', hasPhoto: !!x.img,
@@ -639,77 +709,36 @@ class Component extends DCLogic {
       onLeave: () => this.setState((s) => (s.preview === k ? { preview: null } : {})),
       tapPhoto: (e) => { if (e) { e.stopPropagation(); e.preventDefault(); } this.setState((s) => (s.preview === k ? { preview: null } : { preview: k })); },
       toggle: () => this.setState((s) => ({ ad: { ...(s.ad || {}), [k]: !((s.ad || {})[k]) } })),
-      boxStyle: 'flex-shrink:0; width:22px; height:22px; border-radius:7px; border:1.5px solid ' + (ad[k] ? '#E42725' : 'rgba(255,255,255,0.25)') + '; background:' + (ad[k] ? '#E42725' : 'transparent') + '; display:flex; align-items:center; justify-content:center; color:#fff; font-size:13px; line-height:1;',
+      boxStyle: 'flex-shrink:0; width:22px; height:22px; border-radius:7px; border:1.5px solid ' + (ad[k] ? '#FF2026' : 'rgba(255,255,255,0.25)') + '; background:' + (ad[k] ? '#FF2026' : 'transparent') + '; display:flex; align-items:center; justify-content:center; color:#fff; font-size:13px; line-height:1;',
       check: ad[k] ? '✓' : ''
     }; });
     return {
+      chatEnabled: this.props.chatEnabled ?? true,
+      chatHours: this.props.chatHours ?? 'Отвечаем ежедневно с 10:00 до 22:00',
+      chatOpen: !!this.state.chatOpen,
+      draft: this.state.draft || '',
+      messages: [{ mine: false, text: this.props.chatGreeting ?? 'Здравствуйте! Чем можем помочь?' }].concat(this.state.log || []).map((m) => ({ text: m.text, mine: !!m.mine, theirs: !m.mine })),
+      chatToggle: () => this.setState({ chatOpen: !this.state.chatOpen }),
+      chatClose: () => this.setState({ chatOpen: false }),
+      chatType: (e) => this.setState({ draft: e.target.value }),
+      chatKey: (e) => { if (e.key === 'Enter') { e.preventDefault(); this._send(); } },
+      chatSend: () => this._send(),
       reviewsShown, gallery,
       dishes, dishOpen, sd,
       closeDish: () => this.setState({ dish: null }),
       stopProp: (e) => e.stopPropagation(),
       bookingOpen: this.state.booking === true,
-      bookingForm: this.state.bsent !== true && this.state.serr !== true,
+      bookingForm: this.state.bsent !== true,
       bookingSent: this.state.bsent === true,
-      bookingError: this.state.serr === true,
-      sending: this.state.sending === true,
-      openBooking: () => this.setState({ booking: true, bsent: false, serr: false, sending: false, pkg: '' }),
-      bookLane: () => window.open('https://b851103.yclients.com/', '_blank'),
-      bookMini: () => this.setState({ booking: true, bsent: false, serr: false, sending: false, pkg: 'Мини' }),
-      bookHit: () => this.setState({ booking: true, bsent: false, serr: false, sending: false, pkg: 'Хит' }),
-      bookMaks: () => this.setState({ booking: true, bsent: false, serr: false, sending: false, pkg: 'Макс' }),
+      openBooking: () => this.setState({ booking: true, bsent: false, pkg: '' }),
+      bookLane: () => window.open('https://widget.waitly.ru/BDFFLs8L1bKypCM9XH0KZg/2-firm?utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=izhevsk&utm_trc=all', '_blank'),
+      bookMini: () => this.setState({ booking: true, bsent: false, pkg: 'Мини' }),
+      bookHit: () => this.setState({ booking: true, bsent: false, pkg: 'Хит' }),
+      bookMaks: () => this.setState({ booking: true, bsent: false, pkg: 'Макс' }),
       pkg: this.state.pkg || '',
       hasPkg: !!this.state.pkg,
       closeBooking: () => this.setState({ booking: false }),
-      submitBooking: (e) => {
-        if (e && e.preventDefault) e.preventDefault();
-        if (!this.state.consent || this.state.sending) return;
-        const val = (id) => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
-        const nameEl = document.getElementById('corp-name');
-        const contactEl = document.getElementById('corp-contact');
-        const name = val('corp-name');
-        const contact = val('corp-contact');
-        if (!name) { if (nameEl) nameEl.reportValidity(); return; }
-        if (!contact) { if (contactEl) contactEl.reportValidity(); return; }
-        const lines = [];
-        if (val('corp-f0')) lines.push('Тип мероприятия: ' + val('corp-f0'));
-        if (val('corp-f1')) lines.push('Точка: ' + val('corp-f1'));
-        if (val('corp-f2')) lines.push('Дата: ' + val('corp-f2'));
-        if (val('corp-f3')) lines.push('Сколько гостей: ' + val('corp-f3'));
-        if (val('corp-f4')) lines.push('Компания / ИНН: ' + val('corp-f4'));
-        const fields = {
-          TITLE: 'SiteOP: Корпоратив, Ижевск',
-          NAME: name,
-          COMMENTS: lines.join('\n'),
-          SOURCE_DESCRIPTION: 'Новый сайт, Ижевск',
-        };
-        if (contact.indexOf('@') !== -1) fields.EMAIL = [{ VALUE: contact, VALUE_TYPE: 'WORK' }];
-        else fields.PHONE = [{ VALUE: contact, VALUE_TYPE: 'WORK' }];
-        this.setState({ sending: true, serr: false });
-        fetch('https://bbteam.bitrix24.ru/rest/119/4dwow62fd1jmzudi/crm.lead.add.json', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ fields: fields }),
-        })
-          .then((r) => r.json())
-          .then((data) => {
-            if (data && data.result) {
-              ['corp-f0','corp-f1','corp-f2','corp-f3','corp-f4','corp-name','corp-contact'].forEach((id) => {
-                const el = document.getElementById(id);
-                if (el) el.value = '';
-              });
-              this.setState({ sending: false, serr: false, bsent: true });
-            } else {
-              this.setState({ sending: false, serr: true });
-            }
-          })
-          .catch(() => { this.setState({ sending: false, serr: true }); });
-      },
-      consentOk: this.state.consent,
-      toggleConsent: () => this.setState(s => ({ consent: !s.consent })),
-      submitBtnLabel: this.state.sending ? 'Отправляем…' : 'Отправить заявку',
-      submitBtnStyle: { marginTop:'12px', width:'100%', cursor: (this.state.consent && !this.state.sending) ? 'pointer' : 'not-allowed', border:'none', background: this.state.consent ? (this.state.sending ? 'rgba(228,39,37,0.6)' : '#E42725') : 'rgba(255,255,255,0.12)', padding:'16px', borderRadius:'300px', color: this.state.consent ? '#fff' : 'rgba(255,255,255,0.4)', fontSize:'16px', fontWeight:'700', fontFamily:'inherit', transition:'background .2s, color .2s' },
-      checkboxBoxStyle: { flexShrink:0, marginTop:'2px', width:'18px', height:'18px', borderRadius:'5px', border: this.state.consent ? '1.5px solid rgba(228,39,37,0.8)' : '1.5px solid rgba(255,255,255,0.22)', background: this.state.consent ? 'rgba(228,39,37,0.12)' : 'transparent', display:'inline-flex', alignItems:'center', justifyContent:'center', transition:'border-color .18s, background .18s' },
-      consentCheck: this.state.consent ? React.createElement('svg',{width:11,height:9,viewBox:'0 0 11 9',fill:'none'},React.createElement('path',{d:'M1 4.5L4 7.5L10 1.5',stroke:'#E42725',strokeWidth:2.2,strokeLinecap:'round',strokeLinejoin:'round'})) : null,
+      submitBooking: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ bsent: true }); },
       revHasMore: revData.length > 9,
       revMoreLabel: _revAll ? 'Свернуть' : ('Показать ещё ' + (revData.length - 9) + ' отзывов'),
       revToggle: () => this.setState((s) => ({ revAll: !s.revAll })),
@@ -724,5 +753,34 @@ class Component extends DCLogic {
   }
 }
 </script>
+<!-- BB-WAITLY: оригинальный код виджета брони Waitly (кнопка + панель с филиалами) -->
+<script>
+(function () {
+  var orig = Element.prototype.attachShadow;
+  Element.prototype.attachShadow = function (init) {
+    if (this.id === 'waitly-widget-root') { init = Object.assign({}, init, { mode: 'open' }); }
+    return orig.call(this, init);
+  };
+})();
+</script>
+<script src="https://widget.waitly.ru/waitly-widget.js" data-token="BDFFLs8L1bKypCM9XH0KZg" data-theme="2-firm" data-text="Бронируй столик и дорожку!" data-color="#ed1c24" async></script>
+<script>
+(function () {
+  function fix() {
+    var root = document.getElementById('waitly-widget-root');
+    if (!root || !root.shadowRoot) { setTimeout(fix, 100); return; }
+    if (root.shadowRoot.getElementById('waitly-position-fix')) return;
+    var st = document.createElement('style');
+    st.id = 'waitly-position-fix';
+    st.textContent = '@media (max-width:980px){ .waitly-fab{ bottom:90px !important; } }';
+    root.shadowRoot.appendChild(st);
+  }
+  fix();
+  window.addEventListener('load', fix);
+  window.addEventListener('resize', fix);
+  setTimeout(fix, 500); setTimeout(fix, 1500); setTimeout(fix, 3000);
+})();
+</script>
+<!-- /BB-WAITLY -->
 </body>
 </html>

@@ -1,131 +1,258 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Brooklyn Bowl — выберите город</title>
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  *{ box-sizing:border-box; }
-  html,body{ margin:0; padding:0; height:100%; }
-  body{
-    font-family:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-    background:#0B0B0C;
-    color:#fff;
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    padding:32px 20px;
-  }
-  .wordmark{
-    font-size:15px;
-    font-weight:800;
-    letter-spacing:0.12em;
-    color:#E42725;
-    text-transform:uppercase;
-    margin-bottom:14px;
-  }
-  h1{
-    font-size:clamp(26px,4vw,38px);
-    font-weight:700;
-    margin:0 0 40px;
-    text-align:center;
-    color:#fff;
-  }
-  .cities{
-    display:flex;
-    flex-wrap:wrap;
-    gap:18px;
-    justify-content:center;
-    width:100%;
-    max-width:640px;
-  }
-  .city{
-    flex:1 1 260px;
-    text-decoration:none;
-    display:flex;
-    flex-direction:column;
-    gap:6px;
-    padding:28px 26px;
-    border-radius:20px;
-    border:1px solid rgba(255,255,255,0.12);
-    background:#141417;
-    transition:border-color .2s ease, transform .16s cubic-bezier(.34,1.4,.64,1), background-color .2s ease;
-  }
-  .city:hover{
-    border-color:#E42725;
-    background:#17171a;
-    transform:translateY(-2px);
-  }
-  .city-name{
-    font-size:22px;
-    font-weight:700;
-    color:#fff;
-  }
-  .city-sub{
-    font-size:14px;
-    color:#9C9A95;
-  }
-  .city-arrow{
-    margin-top:14px;
-    font-size:14px;
-    font-weight:600;
-    color:#E42725;
-  }
-  footer{
-    margin-top:56px;
-    font-size:12px;
-    color:#6E6C68;
-    text-align:center;
-  }
-</style>
+<script src="support.js"></script>
 </head>
 <body>
-  <div class="wordmark">Brooklyn Bowl</div>
-  <h1>Выберите город</h1>
-  <div class="cities">
-    <a class="city" href="tyumen/index.html">
-      <span class="city-name">Тюмень</span>
-      <span class="city-sub">3 точки</span>
-      <span class="city-arrow">Перейти →</span>
-    </a>
-    <a class="city" href="izhevsk/index.html">
-      <span class="city-name">Ижевск</span>
-      <span class="city-sub">2 точки</span>
-      <span class="city-arrow">Перейти →</span>
-    </a>
-    <a class="city" href="nv/index.html">
-      <span class="city-name">Нижневартовск</span>
-      <span class="city-sub">1 точка</span>
-      <span class="city-arrow">Перейти →</span>
-    </a>
-    <a class="city" href="surgut/index.html">
-      <span class="city-name">Сургут</span>
-      <span class="city-sub">1 точка</span>
-      <span class="city-arrow">Перейти →</span>
-    </a>
-    <a class="city" href="samara/index.html">
-      <span class="city-name">Самара</span>
-      <span class="city-sub">2 точки</span>
-      <span class="city-arrow">Перейти →</span>
-    </a>
-    <a class="city" href="msk/index.html">
-      <span class="city-name">Москва</span>
-      <span class="city-sub">2 точки</span>
-      <span class="city-arrow">Перейти →</span>
-    </a>
-    <a class="city" href="spb/index.html">
-      <span class="city-name">Санкт-Петербург</span>
-      <span class="city-sub">1 точка</span>
-      <span class="city-arrow">Перейти →</span>
-    </a>
+<x-dc>
+<helmet>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brooklyn Bowl — выберите город</title>
+<meta name="description" content="Боулинг, кухня и рок-н-ролл в семи городах: Тюмень, Ижевск, Сургут, Нижневартовск, Самара, Москва, Санкт-Петербург. Выберите свой город.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+em, i, address, cite, dfn, var{ font-style:normal; }
+
+*{box-sizing:border-box;}
+html,body{margin:0; padding:0; background:#000000; color:#FFFFFF; font-family:'Proxima Nova','Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; -webkit-font-smoothing:antialiased;}
+a{color:#FF2026; text-decoration:none;}
+a:hover{color:#FFFFFF;}
+[data-m="city-card"]:hover [data-m="city-photo"]{transform:scale(1.05);}
+[data-m="city-card"]:hover{border-color:#FF2026;}
+[data-m="city-card"]:hover [data-m="city-go"]{background:#FF2026; color:#FFFFFF;}
+@media (max-width:760px){
+  [data-m="cities-grid"]{grid-template-columns:1fr !important; gap:14px !important;}
+  [data-m="city-card"]{border-radius:20px !important;}
+  [data-m="city-media"]{aspect-ratio:16/10 !important;}
+  [data-m="city-name"]{font-size:34px !important;}
+  [data-m="hero-h1"]{font-size:34px !important;}
+  [data-m="foot-row"]{flex-direction:column !important; align-items:flex-start !important; gap:18px !important;}
+}
+
+/* BB-OVERLAY-GUARD: пока открыт оверлей — плавающие виджеты скрыты */
+html[data-bb-ovl="menu"] [data-m="fab-chat"], html[data-bb-ovl="menu"] [data-m="chat-panel"], html[data-bb-ovl="menu"] #waitly-widget-root,
+html[data-bb-ovl="modal"] [data-m="fab-chat"], html[data-bb-ovl="modal"] [data-m="chat-panel"], html[data-bb-ovl="modal"] #waitly-widget-root,
+html[data-bb-ovl="chat"] #waitly-widget-root,
+html[data-bb-ovl="book"] [data-m="fab-chat"], html[data-bb-ovl="book"] [data-m="chat-panel"]{ display:none !important; }
+/* чат не закрывает текст: гаснет, когда под кнопкой строка или картинка */
+html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-events:none !important; }
+[data-m="fab-chat"]{ transition:opacity .18s ease !important; }
+/* выбор города на мобильном: список у правого края и не шире экрана */
+/* 769–1000px: меню шапки сжимается по-настоящему, чтобы пункты не срезались */
+@media (min-width:769px) and (max-width:1000px){
+  [data-m="nav"]{ gap:6px !important; overflow:visible !important; min-width:0 !important; flex-shrink:1 !important; }
+  [data-m="nav"] > a{ padding:8px 4px !important; font-size:13.5px !important; }
+}
+@media (max-width:768px){
+  [data-m="city-pick"] > div{ left:auto !important; right:0 !important; width:auto !important; min-width:0 !important; max-width:calc(100vw - 32px) !important; }
+}
+/* шторка меню: список скроллится, нижний блок не наезжает на пункты */
+[data-m="mobile-menu"]{ overflow:hidden !important; }
+[data-m="mobile-menu"] nav{ min-height:0 !important; }
+</style>
+<script src="_ovl.js"></script>
+</helmet>
+
+<header style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:24px; height:74px; padding:0 clamp(20px,3vw,44px); background:rgba(0,0,0,0.88); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(232,229,222,0.12);">
+  <a href="tyumen/index.html" style="display:flex; align-items:center; gap:12px; text-decoration:none; flex-shrink:0;">
+    <img src="uploads/Vector.svg" alt="Brooklyn Bowl" style="height:24px; width:auto; display:block;">
+  </a>
+  <span style="font-size:13px; font-weight:700; letter-spacing:0.08em; color:rgba(232,229,222,0.6); text-transform:uppercase;">Кегли · Кухня · Рок-н-ролл</span>
+</header>
+
+<section style="padding:clamp(46px,6vw,84px) clamp(20px,3vw,44px) clamp(24px,3vw,36px); background:#000000;">
+  <div style="max-width:1480px; margin:0 auto;">
+    <span style="display:inline-flex; align-items:center; padding:7px 14px; border-radius:300px; background:rgba(255,32,38,0.16); font-size:12.5px; font-weight:700; letter-spacing:0.04em; color:#FF2026;">ВЫБЕРИТЕ ГОРОД</span>
+    <h1 data-m="hero-h1" style="margin:18px 0 0; font-size:clamp(34px,5vw,66px); font-weight:900; line-height:1.02; letter-spacing:-0.02em; text-transform:uppercase; color:#FFFFFF;">Мы играем<br>в <em style="font-style:normal; color:#FF2026;">семи городах</em></h1>
+    <p style="margin:16px 0 0; max-width:560px; font-size:17px; line-height:1.55; color:rgba(232,229,222,0.7); font-weight:500;">Выберите город — покажем дорожки, кухню и афишу именно вашего клуба.</p>
   </div>
-  <footer>© Brooklyn Bowl</footer>
+</section>
+
+<section style="padding:0 clamp(20px,3vw,44px) clamp(56px,7vw,96px); background:#000000;">
+  <div data-m="cities-grid" style="max-width:1480px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(400px,1fr)); gap:20px;">
+
+    <a data-m="city-card" href="tyumen/index.html" style="display:flex; flex-direction:column; text-decoration:none; color:#FFFFFF; background:#191919; border:1px solid rgba(232,229,222,0.1); border-radius:26px; overflow:hidden; transition:border-color .25s ease;">
+      <div data-m="city-media" style="position:relative; aspect-ratio:16/9; overflow:hidden; background:#000000;">
+        <img data-m="city-photo" src="city-tyumen.jpg" alt="Brooklyn Bowl Тюмень" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 28%; display:block; transition:transform .5s ease;">
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 52%, rgba(0,0,0,0.92) 100%);"></div>
+        <div style="position:absolute; left:clamp(20px,2.4vw,30px); right:clamp(20px,2.4vw,30px); bottom:clamp(18px,2vw,24px); display:flex; align-items:flex-end; justify-content:space-between; gap:16px;">
+          <div>
+            <div data-m="city-name" style="font-size:clamp(34px,3.6vw,48px); font-weight:900; line-height:1; letter-spacing:-0.02em; text-transform:uppercase;">Тюмень</div>
+            <div style="margin-top:8px; font-size:14px; font-weight:700; letter-spacing:0.03em; color:#FF2026;">3 точки</div>
+          </div>
+          <span data-m="city-go" style="flex-shrink:0; display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:50%; border:1px solid rgba(232,229,222,0.32); background:rgba(0,0,0,0.4); transition:background-color .25s ease;">
+            <svg width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </div>
+      </div>
+      <div style="padding:clamp(18px,2vw,24px) clamp(20px,2.4vw,30px) clamp(20px,2.2vw,26px); display:flex; flex-direction:column; gap:12px;">
+        <div style="display:flex; flex-direction:column; gap:7px;">
+          <div style="font-size:14.5px; line-height:1.45; color:rgba(232,229,222,0.86);"><b style="color:#FFFFFF; font-weight:700;">СитиМолл</b> — Тимофея Чаркова, 60</div>
+          <div style="font-size:14.5px; line-height:1.45; color:rgba(232,229,222,0.86);"><b style="color:#FFFFFF; font-weight:700;">Остров</b> — Федюнинского, 67</div>
+          <div style="font-size:14.5px; line-height:1.45; color:rgba(232,229,222,0.86);"><b style="color:#FFFFFF; font-weight:700;">Колумб</b> — Московский тракт, 118</div>
+        </div>
+        <div style="font-size:15.5px; font-weight:700; color:#FFFFFF;">+7 (3452) 22-61-30</div>
+      </div>
+    </a>
+
+    <a data-m="city-card" href="izhevsk/index.html" style="display:flex; flex-direction:column; text-decoration:none; color:#FFFFFF; background:#191919; border:1px solid rgba(232,229,222,0.1); border-radius:26px; overflow:hidden; transition:border-color .25s ease;">
+      <div data-m="city-media" style="position:relative; aspect-ratio:16/9; overflow:hidden; background:#000000;">
+        <img data-m="city-photo" src="city-izhevsk.jpg" alt="Brooklyn Bowl Ижевск" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 28%; display:block; transition:transform .5s ease;">
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 52%, rgba(0,0,0,0.92) 100%);"></div>
+        <div style="position:absolute; left:clamp(20px,2.4vw,30px); right:clamp(20px,2.4vw,30px); bottom:clamp(18px,2vw,24px); display:flex; align-items:flex-end; justify-content:space-between; gap:16px;">
+          <div>
+            <div data-m="city-name" style="font-size:clamp(34px,3.6vw,48px); font-weight:900; line-height:1; letter-spacing:-0.02em; text-transform:uppercase;">Ижевск</div>
+            <div style="margin-top:8px; font-size:14px; font-weight:700; letter-spacing:0.03em; color:#FF2026;">2 точки</div>
+          </div>
+          <span data-m="city-go" style="flex-shrink:0; display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:50%; border:1px solid rgba(232,229,222,0.32); background:rgba(0,0,0,0.4); transition:background-color .25s ease;">
+            <svg width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </div>
+      </div>
+      <div style="padding:clamp(18px,2vw,24px) clamp(20px,2.4vw,30px) clamp(20px,2.2vw,26px); display:flex; flex-direction:column; gap:12px;">
+        <div style="display:flex; flex-direction:column; gap:7px;">
+          <div style="font-size:14.5px; line-height:1.45; color:rgba(232,229,222,0.86);"><b style="color:#FFFFFF; font-weight:700;">Петровский</b> — ул. им. Петрова, 29</div>
+          <div style="font-size:14.5px; line-height:1.45; color:rgba(232,229,222,0.86);"><b style="color:#FFFFFF; font-weight:700;">Матрица</b> — ул. Баранова, 87</div>
+        </div>
+        <div style="font-size:15.5px; font-weight:700; color:#FFFFFF;">+7 (341) 270-84-40</div>
+      </div>
+    </a>
+
+    <a data-m="city-card" href="surgut/index.html" style="display:flex; flex-direction:column; text-decoration:none; color:#FFFFFF; background:#191919; border:1px solid rgba(232,229,222,0.1); border-radius:26px; overflow:hidden; transition:border-color .25s ease;">
+      <div data-m="city-media" style="position:relative; aspect-ratio:16/9; overflow:hidden; background:#000000;">
+        <img data-m="city-photo" src="city-surgut.jpg" alt="Brooklyn Bowl Сургут" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 28%; display:block; transition:transform .5s ease;">
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 52%, rgba(0,0,0,0.92) 100%);"></div>
+        <div style="position:absolute; left:clamp(20px,2.4vw,30px); right:clamp(20px,2.4vw,30px); bottom:clamp(18px,2vw,24px); display:flex; align-items:flex-end; justify-content:space-between; gap:16px;">
+          <div>
+            <div data-m="city-name" style="font-size:clamp(34px,3.6vw,48px); font-weight:900; line-height:1; letter-spacing:-0.02em; text-transform:uppercase;">Сургут</div>
+            <div style="margin-top:8px; font-size:14px; font-weight:700; letter-spacing:0.03em; color:#FF2026;">1 точка</div>
+          </div>
+          <span data-m="city-go" style="flex-shrink:0; display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:50%; border:1px solid rgba(232,229,222,0.32); background:rgba(0,0,0,0.4); transition:background-color .25s ease;">
+            <svg width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </div>
+      </div>
+      <div style="padding:clamp(18px,2vw,24px) clamp(20px,2.4vw,30px) clamp(20px,2.2vw,26px); display:flex; flex-direction:column; gap:12px;">
+        <div style="display:flex; flex-direction:column; gap:7px;">
+          <div style="font-size:14.5px; line-height:1.45; color:rgba(232,229,222,0.86);"><b style="color:#FFFFFF; font-weight:700;">ТРЦ «Аура»</b> — Нефтеюганское шоссе, 1</div>
+        </div>
+        <div style="font-size:15.5px; font-weight:700; color:#FFFFFF;">+7 (346) 274-49-60</div>
+      </div>
+    </a>
+
+    <a data-m="city-card" href="nv/index.html" style="display:flex; flex-direction:column; text-decoration:none; color:#FFFFFF; background:#191919; border:1px solid rgba(232,229,222,0.1); border-radius:26px; overflow:hidden; transition:border-color .25s ease;">
+      <div data-m="city-media" style="position:relative; aspect-ratio:16/9; overflow:hidden; background:#000000;">
+        <img data-m="city-photo" src="city-nv.jpg" alt="Brooklyn Bowl Нижневартовск" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 28%; display:block; transition:transform .5s ease;">
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 52%, rgba(0,0,0,0.92) 100%);"></div>
+        <div style="position:absolute; left:clamp(20px,2.4vw,30px); right:clamp(20px,2.4vw,30px); bottom:clamp(18px,2vw,24px); display:flex; align-items:flex-end; justify-content:space-between; gap:16px;">
+          <div>
+            <div data-m="city-name" style="font-size:clamp(30px,3.2vw,44px); font-weight:900; line-height:1; letter-spacing:-0.02em; text-transform:uppercase;">Нижневартовск</div>
+            <div style="margin-top:8px; font-size:14px; font-weight:700; letter-spacing:0.03em; color:#FF2026;">1 точка</div>
+          </div>
+          <span data-m="city-go" style="flex-shrink:0; display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:50%; border:1px solid rgba(232,229,222,0.32); background:rgba(0,0,0,0.4); transition:background-color .25s ease;">
+            <svg width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </div>
+      </div>
+      <div style="padding:clamp(18px,2vw,24px) clamp(20px,2.4vw,30px) clamp(20px,2.2vw,26px); display:flex; flex-direction:column; gap:12px;">
+        <div style="display:flex; flex-direction:column; gap:7px;">
+          <div style="font-size:14.5px; line-height:1.45; color:rgba(232,229,222,0.86);"><b style="color:#FFFFFF; font-weight:700;">ЮГРАМолл</b> — улица Ленина, 15П</div>
+        </div>
+        <div style="font-size:15.5px; font-weight:700; color:#FFFFFF;">+7 (346) 648-22-59</div>
+      </div>
+    </a>
+
+    <a data-m="city-card" href="samara/index.html" style="display:flex; flex-direction:column; text-decoration:none; color:#FFFFFF; background:#191919; border:1px solid rgba(232,229,222,0.1); border-radius:26px; overflow:hidden; transition:border-color .25s ease;">
+      <div data-m="city-media" style="position:relative; aspect-ratio:16/9; overflow:hidden; background:#000000;">
+        <img data-m="city-photo" src="city-samara.png" alt="Brooklyn Bowl Самара" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 28%; display:block; transition:transform .5s ease;">
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 52%, rgba(0,0,0,0.92) 100%);"></div>
+        <div style="position:absolute; left:clamp(20px,2.4vw,30px); right:clamp(20px,2.4vw,30px); bottom:clamp(18px,2vw,24px); display:flex; align-items:flex-end; justify-content:space-between; gap:16px;">
+          <div>
+            <div data-m="city-name" style="font-size:clamp(34px,3.6vw,48px); font-weight:900; line-height:1; letter-spacing:-0.02em; text-transform:uppercase;">Самара</div>
+            <div style="margin-top:8px; font-size:14px; font-weight:700; letter-spacing:0.03em; color:#FF2026;">2 точки</div>
+          </div>
+          <span data-m="city-go" style="flex-shrink:0; display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:50%; border:1px solid rgba(232,229,222,0.32); background:rgba(0,0,0,0.4); transition:background-color .25s ease;">
+            <svg width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </div>
+      </div>
+      <div style="padding:clamp(18px,2vw,24px) clamp(20px,2.4vw,30px) clamp(20px,2.2vw,26px); display:flex; flex-direction:column; gap:12px;">
+        <div style="display:flex; flex-direction:column; gap:7px;">
+          <div style="font-size:14.5px; line-height:1.45; color:rgba(232,229,222,0.86);"><b style="color:#FFFFFF; font-weight:700;">Гудок</b> — Красноармейская, 131</div>
+          <div style="font-size:14.5px; line-height:1.45; color:rgba(232,229,222,0.86);"><b style="color:#FFFFFF; font-weight:700;">ЛЕТАУТ</b> — Московское шоссе 18 км, 23</div>
+        </div>
+        <div style="font-size:15.5px; font-weight:700; color:#FFFFFF;">+7 (846) 255-10-14</div>
+      </div>
+    </a>
+
+    <a data-m="city-card" href="msk/index.html" style="display:flex; flex-direction:column; text-decoration:none; color:#FFFFFF; background:#191919; border:1px solid rgba(232,229,222,0.1); border-radius:26px; overflow:hidden; transition:border-color .25s ease;">
+      <div data-m="city-media" style="position:relative; aspect-ratio:16/9; overflow:hidden; background:#000000;">
+        <img data-m="city-photo" src="city-msk.png" alt="Brooklyn Bowl Москва" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 28%; display:block; transition:transform .5s ease;">
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 52%, rgba(0,0,0,0.92) 100%);"></div>
+        <div style="position:absolute; left:clamp(20px,2.4vw,30px); right:clamp(20px,2.4vw,30px); bottom:clamp(18px,2vw,24px); display:flex; align-items:flex-end; justify-content:space-between; gap:16px;">
+          <div>
+            <div data-m="city-name" style="font-size:clamp(34px,3.6vw,48px); font-weight:900; line-height:1; letter-spacing:-0.02em; text-transform:uppercase;">Москва</div>
+            <div style="margin-top:8px; font-size:14px; font-weight:700; letter-spacing:0.03em; color:#FF2026;">2 точки</div>
+          </div>
+          <span data-m="city-go" style="flex-shrink:0; display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:50%; border:1px solid rgba(232,229,222,0.32); background:rgba(0,0,0,0.4); transition:background-color .25s ease;">
+            <svg width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </div>
+      </div>
+      <div style="padding:clamp(18px,2vw,24px) clamp(20px,2.4vw,30px) clamp(20px,2.2vw,26px); display:flex; flex-direction:column; gap:12px;">
+        <div style="display:flex; flex-direction:column; gap:7px;">
+          <div style="font-size:14.5px; line-height:1.45; color:rgba(232,229,222,0.86);"><b style="color:#FFFFFF; font-weight:700;">Северное Сияние</b> — бул. Дмитрия Донского, 1</div>
+          <div style="font-size:14.5px; line-height:1.45; color:rgba(232,229,222,0.86);"><b style="color:#FFFFFF; font-weight:700;">Красный Кит</b> — Шараповский пр-д, 2, Мытищи</div>
+        </div>
+        <div style="font-size:15.5px; font-weight:700; color:#FFFFFF;">+7 (499) 490-33-66</div>
+      </div>
+    </a>
+
+    <a data-m="city-card" href="spb/index.html" style="display:flex; flex-direction:column; text-decoration:none; color:#FFFFFF; background:#191919; border:1px solid rgba(232,229,222,0.1); border-radius:26px; overflow:hidden; transition:border-color .25s ease;">
+      <div data-m="city-media" style="position:relative; aspect-ratio:16/9; overflow:hidden; background:#000000;">
+        <img data-m="city-photo" src="city-spb.png" alt="Brooklyn Bowl Санкт-Петербург" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 28%; display:block; transition:transform .5s ease;">
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 52%, rgba(0,0,0,0.92) 100%);"></div>
+        <div style="position:absolute; left:clamp(20px,2.4vw,30px); right:clamp(20px,2.4vw,30px); bottom:clamp(18px,2vw,24px); display:flex; align-items:flex-end; justify-content:space-between; gap:16px;">
+          <div>
+            <div data-m="city-name" style="font-size:clamp(30px,3.2vw,44px); font-weight:900; line-height:1; letter-spacing:-0.02em; text-transform:uppercase;">Санкт-Петербург</div>
+            <div style="margin-top:8px; font-size:14px; font-weight:700; letter-spacing:0.03em; color:#FF2026;">1 точка</div>
+          </div>
+          <span data-m="city-go" style="flex-shrink:0; display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:50%; border:1px solid rgba(232,229,222,0.32); background:rgba(0,0,0,0.4); transition:background-color .25s ease;">
+            <svg width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </div>
+      </div>
+      <div style="padding:clamp(18px,2vw,24px) clamp(20px,2.4vw,30px) clamp(20px,2.2vw,26px); display:flex; flex-direction:column; gap:12px;">
+        <div style="display:flex; flex-direction:column; gap:7px;">
+          <div style="font-size:14.5px; line-height:1.45; color:rgba(232,229,222,0.86);"><b style="color:#FFFFFF; font-weight:700;">ТРЦ «Июнь»</b> — Индустриальный проспект, 24</div>
+        </div>
+        <div style="font-size:15.5px; font-weight:700; color:#FFFFFF;">+7 (812) 760-80-95</div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<footer style="padding:clamp(34px,4vw,52px) clamp(20px,3vw,44px); background:#191919; border-top:1px solid rgba(232,229,222,0.12);">
+  <div data-m="foot-row" style="max-width:1480px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap;">
+    <div style="font-size:13.5px; line-height:1.6; color:rgba(232,229,222,0.62);">© 2016–2026 ООО «Кегли кухня рок-н-ролл»</div>
+  </div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;subline&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Выберите город — покажем дорожки, кухню и афишу именно вашего клуба.&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Шапка&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      subline: this.props.subline ?? 'Выберите город — покажем дорожки, кухню и афишу именно вашего клуба.'
+    };
+  }
+}
+</script>
 </body>
 </html>
