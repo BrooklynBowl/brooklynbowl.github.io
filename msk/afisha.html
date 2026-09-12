@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -149,7 +149,7 @@
 footer > div:first-child{ align-items:flex-start; }
 footer div[data-m="footer-cols"]{
   display:grid !important;
-  grid-template-columns:repeat(auto-fit, minmax(158px, 1fr)) !important;
+  grid-template-columns:repeat(5, minmax(0,1fr)) !important;
   gap:30px 26px !important; align-content:start; min-width:0 !important;
 }
 footer div[data-m="footer-cols"] > div{ min-width:0; }
@@ -158,9 +158,6 @@ footer div[data-m="footer-cols"] > div > div:first-child{
 }
 footer div[data-m="footer-cols"] > div > div:last-child{ gap:10px !important; }
 footer div[data-m="footer-cols"] a{ display:block; overflow-wrap:anywhere; hyphens:auto; line-height:1.35 !important; }
-@media (max-width:1100px){
-  footer div[data-m="footer-cols"]{ grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)) !important; }
-}
 @media (max-width:768px){
   footer div[data-m="footer-cols"]{ grid-template-columns:1fr 1fr !important; gap:24px 18px !important; }
 }
@@ -587,18 +584,18 @@ class Component extends DCLogic {
       'Москва': { center:[55.7558,37.6173], zoom:11, site:null, points:[
         { name:'Северное Сияние', addr:'бул. Дмитрия Донского, 1', hours:'Ежедневно, 10:00 – 0:00', lat:55.5636, lng:37.5883 },
         { name:'Красный Кит', addr:'Шараповский пр-д, 2, Мытищи', hours:'Ежедневно, 10:00 – 0:00', lat:55.9116, lng:37.7308 } ] },
-      'Москва': { center:[55.86,37.66], zoom:10, site:'../msk/index.dc.html', points:[
+      'Москва': { center:[55.86,37.66], zoom:10, site:'index.html', points:[
         { name:'Мытищи', addr:'Адрес уточняется', hours:'Ежедневно, 10:00 – 0:00', lat:55.9116, lng:37.7308 },
         { name:'Москва', addr:'Адрес уточняется', hours:'Ежедневно, 10:00 – 0:00', lat:55.7558, lng:37.6173 } ] },
-      'Санкт-Петербург': { center:[59.93,30.33], zoom:11, site:'../spb/index.dc.html', points:[
+      'Санкт-Петербург': { center:[59.93,30.33], zoom:11, site:'../spb/index.html', points:[
         { name:'Санкт-Петербург', addr:'Адрес уточняется', hours:'Ежедневно, 10:00 – 0:00', lat:59.9343, lng:30.3351 } ] },
-      'Самара': { center:[53.20,50.15], zoom:11, site:'../samara/index.dc.html', points:[
+      'Самара': { center:[53.20,50.15], zoom:11, site:'../samara/index.html', points:[
         { name:'Самара', addr:'Адрес уточняется', hours:'Ежедневно, 10:00 – 0:00', lat:53.1959, lng:50.1606 } ] },
-      'Ижевск': { center:[56.85,53.20], zoom:11, site:'../izhevsk/index.dc.html', points:[
+      'Ижевск': { center:[56.85,53.20], zoom:11, site:'../izhevsk/index.html', points:[
         { name:'Ижевск', addr:'Адрес уточняется', hours:'Ежедневно, 10:00 – 0:00', lat:56.8519, lng:53.2045 } ] },
-      'Сургут': { center:[61.25,73.40], zoom:11, site:'../surgut/index.dc.html', points:[
+      'Сургут': { center:[61.25,73.40], zoom:11, site:'../surgut/index.html', points:[
         { name:'Сургут', addr:'Адрес уточняется', hours:'Ежедневно, 10:00 – 0:00', lat:61.2540, lng:73.3962 } ] },
-      'Нижневартовск': { center:[60.94,76.55], zoom:11, site:'../nv/index.dc.html', points:[
+      'Нижневартовск': { center:[60.94,76.55], zoom:11, site:'../nv/index.html', points:[
         { name:'Нижневартовск', addr:'Адрес уточняется', hours:'Ежедневно, 10:00 – 0:00', lat:60.9397, lng:76.5531 } ] }
     };
   }
@@ -639,8 +636,8 @@ class Component extends DCLogic {
     };
     const djDesc = 'Отдыхаем под музыку. Бронируй столик, танцуй, выбивай страйки и с друзьями круто время проводи. Вход свободный :)';
     const EVENTS_ALL = [
-      {cat:'СТЕНДАП',title:'Валерия Яковлева',dt:'2026-10-01 20:00',date:'01.10 · 20:00',venue:'ТРЦ «Северное сияние»',price:'По билетам',img:'../uploads/poster-msk-valeriya-yakovleva.png',ticket:'https://gostandup.ru/moscow/events/valeriya_yakovleva_stendap_koncert/id112744',desc:"Звезда женской стендап-комедии в жанре 30+, актриса, блогер с многомиллионными просмотрами её рилсов, участница шоу «Женский стендап» едет с концертом, чтобы подарить тебе порцию отборной семейной комедии и устроить настоящий праздник! Если ты давно искал юмор, от которого становится легко на душе, то тебе точно стоит прийти на этот концерт!",link:'yakovleva.dc.html'},
-      {cat:'ПОТАНЦЕВАТЬ',title:'Новогодняя вечеринка',dt:'2026-12-18 19:00',date:'18.12 · 19:00',venue:'ТРЦ «Северное сияние»',price:'По билетам',img:'../uploads/event-msk-novogodnyaya-vecherinka.png',desc:"Меню на праздник готово. Выбирай день, собирай команду и начинаем отмечать :) Это формат праздника, где всё уже продумано: программа, стол, музыка, развлечения. Вам не нужно искать ведущего, договариваться с диджеем и считать салаты на человека — только выбрать дату и пакет. Всю организацию мы берём на себя :)",link:'ny.dc.html'},
+      {cat:'СТЕНДАП',title:'Валерия Яковлева',dt:'2026-10-01 20:00',date:'01.10 · 20:00',venue:'ТРЦ «Северное сияние»',price:'По билетам',img:'../uploads/poster-msk-valeriya-yakovleva.png',ticket:'https://gostandup.ru/moscow/events/valeriya_yakovleva_stendap_koncert/id112744',desc:"Звезда женской стендап-комедии в жанре 30+, актриса, блогер с многомиллионными просмотрами её рилсов, участница шоу «Женский стендап» едет с концертом, чтобы подарить тебе порцию отборной семейной комедии и устроить настоящий праздник! Если ты давно искал юмор, от которого становится легко на душе, то тебе точно стоит прийти на этот концерт!",link:'yakovleva.html'},
+      {cat:'ПОТАНЦЕВАТЬ',title:'Новогодняя вечеринка',dt:'2026-12-18 19:00',date:'18.12 · 19:00',venue:'ТРЦ «Северное сияние»',price:'По билетам',img:'../uploads/event-msk-novogodnyaya-vecherinka.png',desc:"Меню на праздник готово. Выбирай день, собирай команду и начинаем отмечать :) Это формат праздника, где всё уже продумано: программа, стол, музыка, развлечения. Вам не нужно искать ведущего, договариваться с диджеем и считать салаты на человека — только выбрать дату и пакет. Всю организацию мы берём на себя :)",link:'ny.html'},
       {cat:'БОУЛИНГ',title:'Студенческий билет — и боулинг за 990 рублей',dt:'2026-12-31 00:00',allDay:true,weekly:[1,3],date:'31.12',venue:'ТРЦ «Северное сияние» · ТРК «Красный Кит»',price:'990 ₽',img:'../uploads/event-msk-studencheskiy-bilet-i-bouling-za-990-rub.png',desc:"Каждый понедельник и среду #вБруклине. Приходи с группой, с другом или просто так — просто покажи студенческий на входе. 990 рублей в час на дорожку до 6 человек. Делите на всех — получается совсем приятно :)",link:''},
       {cat:'БОУЛИНГ',title:'Бесплатный боулинг',dt:'2026-09-08 18:00',date:'08.09 · 18:00',venue:'ТРЦ «Северное сияние» · ТРК «Красный Кит»',price:'Бесплатно',img:'../uploads/event-izhevsk-besplatnyy-bouling-2.jpg',desc:"Катай шары с друзьями бесплатно 2 часа с депозитом дорожки 2 990.- на кухню и бар. В ТРЦ «Северное сияние» с 10:00 до 18:00, в ТРК «Красный Кит» с 12:00 до 18:00. Ну, круто же? :)",link:''},
       {cat:'БОУЛИНГ',title:'Бесплатный боулинг',dt:'2026-09-15 18:00',date:'15.09 · 18:00',venue:'ТРЦ «Северное сияние» · ТРК «Красный Кит»',price:'Бесплатно',img:'../uploads/event-izhevsk-besplatnyy-bouling.jpg',desc:"Катай шары с друзьями бесплатно 2 часа с депозитом дорожки 2 990.- на кухню и бар. В ТРЦ «Северное сияние» с 10:00 до 18:00, в ТРК «Красный Кит» с 12:00 до 18:00. Ну, круто же? :)",link:''},
@@ -660,12 +657,12 @@ class Component extends DCLogic {
       { title:'Живая музыка', tag:'LIVE', img:'../uploads/mrkypACsj8M.jpg', desc:'Кавер-группы, стендап-вечера, квизы и диджей-сеты — каждую неделю. Иногда живая музыка идёт прямо в стоимость дорожки. Полное расписание — в афише.', cta:'Афиша', act:'events' }
     ];
     const OCT = [
-      { name:'Москва', sub:'Перейти на сайт Brooklyn Bowl в Москве и Мытищах', url:'../msk/index.dc.html' },
-      { name:'Санкт-Петербург', sub:'Перейти на сайт Brooklyn Bowl в Санкт-Петербурге', url:'../spb/index.dc.html' },
-      { name:'Самара', sub:'Перейти на сайт Brooklyn Bowl в Самаре', url:'../samara/index.dc.html' },
-      { name:'Ижевск', sub:'Перейти на сайт Brooklyn Bowl в Ижевске', url:'../izhevsk/index.dc.html' },
-      { name:'Сургут', sub:'Перейти на сайт Brooklyn Bowl в Сургуте', url:'../surgut/index.dc.html' },
-      { name:'Нижневартовск', sub:'Перейти на сайт Brooklyn Bowl в Нижневартовске', url:'../nv/index.dc.html' }
+      { name:'Москва', sub:'Перейти на сайт Brooklyn Bowl в Москве и Мытищах', url:'index.html' },
+      { name:'Санкт-Петербург', sub:'Перейти на сайт Brooklyn Bowl в Санкт-Петербурге', url:'../spb/index.html' },
+      { name:'Самара', sub:'Перейти на сайт Brooklyn Bowl в Самаре', url:'../samara/index.html' },
+      { name:'Ижевск', sub:'Перейти на сайт Brooklyn Bowl в Ижевске', url:'../izhevsk/index.html' },
+      { name:'Сургут', sub:'Перейти на сайт Brooklyn Bowl в Сургуте', url:'../surgut/index.html' },
+      { name:'Нижневартовск', sub:'Перейти на сайт Brooklyn Bowl в Нижневартовске', url:'../nv/index.html' }
     ];
     const base = 'padding:12px 22px; border-radius:300px; cursor:pointer; font-size:15px; font-weight:600; font-family:inherit; transition:background-color .2s ease, color .2s ease, border-color .2s ease; white-space:nowrap;';
     const cats = Object.keys(MENU).map((c) => ({
@@ -785,7 +782,7 @@ tourFrameEl: TOURURL ? React.createElement('iframe', { src: TOURURL, title: '3D-
       closeHoliday: () => this.setState({ holiday: false }),
       points: PTS.map((p, i) => ({ ...p, imgEl: React.createElement('img', { src: p.img, alt: p.title, style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }), open: () => this.setState({ point: i }) })),
       pointOpen: this.state.point != null,
-      pd: (() => { const x = (this.state.point != null) ? PTS[this.state.point] : { title:'', tag:'', img:'../uploads/bb-bowling-lane.jpg', desc:'', cta:'', act:'' }; const fn = x.act === 'menu' ? () => { window.location.href = 'kitchen.dc.html'; } : x.act === 'events' ? () => { const el=document.querySelector('[data-comment-anchor=events]'); this.setState({ point: null }); if (el) setTimeout(()=>el.scrollIntoView({behavior:'smooth'}),60); } : () => window.open('https://b1449291.yclients.com/', '_blank'); return { ...x, imgEl: React.createElement('img', { src: x.img, alt: x.title, style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }), ctaFn: fn }; })(),
+      pd: (() => { const x = (this.state.point != null) ? PTS[this.state.point] : { title:'', tag:'', img:'../uploads/bb-bowling-lane.jpg', desc:'', cta:'', act:'' }; const fn = x.act === 'menu' ? () => { window.location.href = 'kitchen.html'; } : x.act === 'events' ? () => { const el=document.querySelector('[data-comment-anchor=events]'); this.setState({ point: null }); if (el) setTimeout(()=>el.scrollIntoView({behavior:'smooth'}),60); } : () => window.open('https://b1449291.yclients.com/', '_blank'); return { ...x, imgEl: React.createElement('img', { src: x.img, alt: x.title, style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }), ctaFn: fn }; })(),
       closePoint: () => this.setState({ point: null }),
       openP0: () => this.setState({ point: 0 }),
       openP1: () => this.setState({ point: 1 }),

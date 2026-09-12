@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,7 +48,7 @@ summary::-webkit-details-marker{display:none;}
 footer > div:first-child{ align-items:flex-start; }
 footer div[data-m="footer-cols"]{
   display:grid !important;
-  grid-template-columns:repeat(auto-fit, minmax(158px, 1fr)) !important;
+  grid-template-columns:repeat(5, minmax(0,1fr)) !important;
   gap:30px 26px !important; align-content:start; min-width:0 !important;
 }
 footer div[data-m="footer-cols"] > div{ min-width:0; }
@@ -57,9 +57,6 @@ footer div[data-m="footer-cols"] > div > div:first-child{
 }
 footer div[data-m="footer-cols"] > div > div:last-child{ gap:10px !important; }
 footer div[data-m="footer-cols"] a{ display:block; overflow-wrap:anywhere; hyphens:auto; line-height:1.35 !important; }
-@media (max-width:1100px){
-  footer div[data-m="footer-cols"]{ grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)) !important; }
-}
 @media (max-width:768px){
   footer div[data-m="footer-cols"]{ grid-template-columns:1fr 1fr !important; gap:24px 18px !important; }
 }
