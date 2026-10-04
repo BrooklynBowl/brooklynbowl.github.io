@@ -1,17 +1,17 @@
 /* BB-OVERLAY-GUARD
    Пока открыт любой оверлей (мобильное меню, поп-ап события, видео-лайтбокс,
-   модалка схемы зала, окно чата, панель брони Waitly) — плавающие красные
+   модалка схемы зала, окно чата, панель брони broni) — плавающие красные
    виджеты не должны висеть поверх и перекрывать текст.
 
    Ставит на <html> атрибут data-bb-ovl:
      "menu"  — открыто мобильное меню            → скрыты чат (кнопка+окно) и бронь
      "modal" — открыт поп-ап/модалка/лайтбокс    → скрыты чат (кнопка+окно) и бронь
      "chat"  — открыто окно чата                 → скрыта бронь
-     "book"  — открыта панель брони Waitly       → скрыт чат
+     "book"  — открыта панель брони broni        → скрыт чат
    Правила видимости живут в CSS страницы (блок BB-CHAT). */
 (function () {
   var HTML = document.documentElement;
-  var MINE = '[data-m="fab-chat"],[data-m="chat-panel"],#waitly-widget-root,.waitly-fab';
+  var MINE = '[data-m="fab-chat"],[data-m="chat-panel"],#brn-host';
 
   function vis(el) {
     if (!el || !el.getClientRects().length) return false;
@@ -33,7 +33,7 @@
   }
 
   function bookOpen() {
-    var root = document.getElementById('waitly-widget-root');
+    var root = document.getElementById('brn-host');
     var sr = root && (root.shadowRoot || root.__shadow);
     if (!sr) return false;
     var vh = window.innerHeight;
