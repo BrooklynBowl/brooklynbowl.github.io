@@ -562,7 +562,7 @@ class Component extends DCLogic {
       submitBooking: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ bsent: true }); },
       calc: {
         guests: g, unit: 'человека', guestsLabel: 'Сколько человек', min: 2, max: 50,
-        perPerson: fmt(pp), total: fmt(total), cash: fmt(cash), cashLabel: 'Бонусы на карту клуба', note, reco,
+        perPerson: fmt(pp), total: fmt(total), cash: fmt(cash), cashLabel: 'Бонусы на карту гостя', note, reco,
         days, addons,
         onSlide: (e) => this.setState({ g: parseInt(e.target.value, 10) })
       }
