@@ -331,6 +331,7 @@ mount(); var n=0; var t=setInterval(function(){ mount(); if(++n>40) clearInterva
 <script src="../_chat.js"></script>
 <script src="../_ovl.js"></script>
 <script src="../_events.js"></script>
+<script src="_events-data.js"></script>
 <script src="../_imgfix.js"></script>
 <style>
 [data-m="chat-body"]::-webkit-scrollbar{ width:6px; }
@@ -795,37 +796,25 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
       <sc-for list="{{ events }}" as="e" hint-placeholder-count="4">
         <article onClick="{{ e.open }}" style="cursor:pointer; border-radius:22px; overflow:hidden; border:1px solid rgba(255,255,255,0.06); display:flex; flex-direction:column; transition:border-color .2s ease, transform .2s ease; background-color:#191919;" style-hover="border-color:rgba(255,32,38,0.45) !important; transform:translateY(-4px) !important;">
           <div style="position:relative; aspect-ratio:3/2; background:#191919;">{{ e.imgEl }}<span aria-hidden="true" style="position:absolute; left:0; right:0; bottom:0; height:38%; background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.78) 100%); pointer-events:none;"></span><span style="position:absolute; bottom:14px; left:14px; padding:8px 14px; border-radius:300px; background:#000000; border:1px solid rgba(255,255,255,0.14); font-size:12.5px; font-weight:700; color:#fff;">{{ e.date }}</span></div>
-          <div style="padding:22px 24px 26px;"><h3 style="margin:0; font-size:20px; font-weight:700; color:#fff;">{{ e.title }}</h3><p style="margin:9px 0 0; font-size:14px; color:rgba(232,229,222,0.66);">{{ e.venue }}</p></div>
+          <div style="padding:22px 24px 26px;"><h3 style="margin:0; font-size:20px; font-weight:700; color:#fff;">{{ e.title }}</h3><p style="margin:9px 0 0; font-size:14px; color:rgba(232,229,222,0.66);">{{ e.venue }} · {{ e.price }}</p></div>
         </article>
       </sc-for>
     </div>
+    <sc-if value="{{ evMore }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex; justify-content:center; margin-top:28px;">
+        <button onClick="{{ showMoreEv }}" style="padding:14px 32px; border-radius:300px; cursor:pointer; font-size:14px; font-weight:800; font-family:inherit; letter-spacing:0.05em; text-transform:uppercase; border:1px solid rgba(255,255,255,0.2); background:transparent; color:#fff;" style-hover="border-color:#FF2026 !important; color:#FF2026 !important;">Показать ещё</button>
+      </div>
+    </sc-if>
 
 
 
 
 
     <sc-if value="{{ evOpen }}" hint-placeholder-val="{{ false }}">
-      <div onClick="{{ closeE }}" style="position:fixed; inset:0; z-index:1200; background:rgba(0,0,0,0.88); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); display:flex; align-items:center; justify-content:center; padding:24px;">
-        <div onClick="{{ stopProp }}" style="position:relative; width:min(1080px,100%); max-height:92vh; overflow:auto; background:#191919; border:1px solid rgba(255,255,255,0.1); border-radius:26px; padding:26px 30px 34px;">
-          <div style="display:flex; align-items:center; gap:14px; margin-bottom:22px;">
-            <button onClick="{{ closeE }}" aria-label="Назад" style="flex-shrink:0; width:40px; height:40px; border-radius:50%; border:1px solid rgba(255,255,255,0.14); background:#191919; cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0;" style-hover="border-color:#FF2026 !important;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M14.5 5 8 12l6.5 7" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
-            <span style="flex:1; text-align:center; font-size:13px; font-weight:600; color:#FF2026;">Мероприятия</span>
-            <button onClick="{{ closeE }}" aria-label="Закрыть" style="flex-shrink:0; width:40px; height:40px; border-radius:50%; border:none; background:#191919; cursor:pointer; color:#fff; font-size:18px;">✕</button>
-          </div>
-          <div data-m="ev-modal" style="display:grid; grid-template-columns:0.82fr 1.18fr; gap:32px; align-items:start;">
-            <div style="position:relative; border-radius:18px; overflow:hidden; background:#191919;">{{ ev.imgEl }}</div>
-            <div>
-              <h3 style="margin:0; font-size:clamp(26px,2.8vw,34px); font-weight:800; line-height:1.12; letter-spacing:-0.01em; color:#fff;">{{ ev.title }}</h3>
-              <p style="margin:18px 0 0; font-size:17px; font-weight:700; line-height:1.45; color:#fff;">{{ ev.lead }}</p>
-              <div style="margin:14px 0 0; display:flex; flex-direction:column; gap:12px;">
-                <sc-for list="{{ ev.body }}" as="b" hint-placeholder-count="2"><p style="margin:0; font-size:15.5px; line-height:1.6; color:rgba(232,229,222,0.86);">{{ b.text }}</p></sc-for>
-              </div>
-              <p style="margin:18px 0 0; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.66);">{{ ev.terms }}</p>
-              <p style="margin:12px 0 0; font-size:15px; line-height:1.6; color:#E8E5DE;">{{ ev.phone }}</p>
-              <button data-m="cta" onClick="{{ buyTickets }}" style="margin-top:26px; background:#FF2026; border:none; cursor:pointer; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; font-family:inherit; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Купить билет</button>
-              <div style="margin-top:18px; font-size:12.5px; font-weight:600; color:#FF2026;">{{ ev.meta }}</div>
-            </div>
-          </div>
+      <div data-mob="sheet" onClick="{{ closeE }}" style="position:fixed; inset:0; z-index:1200; background:rgba(0,0,0,0.8); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center; padding:24px;">
+        <div onClick="{{ stopProp }}" style="position:relative; width:min(560px,100%); max-height:90vh; overflow:auto; background:#191919; border:1px solid rgba(255,255,255,0.1); border-radius:26px;">
+          <div style="position:relative; height:280px;">{{ ev.imgEl }}<div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(25,25,25,0) 50%, rgba(25,25,25,0.95) 100%); border-radius:26px 26px 0 0;"></div><button onClick="{{ closeE }}" style="position:absolute; top:16px; right:16px; width:40px; height:40px; border-radius:50%; border:none; cursor:pointer; background:rgba(0,0,0,0.6); color:#fff; font-size:18px;">✕</button><span style="position:absolute; left:24px; bottom:18px; display:inline-flex; padding:8px 15px; border-radius:300px; background:#FF2026; font-size:13px; font-weight:700; color:#fff;">{{ ev.date }}</span></div>
+          <div style="padding:26px 32px 32px;"><h3 style="margin:0; font-size:27px; font-weight:800; letter-spacing:-0.01em; color:#fff;">{{ ev.title }}</h3><div style="margin:12px 0 18px; font-size:15px; font-weight:600; color:#FF2026;">{{ ev.venue }} · {{ ev.price }}</div><sc-if value="{{ ev.hasDesc }}" hint-placeholder-val="{{ true }}"><p style="margin:0; font-size:16px; line-height:1.6; color:#fff;">{{ ev.desc }}</p></sc-if><sc-if value="{{ ev.hasTicket }}" hint-placeholder-val="{{ false }}"><a data-m="cta" href="{{ ev.ticket }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; justify-content:center; margin-top:26px; margin-right:12px; height:52px; padding:0 32px; border-radius:300px; background:#FF2026; color:#fff; text-decoration:none; font-size:14px; font-weight:800; letter-spacing:0.05em; text-transform:uppercase;">Купить билет</a></sc-if><button data-m="cta" onClick="{{ book }}" style="margin-top:26px; background:#FF2026; border:none; cursor:pointer; padding:15px 32px; border-radius:300px; color:#fff; font-size:16px; font-weight:600; font-family:inherit;" style-hover="background:#fff !important; color:#FF2026 !important;">Бронь стола в зоне боулинга</button></div>
         </div>
       </div>
     </sc-if>
@@ -1048,6 +1037,34 @@ class Component extends DCLogic {
       const g = this._geoData()[this.state.geoCity];
       this._drawPins();
     }
+  }
+  _initMap() { return; }
+  _drawPins() { return; }
+  renderVals() {
+    const EVENTS_ALL = window.EVENTS_ALL || [];
+    const EVENTS = (function(){ try { return (window.bbEvents ? window.bbEvents(EVENTS_ALL) : EVENTS_ALL); } catch (e) { console.warn('bbEvents:', e); return EVENTS_ALL; } })();
+    const AORDER = ['СТЕНДАП','ПОТАНЦЕВАТЬ','БОУЛИНГ','КВИЗ','ФУТБОЛ','ДЕТЯМ'];
+    const _p = AORDER.filter((c) => EVENTS.some((e) => e.cat === c));
+    const _x = EVENTS.map((e) => e.cat).filter((c, i, a) => a.indexOf(c) === i && AORDER.indexOf(c) < 0);
+    const ACATS = _p.concat(_x);
+    const acat = (ACATS.indexOf(this.state.acat) >= 0 ? this.state.acat : ACATS[0]) || '';
+    const abase = 'padding:14px 24px; border-radius:300px; cursor:pointer; font-size:15px; font-weight:700; font-family:inherit; border:none; white-space:nowrap;';
+    const evShowAll = !!this.state.evShowAll;
+    const _catEvAll = EVENTS.filter((x) => x.cat === acat);
+    const EV_PAGE = 8;
+    const _evSel = (this.state.ev != null) ? EVENTS[this.state.ev] : null;
+    return {
+      hasEvents: ACATS.length > 0,
+      acats: ACATS.map((c) => ({ name: c, style: abase + (c === acat ? ' background:#FF2026; color:#fff;' : ' background:#191919; color:rgba(232,229,222,0.8);'), pick: () => this.setState({ acat: c, evShowAll: false }) })),
+      events: _catEvAll.slice(0, evShowAll ? _catEvAll.length : EV_PAGE).map((x, i) => ({ ...x, hasTicket: !!x.ticket, ticket: x.ticket || '', open: () => { if (x.link) { window.location.href = x.link; } else { this.setState({ ev: EVENTS.indexOf(x) }); } }, imgEl: React.createElement('img', { src: x.img, alt: '', style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }) })),
+      evMore: _catEvAll.length > EV_PAGE && !evShowAll,
+      showMoreEv: () => this.setState({ evShowAll: true }),
+      evOpen: _evSel != null,
+      ev: ((x) => ({ ...x, hasDesc: !!(x && x.desc), hasTicket: !!(x && x.ticket), ticket: (x && x.ticket) || '', imgEl: React.createElement('img', { src: (x && x.img) || '../uploads/bb-standup.jpg', alt: '', style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }) }))(_evSel || { title: '', date: '', venue: '', price: '', img: '../uploads/bb-standup.jpg', desc: '' }),
+      closeE: () => this.setState({ ev: null }),
+      stopProp: (ev) => ev.stopPropagation(),
+      book: () => window.open('https://brooklyn.broni.g-profile.ru/book?venue=4&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=nizhnevartovsk&utm_trc=all', '_blank'),
+    };
   }
   _geoData() {
     return {

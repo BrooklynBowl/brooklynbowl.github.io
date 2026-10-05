@@ -229,6 +229,7 @@ mount();var n=0;var t=setInterval(function(){mount();if(++n>40){clearInterval(t)
 <script src="../_chat.js"></script>
 <script src="../_ovl.js"></script>
 <script src="../_events.js"></script>
+<script src="_events-data.js"></script>
 <script src="../_imgfix.js"></script>
 <!-- BB-TICKETSCLOUD --><script src="https://ticketscloud.com/static/scripts/widget/tcwidget.js" async></script>
 <style>
@@ -387,15 +388,15 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
 
     <div data-mob-only style="display:none; gap:10px; overflow-x:auto; scroll-snap-type:x mandatory; margin:0 -16px 22px; padding:0 16px 4px; scrollbar-width:none;">
       <div style="flex:0 0 44%; scroll-snap-align:start; display:flex; flex-direction:column; gap:6px; border-radius:22px; background:#191919; padding:20px 18px;">
-        <span style="font-size:32px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;">17</span>
+        <span style="font-size:32px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;">9</span>
         <span style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:rgba(232,229,222,0.6);">событий в афише</span>
       </div>
       <div style="flex:0 0 44%; scroll-snap-align:start; display:flex; flex-direction:column; gap:6px; border-radius:22px; background:#191919; padding:20px 18px;">
-        <span style="font-size:32px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;">4</span>
+        <span style="font-size:32px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;">3</span>
         <span style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:rgba(232,229,222,0.6);">категории</span>
       </div>
       <div style="flex:0 0 44%; scroll-snap-align:start; display:flex; flex-direction:column; gap:6px; border-radius:22px; background:#191919; padding:20px 18px;">
-        <span style="font-size:32px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;">3</span>
+        <span style="font-size:32px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;">2</span>
         <span style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:rgba(232,229,222,0.6);">заведения в городе</span>
       </div>
       <div style="flex:0 0 44%; scroll-snap-align:start; display:flex; flex-direction:column; gap:6px; border-radius:22px; background:#191919; padding:20px 18px;">
@@ -640,17 +641,7 @@ class Component extends DCLogic {
       "Детское": [{n:"Хрустики",w:"150 г",p:"279 ₽",img:"../uploads/%D0%A5%D1%80%D1%83%D1%81%D1%82%D0%B8%D0%BA%D0%B8.jpg",hot:false,desc:"Морковные и огуречные палочки со сметанкой.",nut:{kcal:"58",b:"1",f:"3",c:"4"}},{n:"Куриный суп с макарошками",w:"250 г",p:"279 ₽",img:"../uploads/%D0%9A%D1%83%D1%80%D0%B8%D0%BD%D1%8B%D0%B8%CC%86%20%D1%81%D1%83%D0%BF%20%D1%81%20%D0%BC%D0%B0%D0%BA%D0%B0%D1%80%D0%BE%D1%88%D0%BA%D0%B0%D0%BC%D0%B8.jpg",hot:false,desc:"Куриный бульон, куриное филе, морковь, лук, макарошки.",nut:{kcal:"205",b:"13,9",f:"7,8",c:"19,7"}},{n:"Мне только картошку и наггетсы",w:"250 г",p:"449 ₽",img:"../uploads/%D0%9C%D0%BD%D0%B5%20%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%BA%D0%B0%D1%80%D1%82%D0%BE%D1%88%D0%BA%D1%83%20%D0%B8%20%D0%BD%D0%B0%D0%B3%D0%B3%D0%B5%D1%82%D1%81%D1%8B.jpg",hot:false,desc:"Картофель фри и наггетсы встретились в одной тарелке.",nut:{kcal:"149",b:"7",f:"8",c:"11"}},{n:"Хот-дог",w:"160/100/30 г",p:"559 ₽",img:"../uploads/%D0%A5%D0%BE%D1%82-%D0%B4%D0%BE%D0%B3.jpg",hot:false,desc:"С картошкой фри и кетчупом для самых голодных.",nut:null},{n:"Мини-чикен",w:"160/100/30 г",p:"559 ₽",img:"../uploads/%D0%9C%D0%B8%D0%BD%D0%B8-%D1%87%D0%B8%D0%BA%D0%B5%D0%BD.jpg",hot:false,desc:"В сто раз вкуснее взрослого. С картошкой фри и кетчупом.",nut:{kcal:"152",b:"5",f:"8",c:"14"}},{n:"Крейзи мороженое",w:"250 г",p:"549 ₽",img:"../uploads/%D0%9A%D1%80%D0%B5%D0%B8%CC%86%D0%B7%D0%B8%20%D0%BC%D0%BE%D1%80%D0%BE%D0%B6%D0%B5%D0%BD%D0%BD%D0%BE%D0%B5.jpg",hot:false,desc:"Мороженое в ассортименте, шоколадный топпинг, посыпка, вафли, мини печенье орео, маршмеллоу, мята.",nut:{kcal:"613",b:"9,3",f:"26,7",c:"83,6"}}],
     };
     const djDesc = 'Отдыхаем под музыку. Бронируй столик, танцуй, выбивай страйки — и классно проводи время с друзьями. Вход свободный :)';
-    const EVENTS_ALL = [
-      {cat:'ПОТАНЦЕВАТЬ',title:'Отдыхаем под хиты от диджея',dt:'2026-10-09 21:00',date:'09.10 · 21:00',venue:'ТК «Гудок»',price:'Вход свободный',img:'../uploads/event-samara-otdyhaem-pod-hity-ot-didzheya.jpg',link:'',desc:"Отдыхаем под музыку. Бронируй столик, танцуй — и классно проводи время с друзьями. Вход свободный :)"},
-      {cat:'ПОТАНЦЕВАТЬ',title:'Отдыхаем под хиты от диджея',dt:'2026-10-10 20:00',date:'10.10 · 20:00',venue:'ЛЕТАУТ Аутлет Молл',price:'Вход свободный',img:'../uploads/event-samara-otdyhaem-pod-hity-ot-didzheya-2.jpg',link:'',desc:"Отдыхаем под музыку. Бронируй столик, танцуй — и классно проводи время с друзьями. Вход свободный :)"},
-      {cat:'ПОТАНЦЕВАТЬ',title:'Отдыхаем под хиты от диджея',dt:'2026-10-16 21:00',date:'16.10 · 21:00',venue:'ТК «Гудок»',price:'Вход свободный',img:'../uploads/event-samara-otdyhaem-pod-hity-ot-didzheya.jpg',link:'',desc:"Отдыхаем под музыку. Бронируй столик, танцуй — и классно проводи время с друзьями. Вход свободный :)"},
-      {cat:'ПОТАНЦЕВАТЬ',title:'Отдыхаем под хиты от диджея',dt:'2026-10-17 20:00',date:'17.10 · 20:00',venue:'ЛЕТАУТ Аутлет Молл',price:'Вход свободный',img:'../uploads/event-samara-otdyhaem-pod-hity-ot-didzheya-2.jpg',link:'',desc:"Отдыхаем под музыку. Бронируй столик, танцуй — и классно проводи время с друзьями. Вход свободный :)"},
-      {cat:'ПОТАНЦЕВАТЬ',title:'Отдыхаем под хиты от диджея',dt:'2026-10-23 20:00',date:'23.10 · 20:00',venue:'ЛЕТАУТ Аутлет Молл',price:'Вход свободный',img:'../uploads/event-samara-otdyhaem-pod-hity-ot-didzheya.jpg',link:'',desc:"Отдыхаем под музыку. Бронируй столик, танцуй — и классно проводи время с друзьями. Вход свободный :)"},
-            {cat:'БОУЛИНГ',title:'Бесплатный боулинг — каждый вторник до 18:00',dt:'2026-10-06 18:00',weekly:2,date:'06.10 · 18:00',venue:'Гудок · ЛЕТАУТ',price:'Бесплатно',img:'../uploads/event-samara-besplatnyy-bouling.jpg',link:'',desc:"Катай шары с друзьями бесплатно 2 часа с депозитом дорожки 2 190.- на кухню и бар. С 10:00 до 18:00. Ну, круто же? :)"},
-      {cat:'СТЕНДАП',title:'Заур Туганов',dt:'2026-10-08 20:00',date:'08.10 · 20:00',venue:'ТК «Гудок»',price:'По билетам',img:'../uploads/poster-samara-zaur-tuganov.png',ticket:'#ticketscloud:event=6a3974c737755bcbc2e26793&token=eyJhbGciOiJIUzI1NiIsImlzcyI6InRpY2tldHNjbG91ZC5ydSIsInR5cCI6IkpXVCJ9.eyJwIjoiNjhiNzIxYzc0ODI2NGNkMmUyZDQxYTg0In0.nr97Rk8NvVfGVPthTeMBFps54C8ZGGWRXQgFEgsxJ_g',desc:"Комик, который действительно «стрельнул», а возможно и «нашумел», в интернете своими риллсами и появлением в огромной куче интернет-проектов. Где ты мог его видеть? — Резидент проекта Stand Up на ТНТ; участник второго сезона и победитель первого сезона шоу «Звёзды» на НТВ (в составе команды «Регионы» с Денисом Дороховым); финалист Money mic на VK видео; он точно был в твоих риллсах и проектах, которые ты смотришь в VK видео.",link:'tuganov.html'},
-      {cat:'СТЕНДАП',title:'Камиль Зулфугаров',dt:'2026-11-11 20:00',date:'11.11 · 20:00',venue:'ТК «Гудок»',price:'По билетам',img:'../uploads/poster-samara-kamil-zulfugarov.png',ticket:'https://widget.afisha.yandex.ru/w/sessions/OTQ1MDZ8ODM3OTk3fDExMzY0NTI1fDE3OTQ0MTI4MDAwMDA=?clientKey=97f017e2-6485-4c9e-a646-b78099db6e51',desc:"Проект StandUp на ТНТ стал для Камиля возможностью выразить себя и поделиться своим мировоззрением. Его привлек StandUp на ТНТ, потому что он позволяет ему обсуждать темы, близкие его сердцу и созвучные его внутреннему миру. Перед записью телевизионных концертов Камиль проверяет свой материал в Stand Up Bar Rostov, поскольку считает, что аудитория — лучший редактор. Их отзывы помогают ему определить, какие шутки произведут наибольший эффект и достойны того, чтобы привезти их в Москву.",link:'zulfugarov.html'},
-      {cat:'ПОТАНЦЕВАТЬ',title:'Новогодняя вечеринка',dt:'2026-12-18 19:00',date:'18.12 · 19:00',venue:'Аутлет МОЛЛ ЛЕТАУТ',price:'По билетам',img:'../uploads/event-samara-novogodnyaya-vecherinka.png',desc:"Меню на праздник готово. Выбирай день, собирай команду и начинаем отмечать :) Программа, стол, музыка и развлечения — уже на месте. Тебе не нужно искать ведущего, договариваться с диджеем и считать салаты на человека — только выбрать дату и пакет. Всю организацию мы берём на себя.",link:'ny.html'},
-    ];
+    const EVENTS_ALL = window.EVENTS_ALL || [];
     const EVENTS = (function(){ try { return (window.bbEvents ? window.bbEvents(EVENTS_ALL) : EVENTS_ALL); } catch (e) { console.warn('bbEvents:', e); return EVENTS_ALL; } })();
     const VENUES = [
       { name:'Гудок', tag:'Центр города', addr:'Красноармейская, 131', mall:'ТРЦ «Самара Гудок», 3 этаж', phone:'+7 (846) 255-10-14', tel:'tel:+78462551014', img:'../uploads/bb-bowling-lane.jpg', route:'https://yandex.ru/maps/?rtext=~53.2035,50.1362&rtt=auto' },

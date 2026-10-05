@@ -230,6 +230,7 @@ mount();var n=0;var t=setInterval(function(){mount();if(++n>40){clearInterval(t)
 <script src="../_chat.js"></script>
 <script src="../_ovl.js"></script>
 <script src="../_events.js"></script>
+<script src="_events-data.js"></script>
 <script src="../_imgfix.js"></script>
 <!-- BB-TICKETSCLOUD --><script src="https://ticketscloud.com/static/scripts/widget/tcwidget.js" async></script>
 <style>
@@ -387,16 +388,16 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
 
     <div data-mob-only style="display:none; gap:10px; overflow-x:auto; scroll-snap-type:x mandatory; margin:0 -16px 22px; padding:0 16px 4px; scrollbar-width:none;">
       <div style="flex:0 0 44%; scroll-snap-align:start; display:flex; flex-direction:column; gap:6px; border-radius:22px; background:#191919; padding:20px 18px;">
-        <span style="font-size:32px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;">17</span>
+        <span style="font-size:32px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;">6</span>
         <span style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:rgba(232,229,222,0.6);">событий в афише</span>
       </div>
       <div style="flex:0 0 44%; scroll-snap-align:start; display:flex; flex-direction:column; gap:6px; border-radius:22px; background:#191919; padding:20px 18px;">
-        <span style="font-size:32px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;">4</span>
+        <span style="font-size:32px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;">3</span>
         <span style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:rgba(232,229,222,0.6);">категории</span>
       </div>
       <div style="flex:0 0 44%; scroll-snap-align:start; display:flex; flex-direction:column; gap:6px; border-radius:22px; background:#191919; padding:20px 18px;">
-        <span style="font-size:32px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;">3</span>
-        <span style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:rgba(232,229,222,0.6);">заведения в городе</span>
+        <span style="font-size:32px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;">1</span>
+        <span style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:rgba(232,229,222,0.6);">заведение в городе</span>
       </div>
       <div style="flex:0 0 44%; scroll-snap-align:start; display:flex; flex-direction:column; gap:6px; border-radius:22px; background:#191919; padding:20px 18px;">
         <span style="font-size:32px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;">0 ₽</span>
@@ -639,14 +640,7 @@ class Component extends DCLogic {
       "Детское": [{n:"Хрустики",w:"150 г",p:"259 ₽",img:"../uploads/%D0%A5%D1%80%D1%83%D1%81%D1%82%D0%B8%D0%BA%D0%B8.jpg",hot:false,desc:"Морковные и огуречные палочки со сметанкой.",nut:{kcal:"58",b:"1",f:"3",c:"4"}},{n:"Куриный суп с макарошками",w:"250 г",p:"259 ₽",img:"../uploads/%D0%9A%D1%83%D1%80%D0%B8%D0%BD%D1%8B%D0%B8%CC%86%20%D1%81%D1%83%D0%BF%20%D1%81%20%D0%BC%D0%B0%D0%BA%D0%B0%D1%80%D0%BE%D1%88%D0%BA%D0%B0%D0%BC%D0%B8.jpg",hot:false,desc:"Куриный бульон, куриное филе, морковь, лук, макарошки.",nut:{kcal:"205",b:"13,9",f:"7,8",c:"19,7"}},{n:"Мне только картошку и наггетсы",w:"250 г",p:"429 ₽",img:"../uploads/%D0%9C%D0%BD%D0%B5%20%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%BA%D0%B0%D1%80%D1%82%D0%BE%D1%88%D0%BA%D1%83%20%D0%B8%20%D0%BD%D0%B0%D0%B3%D0%B3%D0%B5%D1%82%D1%81%D1%8B.jpg",hot:false,desc:"Картофель фри и наггетсы встретились в одной тарелке.",nut:{kcal:"149",b:"7",f:"8",c:"11"}},{n:"Хот-дог",w:"160/100/30 г",p:"529 ₽",img:"../uploads/%D0%A5%D0%BE%D1%82-%D0%B4%D0%BE%D0%B3.jpg",hot:false,desc:"С картошкой фри и кетчупом для самых голодных.",nut:null},{n:"Мини-чикен",w:"160/100/30 г",p:"529 ₽",img:"../uploads/%D0%9C%D0%B8%D0%BD%D0%B8-%D1%87%D0%B8%D0%BA%D0%B5%D0%BD.jpg",hot:false,desc:"В сто раз вкуснее взрослого. С картошкой фри и кетчупом.",nut:{kcal:"152",b:"5",f:"8",c:"14"}},{n:"Крейзи мороженое",w:"250 г",p:"519 ₽",img:"../uploads/%D0%9A%D1%80%D0%B5%D0%B8%CC%86%D0%B7%D0%B8%20%D0%BC%D0%BE%D1%80%D0%BE%D0%B6%D0%B5%D0%BD%D0%BD%D0%BE%D0%B5.jpg",hot:false,desc:"Мороженое в ассортименте, шоколадный топпинг, посыпка, вафли, мини печенье орео, маршмеллоу, мята.",nut:{kcal:"613",b:"9,3",f:"26,7",c:"83,6"}}],
     };
     const djDesc = 'Отдыхаем под музыку. Бронируй столик, танцуй, выбивай страйки и с друзьями круто время проводи. Вход свободный :)';
-    const EVENTS_ALL = [
-                              {cat:'КВИЗЫ',title:'Квиз #ВБруклине',dt:'2026-10-09 19:00',date:'09.10 · 19:00',venue:'ЮграМолл',price:'Участие от 500 ₽',img:'../uploads/event-tyumen-besplatnyy-bouling.jpg',link:'',desc:"Весь месяц — интригующие вопросы и коктейли. Чередуются «Вау квиз» и «Шейкер квиз», расписание в афише."},
-      {cat:'БОУЛИНГ',title:'Бесплатный боулинг — каждый вторник до 18:00',dt:'2026-10-06 18:00',weekly:2,date:'06.10 · 18:00',venue:'ЮграМолл',price:'Бесплатно',img:'../uploads/event-tyumen-besplatnyy-bouling.jpg',link:'',desc:"Катай шары с друзьями бесплатно 2 часа с депозитом дорожки 2 190.- на кухню и бар. С 10:00 до 18:00. Ну, круто же? :)"},
-      {cat:'СТЕНДАП',title:'Валерий Киракосьян',dt:'2026-10-08 20:00',date:'08.10 · 20:00',venue:'ТРЦ «ЮГРАМолл»',price:'По билетам',img:'../uploads/poster-nv-valeriy-kirakosyan.png',ticket:'#ticketscloud:event=6a589ea6b0f350d99244dce4&token=eyJhbGciOiJIUzI1NiIsImlzcyI6InRpY2tldHNjbG91ZC5ydSIsInR5cCI6IkpXVCJ9.eyJwIjoiNjhiNzIxYzc0ODI2NGNkMmUyZDQxYTg0In0.nr97Rk8NvVfGVPthTeMBFps54C8ZGGWRXQgFEgsxJ_g&lang=ru',desc:"Резидент шоу \"STANDUP\" на ТНТ. Полуфиналист шоу «Comedy Баттл». Ты его точно видел в своих риллсах благодаря самым различным шоу на VK ВИДЕО от \"Medium Quality\". Это тот самый парень, у которого механическое сердце в прямом смысле этого слова, и Валера не стесняется про это шутить. Ну и, конечно же, звездочка шоу \"БЫСТРЫЕ СВИДАНИЯ\". А это дорогого стоит.",link:'kirakosyan.html'},
-      {cat:'СТЕНДАП',title:'Виктор Комаров',dt:'2026-10-21 20:00',date:'21.10 · 20:00',venue:'ТРЦ «ЮГРАМолл»',price:'По билетам',img:'../uploads/poster-nv-viktor-komarov.png',ticket:'#ticketscloud:event=69ef5d9defbbf6b1d3222875&token=eyJhbGciOiJIUzI1NiIsImlzcyI6InRpY2tldHNjbG91ZC5ydSIsInR5cCI6IkpXVCJ9.eyJwIjoiNjdjMDIxMWRlYTYzNmJjNzczZTA3YTYzIn0.yUJ_XkWnEUFlKLHx1AnaMsyQTczj5xztaKKognCKakE',desc:"Виктор Комаров с новым стендап-концертом «Живьём!» Виктор начинал в небольших клубах, а сегодня — один из самых любимых комиков страны. В программе — меткие шутки, искренние истории, фирменная импровизация (в которой Виктор настоящий мастер). Бери друзей и приходи за зарядом отличного настроения!",link:'komarov.html'},
-      {cat:'СТЕНДАП',title:'Егор Свирский',dt:'2026-11-19 20:00',date:'19.11 · 20:00',ticket:'https://widget.afisha.yandex.ru/w/sessions/ticketsteam-10084@66630220?clientKey=97f017e2-6485-4c9e-a646-b78099db6e51',venue:'ТРЦ «ЮГРАМолл»',price:'По билетам',img:'../uploads/poster-nv-egor-svirskiy.png',desc:"Егор Свирский, стендап-комик из Беларуси, участник проекта «Стендап на ТНТ», победитель проекта «Money Mic», участник шоу «Разгоны». В новом шоу Егор превращает привычные истории в настоящий юмор. Сегодня он расскажет о родителях, семейных конфликтах и забавных моментах из жизни, превратив их в яркие, запоминающиеся моменты, которые заставят тебя смеяться и узнавать себя.",link:'svirsky.html'},
-      {cat:'СТЕНДАП',title:'Антон Борисов',dt:'2026-11-26 20:00',date:'26.11 · 20:00',ticket:'https://widget.afisha.yandex.ru/w/sessions/ODYxNjB8ODM4MDE4fDEwNDM3ODI3fDE3OTU3MDUyMDAwMDA=?clientKey=97f017e2-6485-4c9e-a646-b78099db6e51',venue:'ТРЦ «ЮГРАМолл»',price:'По билетам',img:'../uploads/poster-nv-anton-borisov.png',desc:"Опытнейший стендап-комик из Санкт-Петербурга, которого называют одним из основателей жанра в России. Неповторимый микс умной взрослой комедии, интересных мыслей и отличной импровизации, которая является неотъемлемой частью любого выступления Антона Борисова.",link:'borisov.html'},
-    ];
+    const EVENTS_ALL = window.EVENTS_ALL || [];
     const EVENTS = (function(){ try { return (window.bbEvents ? window.bbEvents(EVENTS_ALL) : EVENTS_ALL); } catch (e) { console.warn('bbEvents:', e); return EVENTS_ALL; } })();
     const VENUES = [
       { name:'ЮГРАМолл', tag:'Центр города', addr:'улица Ленина, 15П', mall:'ТРЦ «Нижневартовск ЮГРАМолл», 3 этаж', phone:'+7 (346) 648-22-59', tel:'tel:+73466482259', img:'../uploads/bb-bowling-lane.jpg', route:'https://yandex.ru/maps/?rtext=~57.1196,65.6011&rtt=auto' }

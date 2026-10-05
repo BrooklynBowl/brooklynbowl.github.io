@@ -229,6 +229,7 @@ mount();var n=0;var t=setInterval(function(){mount();if(++n>40){clearInterval(t)
 <script src="../_chat.js"></script>
 <script src="../_ovl.js"></script>
 <script src="../_events.js"></script>
+<script src="_events-data.js"></script>
 <script src="../_imgfix.js"></script>
 <style>
 [data-m="chat-body"]::-webkit-scrollbar{ width:6px; }
@@ -385,16 +386,16 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
 
     <div data-mob-only style="display:none; gap:10px; overflow-x:auto; scroll-snap-type:x mandatory; margin:0 -16px 22px; padding:0 16px 4px; scrollbar-width:none;">
       <div style="flex:0 0 44%; scroll-snap-align:start; display:flex; flex-direction:column; gap:6px; border-radius:22px; background:#191919; padding:20px 18px;">
-        <span style="font-size:32px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;">17</span>
+        <span style="font-size:32px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;">7</span>
         <span style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:rgba(232,229,222,0.6);">событий в афише</span>
       </div>
       <div style="flex:0 0 44%; scroll-snap-align:start; display:flex; flex-direction:column; gap:6px; border-radius:22px; background:#191919; padding:20px 18px;">
-        <span style="font-size:32px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;">4</span>
+        <span style="font-size:32px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;">2</span>
         <span style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:rgba(232,229,222,0.6);">категории</span>
       </div>
       <div style="flex:0 0 44%; scroll-snap-align:start; display:flex; flex-direction:column; gap:6px; border-radius:22px; background:#191919; padding:20px 18px;">
-        <span style="font-size:32px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;">3</span>
-        <span style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:rgba(232,229,222,0.6);">заведения в городе</span>
+        <span style="font-size:32px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;">1</span>
+        <span style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:rgba(232,229,222,0.6);">заведение в городе</span>
       </div>
       <div style="flex:0 0 44%; scroll-snap-align:start; display:flex; flex-direction:column; gap:6px; border-radius:22px; background:#191919; padding:20px 18px;">
         <span style="font-size:32px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;">0 ₽</span>
@@ -637,15 +638,7 @@ class Component extends DCLogic {
       "Детское": [{n:"Хрустики",w:"150 г",p:"289 ₽",img:"../uploads/%D0%A5%D1%80%D1%83%D1%81%D1%82%D0%B8%D0%BA%D0%B8.jpg",hot:false,desc:"Морковные и огуречные палочки со сметанкой.",nut:{kcal:"58",b:"1",f:"3",c:"4"}},{n:"Куриный суп с макарошками",w:"250 г",p:"289 ₽",img:"../uploads/%D0%9A%D1%83%D1%80%D0%B8%D0%BD%D1%8B%D0%B8%CC%86%20%D1%81%D1%83%D0%BF%20%D1%81%20%D0%BC%D0%B0%D0%BA%D0%B0%D1%80%D0%BE%D1%88%D0%BA%D0%B0%D0%BC%D0%B8.jpg",hot:false,desc:"Куриный бульон, куриное филе, морковь, лук, макарошки.",nut:{kcal:"205",b:"13,9",f:"7,8",c:"19,7"}},{n:"Мне только картошку и наггетсы",w:"250 г",p:"459 ₽",img:"../uploads/%D0%9C%D0%BD%D0%B5%20%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%BA%D0%B0%D1%80%D1%82%D0%BE%D1%88%D0%BA%D1%83%20%D0%B8%20%D0%BD%D0%B0%D0%B3%D0%B3%D0%B5%D1%82%D1%81%D1%8B.jpg",hot:false,desc:"Картофель фри и наггетсы встретились в одной тарелке.",nut:{kcal:"149",b:"7",f:"8",c:"11"}},{n:"Хот-дог",w:"160/100/30 г",p:"569 ₽",img:"../uploads/%D0%A5%D0%BE%D1%82-%D0%B4%D0%BE%D0%B3.jpg",hot:false,desc:"С картошкой фри и кетчупом для самых голодных.",nut:null},{n:"Мини-чикен",w:"160/100/30 г",p:"569 ₽",img:"../uploads/%D0%9C%D0%B8%D0%BD%D0%B8-%D1%87%D0%B8%D0%BA%D0%B5%D0%BD.jpg",hot:false,desc:"В сто раз вкуснее взрослого. С картошкой фри и кетчупом.",nut:{kcal:"152",b:"5",f:"8",c:"14"}},{n:"Крейзи мороженое",w:"250 г",p:"559 ₽",img:"../uploads/%D0%9A%D1%80%D0%B5%D0%B8%CC%86%D0%B7%D0%B8%20%D0%BC%D0%BE%D1%80%D0%BE%D0%B6%D0%B5%D0%BD%D0%BD%D0%BE%D0%B5.jpg",hot:false,desc:"Мороженое в ассортименте, шоколадный топпинг, посыпка, вафли, мини печенье орео, маршмеллоу, мята.",nut:{kcal:"613",b:"9,3",f:"26,7",c:"83,6"}}],
     };
     const djDesc = 'Отдыхаем под музыку. Бронируй столик, танцуй, выбивай страйки и с друзьями круто время проводи. Вход свободный :)';
-    const EVENTS_ALL = [
-      {cat:'ПОТАНЦЕВАТЬ',title:'Отдыхаем под диджей-сеты',dt:'2026-10-10 20:00',date:'10.10 · 20:00',venue:'ТРЦ «Июнь»',price:'Вход свободный',img:'../uploads/event-tyumen-didzhey-sety.jpg',link:'',desc:"Отдыхаем под музыку. Бронируй столик заранее — места разбирают быстро."},
-      {cat:'ПОТАНЦЕВАТЬ',title:'Отдыхаем под диджей-сеты',dt:'2026-10-17 20:00',date:'17.10 · 20:00',venue:'ТРЦ «Июнь»',price:'Вход свободный',img:'../uploads/event-tyumen-didzhey-sety-2.jpg',link:'',desc:"Отдыхаем под музыку. Бронируй столик заранее — места разбирают быстро."},
-      {cat:'ПОТАНЦЕВАТЬ',title:'Отдыхаем под диджей-сеты',dt:'2026-10-24 20:00',date:'24.10 · 20:00',venue:'ТРЦ «Июнь»',price:'Вход свободный',img:'../uploads/event-tyumen-didzhey-sety-3.jpg',link:'',desc:"Отдыхаем под музыку. Бронируй столик заранее — места разбирают быстро."},
-      {cat:'ПОТАНЦЕВАТЬ',title:'Тыква-пати',dt:'2026-10-31 20:00',date:'31.10 · 20:00',venue:'ТРЦ «Июнь»',price:'Вход свободный',img:'../uploads/event-tyumen-didzhey-sety.jpg',link:'',desc:"Хэллоуин-вечеринка с тематическим декором. Бронируй столик заранее — места разбирают быстро."},
-      {cat:'БОУЛИНГ',title:'Бесплатный боулинг — каждый вторник до 18:00',dt:'2026-10-06 18:00',weekly:2,date:'06.10 · 18:00',venue:'Июнь',price:'Бесплатно',img:'../uploads/event-tyumen-besplatnyy-bouling.jpg',link:'',desc:"Катай шары с друзьями бесплатно 2 часа с депозитом дорожки 2 990.- на кухню и бар. С 10:00 до 18:00. Ну, круто же? :)"},
-      {cat:'ПОТАНЦЕВАТЬ',title:'Новогодняя вечеринка',dt:'2026-12-18 19:00',date:'18.12 · 19:00',venue:'ТРЦ «Июнь»',price:'По билетам',img:'../uploads/event-spb-novogodnyaya-vecherinka.png',desc:"Меню на праздник готово. Выбирай день, собирай команду и начинаем отмечать :) Это формат праздника, где всё уже продумано: программа, стол, музыка, развлечения. Тебе не нужно искать ведущего, договариваться с диджеем и считать салаты на человека — только выбрать дату и пакет. Всю организацию мы берём на себя :)",link:'ny.html'},
-      {cat:'БОУЛИНГ',title:'Студенческий билет — и боулинг за 990 рублей',dt:'2026-09-30 00:00',allDay:true,weekly:[1,3],date:'30.09',venue:'ТРЦ «Июнь»',price:'990 ₽',img:'../uploads/event-msk-studencheskiy-bilet-i-bouling-za-990-rub.png',desc:"Каждый понедельник и среду #вБруклине. Приходи с группой, с другом или просто так — просто покажи студенческий на входе. 990 рублей в час на дорожку до 6 человек. Делите на всех — получается совсем приятно :)",link:''},
-    ];
+    const EVENTS_ALL = window.EVENTS_ALL || [];
     const EVENTS = (function(){ try { return (window.bbEvents ? window.bbEvents(EVENTS_ALL) : EVENTS_ALL); } catch (e) { console.warn('bbEvents:', e); return EVENTS_ALL; } })();
     const VENUES = [
       { name:'Июнь', tag:'Центр города', addr:'Индустриальный проспект, 24', mall:'ТРЦ «Санкт-Петербург Июнь», 3 этаж', phone:'+7 (812) 760-80-95', tel:'tel:+78127608095', img:'../uploads/bb-bowling-lane.jpg', route:'https://yandex.ru/maps/?rtext=~59.9557,30.4489&rtt=auto' }
