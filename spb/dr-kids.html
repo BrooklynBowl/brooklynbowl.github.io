@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Детский день рождения в Санкт-Петербурге — Brooklyn Bowl</title>
 <meta name="description" content="Детский день рождения в Санкт-Петербурге: боулинг 2 часа, турнир с ведущим, накрытый стол и награждение. Три формата, цена сразу — выбери число детей и день.">
+<meta property="og:title" content="Детский день рождения с боулингом — и ты тоже наешься">
+<meta property="og:description" content="Детский день рождения в Санкт-Петербурге: боулинг 2 часа, турнир с ведущим, накрытый стол и награждение. Три формата, цена сразу — выбери число детей и день.">
 <script src="../support.js"></script>
 <link rel="icon" href="../favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
@@ -50,6 +52,8 @@ summary::-webkit-details-marker{display:none;}
   [data-m="dk-g1"]{ height:240px !important; }
   [data-m="dk-g2"], [data-m="dk-g3"], [data-m="dk-g4"]{ height:200px !important; }
   [data-m="dk-calc-photo"]{ order:-1 !important; min-height:200px !important; }
+  [data-m="dk-wide"]{ aspect-ratio:4/3 !important; max-height:none !important; }
+  [data-m="dk-addon-preview"]{ top:calc(100% + 8px) !important; left:0 !important; right:0 !important; width:auto !important; max-width:none !important; transform:none !important; }
 }
 
 /* ===== ПОДВАЛ: устойчивая сетка ===== */
@@ -112,6 +116,10 @@ a:hover{ color:#FFFFFF; }
 @media (min-width:769px) and (max-width:1040px){
   header a[href^="tel:"]{ display:none !important; }
 }
+/* на этой странице — без синей обводки фокуса, выбранное состояние видно по фону */
+button, a, input, select, textarea{ outline-color:#FFFFFF; }
+button:focus, a:focus, input:focus, select:focus, textarea:focus{ outline:2px solid #FFFFFF; outline-offset:2px; }
+button:focus:not(:focus-visible), a:focus:not(:focus-visible){ outline:none; }
 </style>
 <script>(function(){var n=0;function m(){var v=document.querySelectorAll('video');for(var i=0;i<v.length;i++){var el=v[i];if(!el.muted){el.muted=true;el.defaultMuted=true;el.setAttribute('muted','');}el.loop=true;if(!el.hasAttribute('loop')){el.setAttribute('loop','');}if(el.paused){var p=el.play();if(p&&p.catch){p.catch(function(){});}}}}m();var t=setInterval(function(){m();if(++n>40){clearInterval(t);}},500);document.addEventListener('DOMContentLoaded',m);})();</script>
 <!-- BB-CHAT -->
@@ -222,8 +230,8 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
   <section style="display:grid; grid-template-columns:1.05fr 0.95fr; gap:40px; align-items:center; padding:64px 44px 56px; max-width:1500px; margin:0 auto;">
     <div>
       <span style="display:inline-flex; align-items:center; padding:7px 14px; border-radius:300px; background:rgba(255,32,38,0.16); font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:#FF2026;">ДЕТСКИЙ ДЕНЬ РОЖДЕНИЯ · 2 ЧАСА НА ДОРОЖКЕ</span>
-      <h1 style="margin:22px 0 0; font-size:clamp(38px,5vw,64px); font-weight:800; line-height:1.02; letter-spacing:-0.02em; color:#fff;">Именинник выходит<br>на <span style="color:#FF2026;">свою дорожку</span></h1>
-      <p style="margin:22px 0 0; max-width:520px; font-size:17px; line-height:1.6; color:rgba(232,229,222,0.66);">Ведущий собирает команду, включает турнир и доводит до награждения. Стол уже накрыт, торт можно привезти свой — тебе остаётся приехать и снимать.</p>
+      <h1 style="margin:22px 0 0; font-size:clamp(38px,5vw,64px); font-weight:800; line-height:1.02; letter-spacing:-0.02em; color:#fff;">Детский день рождения с боулингом —<br><em style="color:#FF2026; font-style:normal; font-size:0.5em;">и ты тоже наешься</em></h1>
+      <p style="margin:22px 0 0; max-width:520px; font-size:17px; line-height:1.6; color:rgba(232,229,222,0.66);">Ведущий ведёт праздник от начала до конца. Стол уже накрыт — и для тебя тоже.</p>
       <div style="display:flex; gap:28px; flex-wrap:wrap; margin-top:30px; align-items:flex-end;">
         <div><div style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:rgba(232,229,222,0.5); margin-bottom:6px;">Праздник под ключ</div><div style="font-family:inherit; font-weight:800; font-size:clamp(26px,3.6vw,36px); color:#fff; letter-spacing:-0.01em;">{{ fromParty }}</div></div>
         <div><div style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:rgba(232,229,222,0.5); margin-bottom:6px;">За ребёнка</div><div style="font-family:inherit; font-weight:800; font-size:clamp(20px,2.6vw,26px); color:#FF2026; letter-spacing:-0.01em;">{{ fromKid }}</div></div>
@@ -234,7 +242,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
       </div>
     </div>
     <div style="position:relative; border-radius:24px; overflow:hidden; height:480px; background:#FF2026;">
-      <video autoplay muted loop playsinline preload="metadata" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center center; background:#FF2026;"><source src="https://cdn-g.boomstream.com/balancer/fbHEbKaL-zrFoAhCP.mp4" type="video/mp4"></video>
+      <video muted autoplay loop playsinline defaultMuted poster="../uploads/drkids-spb-wide.jpg" preload="auto" src="https://cdn-g.boomstream.com/balancer/fbHEbKaL-zrFoAhCP.mp4" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"></video>
     </div>
   </section>
 
@@ -343,7 +351,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
         <img src="../uploads/drkids-spb-3.jpg" alt="Дети с боулинг-шарами сидят на дорожке" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;">
       </figure>
       <figure data-m="dk-g4" style="grid-column:2 / span 2; grid-row:2; position:relative; margin:0; border-radius:16px; overflow:hidden; background:#191919;">
-        <img src="../uploads/drkids-spb-4.jpg" alt="Дети за столом с пиццей на празднике" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 40%;">
+        <img src="../uploads/drkids-spb-4.jpg" alt="Аниматоры угощают детей картошкой фри на диване" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;">
       </figure>
     </div>
   </section>
@@ -366,8 +374,8 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
 
   <!-- ШИРОКОЕ ФОТО/ВИДЕО -->
   <section style="padding:0 44px 70px; max-width:1500px; margin:0 auto;">
-    <div style="position:relative; border-radius:24px; overflow:hidden; height:380px; background:#191919;">
-      <img src="../uploads/drkids-spb-wide.jpg" alt="Дети и аниматоры едят пиццу на детском празднике" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 30%;">
+    <div data-m="dk-wide" style="position:relative; border-radius:24px; overflow:hidden; background:#191919; aspect-ratio:16/9; max-height:720px;">
+      <img src="../uploads/drkids-spb-wide.jpg" alt="Четверо детей делят пиццу за столом на празднике" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain;">
     </div>
   </section>
 
@@ -388,7 +396,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
         </div>
         <div style="display:flex; flex-direction:column; gap:11px;">
           <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-size:14px; color:rgba(232,229,222,0.66);">Сколько детей</span><span style="font-size:18px; font-weight:800; color:#fff;">{{ calc.sizeLabel }}</span></div>
-          <input type="range" min="0" max="2" step="1" value="{{ calc.sizeIdx }}" onChange="{{ calc.onSize }}" style="width:100%; accent-color:#FF2026; height:6px; cursor:pointer;">
+          <input type="range" min="6" max="18" step="1" value="{{ calc.sizeIdx }}" onChange="{{ calc.onSize }}" style="width:100%; accent-color:#FF2026; height:6px; cursor:pointer;">
         </div>
         <div style="display:flex; flex-direction:column; gap:9px;">
           <span style="font-size:12px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">КОГДА</span>
@@ -399,11 +407,30 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
           </div>
         </div>
         <div style="display:flex; flex-direction:column; gap:9px;">
-          <span style="font-size:12px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">ДОПОЛНИТЕЛЬНО</span>
-          <sc-for list="{{ calc.addons }}" as="a" hint-placeholder-count="6">
+          <span style="font-size:12px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">К ПРАЗДНИКУ</span>
+          <sc-for list="{{ calc.eventAddons }}" as="a" hint-placeholder-count="7">
+            <sc-if value="{{ a.included }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex; align-items:center; gap:12px; background:#000000; border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:13px 15px;">
+                <span style="flex-shrink:0; width:22px; height:22px; border-radius:7px; background:rgba(255,32,38,0.18); color:#FF2026; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800;">✓</span>
+                <span style="flex:1; min-width:0; font-size:14px; color:#E8E5DE;">{{ a.name }}</span>
+                <span style="flex-shrink:0; font-size:12px; font-weight:700; color:rgba(232,229,222,0.5);">входит в формат</span>
+              </div>
+            </sc-if>
+            <sc-if value="{{ a.purchasable }}" hint-placeholder-val="{{ true }}">
+              <div onClick="{{ a.toggle }}" style="display:flex; align-items:center; gap:12px; text-align:left; background:#000000; border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:13px 15px; cursor:pointer; font-family:inherit;" style-hover="border-color:rgba(255,32,38,0.4) !important;">
+                <span style="{{ a.boxStyle }}">{{ a.check }}</span>
+                <span style="flex:1; min-width:0; font-size:14px; color:#E8E5DE;">{{ a.name }}</span>
+                <span style="flex-shrink:0; font-size:14px; font-weight:700; color:#fff;">{{ a.price }}</span>
+              </div>
+            </sc-if>
+          </sc-for>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:9px;">
+          <span style="font-size:12px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">К СТОЛУ</span>
+          <sc-for list="{{ calc.tableAddons }}" as="a" hint-placeholder-count="5">
             <div style="position:relative;" onMouseEnter="{{ a.onEnter }}" onMouseLeave="{{ a.onLeave }}">
               <sc-if value="{{ a.hasPhoto }}" hint-placeholder-val="{{ true }}">
-                <div style="{{ a.previewStyle }}">
+                <div data-m="dk-addon-preview" style="{{ a.previewStyle }}">
                   {{ a.previewImgEl }}
                   <div style="padding:9px 12px; font-size:12px; font-weight:600; color:#E8E5DE; background:#191919; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ a.name }}</div>
                 </div>
@@ -424,6 +451,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
           <div style="display:flex; align-items:flex-end; justify-content:space-between;"><span style="font-size:17px; font-weight:800; color:#fff;">Итого</span><span style="font-size:26px; font-weight:800; color:#FF2026;">{{ calc.total }}</span></div>
           <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-size:13px; color:rgba(232,229,222,0.66);">{{ calc.perChild }}</span></div>
           <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-size:13px; color:rgba(232,229,222,0.66);">Двойные бонусы имениннику — от 10%</span><span style="font-size:14px; font-weight:700; color:rgba(232,229,222,0.66);">{{ calc.cash }}</span></div>
+          <button data-m="cta" onClick="{{ scrollBooking }}" style="margin-top:6px; width:100%; cursor:pointer; border:none; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; font-family:inherit; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">ХОЧУ ТАКОЙ ПРАЗДНИК</button>
         </div>
       </div>
 
@@ -581,10 +609,12 @@ class Component extends DCLogic {
   }
   state = { chatOpen: false, draft: '', log: [], sending: false, size: 6, slot: 0, format: 'ХИТ', ad: {}, preview: null, bsent: false, fname: '', fphone: '', fdate: '' };
   renderVals() {
-    const DATA = {"packages": ["МИНИ", "ХИТ", "МАКС"], "names": {"МИНИ": "Боулинг-пати", "ХИТ": "Турнир с ведущим", "МАКС": "Полный рок-н-ролл"}, "slots": ["Будни до 18:00", "Будни после 18:00", "Выходные"], "positions": ["Боулинг 2 часа", "Меню", "Турнир / ведущий, 1 час", "Фотограф, 1 час", "Дипломы", "Медали", "Фото на полароид", "Конфетти на сцене", "Воздушные шары", "Пиньята", "Вип-комната, 1 час", "Подарок имениннику", "Тортовый сбор"], "prices": {"МИНИ": {"6": [[19990, 3332, 22223, 1370], [20990, 3498, 23423, 1370], [22990, 3832, 25223, 1370]], "12": [[29990, 2499, 33596, 1390], [32990, 2749, 35996, 1390], [36990, 3082, 39596, 1390]], "18": [[39990, 2222, 44769, 1380], [43990, 2444, 48369, 1380], [50990, 2833, 53769, 1380]]}, "ХИТ": {"6": [[22990, 3832, 25163, 1370], [23990, 3998, 26363, 1370], [25990, 4332, 28163, 1370]], "12": [[35990, 2999, 39026, 1390], [37990, 3166, 41426, 1390], [41990, 3499, 45026, 1390]], "18": [[46990, 2611, 52689, 1380], [50990, 2833, 56289, 1380], [56990, 3166, 61689, 1380]]}, "МАКС": {"6": [[32990, 5498, 35163, 1370], [33990, 5665, 36363, 1370], [34990, 5832, 38163, 1370]], "12": [[44990, 3749, 49026, 1390], [46990, 3916, 51426, 1390], [50990, 4249, 55026, 1390]], "18": [[56990, 3166, 62689, 1380], [60990, 3388, 66289, 1380], [65990, 3666, 71689, 1380]]}}, "includes": {"МИНИ": ["Боулинг 2 часа", "Меню", "Турнир / ведущий, 1 час", "Конфетти на сцене", "Тортовый сбор"], "ХИТ": ["Боулинг 2 часа", "Меню", "Турнир / ведущий, 1 час", "Дипломы", "Медали", "Фото на полароид", "Конфетти на сцене", "Тортовый сбор"], "МАКС": ["Боулинг 2 часа", "Меню", "Турнир / ведущий, 1 час", "Фотограф, 1 час", "Дипломы", "Медали", "Фото на полароид", "Конфетти на сцене", "Вип-комната, 1 час", "Тортовый сбор"]}, "menu": {"6": {"Мне только картошку и наггетсы": 6, "Пицца Маргарита": 1, "Пицца Пепперони": 1, "Пицца Карбонара": 0, "Пицца Четыре сыра": 0, "Сырные палочки": 0, "Хрустики": 2, "Фруктики": 1, "Морс ягодный (1 л)": 3, "Аква Минерале 0,5": 3}, "12": {"Мне только картошку и наггетсы": 12, "Пицца Маргарита": 1, "Пицца Пепперони": 1, "Пицца Карбонара": 1, "Пицца Четыре сыра": 1, "Сырные палочки": 0, "Хрустики": 4, "Фруктики": 2, "Морс ягодный (1 л)": 6, "Аква Минерале 0,5": 6}, "18": {"Мне только картошку и наггетсы": 18, "Пицца Маргарита": 2, "Пицца Пепперони": 2, "Пицца Карбонара": 1, "Пицца Четыре сыра": 1, "Сырные палочки": 0, "Хрустики": 6, "Фруктики": 3, "Морс ягодный (1 л)": 9, "Аква Минерале 0,5": 9}}};
+    const DATA = {"packages": ["МИНИ", "ХИТ", "МАКС"], "prices": {"МИНИ": {"6": [19990, 20990, 22990], "12": [29990, 32990, 36990], "18": [39990, 43990, 49990]}, "ХИТ": {"6": [22990, 23990, 25990], "12": [35990, 37990, 40990], "18": [47990, 51990, 56990]}, "МАКС": {"6": [32990, 33990, 34990], "12": [44990, 46990, 49990], "18": [57990, 60990, 65990]}}, "separate": {"МИНИ": {"6": [22223, 23423, 25223], "12": [33596, 35996, 39596], "18": [44769, 48369, 53769]}, "ХИТ": {"6": [25073, 26273, 28073], "12": [38846, 41246, 44846], "18": [52419, 56019, 61419]}, "МАКС": {"6": [35073, 36273, 38073], "12": [48846, 51246, 54846], "18": [62419, 66019, 71419]}}, "extraChildFee": {"6": 1370, "12": 1390, "18": 1380}, "includes": {"МИНИ": ["Боулинг 2 часа", "Меню", "Турнир / ведущий, 1 час", "Конфетти на сцене", "Тортовый сбор"], "ХИТ": ["Боулинг 2 часа", "Меню", "Турнир / ведущий, 1 час", "Дипломы", "Медали", "Фото на полароид", "Конфетти на сцене", "Тортовый сбор"], "МАКС": ["Боулинг 2 часа", "Меню", "Турнир / ведущий, 1 час", "Фотограф, 1 час", "Дипломы", "Медали", "Фото на полароид", "Конфетти на сцене", "Вип-комната, 1 час", "Тортовый сбор"]}, "menuPerChildRates": {"Мне только картошку и наггетсы": 1.0, "Хрустики": 0.3333333333333333, "Фруктики": 0.16666666666666666, "Морс ягодный (1 л)": 0.5, "Аква Минерале 0,5": 0.5}, "menuTierQty": {"Пицца Маргарита": {"6": 1.0, "12": 1.0, "18": 2.0}, "Пицца Пепперони": {"6": 1.0, "12": 1.0, "18": 2.0}, "Пицца Карбонара": {"6": 0.0, "12": 1.0, "18": 1.0}, "Пицца Четыре сыра": {"6": 0.0, "12": 1.0, "18": 1.0}}};
+    const NAMES = { 'МИНИ': 'Боулинг-пати', 'ХИТ': 'Турнир с ведущим', 'МАКС': 'Полный рок-н-ролл' };
     const SIZES = [6, 12, 18];
     const SIZE_LABEL = { 6: 'до 6', 12: 'от 7 до 12', 18: 'от 13 до 18' };
-    const SLOT_SHORT = ['будни до 18:00', 'будни после 18:00', 'выходные'];
+    const SLOTS = ['Будни до 18:00', 'Будни после 18:00', 'Выходные и праздники'];
+    const SLOT_SHORT = ['будни до 18:00', 'будни после 18:00', 'выходные и праздники'];
     const LABEL = {
       'Боулинг 2 часа': 'Боулинг 2 часа',
       'Турнир / ведущий, 1 час': 'Ведущий и турнир, 1 час',
@@ -596,41 +626,66 @@ class Component extends DCLogic {
       'Воздушные шары': 'Воздушные шары',
       'Пиньята': 'Пиньята',
       'Вип-комната, 1 час': 'ВИП-комната, 1 час',
-      'Подарок имениннику': 'Подарок имениннику',
       'Тортовый сбор': 'Свой торт без доплаты за внос'
     };
     const MENU_UNITS = {
       'Мне только картошку и наггетсы': ['порция картошки и наггетсов', 'порции картошки и наггетсов', 'порций картошки и наггетсов'],
-      'Сырные палочки': ['порция сырных палочек', 'порции сырных палочек', 'порций сырных палочек'],
       'Хрустики': ['порция хрустиков', 'порции хрустиков', 'порций хрустиков'],
       'Фруктики': ['фруктовая тарелка', 'фруктовые тарелки', 'фруктовых тарелок'],
       'Морс ягодный (1 л)': ['литр морса', 'литра морса', 'литров морса'],
       'Аква Минерале 0,5': ['бутылка воды', 'бутылки воды', 'бутылок воды']
     };
     const PIZZA = ['Пицца Маргарита', 'Пицца Пепперони', 'Пицца Карбонара', 'Пицца Четыре сыра'];
-    const OLD_ADDONS = [
+
+    // «К празднику» — допы из прайса, со своей ценой по городу; included сверяется с DATA.includes[format]
+    const EVENT_ADDONS = [
+      { n: 'Турнир по боулингу, 1 час', p: 10000, perChild: false, includeKey: null },
+      { n: 'Фотограф, 1 час', p: 8000, perChild: false, includeKey: 'Фотограф, 1 час' },
+      { n: 'Дипломы каждому', p: 100, perChild: true, includeKey: 'Дипломы' },
+      { n: 'Медали победителям', p: 315, perChild: true, includeKey: 'Медали' },
+      { n: 'Фото на полароид', p: 450, perChild: false, includeKey: 'Фото на полароид' },
+      { n: 'Пиньята', p: 5500, perChild: false, includeKey: 'Пиньята' },
+      { n: 'ВИП-комната, 1 час', p: 2000, perChild: false, includeKey: 'Вип-комната, 1 час' }
+    ];
+    // «К столу» — блюда сверх стола; фото доступно для наведения/тапа
+    const TABLE_ADDONS = [
       { n: 'Мини-чикен', p: 449, img: '../uploads/Мини-чикен.jpg' },
-      { n: 'Мне только картошку и наггетсы', p: 399, img: '../uploads/Мне только картошку и наггетсы.jpg' },
+      { n: 'Мне только картошку и наггетсы', p: 459, img: '../uploads/Мне только картошку и наггетсы.jpg' },
       { n: 'Полстола пиццы', p: 1899, img: '../uploads/pasted-1784476434368-0.png' },
       { n: 'Хот-дог', p: 299, img: '../uploads/Хот-дог.jpg' },
-      { n: 'Аквагрим-мастер на 1 час', p: 2500 },
       { n: 'Шоколадный фондан', p: 449 }
     ];
 
     const fmt = (n) => new Intl.NumberFormat('ru-RU').format(n) + ' ₽';
     const plural = (n, forms) => { const a = Math.abs(n) % 100, b = a % 10; if (a > 10 && a < 20) return forms[2]; if (b > 1 && b < 5) return forms[1]; if (b === 1) return forms[0]; return forms[2]; };
-    const cell = (pkg, sz, sl) => DATA.prices[pkg][String(sz)][sl];
 
-    const size = SIZES.includes(this.state.size) ? this.state.size : 6;
+    const tierOf = (n) => (n < 12 ? 6 : (n < 18 ? 12 : 18));
+    const nextTierOf = (n) => (n < 12 ? 12 : 18);
+    const sizeLabelFor = (n) => (n <= 6 ? SIZE_LABEL[6] : (n <= 12 ? SIZE_LABEL[12] : SIZE_LABEL[18]));
+    const priceAt = (pkg, n, sl) => {
+      const t = tierOf(n);
+      return DATA.prices[pkg][String(t)][sl] + DATA.extraChildFee[String(t)] * (n - t);
+    };
+    const separateAt = (pkg, n, sl) => {
+      const t = tierOf(n);
+      const base = DATA.separate[pkg][String(t)][sl];
+      if (n === t) return base;
+      const nt = nextTierOf(n);
+      const next = DATA.separate[pkg][String(nt)][sl];
+      return Math.round(base + ((next - base) / (nt - t)) * (n - t));
+    };
+
+    const size = Math.max(6, Math.min(18, Math.round(Number.isFinite(this.state.size) ? this.state.size : 6)));
     const slot = (this.state.slot != null && this.state.slot >= 0 && this.state.slot <= 2) ? this.state.slot : 0;
     const format = DATA.packages.includes(this.state.format) ? this.state.format : 'ХИТ';
     const lanes = Math.ceil(size / 6);
-    const ad = this.state.ad || {};
+    const adEvent = this.state.adEvent || {};
+    const adTable = this.state.adTable || {};
 
     let minParty = Infinity, minKid = Infinity;
     for (const p of DATA.packages) for (const s of SIZES) for (let sl = 0; sl < 3; sl++) {
-      const v = cell(p, s, sl);
-      minParty = Math.min(minParty, v[0]); minKid = Math.min(minKid, v[1]);
+      const t = priceAt(p, s, sl);
+      minParty = Math.min(minParty, t); minKid = Math.min(minKid, Math.round(t / s));
     }
 
     const scrollBooking = () => {
@@ -641,7 +696,7 @@ class Component extends DCLogic {
 
     const chipBase = 'cursor:pointer; border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:10px 16px; font-family:inherit; font-size:14px; font-weight:700; text-align:center; transition:background-color .15s ease, border-color .15s ease;';
     const sizeChips = SIZES.map((s) => {
-      const on = s === size;
+      const on = s === 6 ? size === 6 : (s === 12 ? (size > 6 && size <= 12) : size > 12);
       const l = Math.ceil(s / 6);
       return {
         label: SIZE_LABEL[s] + ' детей',
@@ -651,7 +706,7 @@ class Component extends DCLogic {
         pick: () => this.setState({ size: s })
       };
     });
-    const slotChips = DATA.slots.map((label, i) => ({
+    const slotChips = SLOTS.map((label, i) => ({
       label,
       style: chipBase + (i === slot ? ' background:#FF2026; border-color:#FF2026; color:#fff;' : ' background:#000000; color:rgba(232,229,222,0.8);'),
       pick: () => this.setState({ slot: i })
@@ -661,9 +716,11 @@ class Component extends DCLogic {
     const markOff = 'display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:7px; border:1px solid rgba(255,255,255,0.12); color:rgba(232,229,222,0.3); font-weight:800; font-size:13px;';
 
     const cards = DATA.packages.map((pkg) => {
-      const v = cell(pkg, size, slot);
+      const total = priceAt(pkg, size, slot);
+      const sep = separateAt(pkg, size, slot);
+      const perChild = Math.round(total / size);
       const inc = DATA.includes[pkg];
-      const save = v[2] - v[0];
+      const save = sep - total;
       const isHit = pkg === 'ХИТ';
       const items = [{ text: 'Праздничный стол на ' + size + ' ' + plural(size, ['ребёнка', 'детей', 'детей']) }];
       inc.filter((p) => p !== 'Меню').forEach((p) => {
@@ -672,9 +729,9 @@ class Component extends DCLogic {
         items.push({ text: t });
       });
       return {
-        code: pkg, name: DATA.names[pkg], hit: isHit,
-        price: fmt(v[0]), perChild: fmt(v[1]) + ' за ребёнка',
-        sepPrice: fmt(v[2]), save: fmt(save),
+        code: pkg, name: NAMES[pkg], hit: isHit,
+        price: fmt(total), perChild: fmt(perChild) + ' за ребёнка',
+        sepPrice: fmt(sep), save: fmt(save),
         lanesLabel: lanes + ' ' + plural(lanes, ['дорожка', 'дорожки', 'дорожек']) + ' · 2 часа',
         items,
         cardStyle: 'position:relative; display:flex; flex-direction:column; background:#191919; border-radius:22px; padding:' + (isHit ? '34px 26px 26px' : '26px') + '; border:1px solid ' + (isHit ? '#FF2026' : 'rgba(255,255,255,0.08)') + ';' + (isHit ? ' box-shadow:0 20px 50px -25px rgba(255,32,38,0.5);' : ''),
@@ -683,8 +740,8 @@ class Component extends DCLogic {
       };
     });
 
-    const boardHead = DATA.packages.map((pkg) => ({ code: pkg, name: DATA.names[pkg] }));
-    const boardPositions = DATA.positions.filter((p) => p !== 'Меню' && DATA.packages.some((pkg) => DATA.includes[pkg].includes(p)));
+    const boardHead = DATA.packages.map((pkg) => ({ code: pkg, name: NAMES[pkg] }));
+    const boardPositions = Object.keys(LABEL).filter((p) => DATA.packages.some((pkg) => DATA.includes[pkg].includes(p)));
     const boardRows = [
       { name: 'Праздничный стол на ' + size + ' ' + plural(size, ['ребёнка', 'детей', 'детей']), marks: DATA.packages.map(() => ({ sym: '✓', style: markOn })) }
     ].concat(boardPositions.map((p) => {
@@ -698,19 +755,19 @@ class Component extends DCLogic {
         })
       };
     }));
-    const boardFoot = DATA.packages.map((pkg) => ({ price: fmt(cell(pkg, size, slot)[0]) }));
+    const boardFoot = DATA.packages.map((pkg) => ({ price: fmt(priceAt(pkg, size, slot)) }));
 
-    const menuData = DATA.menu[String(size)];
-    const pizzaTotal = PIZZA.reduce((s, p) => s + (menuData[p] || 0), 0);
+    const tier = tierOf(size);
     const menuTiles = [];
+    const pizzaTotal = PIZZA.reduce((s, p) => s + (DATA.menuTierQty[p][String(tier)] || 0), 0);
     if (pizzaTotal) menuTiles.push({ n: pizzaTotal, label: plural(pizzaTotal, ['пицца', 'пиццы', 'пицц']) });
-    Object.entries(MENU_UNITS).forEach(([pos, forms]) => {
-      const n = menuData[pos] || 0;
-      if (n) menuTiles.push({ n, label: plural(n, forms) });
+    Object.entries(DATA.menuPerChildRates).forEach(([pos, rate]) => {
+      const n = Math.round(rate * size);
+      if (n) menuTiles.push({ n, label: plural(n, MENU_UNITS[pos]) });
     });
     const menuEcho = 'на ' + size + ' ' + plural(size, ['ребёнка', 'детей', 'детей']);
 
-    const cfgEcho = SIZE_LABEL[size] + ' детей · ' + SLOT_SHORT[slot];
+    const cfgEcho = sizeLabelFor(size) + ' детей · ' + SLOT_SHORT[slot];
 
     const tB = 'flex:1; text-align:center; cursor:pointer; border:none; padding:10px 6px; border-radius:300px; font-size:13px; font-weight:700; font-family:inherit; transition:background-color .2s ease, color .2s ease;';
     const formatToggle = DATA.packages.map((pkg) => ({
@@ -718,36 +775,57 @@ class Component extends DCLogic {
       style: tB + (pkg === format ? ' background:#FF2026; color:#fff;' : ' background:transparent; color:rgba(232,229,222,0.66);'),
       pick: () => this.setState({ format: pkg })
     }));
-    const calcSlotToggle = DATA.slots.map((_, i) => ({
+    const calcSlotToggle = SLOTS.map((_, i) => ({
       label: SLOT_SHORT[i],
       style: tB + (i === slot ? ' background:#FF2026; color:#fff;' : ' background:transparent; color:rgba(232,229,222,0.66);'),
       pick: () => this.setState({ slot: i })
     }));
 
-    const baseV = cell(format, size, slot);
-    const addonSum = OLD_ADDONS.reduce((acc, x, k) => acc + (ad[k] ? x.p : 0), 0);
-    const total = baseV[0] + addonSum;
+    const baseTotal = priceAt(format, size, slot);
+    const basePerChild = Math.round(baseTotal / size);
+    const inc = DATA.includes[format];
+
+    const eventAddons = EVENT_ADDONS.map((x, k) => {
+      const included = !!(x.includeKey && inc.includes(x.includeKey));
+      return {
+        name: x.n,
+        included,
+        purchasable: !included,
+        price: '+' + fmt(x.perChild ? x.p * size : x.p),
+        toggle: () => this.setState((s) => ({ adEvent: { ...(s.adEvent || {}), [k]: !((s.adEvent || {})[k]) } })),
+        boxStyle: 'flex-shrink:0; width:22px; height:22px; border-radius:7px; border:1.5px solid ' + (adEvent[k] ? '#FF2026' : 'rgba(255,255,255,0.25)') + '; background:' + (adEvent[k] ? '#FF2026' : 'transparent') + '; display:flex; align-items:center; justify-content:center; color:#fff; font-size:13px; line-height:1;',
+        check: adEvent[k] ? '✓' : ''
+      };
+    });
+
+    const eventSum = EVENT_ADDONS.reduce((acc, x, k) => {
+      if (x.includeKey && inc.includes(x.includeKey)) return acc;
+      if (!adEvent[k]) return acc;
+      return acc + (x.perChild ? x.p * size : x.p);
+    }, 0);
+    const tableSum = TABLE_ADDONS.reduce((acc, x, k) => acc + (adTable[k] ? x.p : 0), 0);
+    const total = baseTotal + eventSum + tableSum;
     const cashRate = 0.10;
     const cash = Math.round(total * cashRate);
 
-    const pvBase = 'position:absolute; left:0; width:190px; max-width:100%; z-index:20; bottom:calc(100% + 8px); border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.12); box-shadow:0 18px 40px rgba(0,0,0,0.55); background:#191919; transform-origin:bottom left; transition:opacity .22s ease, transform .22s ease; pointer-events:none;';
+    const pvBase = 'position:absolute; top:50%; left:calc(100% + 10px); width:190px; max-width:60vw; z-index:20; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.12); box-shadow:0 18px 40px rgba(0,0,0,0.55); background:#191919; transform-origin:left center; transition:opacity .22s ease, transform .22s ease; pointer-events:none;';
     const pv = this.state.preview;
-    const addons = OLD_ADDONS.map((x, k) => {
+    const tableAddons = TABLE_ADDONS.map((x, k) => {
       const active = pv === k;
       return {
         name: x.n, price: '+' + fmt(x.p), hasPhoto: !!x.img,
         previewImgEl: React.createElement('img', { src: x.img ? encodeURI(x.img) : '', alt: '', style: { width: '100%', aspectRatio: '3/4', objectFit: 'cover', display: 'block' } }),
-        previewStyle: pvBase + (active ? ' opacity:1; transform:translateY(0) scale(1);' : ' opacity:0; transform:translateY(6px) scale(0.96);'),
+        previewStyle: pvBase + (active ? ' opacity:1; transform:translateY(-50%) scale(1);' : ' opacity:0; transform:translateY(-50%) scale(0.94);'),
         onEnter: () => { if (x.img) this.setState({ preview: k }); },
         onLeave: () => this.setState((s) => (s.preview === k ? { preview: null } : {})),
         tapPhoto: (e) => { if (e) { e.stopPropagation(); e.preventDefault(); } this.setState((s) => (s.preview === k ? { preview: null } : { preview: k })); },
-        toggle: () => this.setState((s) => ({ ad: { ...(s.ad || {}), [k]: !((s.ad || {})[k]) } })),
-        boxStyle: 'flex-shrink:0; width:22px; height:22px; border-radius:7px; border:1.5px solid ' + (ad[k] ? '#FF2026' : 'rgba(255,255,255,0.25)') + '; background:' + (ad[k] ? '#FF2026' : 'transparent') + '; display:flex; align-items:center; justify-content:center; color:#fff; font-size:13px; line-height:1;',
-        check: ad[k] ? '✓' : ''
+        toggle: () => this.setState((s) => ({ adTable: { ...(s.adTable || {}), [k]: !((s.adTable || {})[k]) } })),
+        boxStyle: 'flex-shrink:0; width:22px; height:22px; border-radius:7px; border:1.5px solid ' + (adTable[k] ? '#FF2026' : 'rgba(255,255,255,0.25)') + '; background:' + (adTable[k] ? '#FF2026' : 'transparent') + '; display:flex; align-items:center; justify-content:center; color:#fff; font-size:13px; line-height:1;',
+        check: adTable[k] ? '✓' : ''
       };
     });
 
-    const faqExtra = 'Каждый ребёнок сверх пакета — ' + fmt(baseV[3]) + ': ему найдётся место на дорожке и порция за столом. Больше 18 детей — собираем праздник отдельно, дорожки бронируем заранее.';
+    const faqExtra = 'Каждый ребёнок сверх пакета — ' + fmt(DATA.extraChildFee[String(tier)]) + ': ему найдётся место на дорожке и порция за столом. Больше 18 детей — посчитает менеджер праздника.';
 
     return {
       chatEnabled: this.props.chatEnabled ?? true,
@@ -770,15 +848,16 @@ class Component extends DCLogic {
       menuEcho, menuTiles,
       formatToggle,
       calc: {
-        sizeIdx: SIZES.indexOf(size),
-        sizeLabel: SIZE_LABEL[size],
-        onSize: (e) => this.setState({ size: SIZES[parseInt(e.target.value, 10)] }),
+        sizeIdx: size,
+        sizeLabel: size + ' ' + plural(size, ['ребёнок', 'ребёнка', 'детей']),
+        onSize: (e) => this.setState({ size: parseInt(e.target.value, 10) }),
         slotToggle: calcSlotToggle,
-        addons,
+        eventAddons,
+        tableAddons,
         total: fmt(total),
-        perChild: 'За ребёнка — ' + fmt(baseV[1]),
+        perChild: 'За ребёнка — ' + fmt(basePerChild),
         cash: fmt(cash),
-        summaryLine: 'Санкт-Петербург · ' + DATA.names[format] + ' (' + format + '), ' + SIZE_LABEL[size] + ' детей, ' + SLOT_SHORT[slot] + ':',
+        summaryLine: 'Санкт-Петербург · ' + (NAMES[format]) + ' (' + format + '), ' + sizeLabelFor(size) + ' детей, ' + SLOT_SHORT[slot] + ':',
         summaryTotal: fmt(total)
       },
       faqExtra,
