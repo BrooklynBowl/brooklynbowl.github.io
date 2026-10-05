@@ -438,7 +438,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
   </section><section style="padding:0 44px 80px; max-width:1500px; margin:0 auto;">
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; align-items:stretch; border-radius:20px; overflow:hidden;">
       <div style="background:#191919; border-radius:20px; padding:56px 48px; display:flex; flex-direction:column; justify-content:center;">
-        <h2 style="margin:0; font-size:clamp(28px,3.4vw,44px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Майские слоты разбирают в апреле&nbsp;</h2>
+        <h2 style="margin:0; font-size:clamp(28px,3.4vw,44px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Майские даты разбирают в апреле&nbsp;</h2>
         <p style="margin:16px 0 0; max-width:440px; font-size:16px; line-height:1.6; color:rgba(232,229,222,0.66);">Позвони или напиши — менеджер праздника свяжется с тобой или родительским комитетом, уточнит состав и пришлёт смету. Дата фиксируется после полной предоплаты.</p>
         <a data-m="cta" href="https://brooklyn.broni.g-profile.ru/book?city=Москва&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=moskva&utm_trc=all" target="_blank" rel="noopener" style="cursor:pointer; display:inline-flex; align-self:flex-start; margin-top:28px; text-decoration:none; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Забронировать выпускной</a>
       </div>
@@ -456,7 +456,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
           <div>
             <span style="display:inline-flex; padding:7px 14px; border-radius:300px; background:rgba(255,32,38,0.16); font-size:12px; font-weight:700; letter-spacing:0.05em; color:#FF2026;">ЗАЯВКА</span>
             <h3 style="margin:14px 0 4px; font-size:24px; font-weight:800; color:#fff;">Забронировать выпускной</h3>
-            <p style="margin:0 0 20px; font-size:14px; line-height:1.5; color:rgba(232,229,222,0.66);">Менеджер праздника перезвонит, согласует дату и программу, пришлёт смету. Майские и июньские слоты разбирают в апреле.</p>
+            <p style="margin:0 0 20px; font-size:14px; line-height:1.5; color:rgba(232,229,222,0.66);">Менеджер праздника перезвонит, согласует дату и программу, пришлёт смету. Майские и июньские даты разбирают в апреле.</p>
             <sc-if value="{{ hasPkg }}" hint-placeholder-val="{{ false }}">
             <div style="display:flex; align-items:center; gap:10px; margin:0 0 16px; padding:12px 15px; border-radius:12px; background:rgba(255,32,38,0.12); border:1px solid rgba(255,32,38,0.3);">
               <span style="font-size:13px; color:rgba(232,229,222,0.86);">Выбран пакет</span>
@@ -664,7 +664,7 @@ class Component extends DCLogic {
       chatHours: this.props.chatHours ?? 'Отвечаем ежедневно с 10:00 до 22:00',
       chatOpen: !!this.state.chatOpen,
       draft: this.state.draft || '',
-      messages: [{ mine: false, text: this.props.chatGreeting ?? 'Здравствуйте! Чем можем помочь?' }].concat(this.state.log || []).map((m) => ({ text: m.text, mine: !!m.mine, theirs: !m.mine })),
+      messages: [{ mine: false, text: this.props.chatGreeting ?? 'Привет! Чем можем помочь?' }].concat(this.state.log || []).map((m) => ({ text: m.text, mine: !!m.mine, theirs: !m.mine })),
       chatToggle: () => this.setState({ chatOpen: !this.state.chatOpen }),
       chatClose: () => this.setState({ chatOpen: false }),
       chatType: (e) => this.setState({ draft: e.target.value }),

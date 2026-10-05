@@ -730,7 +730,7 @@ class Component extends DCLogic {
       chatHours: this.props.chatHours ?? 'Отвечаем ежедневно с 10:00 до 22:00',
       chatOpen: !!this.state.chatOpen,
       draft: this.state.draft || '',
-      messages: [{ mine: false, text: this.props.chatGreeting ?? 'Здравствуйте! Чем можем помочь?' }].concat(this.state.log || []).map((m) => ({ text: m.text, mine: !!m.mine, theirs: !m.mine })),
+      messages: [{ mine: false, text: this.props.chatGreeting ?? 'Привет! Чем можем помочь?' }].concat(this.state.log || []).map((m) => ({ text: m.text, mine: !!m.mine, theirs: !m.mine })),
       chatToggle: () => this.setState({ chatOpen: !this.state.chatOpen }),
       chatClose: () => this.setState({ chatOpen: false }),
       chatType: (e) => this.setState({ draft: e.target.value }),

@@ -412,7 +412,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
       </div>
       <div style="border-radius:16px; background:rgba(255,32,38,0.1); border:1px solid rgba(255,32,38,0.32); padding:16px 18px; display:flex; flex-direction:column; gap:12px;">
         <div style="font-size:14.5px; line-height:1.5; color:#fff;">{{ calc.reco }}</div>
-        <a data-m="cta" onClick="{{ openBooking }}" style="cursor:pointer; display:flex; align-items:center; justify-content:center; text-decoration:none; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Оставить заявку</a>
+        <a data-m="cta" onClick="{{ openBooking }}" style="cursor:pointer; display:flex; align-items:center; justify-content:center; text-decoration:none; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">ХОЧУ ТАКОЙ ПРАЗДНИК</a>
       </div>
       </div>
       <div style="position:relative; border-radius:24px; overflow:hidden; min-height:440px;"><img src="../uploads/QHCJbeik1UqNYMkq2LS25FVQScZitiWrrQfz3n7CxGtWSg0odEhOfVh2wYTVOVs.jpeg" alt="Мама с ребёнком на детском празднике Brooklyn Bowl" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 22%;"></div>
@@ -469,7 +469,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
           <div>
             <span style="display:inline-flex; padding:7px 14px; border-radius:300px; background:rgba(255,32,38,0.16); font-size:12px; font-weight:700; letter-spacing:0.05em; color:#FF2026;">ЗАЯВКА</span>
             <h3 style="margin:14px 0 4px; font-size:24px; font-weight:800; color:#fff;">Забронировать детский ДР</h3>
-            <p style="margin:0 0 20px; font-size:14px; line-height:1.5; color:rgba(232,229,222,0.66);">Менеджер праздника перезвонит в рабочее время, подтвердит слот и назовёт депозит. Заявка уйдёт в выбранное заведение.</p>
+            <p style="margin:0 0 20px; font-size:14px; line-height:1.5; color:rgba(232,229,222,0.66);">Менеджер праздника перезвонит в рабочее время, подтвердит дату и депозит.</p>
             <sc-if value="{{ hasPkg }}" hint-placeholder-val="{{ false }}">
             <div style="display:flex; align-items:center; gap:10px; margin:0 0 16px; padding:12px 15px; border-radius:12px; background:rgba(255,32,38,0.12); border:1px solid rgba(255,32,38,0.3);">
               <span style="font-size:13px; color:rgba(232,229,222,0.86);">Выбран пакет</span>
@@ -487,7 +487,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
               <input type="text" placeholder="Возраст именинника" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
               <input type="text" placeholder="Твоё имя" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
               <input type="tel" placeholder="Телефон" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
-              <button data-m="cta" onClick="{{ submitBooking }}" style="margin-top:4px; width:100%; cursor:pointer; border:none; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; font-family:inherit; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Отправить заявку</button>
+              <button data-m="cta" onClick="{{ submitBooking }}" style="margin-top:4px; width:100%; cursor:pointer; border:none; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; font-family:inherit; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">ЖМУ И ЖДУ ЗВОНКА</button>
             </div>
             <p style="margin:14px 0 0; font-size:12px; line-height:1.5; color:rgba(232,229,222,0.47);">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
           </div>
@@ -496,7 +496,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
           <div style="display:flex; flex-direction:column; align-items:center; text-align:center; padding:24px 6px;">
             <div style="width:66px; height:66px; border-radius:50%; background:#FF2026; display:flex; align-items:center; justify-content:center; font-size:32px; color:#fff;">✓</div>
             <h3 style="margin:20px 0 0; font-size:24px; font-weight:800; color:#fff;">Заявка принята</h3>
-            <p style="margin:12px 0 0; max-width:330px; font-size:15px; line-height:1.55; color:rgba(232,229,222,0.66);">Менеджер праздника перезвонит в рабочее время, подтвердит детали и назовёт депозит. Если закрыл сайт — заявка уже у нас.</p>
+            <p style="margin:12px 0 0; max-width:330px; font-size:15px; line-height:1.55; color:rgba(232,229,222,0.66);">Менеджер праздника перезвонит в рабочее время и подтвердит детали. Закрыл сайт? Не страшно — заявка уже у нас.</p>
             <button onClick="{{ closeBooking }}" style="margin-top:22px; cursor:pointer; border:1px solid rgba(255,255,255,0.18); background:transparent; padding:13px 30px; border-radius:300px; color:#fff; font-size:15px; font-weight:600; font-family:inherit;" style-hover="border-color:#FF2026 !important;">Готово</button>
           </div>
         </sc-if>
@@ -683,7 +683,7 @@ class Component extends DCLogic {
       chatHours: this.props.chatHours ?? 'Отвечаем ежедневно с 10:00 до 22:00',
       chatOpen: !!this.state.chatOpen,
       draft: this.state.draft || '',
-      messages: [{ mine: false, text: this.props.chatGreeting ?? 'Здравствуйте! Чем можем помочь?' }].concat(this.state.log || []).map((m) => ({ text: m.text, mine: !!m.mine, theirs: !m.mine })),
+      messages: [{ mine: false, text: this.props.chatGreeting ?? 'Привет! Чем можем помочь?' }].concat(this.state.log || []).map((m) => ({ text: m.text, mine: !!m.mine, theirs: !m.mine })),
       chatToggle: () => this.setState({ chatOpen: !this.state.chatOpen }),
       chatClose: () => this.setState({ chatOpen: false }),
       chatType: (e) => this.setState({ draft: e.target.value }),
