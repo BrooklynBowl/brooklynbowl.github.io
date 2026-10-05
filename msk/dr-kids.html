@@ -49,8 +49,8 @@ summary::-webkit-details-marker{display:none;}
   [style*="columns: 3"]{display:flex !important; overflow-x:auto !important; gap:14px !important; columns:auto !important; column-gap:0 !important; scroll-snap-type:x mandatory !important; padding-bottom:6px !important;}
   [style*="columns: 3"] > article{flex:0 0 86vw !important; scroll-snap-align:center !important; margin:0 !important;}
   [data-m="dk-gallery"]{ display:flex !important; flex-direction:column !important; }
-  [data-m="dk-g1"]{ height:240px !important; }
-  [data-m="dk-g2"], [data-m="dk-g3"], [data-m="dk-g4"]{ height:200px !important; }
+  [data-m="dk-g1"]{ aspect-ratio:3/4 !important; height:auto !important; }
+  [data-m="dk-g2"], [data-m="dk-g3"]{ aspect-ratio:3/2 !important; height:auto !important; }
   [data-m="dk-calc-photo"]{ order:-1 !important; min-height:200px !important; }
   [data-m="dk-wide"]{ aspect-ratio:4/3 !important; max-height:none !important; }
   [data-m="dk-addon-preview"]{ top:calc(100% + 8px) !important; left:0 !important; right:0 !important; width:auto !important; max-width:none !important; transform:none !important; }
@@ -335,19 +335,16 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
   <section style="padding:0 44px 70px; max-width:1500px; margin:0 auto;">
     <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">ФОТО С ПРАЗДНИКОВ</span>
     <h2 style="margin:14px 0 8px; font-size:clamp(28px,3.4vw,40px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Как это выглядит у нас</h2>
-    <p style="margin:0 0 28px; max-width:620px; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.66);">Кадры с настоящих праздников — дорожки, турнир с ведущим, торт и награждение.</p>
-    <div data-m="dk-gallery" style="display:grid; grid-template-columns:repeat(3,1fr); grid-auto-rows:260px; gap:14px;">
+    <p style="margin:0 0 28px; max-width:620px; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.66);">Кадры с настоящих праздников: дорожки, стол и награждение.</p>
+    <div data-m="dk-gallery" style="display:grid; grid-template-columns:1fr 1fr; grid-template-rows:auto auto; gap:14px;">
       <figure data-m="dk-g1" style="grid-column:1; grid-row:1 / span 2; position:relative; margin:0; border-radius:16px; overflow:hidden; background:#191919;">
-        <img src="../uploads/drkids-msk-1.jpg" alt="Ведущая поздравляет именинника с тортом под конфетти" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 78%;">
+        <img src="../uploads/drkids-msk-1.jpg" alt="Ведущая поздравляет именинника с тортом под конфетти" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center bottom;">
       </figure>
-      <figure data-m="dk-g2" style="grid-column:2; grid-row:1; position:relative; margin:0; border-radius:16px; overflow:hidden; background:#191919;">
+      <figure data-m="dk-g2" style="grid-column:2; grid-row:1; aspect-ratio:3/2; position:relative; margin:0; border-radius:16px; overflow:hidden; background:#191919;">
         <img src="../uploads/drkids-msk-2.jpg" alt="Аниматор угощает детей на диване" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;">
       </figure>
-      <figure data-m="dk-g3" style="grid-column:3; grid-row:1; position:relative; margin:0; border-radius:16px; overflow:hidden; background:#191919;">
+      <figure data-m="dk-g3" style="grid-column:2; grid-row:2; aspect-ratio:3/2; position:relative; margin:0; border-radius:16px; overflow:hidden; background:#191919;">
         <img src="../uploads/drkids-msk-3.jpg" alt="Дети с боулинг-шарами сидят на дорожке" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;">
-      </figure>
-      <figure data-m="dk-g4" style="grid-column:2 / span 2; grid-row:2; position:relative; margin:0; border-radius:16px; overflow:hidden; background:#191919;">
-        <img src="../uploads/drkids-msk-4.jpg" alt="Аниматоры угощают детей картошкой фри на диване" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;">
       </figure>
     </div>
   </section>
