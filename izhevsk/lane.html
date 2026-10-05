@@ -373,7 +373,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
         <sc-if value="{{ bookingForm }}" hint-placeholder-val="{{ true }}">
           <div>
             <span style="display:inline-flex; padding:7px 14px; border-radius:300px; background:rgba(255,32,38,0.16); font-size:12px; font-weight:700; letter-spacing:0.05em; color:#FF2026;">ЗАЯВКА</span>
-            <h3 style="margin:14px 0 4px; font-size:24px; font-weight:800; color:#fff;">ХОЧУ НА ДОРОЖКУ</h3>
+            <h3 style="margin:14px 0 4px; font-size:24px; font-weight:800; color:#fff;">Оставить заявку</h3>
             <p style="margin:0 0 20px; font-size:14px; line-height:1.5; color:rgba(232,229,222,0.66);">Перезвоним в рабочее время, подтвердим время и условия. Заявка уйдёт в выбранное заведение.</p>
             <div style="display:flex; flex-direction:column; gap:12px;">
               <input type="text" value="Просто поиграть" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
@@ -385,7 +385,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
               <input type="number" min="1" placeholder="Сколько человек" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
               <input type="text" placeholder="Твоё имя" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
               <input type="tel" placeholder="Телефон" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
-              <button data-m="cta" onClick="{{ submitBooking }}" style="margin-top:4px; width:100%; cursor:pointer; border:none; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; font-family:inherit; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">ЖМУ И ЖДУ ЗВОНКА</button>
+              <button data-m="cta" onClick="{{ submitBooking }}" style="margin-top:4px; width:100%; cursor:pointer; border:none; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; font-family:inherit; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Отправить заявку</button>
             </div>
             <p style="margin:14px 0 0; font-size:12px; line-height:1.5; color:rgba(232,229,222,0.47);">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
           </div>
@@ -394,7 +394,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
           <div style="display:flex; flex-direction:column; align-items:center; text-align:center; padding:24px 6px;">
             <div style="width:66px; height:66px; border-radius:50%; background:#FF2026; display:flex; align-items:center; justify-content:center; font-size:32px; color:#fff;">✓</div>
             <h3 style="margin:20px 0 0; font-size:24px; font-weight:800; color:#fff;">Заявка принята</h3>
-            <p style="margin:12px 0 0; max-width:330px; font-size:15px; line-height:1.55; color:rgba(232,229,222,0.66);">Перезвоним в рабочее время и подтвердим детали. Закрыл сайт? Не страшно — заявка уже у нас.</p>
+            <p style="margin:12px 0 0; max-width:330px; font-size:15px; line-height:1.55; color:rgba(232,229,222,0.66);">Перезвоним в рабочее время и подтвердим детали.</p>
             <button onClick="{{ closeBooking }}" style="margin-top:22px; cursor:pointer; border:1px solid rgba(255,255,255,0.18); background:transparent; padding:13px 30px; border-radius:300px; color:#fff; font-size:15px; font-weight:600; font-family:inherit;" style-hover="border-color:#FF2026 !important;">Готово</button>
           </div>
         </sc-if>
