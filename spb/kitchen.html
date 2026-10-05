@@ -371,7 +371,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
       </div>
       <div style="display:flex; flex-direction:column; justify-content:center; padding:8px 0;">
         <span style="display:inline-flex; align-self:flex-start; align-items:center; padding:7px 14px; border-radius:300px; background:rgba(255,32,38,0.16); font-size:12.5px; font-weight:700; letter-spacing:0.03em; color:#FF2026;">ЕДА И НАПИТКИ</span>
-        <h2 style="margin:22px 0 0; font-size:clamp(30px,3.4vw,44px); font-weight:800; line-height:1.04; letter-spacing:-0.01em; color:#fff;">Кухня — с Шеф-подходом</h2>
+        <h2 style="margin:22px 0 0; font-size:clamp(30px,3.4vw,44px); font-weight:800; line-height:1.04; letter-spacing:-0.01em; color:#fff;">Кухня — с шеф-подходом</h2>
         <p style="margin:16px 0 0; max-width:90%; font-size:16px; line-height:1.55; color:rgba(232,229,222,0.66);">64 позиции кухни и 80 позиций бара: пицца, бургеры, горячее, детское меню и коктейли.</p>
         <div data-m="kitchen-cta" style="display:flex; gap:12px; margin-top:28px;">
           <a data-m="cta" href="../uploads/%D0%92%D0%95%D0%91_TMN_%D0%9C%D0%B5%D0%BD%D1%8E_%D0%92%D0%95%D0%A1%D0%9D%D0%90%202026.pdf" target="_blank" rel="noopener" download="" style="text-decoration:none; display:inline-flex; align-items:center; background:#fff; border:none; cursor:pointer; padding:16px 32px; border-radius:300px; color:#000000; font-size:14px; font-weight:800; font-family:inherit; transition:background-color .22s ease, color .22s ease; letter-spacing:0.05em;" style-hover="background:#FF2026 !important; color:#fff !important;">Скачать меню</a>
@@ -683,7 +683,7 @@ class Component extends DCLogic {
     const _cartItems = Object.keys(_cart).map((k) => _cart[k]).filter((x) => x && x.q > 0);
     const FOOD = '../uploads/%D0%A2%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%BE%D0%B5%20%D0%B2%20%D0%BF%D0%B5%D1%87%D0%B8%20%D0%B3%D0%BE%D0%B2%D1%8F%D0%B6%D1%8C%D0%B5%20%D1%80%D0%B5%D0%B1%D1%80%D0%BE.jpg';
     const PTS = [
-      { title:'Современные дорожки', tag:'<span data-fact="lanes">18</span> дорожек', img:'../uploads/bb-bowling-lane.jpg', desc:'18 профессиональных дорожек с гладким покрытием и автоматическим подсчётом очков. Бортики поднимаются по запросу — ребёнок попадёт в кегли с первой попытки. Лёгкие шары от 2,5 кг и обувь с 23 размера.', cta:'Бронь стола в зоне боулинга', act:'book' },
+      { title:'Современные дорожки', tag:'18 дорожек', img:'../uploads/bb-bowling-lane.jpg', desc:'18 профессиональных дорожек с гладким покрытием и автоматическим подсчётом очков. Бортики поднимаются по запросу — ребёнок попадёт в кегли с первой попытки. Лёгкие шары от 2,5 кг и обувь с 23 размера.', cta:'Бронь стола в зоне боулинга', act:'book' },
       { title:'Ресторан и кухня', tag:'150 мест', img:'../uploads/7bZmH1sygk8.jpg', desc:'64 позиции кухни и 80 позиций бара: пицца, бургеры, горячее с гриля, детское меню и коктейли. Зал на 150 мест — от ужина вдвоём до большого корпоратива.', cta:'Смотреть меню', act:'menu' },
       { title:'Живая музыка', tag:'LIVE', img:'../uploads/mrkypACsj8M.jpg', desc:'Кавер-группы, стендап-вечера, квизы и диджей-сеты. Иногда живая музыка идёт прямо в стоимость дорожки. Полное расписание — в афише.', cta:'Афиша', act:'events' }
     ];
@@ -714,7 +714,7 @@ class Component extends DCLogic {
       chatHours: this.props.chatHours ?? 'Отвечаем ежедневно с 10:00 до 22:00',
       chatOpen: !!this.state.chatOpen,
       draft: this.state.draft || '',
-      messages: [{ mine: false, text: this.props.chatGreeting ?? 'Здравствуйте! Чем можем помочь?' }].concat(this.state.log || []).map((m) => ({ text: m.text, mine: !!m.mine, theirs: !m.mine })),
+      messages: [{ mine: false, text: this.props.chatGreeting ?? 'Привет! Чем можем помочь?' }].concat(this.state.log || []).map((m) => ({ text: m.text, mine: !!m.mine, theirs: !m.mine })),
       chatToggle: () => this.setState({ chatOpen: !this.state.chatOpen }),
       chatClose: () => this.setState({ chatOpen: false }),
       chatType: (e) => this.setState({ draft: e.target.value }),
