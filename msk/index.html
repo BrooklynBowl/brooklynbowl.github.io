@@ -467,7 +467,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
     <div style="position:relative; z-index:1; text-align:center; padding:54px 0 60px;">
       <div style="display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:26px;">
         <span style="display:inline-flex; align-items:center; padding:8px 16px; border-radius:300px; background:rgba(255,255,255,0.1); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.16); font-size:13px; font-weight:600; letter-spacing:0.02em; color:#fff;">Два боулинг-ресторана в Москве</span>
-        <span style="display:inline-flex; align-items:center; gap:7px; padding:8px 16px; border-radius:300px; background:rgba(255,255,255,0.1); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.16); font-size:13px; font-weight:600; color:#fff;"><span style="width:7px; height:7px; border-radius:50%; background:#FF2026;"></span>Пн 12:00 – 00:00, Вт–Чт, Вс 10:00 – 00:00, Пт–Сб 10:00 – 00:00</span>
+        <span style="display:inline-flex; align-items:center; gap:7px; padding:8px 16px; border-radius:300px; background:rgba(255,255,255,0.1); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.16); font-size:13px; font-weight:600; color:#fff;"><span style="width:7px; height:7px; border-radius:50%; background:#FF2026;"></span>Пн 11:57 – 00:03, Вт–Чт, Вс 09:57 – 00:02, Пт–Сб 09:57 – 00:02</span>
       </div>
       <h1 style="margin:0; font-weight:800; font-size:clamp(38px,5.5vw,72px); line-height:0.94; letter-spacing:-0.02em; text-transform:uppercase; color:#fff;">
         Боулинг-ресторан<br><span style="color:#FF2026;">в Москве</span>
@@ -599,7 +599,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
                 <p style="margin:18px 0 4px; font-size:16px; font-weight:600; color:#fff;">{{ vd.addr }}</p>
                 <p style="margin:0 0 16px; font-size:14px; color:rgba(232,229,222,0.66);">{{ vd.mall }}</p>
                 <a href="{{ vd.tel }}" style="display:block; font-size:17px; font-weight:700; color:#fff; text-decoration:none; margin-bottom:18px;">{{ vd.phone }}</a>
-                <div style="display:flex; flex-direction:column; gap:4px; font-size:14px; color:rgba(232,229,222,0.86); margin-bottom:22px;"><div style="display:flex; justify-content:space-between;"><span>Пн</span><span>12:00 – 00:00</span></div><div style="display:flex; justify-content:space-between;"><span>Вт–Чт, Вс</span><span>10:00 – 00:00</span></div><div style="display:flex; justify-content:space-between;"><span>Пт–Сб</span><span>10:00 – 00:00</span></div></div>
+                <div style="display:flex; flex-direction:column; gap:4px; font-size:14px; color:rgba(232,229,222,0.86); margin-bottom:22px;"><div style="display:flex; justify-content:space-between;"><span>Пн</span><span>11:57 – 00:03</span></div><div style="display:flex; justify-content:space-between;"><span>Вт–Чт, Вс</span><span>09:57 – 00:02</span></div><div style="display:flex; justify-content:space-between;"><span>Пт–Сб</span><span>09:57 – 00:02</span></div></div>
                 <a data-m="cta" href="{{ vd.route }}" target="_blank" rel="noopener" style="display:inline-block; text-decoration:none; background:#FF2026; padding:14px 30px; border-radius:300px; color:#fff; font-size:15px; font-weight:600;">Построить маршрут</a>
               </div>
             </div>
@@ -940,9 +940,9 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
         <img src="../uploads/Vector.svg" alt="Brooklyn Bowl" style="height:26px; width:auto; display:block; filter:brightness(0) invert(1); margin-bottom:18px;">
         <p style="margin:0 0 20px; max-width:280px; font-size:15px; line-height:1.5; color:rgba(255,255,255,0.85);">Боулинг, кухня с гриля и живая сцена — в одном месте.</p>
         <div style="display:flex; flex-direction:column; gap:4px; font-size:14px; font-weight:600; color:#fff; margin-bottom:22px;">
-          <span>Пн 12:00 – 00:00</span>
-          <span>Вт–Чт, Вс 10:00 – 00:00</span>
-          <span>Пт–Сб 10:00 – 00:00</span>
+          <span>Пн 11:57 – 00:03</span>
+          <span>Вт–Чт, Вс 09:57 – 00:02</span>
+          <span>Пт–Сб 09:57 – 00:02</span>
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
           <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=moscow&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="../uploads/badge-appstore.svg" alt="App Store" style="height:36px; width:auto; display:block;"></a>
@@ -1052,18 +1052,18 @@ class Component extends DCLogic {
   _geoData() {
     return {
       'Москва': { center:[55.7558,37.6173], zoom:11, site:null, points:[
-        { name:'Северное Сияние', addr:'бул. Дмитрия Донского, 1', hours:'ПН 12:00 – 00:00, ВТ–ЧТ, ВС 10:00 – 00:00, ПТ–СБ 10:00 – 00:00', lat:55.5636, lng:37.5883 },
-        { name:'Красный Кит', addr:'Шараповский пр-д, 2, Мытищи', hours:'ПН 12:00 – 00:00, ВТ–ЧТ, ВС 10:00 – 00:00, ПТ–СБ 10:00 – 00:00', lat:55.9116, lng:37.7308 } ] },
+        { name:'Северное Сияние', addr:'бул. Дмитрия Донского, 1', hours:'ПН 11:57 – 00:03, ВТ–ЧТ, ВС 09:57 – 00:02, ПТ–СБ 09:57 – 00:02', lat:55.5636, lng:37.5883 },
+        { name:'Красный Кит', addr:'Шараповский пр-д, 2, Мытищи', hours:'ПН 11:57 – 00:03, ВТ–ЧТ, ВС 09:57 – 00:02, ПТ–СБ 09:57 – 00:02', lat:55.9116, lng:37.7308 } ] },
       'Санкт-Петербург': { center:[59.95,30.47], zoom:11, site:'../spb/index.html', points:[
-        { name:'Июнь', addr:'Индустриальный пр-т, 24', hours:'ПН 12:00 – 00:00, ВТ–ЧТ, ВС 10:00 – 00:00, ПТ–СБ 10:00 – 00:00', lat:59.9497, lng:30.4762 } ] },
+        { name:'Июнь', addr:'Индустриальный пр-т, 24', hours:'ПН 11:57 – 00:03, ВТ–ЧТ, ВС 09:57 – 00:02, ПТ–СБ 09:57 – 00:02', lat:59.9497, lng:30.4762 } ] },
       'Самара': { center:[53.18,50.14], zoom:11, site:'../samara/index.html', points:[
-        { name:'Гудок', addr:'Красноармейская, 131', hours:'ПН 12:00 – 00:00, ВТ–ЧТ, ВС 10:00 – 00:00, ПТ–СБ 10:00 – 02:02', lat:53.1878, lng:50.0996 },
-        { name:'Letout', addr:'Южное шоссе, 5', hours:'ПН 12:00 – 00:00, ВТ–ЧТ, ВС 10:00 – 00:00, ПТ–СБ 10:00 – 02:02', lat:53.1656, lng:50.1867 } ] },
+        { name:'Гудок', addr:'Красноармейская, 131', hours:'ПН 11:57 – 00:03, ВТ–ЧТ, ВС 09:57 – 00:02, ПТ–СБ 09:57 – 02:02', lat:53.1878, lng:50.0996 },
+        { name:'Letout', addr:'Южное шоссе, 5', hours:'ПН 11:57 – 00:03, ВТ–ЧТ, ВС 09:57 – 00:02, ПТ–СБ 09:57 – 02:02', lat:53.1656, lng:50.1867 } ] },
       'Ижевск': { center:[56.85,53.20], zoom:11, site:'../izhevsk/index.html', points:[
-        { name:'Петровский', addr:'ул. Петрова, 31', hours:'ПН 12:00 – 00:00, ВТ–ЧТ, ВС 10:00 – 00:00, ПТ–СБ 10:00 – 02:02', lat:56.8236, lng:53.1836 },
-        { name:'Матрица', addr:'ул. Баранова, 87', hours:'ПН 12:00 – 00:00, ВТ–ЧТ, ВС 10:00 – 00:00, ПТ–СБ 10:00 – 02:02', lat:56.8619, lng:53.2465 } ] },
+        { name:'Петровский', addr:'ул. Петрова, 31', hours:'ПН 11:57 – 00:03, ВТ–ЧТ, ВС 09:57 – 00:02, ПТ–СБ 09:57 – 02:02', lat:56.8236, lng:53.1836 },
+        { name:'Матрица', addr:'ул. Баранова, 87', hours:'ПН 11:57 – 00:03, ВТ–ЧТ, ВС 09:57 – 00:02, ПТ–СБ 09:57 – 02:02', lat:56.8619, lng:53.2465 } ] },
       'Сургут': { center:[61.25,73.40], zoom:11, site:'../surgut/index.html', points:[
-        { name:'Аура', addr:'Нефтеюганское шоссе, 1', hours:'ПН 12:00 – 00:00, ВТ–ЧТ, ВС 10:00 – 00:00, ПТ–СБ 10:00 – 02:02', lat:61.2213, lng:73.3944 } ] },
+        { name:'Аура', addr:'Нефтеюганское шоссе, 1', hours:'ПН 11:57 – 00:03, ВТ–ЧТ, ВС 09:57 – 00:02, ПТ–СБ 09:57 – 02:02', lat:61.2213, lng:73.3944 } ] },
       'Нижневартовск': { center:[60.94,76.55], zoom:11, site:'../nv/index.html', points:[
         { name:'Югра Молл', addr:'ул. Ленина, 15п', hours:'ПН–ЧТ 11:57 – 00:03, ПТ 11:57 – 00:02, СБ–ВС 09:57 – 00:02', lat:60.9344, lng:76.5531 } ] }
     };
