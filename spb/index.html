@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Brooklyn Bowl Санкт-Петербург — боулинг-ресторан, стендапы и кухня</title>
-<meta name="description" content="Боулинг, авторская кухня, стендапы комиков ТНТ и детские праздники #вБруклине в Санкт-Петербурге. Брони, афиша, цены и акции.">
+<meta name="description" content="Боулинг, кухня с гриля, стендапы комиков ТНТ и детские праздники #вБруклине в Санкт-Петербурге. Брони, афиша, цены и акции.">
 <script src="../support.js"></script>
 <link rel="icon" href="../favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
@@ -347,15 +347,15 @@ mount(); var n=0; var t=setInterval(function(){ mount(); if(++n>40) clearInterva
 }
 /* мобильная шапка: только логотип и выбор города — кнопка брони и телефон убраны */
 @media (max-width:768px){
-  header [data-m="cta"], header a[href*="waitly"], header a[href*="yclients"], header a[href^="tel:"]{ display:none !important; }
+  header [data-m="cta"], header a[href*="broni"], header a[href^="tel:"]{ display:none !important; }
   [data-m="fab-chat"]{ left:14px !important; }
   [data-m="chat-panel"]{ left:0 !important; right:0 !important; bottom:0 !important; width:100% !important; max-width:none !important; height:84vh !important; border-radius:22px 22px 0 0 !important; }
 }
 
 /* BB-OVERLAY-GUARD: пока открыт оверлей — плавающие виджеты скрыты */
-html[data-bb-ovl="menu"] [data-m="fab-chat"], html[data-bb-ovl="menu"] [data-m="chat-panel"], html[data-bb-ovl="menu"] #waitly-widget-root,
-html[data-bb-ovl="modal"] [data-m="fab-chat"], html[data-bb-ovl="modal"] [data-m="chat-panel"], html[data-bb-ovl="modal"] #waitly-widget-root,
-html[data-bb-ovl="chat"] #waitly-widget-root,
+html[data-bb-ovl="menu"] [data-m="fab-chat"], html[data-bb-ovl="menu"] [data-m="chat-panel"], html[data-bb-ovl="menu"] #brn-host,
+html[data-bb-ovl="modal"] [data-m="fab-chat"], html[data-bb-ovl="modal"] [data-m="chat-panel"], html[data-bb-ovl="modal"] #brn-host,
+html[data-bb-ovl="chat"] #brn-host,
 html[data-bb-ovl="book"] [data-m="fab-chat"], html[data-bb-ovl="book"] [data-m="chat-panel"]{ display:none !important; }
 /* чат не закрывает текст: гаснет, когда под кнопкой строка или картинка */
 html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-events:none !important; }
@@ -428,7 +428,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
       <a href="dr.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Взрослый ДР</a>
       <a href="dr-kids.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Детский ДР</a>
       <a href="corporate.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Корпоратив</a>
-      <a href="graduation.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Выпускной</a>
+      <a href="graduation.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Выпускной</a><a href="ny.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Новый год</a>
       <a href="friends.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">С друзьями</a>
       <a href="family.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Семьёй</a>
       <a href="lane.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Просто поиграть</a>
@@ -466,13 +466,13 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
     <div style="position:relative; z-index:1; text-align:center; padding:54px 0 60px;">
       <div style="display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:26px;">
         <span style="display:inline-flex; align-items:center; padding:8px 16px; border-radius:300px; background:rgba(255,255,255,0.1); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.16); font-size:13px; font-weight:600; letter-spacing:0.02em; color:#fff;">Боулинг-ресторан в Санкт-Петербурге</span>
-        <span style="display:inline-flex; align-items:center; gap:7px; padding:8px 16px; border-radius:300px; background:rgba(255,255,255,0.1); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.16); font-size:13px; font-weight:600; color:#fff;"><span style="width:7px; height:7px; border-radius:50%; background:#FF2026;"></span>Пн–Вс 10:00 – 00:00</span>
+        <span style="display:inline-flex; align-items:center; gap:7px; padding:8px 16px; border-radius:300px; background:rgba(255,255,255,0.1); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.16); font-size:13px; font-weight:600; color:#fff;"><span style="width:7px; height:7px; border-radius:50%; background:#FF2026;"></span>Пн 11:57 – 00:03, Вт–Чт, Вс 09:57 – 00:02, Пт–Сб 09:57 – 00:02</span>
       </div>
       <h1 style="margin:0; font-weight:800; font-size:clamp(38px,5.5vw,72px); line-height:0.94; letter-spacing:-0.02em; text-transform:uppercase; color:#fff;">
         Боулинг-ресторан<br><span style="color:#FF2026;">в Санкт-Петербурге</span>
       </h1>
-      <p style="margin:22px auto 0; max-width:620px; font-size:18px; line-height:1.55; color:rgba(232,229,222,0.66); font-weight:500;">Большой боулинг, авторская кухня, стендапы комиков с ТНТ и детские праздники. По вторникам — 2 часа игры бесплатно с депозитом 2 990 ₽ на кухню и бар.</p>
-      <div data-m="hero-photo" style="display:none; position:relative; margin:26px -16px 0; height:260px; overflow:hidden;"><img src="../uploads/2O3A9121.jpg" alt="Боулинг в Brooklyn Bowl" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"><div aria-hidden="true" style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.86) 100%);"></div><div style="position:absolute; left:16px; right:16px; bottom:16px; display:flex; gap:8px; flex-wrap:wrap;"><span style="padding:7px 13px; border-radius:300px; background:rgba(0,0,0,0.6); backdrop-filter:blur(6px); font-size:12px; font-weight:700; color:#fff;"><span data-fact="lanes-city">20</span> дорожек</span><span style="padding:7px 13px; border-radius:300px; background:rgba(0,0,0,0.6); backdrop-filter:blur(6px); font-size:12px; font-weight:700; color:#fff;">Кухня и бар</span><span style="padding:7px 13px; border-radius:300px; background:rgba(0,0,0,0.6); backdrop-filter:blur(6px); font-size:12px; font-weight:700; color:#fff;">Сцена</span></div></div>
+      <p style="margin:22px auto 0; max-width:620px; font-size:18px; line-height:1.55; color:rgba(232,229,222,0.66); font-weight:500;">Большой боулинг, кухня с гриля, стендапы комиков с ТНТ и детские праздники. По вторникам — 2 часа игры бесплатно с депозитом 2 990 ₽ на кухню и бар.</p>
+      <div data-m="hero-photo" style="display:none; position:relative; margin:26px -16px 0; height:260px; overflow:hidden;"><img src="../uploads/2O3A9121.jpg" alt="Боулинг в Brooklyn Bowl" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"><div aria-hidden="true" style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.86) 100%);"></div><div style="position:absolute; left:16px; right:16px; bottom:16px; display:flex; gap:8px; flex-wrap:wrap;"><span style="padding:7px 13px; border-radius:300px; background:rgba(0,0,0,0.6); backdrop-filter:blur(6px); font-size:12px; font-weight:700; color:#fff;"><span data-fact="lanes-city">18</span> дорожек</span><span style="padding:7px 13px; border-radius:300px; background:rgba(0,0,0,0.6); backdrop-filter:blur(6px); font-size:12px; font-weight:700; color:#fff;">Кухня и бар</span><span style="padding:7px 13px; border-radius:300px; background:rgba(0,0,0,0.6); backdrop-filter:blur(6px); font-size:12px; font-weight:700; color:#fff;">Сцена</span></div></div>
       <button data-m="cta" onClick="{{ book }}" style="margin:32px auto 0; display:inline-flex; align-items:center; gap:9px; background:#FF2026; border:none; cursor:pointer; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; font-family:inherit; transition:background-color .22s ease, color .22s ease; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Бронь стола в зоне боулинга</button>
     </div>
 
@@ -483,7 +483,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
         <span style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:rgba(232,229,222,0.6);">заведение в городе</span>
       </div>
       <div style="flex:0 0 44%; scroll-snap-align:start; display:flex; flex-direction:column; gap:6px; border-radius:22px; background:#191919; padding:20px 18px;">
-        <span style="font-size:34px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;"><span data-fact="lanes-city">20</span></span>
+        <span style="font-size:34px; font-weight:800; line-height:1; letter-spacing:-0.02em; color:#fff;"><span data-fact="lanes-city">18</span></span>
         <span style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:rgba(232,229,222,0.6);">дорожек в Бруклине</span>
       </div>
       <div style="flex:0 0 44%; scroll-snap-align:start; display:flex; flex-direction:column; gap:6px; border-radius:22px; background:#191919; padding:20px 18px;">
@@ -503,7 +503,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
       <article onClick="{{ book }}" style="position:relative; overflow:hidden; min-height:0; border-radius:20px; padding:26px 26px 28px; gap:14px; justify-content:flex-start; height:100%; box-sizing:border-box; background:radial-gradient(135% 135% at 0% 100%, rgba(255,32,38,0.42) 0%, rgba(255,32,38,0.06) 42%, rgba(25,25,25,0) 70%), #191919; border:1px solid rgba(255,255,255,0.06); display:flex; flex-direction:column; cursor:pointer;" style-hover="border-color:rgba(255,32,38,0.4) !important;">
         <div aria-hidden="true" style="position:absolute; inset:0; border-radius:20px; padding:1.5px; background:conic-gradient(from var(--bbAngle), rgba(255,32,38,0) 0deg, #FF2026 45deg, rgba(255,32,38,0) 120deg, rgba(255,32,38,0) 360deg); -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; animation:bbBorderGlow 5s linear infinite; animation-delay:0s; pointer-events:none;"></div><svg width="34" height="34" viewBox="0 0 34 34" fill="none"><circle cx="17" cy="17" r="13" stroke="#FF2026" stroke-width="2"></circle><circle cx="13.2" cy="12.6" r="1.7" fill="#FF2026"></circle><circle cx="18.6" cy="11.4" r="1.7" fill="#FF2026"></circle><circle cx="16" cy="17.4" r="1.7" fill="#FF2026"></circle></svg>
         <h3 style="margin:0; font-size:22px; font-weight:700; line-height:1.2; color:#fff;">Бронь стола в зоне боулинга</h3>
-        <p style="margin:0; font-size:15px; line-height:1.5; color:rgba(232,229,222,0.66); max-width:88%;">Выберите удобное время и забронируйте дорожку онлайн за минуту.</p>
+        <p style="margin:0; font-size:15px; line-height:1.5; color:rgba(232,229,222,0.66); max-width:88%;">Выбери удобное время и забронируй дорожку онлайн за минуту.</p>
       </article>
 
       <!-- Карточка 2 — нейтральная -->
@@ -517,7 +517,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
       <article onClick="{{ cert }}" style="position:relative; overflow:hidden; min-height:0; border-radius:20px; padding:26px 26px 28px; gap:14px; justify-content:flex-start; height:100%; box-sizing:border-box; background:radial-gradient(135% 135% at 0% 100%, rgba(232,229,222,0.26) 0%, rgba(232,229,222,0.05) 42%, rgba(25,25,25,0) 70%), #191919; border:1px solid rgba(255,255,255,0.06); display:flex; flex-direction:column; cursor:pointer;" style-hover="border-color:rgba(232,229,222,0.35) !important;">
         <div aria-hidden="true" style="position:absolute; inset:0; border-radius:20px; padding:1.5px; background:conic-gradient(from var(--bbAngle), rgba(255,32,38,0) 0deg, #FF2026 45deg, rgba(255,32,38,0) 120deg, rgba(255,32,38,0) 360deg); -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; animation:bbBorderGlow 5s linear infinite; animation-delay:-2.5s; pointer-events:none;"></div><svg width="34" height="34" viewBox="0 0 34 34" fill="none"><rect x="6" y="13" width="22" height="16" rx="2" stroke="#E8E5DE" stroke-width="2"></rect><path d="M4 13h26v4H4z" stroke="#E8E5DE" stroke-width="2"></path><path d="M17 9v20" stroke="#E8E5DE" stroke-width="2"></path><path d="M17 9c0-2.5-1.5-4-3.5-4S10 6.2 10 8s2.5 1 7 1Zm0 0c0-2.5 1.5-4 3.5-4S24 6.2 24 8s-2.5 1-7 1Z" stroke="#E8E5DE" stroke-width="2" stroke-linejoin="round"></path></svg>
         <h3 style="margin:0; font-size:22px; font-weight:700; line-height:1.2; color:#fff;">Купить сертификат</h3>
-        <p style="margin:0; font-size:15px; line-height:1.5; color:rgba(232,229,222,0.66); max-width:88%;">Подарочный сертификат Brooklyn Bowl — отличный подарок на любой повод.</p>
+        <p style="margin:0; font-size:15px; line-height:1.5; color:rgba(232,229,222,0.66); max-width:88%;">Сертификат на боулинг и кухню — дари, не думая, что выбрать.</p>
       </article>
 
       <!-- Карточка 4 — акции (красная) -->
@@ -536,7 +536,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
     <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:26px;">
       <div>
         <h2 style="margin:0; font-size:clamp(30px,3.6vw,42px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Одна точка в Санкт-Петербурге</h2>
-        <p style="margin:10px 0 0; font-size:16px; color:rgba(232,229,222,0.66); font-weight:500;">На каждой — то, ради чего возвращаются: дорожки, кухня и сцена.</p>
+        <p style="margin:10px 0 0; font-size:16px; color:rgba(232,229,222,0.66); font-weight:500;">В каждой точке — дорожки, кухня и сцена.</p>
       </div>
       <button onClick="{{ openVenueList }}" style="background:none; border:none; cursor:pointer; font-family:inherit; color:rgba(232,229,222,0.8); font-size:15px; font-weight:600; display:flex; align-items:center; gap:7px; white-space:nowrap;" style-hover="color:#fff !important;">Все адреса <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5 11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
     </div>
@@ -546,7 +546,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
       <article onClick="{{ openP0 }}" style="position:relative; height:400px; border-radius:22px; overflow:hidden; background:#191919; border:1px solid rgba(255,255,255,0.06); cursor:pointer; transition:transform .25s ease;" style-hover="transform:translateY(-4px);">
         <img src="../uploads/bb-bowling-lane.jpg" alt="Дорожки для боулинга" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
         <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0) 38%, rgba(0,0,0,0.55) 72%, rgba(0,0,0,0.9) 100%);"></div>
-        <span style="position:absolute; top:18px; left:18px; display:inline-flex; align-items:center; padding:7px 13px; border-radius:300px; background:rgba(0,0,0,0.55); backdrop-filter:blur(6px); font-size:12.5px; font-weight:700; letter-spacing:0.03em; color:#fff;">16 ДОРОЖЕК</span>
+        <span style="position:absolute; top:18px; left:18px; display:inline-flex; align-items:center; padding:7px 13px; border-radius:300px; background:rgba(0,0,0,0.55); backdrop-filter:blur(6px); font-size:12.5px; font-weight:700; letter-spacing:0.03em; color:#fff;">18 ДОРОЖЕК</span>
         <div style="position:absolute; left:24px; right:24px; bottom:24px;">
           <h3 style="margin:0; font-size:24px; font-weight:700; color:#fff;">Современные дорожки</h3>
           <p style="margin:7px 0 0; font-size:15px; line-height:1.45; color:rgba(232,229,222,0.86);">Профессиональное покрытие и бортики для детей.</p>
@@ -559,17 +559,17 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
         <span style="position:absolute; top:18px; left:18px; display:inline-flex; align-items:center; padding:7px 13px; border-radius:300px; background:rgba(0,0,0,0.55); backdrop-filter:blur(6px); font-size:12.5px; font-weight:700; letter-spacing:0.03em; color:#fff;">150 МЕСТ</span>
         <div style="position:absolute; left:24px; right:24px; bottom:24px;">
           <h3 style="margin:0; font-size:24px; font-weight:700; color:#fff;">Ресторан и кухня</h3>
-          <p style="margin:7px 0 0; font-size:15px; line-height:1.45; color:rgba(232,229,222,0.86);">Авторская кухня с шеф-подходом и большой бар.</p>
+          <p style="margin:7px 0 0; font-size:15px; line-height:1.45; color:rgba(232,229,222,0.86);">Пицца, бургеры, горячее с гриля и большой бар.</p>
         </div>
       </article>
 
       <article onClick="{{ openP2 }}" style="position:relative; height:400px; border-radius:22px; overflow:hidden; background:#191919; border:1px solid rgba(255,255,255,0.06); cursor:pointer; transition:transform .25s ease;" style-hover="transform:translateY(-4px);">
         <img src="../uploads/mrkypACsj8M.jpg" alt="Живая музыка и сцена" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
         <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0) 38%, rgba(0,0,0,0.55) 72%, rgba(0,0,0,0.9) 100%);"></div>
-        <span style="position:absolute; top:18px; left:18px; display:inline-flex; align-items:center; padding:7px 13px; border-radius:300px; background:rgba(255,32,38,0.85); backdrop-filter:blur(6px); font-size:12.5px; font-weight:700; letter-spacing:0.03em; color:#fff;">LIVE</span>
+        <span style="position:absolute; top:18px; left:18px; display:inline-flex; align-items:center; padding:7px 13px; border-radius:300px; background:rgba(255,32,38,0.85); backdrop-filter:blur(6px); font-size:12.5px; font-weight:700; letter-spacing:0.03em; color:#fff;">ЖИВОЙ ЗВУК</span>
         <div style="position:absolute; left:24px; right:24px; bottom:24px;">
           <h3 style="margin:0; font-size:24px; font-weight:700; color:#fff;">Живая музыка</h3>
-          <p style="margin:7px 0 0; font-size:15px; line-height:1.45; color:rgba(232,229,222,0.86);">Кавер-группы и стендапы комиков каждую неделю.</p>
+          <p style="margin:7px 0 0; font-size:15px; line-height:1.45; color:rgba(232,229,222,0.86);">Кавер-группы и стендапы комиков.</p>
         </div>
       </article>
 
@@ -581,8 +581,8 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
           <button onClick="{{ closeVenue }}" style="position:absolute; top:16px; right:16px; z-index:3; width:40px; height:40px; border-radius:50%; border:none; cursor:pointer; background:rgba(0,0,0,0.6); color:#fff; font-size:18px;">✕</button>
           <sc-if value="{{ pickerView }}" hint-placeholder-val="{{ true }}">
             <div style="padding:32px;">
-              <h3 style="margin:0 0 6px; font-size:26px; font-weight:800; color:#fff;">Выберите точку</h3>
-              <p style="margin:0 0 22px; font-size:15px; color:rgba(232,229,222,0.66);">Три заведения в Санкт-Петербурге — выберите ближайшее.</p>
+              <h3 style="margin:0 0 6px; font-size:26px; font-weight:800; color:#fff;">Выбери точку</h3>
+              <p style="margin:0 0 22px; font-size:15px; color:rgba(232,229,222,0.66);">Площадка в Санкт-Петербурге.</p>
               <div style="display:flex; flex-direction:column; gap:12px;">
                 <sc-for list="{{ venues }}" as="v" hint-placeholder-count="3"><button onClick="{{ v.open }}" style="display:flex; align-items:center; justify-content:space-between; gap:12px; text-align:left; padding:18px 20px; border-radius:16px; background:#191919; border:1px solid rgba(255,255,255,0.08); cursor:pointer; font-family:inherit; transition:border-color .2s ease;" style-hover="border-color:#FF2026 !important;"><span style="display:flex; flex-direction:column; gap:4px;"><span style="font-size:18px; font-weight:700; color:#fff;">{{ v.name }}</span><span style="font-size:14px; color:rgba(232,229,222,0.66);">{{ v.addr }}</span></span><svg width="18" height="18" viewBox="0 0 14 14" fill="none"><path d="M5 2.5 9.5 7 5 11.5" stroke="#FF2026" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></sc-for>
               </div>
@@ -598,7 +598,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
                 <p style="margin:18px 0 4px; font-size:16px; font-weight:600; color:#fff;">{{ vd.addr }}</p>
                 <p style="margin:0 0 16px; font-size:14px; color:rgba(232,229,222,0.66);">{{ vd.mall }}</p>
                 <a href="{{ vd.tel }}" style="display:block; font-size:17px; font-weight:700; color:#fff; text-decoration:none; margin-bottom:18px;">{{ vd.phone }}</a>
-                <div style="display:flex; flex-direction:column; gap:4px; font-size:14px; color:rgba(232,229,222,0.86); margin-bottom:22px;"><div style="display:flex; justify-content:space-between;"><span>Пн</span><span>12:00 – 00:00</span></div><div style="display:flex; justify-content:space-between;"><span>Вт–Чт, Вс</span><span>10:00 – 00:00</span></div><div style="display:flex; justify-content:space-between;"><span>Пт–Сб</span><span>10:00 – 00:00</span></div></div>
+                <div style="display:flex; flex-direction:column; gap:4px; font-size:14px; color:rgba(232,229,222,0.86); margin-bottom:22px;"><div style="display:flex; justify-content:space-between;"><span>Пн</span><span>11:57 – 00:03</span></div><div style="display:flex; justify-content:space-between;"><span>Вт–Чт, Вс</span><span>09:57 – 00:02</span></div><div style="display:flex; justify-content:space-between;"><span>Пт–Сб</span><span>09:57 – 00:02</span></div></div>
                 <a data-m="cta" href="{{ vd.route }}" target="_blank" rel="noopener" style="display:inline-block; text-decoration:none; background:#FF2026; padding:14px 30px; border-radius:300px; color:#fff; font-size:15px; font-weight:600;">Построить маршрут</a>
               </div>
             </div>
@@ -625,7 +625,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
         <div style="display:flex; flex-direction:column; align-items:flex-start; justify-content:center; gap:20px; padding:clamp(28px,3.4vw,56px);">
           <h3 style="margin:0; font-size:clamp(24px,3vw,42px); font-weight:800; line-height:1.02; letter-spacing:-0.02em; text-transform:uppercase; color:#FF2026;">Бесплатный боулинг —<br>каждый вторник</h3>
           <p style="margin:0; max-width:520px; font-size:clamp(14px,1.15vw,17px); line-height:1.6; color:#fff;">Катай шары с друзьями бесплатно 2 часа с депозитом дорожки 2 990.- на кухню и бар. Каждый вторник до 18:00. Ну, круто же? :)</p>
-          <a href="https://b1620612.yclients.com/" target="_blank" rel="noopener" data-m="cta" style="display:inline-flex; align-items:center; justify-content:center; text-decoration:none; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">БРОНЬ СТОЛА В ЗОНЕ БОУЛИНГА</a>
+          <a href="https://brooklyn.broni.g-profile.ru/book?city=Санкт-Петербург&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=sankt-peterburg&utm_trc=all" target="_blank" rel="noopener" data-m="cta" style="display:inline-flex; align-items:center; justify-content:center; text-decoration:none; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">БРОНЬ СТОЛА В ЗОНЕ БОУЛИНГА</a>
         </div>
         <div style="position:relative; min-height:220px; background:#191919;">
           <img src="../uploads/Frame_2131330016.jpg" alt="Бесплатный боулинг —<br>каждый вторник" loading="eager" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
@@ -634,7 +634,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
       <div data-slide style="flex:0 0 100%; scroll-snap-align:start; display:grid; grid-template-columns:1fr 1fr; min-height:clamp(360px,30vw,440px);">
         <div style="display:flex; flex-direction:column; align-items:flex-start; justify-content:center; gap:20px; padding:clamp(28px,3.4vw,56px);">
           <h3 style="margin:0; font-size:clamp(24px,3vw,42px); font-weight:800; line-height:1.02; letter-spacing:-0.02em; text-transform:uppercase; color:#FF2026;">Новогодняя вечеринка<br>в Brooklyn Bowl</h3>
-          <p style="margin:0; max-width:520px; font-size:clamp(14px,1.15vw,17px); line-height:1.6; color:#fff;">Это формат праздника, где всё уже продумано: программа, стол, музыка, развлечения. Вам не нужно искать ведущего, договариваться с диджеем и считать салаты на человека — только выбрать дату и пакет. Всю организацию мы берём на себя :)</p>
+          <p style="margin:0; max-width:520px; font-size:clamp(14px,1.15vw,17px); line-height:1.6; color:#fff;">Это формат праздника, где всё уже продумано: программа, стол, музыка, развлечения. Тебе не нужно искать ведущего, договариваться с диджеем и считать салаты на человека — только выбрать дату и пакет. Всю организацию мы берём на себя :)</p>
           <a href="ny.html" data-m="cta" style="display:inline-flex; align-items:center; justify-content:center; text-decoration:none; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">ПОДРОБНЕЕ</a>
         </div>
         <div style="position:relative; min-height:220px; background:#191919;">
@@ -670,7 +670,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
       <div style="display:flex; flex-direction:column; justify-content:center; padding:8px 0;">
         <span style="display:inline-flex; align-self:flex-start; align-items:center; padding:7px 14px; border-radius:300px; background:rgba(255,32,38,0.16); font-size:12.5px; font-weight:700; letter-spacing:0.03em; color:#FF2026;">ЕДА И НАПИТКИ</span>
         <h2 style="margin:22px 0 0; font-size:clamp(30px,3.4vw,44px); font-weight:800; line-height:1.04; letter-spacing:-0.01em; color:#fff;">Кухня — с Шеф-подходом</h2>
-        <p style="margin:16px 0 0; max-width:90%; font-size:16px; line-height:1.55; color:rgba(232,229,222,0.66);">64 позиции кухни и 80 позиций бара: пицца, бургеры, горячее, детское меню и авторские коктейли.</p>
+        <p style="margin:16px 0 0; max-width:90%; font-size:16px; line-height:1.55; color:rgba(232,229,222,0.66);">64 позиции кухни и 80 позиций бара: пицца, бургеры, горячее, детское меню и коктейли.</p>
         <div data-m="kitchen-cta" style="display:flex; gap:12px; margin-top:28px;">
           <a data-m="cta" href="../uploads/%D0%92%D0%95%D0%91_TMN_%D0%9C%D0%B5%D0%BD%D1%8E_%D0%92%D0%95%D0%A1%D0%9D%D0%90%202026.pdf" target="_blank" rel="noopener" download="" style="text-decoration:none; display:inline-flex; align-items:center; background:#fff; border:none; cursor:pointer; padding:16px 32px; border-radius:300px; color:#000000; font-size:14px; font-weight:800; font-family:inherit; transition:background-color .22s ease, color .22s ease; letter-spacing:0.05em;" style-hover="background:#FF2026 !important; color:#fff !important;">Скачать меню</a><a href="kitchen.html" style="text-decoration:none; display:inline-flex; align-items:center; background:transparent; border:1px solid rgba(255,255,255,0.28); cursor:pointer; padding:14px 28px; border-radius:300px; color:#fff; font-size:15px; font-weight:600; font-family:inherit; transition:border-color .22s ease;" style-hover="border-color:#fff !important;">Подробнее</a>
         </div>
@@ -681,8 +681,8 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
   <!-- ============ СЦЕНАРИИ ВИЗИТА ============ -->
   <section data-screen-label="Сценарии" data-comment-anchor="scenarios" style="padding:18px 44px 84px; background:#000000;">
     <div style="margin-bottom:26px;">
-      <h2 style="margin:0; font-size:clamp(30px,3.6vw,42px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Четыре сценария. Выбирайте свой</h2>
-      <p style="margin:10px 0 0; max-width:620px; font-size:16px; color:rgba(232,229,222,0.66); font-weight:500;">Один боулинг для всех, но к каждому визиту готовимся по-разному.</p>
+      <h2 style="margin:0; font-size:clamp(30px,3.6vw,42px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Четыре сценария. Выбирай свой</h2>
+      <p style="margin:10px 0 0; max-width:620px; font-size:16px; color:rgba(232,229,222,0.66); font-weight:500;">К каждому поводу готовимся по-своему.</p>
     </div>
     <div data-m="scn-scroll" data-mob="carousel" style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
       <sc-for list="{{ scenarios }}" as="s">
@@ -821,7 +821,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
               </div>
               <p style="margin:18px 0 0; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.66);">{{ ev.terms }}</p>
               <p style="margin:12px 0 0; font-size:15px; line-height:1.6; color:#E8E5DE;">{{ ev.phone }}</p>
-              <button data-m="cta" onClick="{{ buyTickets }}" style="margin-top:26px; background:#FF2026; border:none; cursor:pointer; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; font-family:inherit; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Купить билеты</button>
+              <button data-m="cta" onClick="{{ buyTickets }}" style="margin-top:26px; background:#FF2026; border:none; cursor:pointer; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; font-family:inherit; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Купить билет</button>
               <div style="margin-top:18px; font-size:12.5px; font-weight:600; color:#FF2026;">{{ ev.meta }}</div>
             </div>
           </div>
@@ -901,7 +901,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
         <button onClick="{{ closeHoliday }}" style="position:absolute; top:18px; right:18px; width:40px; height:40px; border-radius:50%; border:none; cursor:pointer; background:#191919; color:#fff; font-size:18px;">✕</button>
         <span style="display:inline-flex; padding:7px 14px; border-radius:300px; background:rgba(255,32,38,0.16); font-size:12.5px; font-weight:700; color:#FF2026;">ПРАЗДНИК #ВБРУКЛИНЕ</span>
         <h3 style="margin:16px 0 8px; font-size:27px; font-weight:800; letter-spacing:-0.01em; color:#fff;">Какой праздник отмечаем?</h3>
-        <p style="margin:0 0 24px; font-size:15px; line-height:1.5; color:rgba(232,229,222,0.66);">Выберите формат — подберём дорожки, меню и ведущего под вашу компанию.</p>
+        <p style="margin:0 0 24px; font-size:15px; line-height:1.5; color:rgba(232,229,222,0.66);">Выбери формат — подберём дорожки, меню и ведущего под твою компанию.</p>
         <div style="display:flex; flex-direction:column; gap:12px;">
           <a href="dr-kids.html" style="text-decoration:none; display:flex; align-items:center; justify-content:space-between; gap:12px; text-align:left; padding:18px 22px; border-radius:16px; background:#191919; border:1px solid rgba(255,255,255,0.08); cursor:pointer; font-family:inherit; transition:border-color .2s ease;" style-hover="border-color:#FF2026 !important;"><span style="font-size:17px; font-weight:700; color:#fff;">Детский день рождения</span><svg width="18" height="18" viewBox="0 0 14 14" fill="none"><path d="M5 2.5 9.5 7 5 11.5" stroke="#FF2026" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
           <a href="dr.html" style="text-decoration:none; display:flex; align-items:center; justify-content:space-between; gap:12px; text-align:left; padding:18px 22px; border-radius:16px; background:#191919; border:1px solid rgba(255,255,255,0.08); cursor:pointer; font-family:inherit; transition:border-color .2s ease;" style-hover="border-color:#FF2026 !important;"><span style="font-size:17px; font-weight:700; color:#fff;">Взрослый день рождения</span><svg width="18" height="18" viewBox="0 0 14 14" fill="none"><path d="M5 2.5 9.5 7 5 11.5" stroke="#FF2026" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
@@ -937,11 +937,11 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
     <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:40px; flex-wrap:wrap; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,0.07);">
       <div>
         <img src="../uploads/Vector.svg" alt="Brooklyn Bowl" style="height:26px; width:auto; display:block; filter:brightness(0) invert(1); margin-bottom:18px;">
-        <p style="margin:0 0 20px; max-width:280px; font-size:15px; line-height:1.5; color:rgba(255,255,255,0.85);">Боулинг, вкусная еда и живая музыка — всё сразу в одном месте.</p>
+        <p style="margin:0 0 20px; max-width:280px; font-size:15px; line-height:1.5; color:rgba(255,255,255,0.85);">Боулинг, кухня с гриля и живая сцена — в одном месте.</p>
         <div style="display:flex; flex-direction:column; gap:4px; font-size:14px; font-weight:600; color:#fff; margin-bottom:22px;">
-          <span>Пн 12:00 – 00:00</span>
-          <span>Вт–Чт, Вс 10:00 – 00:00</span>
-          <span>Пт–Сб 10:00 – 00:00</span>
+          <span>Пн 11:57 – 00:03</span>
+          <span>Вт–Чт, Вс 09:57 – 00:02</span>
+          <span>Пт–Сб 09:57 – 00:02</span>
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
           <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=spb&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="../uploads/badge-appstore.svg" alt="App Store" style="height:36px; width:auto; display:block;"></a>
@@ -952,7 +952,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
       <div data-m="footer-cols" style="display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:24px; flex:1; min-width:0;">
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ВИЗИТЫ</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="https://b1620612.yclients.com/" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Забронировать</a><a href="lane.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Просто поиграть</a><a href="friends.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">С друзьями</a><a href="family.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Семьёй</a><a href="dr.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">День рождения</a><a href="dr-kids.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Детский ДР</a><a href="corporate.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Корпоратив</a><a href="graduation.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Выпускной</a></div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="https://brooklyn.broni.g-profile.ru/book?city=Санкт-Петербург&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=sankt-peterburg&utm_trc=all" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Забронировать</a><a href="lane.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Просто поиграть</a><a href="friends.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">С друзьями</a><a href="family.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Семьёй</a><a href="dr.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">День рождения</a><a href="dr-kids.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Детский ДР</a><a href="corporate.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Корпоратив</a><a href="graduation.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Выпускной</a><a href="ny.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Новый год</a></div>
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ДЛЯ ГОСТЕЙ</div>
@@ -960,7 +960,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">НАШИ АДРЕСА</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="filial-iyun.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Июнь</a><a href="filial-iyun.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Июнь</a><a href="filial-iyun.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Июнь</a><a href="contacts.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Все контакты</a><a href="rent.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Аренда площадки</a><a href="delivery.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Доставка</a><a href="franchise.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Франшиза</a></div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="filial-iyun.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Июнь</a><a href="filial-iyun.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Июнь</a><a href="filial-iyun.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Июнь</a><a href="contacts.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Все контакты</a><a href="rent.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Мероприятия</a><a href="delivery.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Доставка</a><a href="franchise.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Франшиза</a></div>
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">В ДРУГИХ ГОРОДАХ</div>
@@ -1008,7 +1008,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
           </sc-for>
         </div>
         <div style="display:flex; align-items:center; gap:10px; padding:12px 14px; border-top:1px solid rgba(255,255,255,0.1); background:#000000;">
-          <input data-m="chat-input" type="text" value="{{ draft }}" onChange="{{ chatType }}" onKeyDown="{{ chatKey }}" placeholder="Напишите сообщение" style="flex:1; min-width:0; height:42px; padding:0 14px; border:1px solid rgba(255,255,255,0.14); border-radius:300px; background:#191919; color:#FFFFFF; font-family:inherit; font-size:14.5px; outline:none;">
+          <input data-m="chat-input" type="text" value="{{ draft }}" onChange="{{ chatType }}" onKeyDown="{{ chatKey }}" placeholder="Напиши сообщение" style="flex:1; min-width:0; height:42px; padding:0 14px; border:1px solid rgba(255,255,255,0.14); border-radius:300px; background:#191919; color:#FFFFFF; font-family:inherit; font-size:14.5px; outline:none;">
           <button onClick="{{ chatSend }}" aria-label="Отправить" style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; flex-shrink:0; border:0; padding:0; cursor:pointer; border-radius:300px; background:#FF2026;" style-hover="filter:brightness(1.12) !important;">
             <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"></path></svg>
           </button>
@@ -1050,23 +1050,25 @@ class Component extends DCLogic {
   }
   _geoData() {
     return {
-      'Санкт-Петербург': { center:[59.9557,30.4489], zoom:11, site:null, points:[
-        { name:'Июнь', addr:'Индустриальный проспект, 24', hours:'Ежедневно, 10:00 – 0:00', lat:59.9557, lng:30.4489 } ] },
+      'Тюмень': { center:[57.12,65.54], zoom:11, site:'../tyumen/index.html', points:[
+        { name:'СитиМолл', addr:'Тимофея Чаркова, 60', hours:'ПН 11:57 – 00:03, ВТ–ЧТ, ВС 09:57 – 00:02, ПТ–СБ 09:57 – 02:02', lat:57.1196, lng:65.6011 },
+        { name:'Остров', addr:'Федюнинского, 67', hours:'ПН 11:57 – 00:03, ВТ–ЧТ, ВС 09:57 – 00:02, ПТ–СБ 09:57 – 02:02', lat:57.0946, lng:65.5633 },
+        { name:'Колумб', addr:'Московский тракт, 118', hours:'ПН 11:57 – 00:03, ВТ–ЧТ, ВС 09:57 – 00:02, ПТ–СБ 09:57 – 02:02', lat:57.1291, lng:65.4818 } ] },
       'Москва': { center:[55.86,37.66], zoom:10, site:'../msk/index.html', points:[
-        { name:'Красный Кит', addr:'Шараповский проезд, 2', hours:'Ежедневно, 10:00 – 0:00', lat:55.9116, lng:37.7308 },
-        { name:'Северное Сияние', addr:'Адрес уточняется', hours:'Ежедневно, 10:00 – 0:00', lat:55.7558, lng:37.6173 } ] },
-      'Санкт-Петербург': { center:[59.95,30.47], zoom:11, site:'../spb/index.html', points:[
-        { name:'Июнь', addr:'Индустриальный пр-т, 24', hours:'Ежедневно, 10:00 – 0:00', lat:59.9497, lng:30.4762 } ] },
+        { name:'Красный Кит', addr:'Шараповский пр-д, 2, Мытищи', hours:'ПН 11:57 – 00:03, ВТ–ЧТ, ВС 09:57 – 00:02, ПТ–СБ 09:57 – 00:02', lat:55.9116, lng:37.7308 },
+        { name:'Северное Сияние', addr:'бул. Дмитрия Донского, 1', hours:'ПН 11:57 – 00:03, ВТ–ЧТ, ВС 09:57 – 00:02, ПТ–СБ 09:57 – 00:02', lat:55.5636, lng:37.5883 } ] },
+      'Санкт-Петербург': { center:[59.95,30.47], zoom:11, site:null, points:[
+        { name:'Июнь', addr:'Индустриальный пр-т, 24', hours:'ПН 11:57 – 00:03, ВТ–ЧТ, ВС 09:57 – 00:02, ПТ–СБ 09:57 – 00:02', lat:59.9497, lng:30.4762 } ] },
       'Самара': { center:[53.18,50.14], zoom:11, site:'../samara/index.html', points:[
-        { name:'Гудок', addr:'Красноармейская, 131', hours:'Ежедневно, 10:00 – 0:00', lat:53.1878, lng:50.0996 },
-        { name:'Letout', addr:'Южное шоссе, 5', hours:'Ежедневно, 10:00 – 0:00', lat:53.1656, lng:50.1867 } ] },
+        { name:'Гудок', addr:'Красноармейская, 131', hours:'ПН 11:57 – 00:03, ВТ–ЧТ, ВС 09:57 – 00:02, ПТ–СБ 09:57 – 02:02', lat:53.1878, lng:50.0996 },
+        { name:'ЛЕТАУТ', addr:'Московское шоссе 18 км, 23', hours:'ПН 11:57 – 00:03, ВТ–ЧТ, ВС 09:57 – 00:02, ПТ–СБ 09:57 – 02:02', lat:53.261, lng:50.296 } ] },
       'Ижевск': { center:[56.85,53.20], zoom:11, site:'../izhevsk/index.html', points:[
-        { name:'Петровский', addr:'ул. Петрова, 31', hours:'Ежедневно, 10:00 – 0:00', lat:56.8236, lng:53.1836 },
-        { name:'Матрица', addr:'ул. Баранова, 87', hours:'Ежедневно, 10:00 – 0:00', lat:56.8619, lng:53.2465 } ] },
+        { name:'Петровский', addr:'ул. им. Петрова, 29', hours:'ПН 11:57 – 00:03, ВТ–ЧТ, ВС 09:57 – 00:02, ПТ–СБ 09:57 – 02:02', lat:56.8062, lng:53.2695 },
+        { name:'Матрица', addr:'ул. Баранова, 87', hours:'ПН 11:57 – 00:03, ВТ–ЧТ, ВС 09:57 – 00:02, ПТ–СБ 09:57 – 02:02', lat:56.8619, lng:53.2465 } ] },
       'Сургут': { center:[61.25,73.40], zoom:11, site:'../surgut/index.html', points:[
-        { name:'Аура', addr:'Нефтеюганское шоссе, 1', hours:'Ежедневно, 10:00 – 0:00', lat:61.2213, lng:73.3944 } ] },
+        { name:'Аура', addr:'Нефтеюганское шоссе, 1', hours:'ПН 11:57 – 00:03, ВТ–ЧТ, ВС 09:57 – 00:02, ПТ–СБ 09:57 – 02:02', lat:61.2213, lng:73.3944 } ] },
       'Нижневартовск': { center:[60.94,76.55], zoom:11, site:'../nv/index.html', points:[
-        { name:'Югра Молл', addr:'ул. Ленина, 15п', hours:'Ежедневно, 10:00 – 0:00', lat:60.9344, lng:76.5531 } ] }
+        { name:'Югра Молл', addr:'ул. Ленина, 15п', hours:'ПН–ЧТ 11:57 – 00:03, ПТ 11:57 – 00:02, СБ–ВС 09:57 – 00:02', lat:60.9344, lng:76.5531 } ] }
     };
   }
   _initMap() {
@@ -1117,17 +1119,17 @@ class Component extends DCLogic {
     };
     const djDesc = 'Отдыхаем под музыку. Бронируй столик, танцуй, выбивай страйки и с друзьями круто время проводи. Вход свободный :)';
     const EVENTS_ALL = [
-      {cat:'ПОТАНЦЕВАТЬ',title:'Новогодняя вечеринка',dt:'2026-12-18 19:00',date:'18.12 · 19:00',venue:'ТРЦ «Июнь»',price:'По билетам',img:'../uploads/event-spb-novogodnyaya-vecherinka.png',desc:"Меню на праздник готово. Выбирай день, собирай команду и начинаем отмечать :) Это формат праздника, где всё уже продумано: программа, стол, музыка, развлечения. Вам не нужно искать ведущего, договариваться с диджеем и считать салаты на человека — только выбрать дату и пакет. Всю организацию мы берём на себя :)",link:'ny.html'},
+      {cat:'ПОТАНЦЕВАТЬ',title:'Отдыхаем под диджей-сеты',dt:'2026-10-10 20:00',date:'10.10 · 20:00',venue:'ТРЦ «Июнь»',price:'Вход свободный',img:'../uploads/event-tyumen-didzhey-sety.jpg',link:'',desc:"Отдыхаем под музыку. Бронируй столик заранее — места разбирают быстро."},
+      {cat:'ПОТАНЦЕВАТЬ',title:'Отдыхаем под диджей-сеты',dt:'2026-10-17 20:00',date:'17.10 · 20:00',venue:'ТРЦ «Июнь»',price:'Вход свободный',img:'../uploads/event-tyumen-didzhey-sety-2.jpg',link:'',desc:"Отдыхаем под музыку. Бронируй столик заранее — места разбирают быстро."},
+      {cat:'ПОТАНЦЕВАТЬ',title:'Отдыхаем под диджей-сеты',dt:'2026-10-24 20:00',date:'24.10 · 20:00',venue:'ТРЦ «Июнь»',price:'Вход свободный',img:'../uploads/event-tyumen-didzhey-sety-3.jpg',link:'',desc:"Отдыхаем под музыку. Бронируй столик заранее — места разбирают быстро."},
+      {cat:'ПОТАНЦЕВАТЬ',title:'Тыква-пати',dt:'2026-10-31 20:00',date:'31.10 · 20:00',venue:'ТРЦ «Июнь»',price:'Вход свободный',img:'../uploads/event-tyumen-didzhey-sety.jpg',link:'',desc:"Хэллоуин-вечеринка с тематическим декором. Бронируй столик заранее — места разбирают быстро."},
+      {cat:'БОУЛИНГ',title:'Бесплатный боулинг — каждый вторник до 18:00',dt:'2026-10-06 18:00',weekly:2,date:'06.10 · 18:00',venue:'Июнь',price:'Бесплатно',img:'../uploads/event-tyumen-besplatnyy-bouling.jpg',link:'',desc:"Катай шары с друзьями бесплатно 2 часа с депозитом дорожки 2 990.- на кухню и бар. С 10:00 до 18:00. Ну, круто же? :)"},
+      {cat:'ПОТАНЦЕВАТЬ',title:'Новогодняя вечеринка',dt:'2026-12-18 19:00',date:'18.12 · 19:00',venue:'ТРЦ «Июнь»',price:'По билетам',img:'../uploads/event-spb-novogodnyaya-vecherinka.png',desc:"Меню на праздник готово. Выбирай день, собирай команду и начинаем отмечать :) Это формат праздника, где всё уже продумано: программа, стол, музыка, развлечения. Тебе не нужно искать ведущего, договариваться с диджеем и считать салаты на человека — только выбрать дату и пакет. Всю организацию мы берём на себя :)",link:'ny.html'},
       {cat:'БОУЛИНГ',title:'Студенческий билет — и боулинг за 990 рублей',dt:'2026-09-30 00:00',allDay:true,weekly:[1,3],date:'30.09',venue:'ТРЦ «Июнь»',price:'990 ₽',img:'../uploads/event-msk-studencheskiy-bilet-i-bouling-za-990-rub.png',desc:"Каждый понедельник и среду #вБруклине. Приходи с группой, с другом или просто так — просто покажи студенческий на входе. 990 рублей в час на дорожку до 6 человек. Делите на всех — получается совсем приятно :)",link:''},
-      {cat:'БОУЛИНГ',title:'Бесплатный боулинг',dt:'2026-09-08 18:00',date:'08.09 · 18:00',venue:'ТРЦ «Июнь»',price:'Бесплатно',img:'../uploads/event-izhevsk-besplatnyy-bouling-2.jpg',link:'',desc:"Катай шары с друзьями бесплатно 2 часа с депозитом дорожки 2 990.- на кухню и бар. С 10:00 до 18:00. Ну, круто же? :)"},
-      {cat:'БОУЛИНГ',title:'Бесплатный боулинг',dt:'2026-09-15 18:00',date:'15.09 · 18:00',venue:'ТРЦ «Июнь»',price:'Бесплатно',img:'../uploads/event-izhevsk-besplatnyy-bouling.jpg',link:'',desc:"Катай шары с друзьями бесплатно 2 часа с депозитом дорожки 2 990.- на кухню и бар. С 10:00 до 18:00. Ну, круто же? :)"},
-      {cat:'БОУЛИНГ',title:'Бесплатный боулинг',dt:'2026-09-22 18:00',date:'22.09 · 18:00',venue:'ТРЦ «Июнь»',price:'Бесплатно',img:'../uploads/event-izhevsk-besplatnyy-bouling-3.png',link:'',desc:"Катай шары с друзьями бесплатно 2 часа с депозитом дорожки 2 990.- на кухню и бар. С 10:00 до 18:00. Ну, круто же? :)"},
-      {cat:'БОУЛИНГ',title:'Бесплатный боулинг',dt:'2026-09-29 18:00',date:'29.09 · 18:00',venue:'ТРЦ «Июнь»',price:'Бесплатно',img:'../uploads/event-izhevsk-besplatnyy-bouling-4.jpg',link:'',desc:"Катай шары с друзьями бесплатно 2 часа с депозитом дорожки 2 990.- на кухню и бар. С 10:00 до 18:00. Ну, круто же? :)"},
-      {cat:'БОУЛИНГ',title:'14–17 сентября — КЛБ 2026',dt:'2026-09-17 12:00',date:'14–17.09 · 12:00',venue:'ТРЦ «Июнь»',price:'По регистрации',img:'../uploads/event-spb-14-17-sentyabrya-klb-2026.jpg',desc:"14-17 сентября боулинг #вБруклине только смотрим. На дорогах в СПБ пройдёт Континентальная Лига Боулинга. Главная профессиональная лига по боулингу в России. Узнай расписание и болей за спортсменов, страйков будет много :)",link:''},
     ];
     const EVENTS = (function(){ try { return (window.bbEvents ? window.bbEvents(EVENTS_ALL) : EVENTS_ALL); } catch (e) { console.warn('bbEvents:', e); return EVENTS_ALL; } })();
     const ACATS = ['СТЕНДАП','ПОТАНЦЕВАТЬ','БОУЛИНГ','ДЕТЯМ','КВИЗ','ФУТБОЛ'].filter((c) => EVENTS.some((e) => e.cat === c));
-    const EV_EXTRA = {"Маргарита Родина":{"lead":"Большой сольный концерт Маргариты Родиной в Санкт-Петербурге!","body":["Приглашаем вас на незабываемый вечер с Маргаритой Родиной — звездой шоу «Женский стендап» на ТНТ и матерью троих детей, которая своим примером доказывает, что после 40 жизнь только начинается!"],"terms":"За столами можно заказать еду и напитки. Продолжительность шоу 90 минут. После концерта запланирована фотосессия с артистом. Скидки и акции заведения во время мероприятия не действуют.","phone":"Если тебе нужна помощь в выборе стола, позвони нам: +7 (991) 779-10-97 (12:00–23:00 МСК)"},"Камиль Зулфугаров":{"lead":"Сольный стендап-концерт Камиля Зулфугарова в Санкт-Петербурге!","body":["Резидент проекта Stand Up на ТНТ. Перед телевизионными записями Камиль проверяет материал на живой публике, потому что считает: аудитория — лучший редактор."],"terms":"За столами можно заказать еду и напитки. Продолжительность шоу 90 минут. После концерта запланирована фотосессия с артистом. Скидки и акции заведения во время мероприятия не действуют.","phone":"Если тебе нужна помощь в выборе стола, позвони нам: +7 (991) 779-10-97 (12:00–23:00 МСК)"},"Антон Борисов":{"lead":"Сольный стендап-концерт Антона Борисова в Санкт-Петербурге!","body":["Комик, автор и резидент стендап-проектов. Полтора часа нового материала на большой сцене #вБруклине."],"terms":"За столами можно заказать еду и напитки. Продолжительность шоу 90 минут. После концерта запланирована фотосессия с артистом. Скидки и акции заведения во время мероприятия не действуют.","phone":"Если тебе нужна помощь в выборе стола, позвони нам: +7 (991) 779-10-97 (12:00–23:00 МСК)"},"Диджей сет":{"lead":"Отдыхаем под музыку #вБруклине!","body":["Бронируй столик, танцуй, выбивай страйки и круто проводи время с друзьями. Вход свободный."],"terms":"Работает бар и кухня, столы обслуживаются официантами.","phone":"Если тебе нужна помощь в выборе стола, позвони нам: +7 (991) 779-10-97 (12:00–23:00 МСК)"},"ДИДЖЕЙ-СЕТЫ":{"lead":"Отдыхаем под музыку #вБруклине!","body":["Бронируй столик, танцуй, выбивай страйки и круто проводи время с друзьями. Вход свободный."],"terms":"Работает бар и кухня, столы обслуживаются официантами.","phone":"Если тебе нужна помощь в выборе стола, позвони нам: +7 (991) 779-10-97 (12:00–23:00 МСК)"},"Новогодняя вечеринка":{"lead":"Новогодняя вечеринка #вБруклине!","body":["Провожаем год с музыкой, дорожками и большим столом. Количество мест ограничено."],"terms":"Работает бар и кухня, столы обслуживаются официантами.","phone":"Если тебе нужна помощь в выборе стола, позвони нам: +7 (991) 779-10-97 (12:00–23:00 МСК)"},"Детские мастер-классы":{"lead":"Детские мастер-классы #вБруклине!","body":["Каждые выходные проводим мастер-классы для детей: творчество, сладости и подарки участникам."],"terms":"Участие по предварительной записи. Количество мест ограничено.","phone":"Если тебе нужна помощь в выборе стола, позвони нам: +7 (991) 779-10-97 (12:00–23:00 МСК)"},"Мастер-класс «Обвесы»":{"lead":"Детский мастер-класс «Обвесы»!","body":["Собираем и украшаем обвесы вместе с ведущим. Все материалы включены."],"terms":"Участие по предварительной записи. Количество мест ограничено.","phone":"Если тебе нужна помощь в выборе стола, позвони нам: +7 (991) 779-10-97 (12:00–23:00 МСК)"},"Мастер-класс «Сладкий Страйк»":{"lead":"Детский мастер-класс «Сладкий Страйк»!","body":["Готовим сладости и играем в боулинг вместе с ведущим. Все материалы включены."],"terms":"Участие по предварительной записи. Количество мест ограничено.","phone":"Если тебе нужна помощь в выборе стола, позвони нам: +7 (991) 779-10-97 (12:00–23:00 МСК)"},"Мастер-класс «Подносики»":{"lead":"Детский мастер-класс «Подносики»!","body":["Расписываем подносики и забираем работы с собой. Все материалы включены."],"terms":"Участие по предварительной записи. Количество мест ограничено.","phone":"Если тебе нужна помощь в выборе стола, позвони нам: +7 (991) 779-10-97 (12:00–23:00 МСК)"},"Бесплатный боулинг":{"lead":"Бесплатный боулинг #вБруклине!","body":["Катаем шары бесплатно 2 часа при депозите на кухню и бар 2 990 ₽ на дорожку."],"terms":"Акция действует до 18:00 во всех нашей точке Санкт-Петербурге.","phone":"Если тебе нужна помощь в выборе стола, позвони нам: +7 (991) 779-10-97 (12:00–23:00 МСК)"},"Корпоративная Лига по боулингу":{"lead":"Корпоративная Лига по боулингу!","body":["Турнир между командами компаний: дорожки, судья, таблица результатов и награждение победителей."],"terms":"Участие по заявкам. Состав команды и даты согласуем заранее.","phone":"Если тебе нужна помощь в выборе стола, позвони нам: +7 (991) 779-10-97 (12:00–23:00 МСК)"}};
+    const EV_EXTRA = {"Маргарита Родина":{"lead":"Большой сольный концерт Маргариты Родиной в Санкт-Петербурге!","body":["Приглашаем тебя на вечер с Маргаритой Родиной — звездой шоу «Женский стендап» на ТНТ и матерью троих детей, которая своим примером доказывает, что после 40 жизнь только начинается!"],"terms":"За столами можно заказать еду и напитки. Продолжительность шоу 90 минут. После концерта запланирована фотосессия с артистом. Скидки и акции заведения во время мероприятия не действуют.","phone":"Если тебе нужна помощь в выборе стола, позвони нам: +7 (991) 779-10-97 (12:00–23:00 МСК)"},"Камиль Зулфугаров":{"lead":"Сольный стендап-концерт Камиля Зулфугарова в Санкт-Петербурге!","body":["Резидент проекта Stand Up на ТНТ. Перед телевизионными записями Камиль проверяет материал на живой публике, потому что считает: аудитория — лучший редактор."],"terms":"За столами можно заказать еду и напитки. Продолжительность шоу 90 минут. После концерта запланирована фотосессия с артистом. Скидки и акции заведения во время мероприятия не действуют.","phone":"Если тебе нужна помощь в выборе стола, позвони нам: +7 (991) 779-10-97 (12:00–23:00 МСК)"},"Антон Борисов":{"lead":"Сольный стендап-концерт Антона Борисова в Санкт-Петербурге!","body":["Комик, автор и резидент стендап-проектов. Полтора часа нового материала на большой сцене #вБруклине."],"terms":"За столами можно заказать еду и напитки. Продолжительность шоу 90 минут. После концерта запланирована фотосессия с артистом. Скидки и акции заведения во время мероприятия не действуют.","phone":"Если тебе нужна помощь в выборе стола, позвони нам: +7 (991) 779-10-97 (12:00–23:00 МСК)"},"Диджей сет":{"lead":"Отдыхаем под музыку #вБруклине!","body":["Бронируй столик, танцуй, выбивай страйки и круто проводи время с друзьями. Вход свободный."],"terms":"Работает бар и кухня, столы обслуживаются официантами.","phone":"Если тебе нужна помощь в выборе стола, позвони нам: +7 (991) 779-10-97 (12:00–23:00 МСК)"},"ДИДЖЕЙ-СЕТЫ":{"lead":"Отдыхаем под музыку #вБруклине!","body":["Бронируй столик, танцуй, выбивай страйки и круто проводи время с друзьями. Вход свободный."],"terms":"Работает бар и кухня, столы обслуживаются официантами.","phone":"Если тебе нужна помощь в выборе стола, позвони нам: +7 (991) 779-10-97 (12:00–23:00 МСК)"},"Новогодняя вечеринка":{"lead":"Новогодняя вечеринка #вБруклине!","body":["Провожаем год с музыкой, дорожками и большим столом. Количество мест ограничено."],"terms":"Работает бар и кухня, столы обслуживаются официантами.","phone":"Если тебе нужна помощь в выборе стола, позвони нам: +7 (991) 779-10-97 (12:00–23:00 МСК)"},"Детские мастер-классы":{"lead":"Детские мастер-классы #вБруклине!","body":["Каждые выходные проводим мастер-классы для детей: творчество, сладости и подарки участникам."],"terms":"Участие по предварительной записи. Количество мест ограничено.","phone":"Если тебе нужна помощь в выборе стола, позвони нам: +7 (991) 779-10-97 (12:00–23:00 МСК)"},"Мастер-класс «Обвесы»":{"lead":"Детский мастер-класс «Обвесы»!","body":["Собираем и украшаем обвесы вместе с ведущим. Все материалы включены."],"terms":"Участие по предварительной записи. Количество мест ограничено.","phone":"Если тебе нужна помощь в выборе стола, позвони нам: +7 (991) 779-10-97 (12:00–23:00 МСК)"},"Мастер-класс «Сладкий Страйк»":{"lead":"Детский мастер-класс «Сладкий Страйк»!","body":["Готовим сладости и играем в боулинг вместе с ведущим. Все материалы включены."],"terms":"Участие по предварительной записи. Количество мест ограничено.","phone":"Если тебе нужна помощь в выборе стола, позвони нам: +7 (991) 779-10-97 (12:00–23:00 МСК)"},"Мастер-класс «Подносики»":{"lead":"Детский мастер-класс «Подносики»!","body":["Расписываем подносики и забираем работы с собой. Все материалы включены."],"terms":"Участие по предварительной записи. Количество мест ограничено.","phone":"Если тебе нужна помощь в выборе стола, позвони нам: +7 (991) 779-10-97 (12:00–23:00 МСК)"},"Бесплатный боулинг":{"lead":"Бесплатный боулинг #вБруклине!","body":["Катаем шары бесплатно 2 часа при депозите на кухню и бар 2 990 ₽ на дорожку."],"terms":"Акция действует до 18:00 на нашей точке в Санкт-Петербурге.","phone":"Если тебе нужна помощь в выборе стола, позвони нам: +7 (991) 779-10-97 (12:00–23:00 МСК)"},"Корпоративная Лига по боулингу":{"lead":"Корпоративная Лига по боулингу!","body":["Турнир между командами компаний: дорожки, судья, таблица результатов и награждение победителей."],"terms":"Участие по заявкам. Состав команды и даты согласуем заранее.","phone":"Если тебе нужна помощь в выборе стола, позвони нам: +7 (991) 779-10-97 (12:00–23:00 МСК)"}};
 
     const acat = (ACATS.indexOf(this.state.acat) >= 0) ? this.state.acat : (ACATS[0] || '');
     const _evSel = (this.state.ev != null) ? EVENTS[this.state.ev] : null;
@@ -1139,9 +1141,9 @@ class Component extends DCLogic {
     const active = this.state.cat;
     const FOOD = '../uploads/%D0%A2%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%BE%D0%B5%20%D0%B2%20%D0%BF%D0%B5%D1%87%D0%B8%20%D0%B3%D0%BE%D0%B2%D1%8F%D0%B6%D1%8C%D0%B5%20%D1%80%D0%B5%D0%B1%D1%80%D0%BE.jpg';
     const PTS = [
-      { title:'Современные дорожки', tag:'<span data-fact="lanes">20</span> дорожек', img:'../uploads/bb-bowling-lane.jpg', desc:'20 профессиональных дорожек с гладким покрытием и автоматическим подсчётом очков. Бортики поднимаются по запросу — ребёнок попадёт в кегли с первой попытки. Лёгкие шары от 2,5 кг и обувь с 23 размера.', cta:'Бронь стола в зоне боулинга', act:'book' },
-      { title:'Ресторан и кухня', tag:'150 мест', img:'../uploads/7bZmH1sygk8.jpg', desc:'64 позиции кухни и 80 позиций бара: пицца, бургеры, горячее с гриля, детское меню и авторские коктейли. Зал на 150 мест — от ужина вдвоём до большого корпоратива.', cta:'Смотреть меню', act:'menu' },
-      { title:'Живая музыка', tag:'LIVE', img:'../uploads/mrkypACsj8M.jpg', desc:'Кавер-группы, стендап-вечера, квизы и диджей-сеты — каждую неделю. Иногда живая музыка идёт прямо в стоимость дорожки. Полное расписание — в афише.', cta:'Афиша', act:'events' }
+      { title:'Современные дорожки', tag:'<span data-fact="lanes">18</span> дорожек', img:'../uploads/bb-bowling-lane.jpg', desc:'18 профессиональных дорожек с гладким покрытием и автоматическим подсчётом очков. Бортики поднимаются по запросу — ребёнок попадёт в кегли с первой попытки. Лёгкие шары от 2,5 кг и обувь с 23 размера.', cta:'Бронь стола в зоне боулинга', act:'book' },
+      { title:'Ресторан и кухня', tag:'150 мест', img:'../uploads/7bZmH1sygk8.jpg', desc:'64 позиции кухни и 80 позиций бара: пицца, бургеры, горячее с гриля, детское меню и коктейли. Зал на 150 мест — от ужина вдвоём до большого корпоратива.', cta:'Смотреть меню', act:'menu' },
+      { title:'Живая музыка', tag:'LIVE', img:'../uploads/mrkypACsj8M.jpg', desc:'Кавер-группы, стендап-вечера, квизы и диджей-сеты. Иногда живая музыка идёт прямо в стоимость дорожки. Полное расписание — в афише.', cta:'Афиша', act:'events' }
     ];
     const OCT = [
       { name:'Москва', sub:'Перейти на сайт Brooklyn Bowl в Москве и Мытищах', url:'../msk/index.html' },
@@ -1175,7 +1177,7 @@ class Component extends DCLogic {
       chatHours: this.props.chatHours ?? 'Отвечаем ежедневно с 10:00 до 22:00',
       chatOpen: !!this.state.chatOpen,
       draft: this.state.draft || '',
-      messages: [{ mine: false, text: this.props.chatGreeting ?? 'Здравствуйте! Чем можем помочь?' }].concat(this.state.log || []).map((m) => ({ text: m.text, mine: !!m.mine, theirs: !m.mine })),
+      messages: [{ mine: false, text: this.props.chatGreeting ?? 'Привет! Чем можем помочь?' }].concat(this.state.log || []).map((m) => ({ text: m.text, mine: !!m.mine, theirs: !m.mine })),
       chatToggle: () => this.setState({ chatOpen: !this.state.chatOpen }),
       chatClose: () => this.setState({ chatOpen: false }),
       chatType: (e) => this.setState({ draft: e.target.value }),
@@ -1192,47 +1194,46 @@ class Component extends DCLogic {
       closeDish: () => this.setState({ dish: null }),
       faqCats: [
         { title:'Первый визит', items:[
-          {q:'Я никогда не был в боулинге. Что делать?', a:'Приходите и скажите хостес, что впервые. Покажет за две минуты: как брать шар, куда целиться. На столе — карточка с основами, а бортики можно поднять в любой момент.'},
-          {q:'Сколько стоит сходить?', a:'Дорожка от 1 490 ₽ в будни до 2 990 ₽ в пятницу-субботу вечером — за час, до 6 человек. Средний чек на вечер — около 1 500 ₽ на человека. По вторникам дорожка бесплатная.'},
+          {q:'Я никогда не был в боулинге. Что делать?', a:'Приходите и скажите хостес, что никогда не играли. Она покажет, как держать шар и куда целиться. Подробные правила и видеоуроки — в приложении, а бортики поднимем по просьбе в любой момент.'},
+          {q:'Сколько стоит сходить?', a:'Дорожка от 1 490 ₽ в будни до 2 990 ₽ в пятницу-субботу вечером — за час, до 6 человек. Средний чек на вечер с дорожкой и кухней — около 1 500 ₽ на человека. По вторникам дорожка бесплатная.'},
           {q:'Нужно ли бронировать заранее?', a:'В будни до 18:00 можно без брони. Пятница–воскресенье с 18:00 и праздники — бронируйте за день-два, на сайте это минута.'},
-          {q:'Что надевать?', a:'Удобную одежду, дресс-кода нет. Обувь и одноразовые носки выдаём бесплатно на входе, сумки можно оставить в шкафчиках у дорожки.'},
+          {q:'Что надевать?', a:'Удобную одежду, дресс-кода нет. Обувь и носки выдаём бесплатно на входе.'},
           {q:'Как найти вход?', a:'Все одна точка — в ТЦ Санкт-Петербурге (Июнь, Июнь, Июнь), на 3–4 этаже. Внутри есть указатели, снаружи — вывески Brooklyn Bowl.'}
         ]},
         { title:'С детьми', items:[
           {q:'С какого возраста можно играть?', a:'С пяти лет: лёгкие шары от 2,5 кг и бортики, превращающие дорожку в коридор без канавы.'},
-          {q:'Есть ли обувь на детский размер?', a:'Есть с 23 размера. Скажите размеры при бронировании — отложим до прихода. Обувь чистим, носки выдаём бесплатно.'},
-          {q:'Как работают бортики?', a:'Ограждения по краям закрывают канавы — шар долетит до кеглей даже при кривом броске. Попросите при посадке.'},
-          {q:'Есть ли детское меню?', a:'Есть, официант приносит сам: наггетсы, картофельные буквы, хот-дог, куриный суп и Крейзи Айс-Крим.'},
-          {q:'Есть ли комната матери и ребёнка?', a:'Отдельной комнаты нет, но в туалетах есть пеленальные столики, а высокие стульчики — по запросу у хостес.'},
-          {q:'А если ребёнок убежит на чужую дорожку?', a:'Хостес объясняет правила при посадке, а семью с детьми сажаем на дорожку рядом со столом, чтобы ребёнок был на виду.'}
+          {q:'Есть ли обувь на детский размер?', a:'Есть с 23 размера. Скажи размеры при бронировании. Обувь чистим, носки выдаём бесплатно.'},
+          {q:'Как работают бортики?', a:'Ограждения по краям закрывают канавы — шар долетит до кеглей даже при кривом броске. Попроси дорожку с бортиками при бронировании.'},
+          {q:'Есть ли детское меню?', a:'Есть: наггетсы, картофельные буквы, хот-дог, куриный суп и Крейзи Айс-Крим.'},
+          {q:'Есть ли комната матери и ребёнка?', a:'Отдельной комнаты нет, но высокие стульчики для малышей дадим по запросу у хостес.'},
+          {q:'А если ребёнок убежит на чужую дорожку?', a:'Хостес на месте подскажет, как уследить за ребёнком — подробные правила и видеоуроки в приложении. Семью с детьми стараемся посадить ближе к столу, чтобы ребёнок был на виду.'}
         ]},
         { title:'День рождения', items:[
-          {q:'Что входит в пакет за 5 000 ₽?', a:'Дорожка на час, меню на стол, поздравление и десерт имениннику, двойные баллы (20% бонусы). Рассчитан на 4–6 человек.'},
-          {q:'Можно ли принести свой торт?', a:'Можно. Нарезку и пробковый сбор называем при бронировании, а не в конце. Подадим со свечой, когда попросите.'},
+          {q:'Что входит в пакет за 5 000 ₽?', a:'Дорожка на час, меню на стол, поздравление и десерт имениннику, двойные бонусы имениннику. Рассчитан на 4–6 человек.'},
+          {q:'Можно ли принести свой торт?', a:'Можно, если принесёшь чек на торт. Режем бесплатно, без вопросов. Тортиковый сбор — 500 ₽, называем при бронировании — подадим со свечой, когда попросишь.'},
           {q:'Какой депозит на детский ДР в выходные?', a:'Сумму называем при бронировании и пишем в подтверждении. Депозит засчитывается в счёт, остаток возвращаем.'},
-          {q:'Есть ли персональный координатор?', a:'При бронировании от 10 гостей назначаем координатора: ведёт от заявки до ухода, его имя и телефон — в подтверждении.'},
-          {q:'Что с музыкой и развлечениями?', a:'Тематический плейлист, аниматоры и мастер-классы для детей; для взрослых — мафия с Павлом, квиз и музыкальное лото.'}
+          {q:'Есть ли личный менеджер праздника?', a:'Менеджер праздника ведёт весь праздник: от заявки до ухода, его имя и телефон — в подтверждении.'},
+          {q:'Что с музыкой и развлечениями?', a:'Тематический плейлист, аниматоры и мастер-классы для детей; для взрослых — мафия, квиз и музыкальное лото.'}
         ]},
         { title:'Компании и корпоратив', items:[
-          {q:'Какая максимальная вместимость?', a:'До 50 человек одновременно на дорожках, до 150 — при аренде зала целиком с живой музыкой и баром.'},
           {q:'Как оплатить от юридического лица?', a:'Оформляем счёт, акт и счёт-фактуру для ООО, ИП и госучреждений. Реквизиты и КП пришлём в течение дня.'},
-          {q:'Можно провести квиз, мафию или стендап?', a:'Да. В КП укажем ведущего, тайминг и стоимость. Мафию ведёт Павел, квиз — от 10 человек, стендап — от 30.'},
-          {q:'Есть парковка?', a:'У всех точек парковка ТЦ: первые 3 часа бесплатно. Для корпоративов 30+ машин поможем с валидацией билетов.'},
-          {q:'Сколько стоит аренда зала?', a:'В будни вечером — от 80 000 ₽, в воскресенье днём — от 120 000 ₽: дорожки, базовое меню, официанты и координатор.'}
+          {q:'Можно провести квиз, мафию или стендап?', a:'Да. В КП укажем ведущего, тайминг и стоимость. Мафию ведёт ведущий, квиз — от 10 человек, стендап — от 30.'},
+          {q:'Есть парковка?', a:'У всех точек — бесплатная парковка торгового центра.'},
+          {q:'Сколько стоит провести мероприятие?', a:'Отдельной аренды зала нет — платишь за бронь дорожек и за еду. Точную стоимость считает менеджер праздника индивидуально под дату и программу.'}
         ]},
         { title:'Особые поводы', items:[
-          {q:'Можно провести мероприятие для класса?', a:'Да. Класс 12–18 человек — на две дорожки, учителю стол бесплатно. По будням до 17:00 — школьный тариф 1 500 ₽/час.'},
-          {q:'Подойдёт для первого свидания?', a:'Да, если выбрать будни днём или ранний вечер. Можно без дорожки: столик, пицца на двоих и Крейзи Айс-Крим на финал.'},
-          {q:'Встреча одноклассников через годы?', a:'Один из любимых форматов: 2–4 дорожки на 10–16 человек, столы рядом. Для структуры — мафия с ведущим Павлом.'},
-          {q:'Можно устроить девичник или мальчишник?', a:'Регулярно: вино и сет настоек для девичника, Мясной пир и пиво для мальчишника. После 22:00 — живая музыка и бар до 2 ночи.'},
-          {q:'Юбилей пожилого родственника — уместно?', a:'Берите будний день: тихо, дорожка с бортиками, стулья с подлокотниками. Гостям 70+ — скидка 50% на дорожку по звонку.'}
+          {q:'Можно провести мероприятие для класса?', a:'Да. Вместимость зависит от числа дорожек в городе — конкретные условия и тариф предложит менеджер праздника.'},
+          {q:'Подойдёт для первого свидания?', a:'Да. Можно и с дорожкой, можно без неё — столик, пицца на двоих и Крейзи Айс-Крим на финал.'},
+          {q:'Встреча одноклассников через годы?', a:'Один из любимых форматов: 2–4 дорожки на 10–16 человек, столы рядом. Для настроения — мафия с ведущим.'},
+          {q:'Можно устроить девичник или мальчишник?', a:'Вино и сет настоек для девичника, мясной пир для мальчишника. После 22:00 — живая музыка и бар до 2 ночи.'},
+          {q:'Юбилей пожилого родственника — уместно?', a:'Тихо, дорожка с бортиками, стулья с подлокотниками. Отличный повод собрать вместе все поколения семьи.'}
         ]},
         { title:'Общее', items:[
           {q:'Во сколько открываетесь и закрываетесь?', a:'Пн с 12:00, Вт–Чт и Вс с 10:00 до 0:00, Пт–Сб с 10:00 до 0:00. Последний заказ на кухне — за 45 минут до закрытия.'},
           {q:'Есть ли доставка?', a:'Большая часть меню — в Яндекс.Еде. Некоторые блюда (пицца полстола, Крейзи Айс-Крим) не доставляем, чтобы пробовать их в идеальном виде.'},
-          {q:'Какие способы оплаты?', a:'Наличные, карты, СБП, Apple/Google/Mir Pay, сертификаты и бонусы карты гостя (до 50% чека). Для юрлиц — закрывающие документы.'},
-          {q:'Что такое карта гостя и двойные баллы?', a:'Программа лояльности: 10% бонусами с покупок, в день рождения — 20%. Баллами можно оплатить до половины следующего чека.'},
-          {q:'Можно ли прийти одному?', a:'Конечно: поужинать за барной стойкой, посмотреть стендап или потренироваться на дорожке. Для постоянных игроков есть абонемент.'}
+          {q:'Какие способы оплаты?', a:'Наличные, карты, СБП, Mir Pay, сертификаты и бонусы карты гостя (до 30% чека, зависит от уровня карты). Для юрлиц — закрывающие документы.'},
+          {q:'Что такое карта гостя и двойные бонусы?', a:'Программа лояльности с уровнями: возвращаем от 5% до 12% с покупок в зависимости от уровня карты, тратить бонусами можно до 30% чека. В день рождения и 7 дней после — двойные бонусы. Подробности — на странице программы лояльности.'},
+          {q:'Можно ли прийти одному?', a:'Конечно: поужинать за барной стойкой, посмотреть стендап или потренироваться на дорожке. Для постоянных игроков есть подписка.'}
         ]}
       ],
       hasEvents: ACATS.length > 0,
@@ -1244,7 +1245,7 @@ class Component extends DCLogic {
       buyTickets: () => { const u = (_evSel && (_evSel.ticket || _evSel.link)) || 'afisha.html'; if (u.indexOf('http') === 0) { window.open(u, '_blank'); } else { window.location.href = u; } },
       isMuted: true,
       stopProp: (ev) => ev.stopPropagation(),
-      book: () => window.open('https://b1620612.yclients.com/', '_blank'),
+      book: () => window.open('https://brooklyn.broni.g-profile.ru/book?city=Санкт-Петербург&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=sankt-peterburg&utm_trc=all', '_blank'),
       getApp: () => window.open('https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&utm_medium=footer&utm_city=spb&utm_trc=all', '_blank'),
       cityOpen: !!this.state.cityOpen,
       toggleCity: () => this.setState(s => ({ cityOpen: !s.cityOpen })),
@@ -1256,7 +1257,7 @@ class Component extends DCLogic {
       closeHoliday: () => this.setState({ holiday: false }),
       points: PTS.map((p, i) => ({ ...p, imgEl: React.createElement('img', { src: p.img, alt: p.title, style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }), open: () => this.setState({ point: i }) })),
       pointOpen: this.state.point != null,
-      pd: (() => { const x = (this.state.point != null) ? PTS[this.state.point] : { title:'', tag:'', img:'../uploads/bb-bowling-lane.jpg', desc:'', cta:'', act:'' }; const fn = x.act === 'menu' ? () => { window.location.href = 'kitchen.html'; } : x.act === 'events' ? () => { const el=document.querySelector('[data-comment-anchor=events]'); this.setState({ point: null }); if (el) setTimeout(()=>el.scrollIntoView({behavior:'smooth'}),60); } : () => window.open('https://b1620612.yclients.com/', '_blank'); return { ...x, imgEl: React.createElement('img', { src: x.img, alt: x.title, style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }), ctaFn: fn }; })(),
+      pd: (() => { const x = (this.state.point != null) ? PTS[this.state.point] : { title:'', tag:'', img:'../uploads/bb-bowling-lane.jpg', desc:'', cta:'', act:'' }; const fn = x.act === 'menu' ? () => { window.location.href = 'kitchen.html'; } : x.act === 'events' ? () => { const el=document.querySelector('[data-comment-anchor=events]'); this.setState({ point: null }); if (el) setTimeout(()=>el.scrollIntoView({behavior:'smooth'}),60); } : () => window.open('https://brooklyn.broni.g-profile.ru/book?city=Санкт-Петербург&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=sankt-peterburg&utm_trc=all', '_blank'); return { ...x, imgEl: React.createElement('img', { src: x.img, alt: x.title, style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }), ctaFn: fn }; })(),
       closePoint: () => this.setState({ point: null }),
       openP0: () => this.setState({ point: 0 }),
       openP1: () => this.setState({ point: 1 }),
@@ -1268,22 +1269,22 @@ class Component extends DCLogic {
       ocity: this.state.ocity || { name:'', sub:'', url:'#' },
       closeOcity: () => this.setState({ ocity: null }),
       scenarios: [
-        { tag:'ПЯТНИЦА · 3–6', img:'../uploads/DSC_5978.jpg', title:'Поиграем с друзьями', sub:'Собрать своих — и не париться.',
-          how:['Приходите после работы — хостес встречает и проводит к дорожке.','Дорожка проверена с утра, всё работает.','Вечером на сцене кавер-группа или стендап.','Когда бронь заканчивается — пересаживаетесь в ресторанную зону.'],
-          learned:['Все дорожки проходят утреннюю проверку, поломки — вычтем время из чека.','Дресс-кода нет.','Напитки приносят за 15 минут, еду за 25.'],
-          check:'≈ 2 698 ₽ на человека', note:'Пт-вечер, базовый расчёт.', quote:'Отмечали защиту проекта вдесятером. Когда время дорожки закончилось — не выгнали.', author:'Кирилл Р. · компания 10 · Июнь', calcCfg:{ unit:'человека', gLabel:'Сколько человек', min:2, max:12, def:4, dayBase:{label:'Пт вечер', pp:2698}, dayAlt:{label:'Будни днём', pp:1899}, cashRate:0.10, cashLabel:'Бонусы на карту лояльности', note:'Пт-вечер, базовый расчёт. Итог под вашу дату подтвердим по телефону.', addons:[{n:'Пивная тарелка, 500 г', p:1290, img:'../uploads/Пивная тарелка полкило.jpg'},{n:'Тарелка мясных деликатесов', p:1690, img:'../uploads/Тарелка мясных деликатесов.jpg'},{n:'Полстола пиццы', p:1899, img:'../uploads/pasted-1784476434368-0.png'},{n:'Сет колбас', p:1490, img:'../uploads/Сет Колбас.jpg'},{n:'Бруклин Бургер', p:799, img:'../uploads/Бруклин Бургер.jpg'},{n:'Свиные рёбра BBQ с кукурузой на гриле', p:1590, img:'../uploads/pasted-1784476457069-0.png'}] } },
+        { tag:'С ДРУЗЬЯМИ', img:'../uploads/DSC_5978.jpg', title:'Поиграем с друзьями', sub:'Собрать своих — и не париться.',
+          how:['Заходишь после работы — хостес уже встречает и ведёт к дорожке.','Дорожка проверена с утра — работает как надо.','Вечером на сцене кавер-группа или стендап.','Бронь закончилась — пересаживаешься в ресторан.'],
+          learned:['Все дорожки проходят утреннюю проверку, поломки — вычтем время из чека.','Дресс-кода нет.'],
+          check:'≈ 2 698 ₽ на человека', note:'Пт-вечер, базовый расчёт.', quote:'Отмечали защиту проекта вдесятером. Когда время дорожки закончилось — не выгнали.', author:'Кирилл Р. · компания 10 · Июнь', calcCfg:{ unit:'человека', gLabel:'Сколько человек', min:2, max:12, def:4, dayBase:{label:'Пт вечер', pp:2698}, dayAlt:{label:'Будни днём', pp:1899}, cashRate:0.10, cashLabel:'Бонусы на карту лояльности', note:'Пт-вечер, базовый расчёт. Итог под твою дату подтвердим по телефону.', addons:[{n:'Пивная тарелка, 500 г', p:1290, img:'../uploads/Пивная тарелка полкило.jpg'},{n:'Тарелка мясных деликатесов', p:1690, img:'../uploads/Тарелка мясных деликатесов.jpg'},{n:'Полстола пиццы', p:1899, img:'../uploads/pasted-1784476434368-0.png'},{n:'Сет колбас', p:1490, img:'../uploads/Сет Колбас.jpg'},{n:'Бруклин Бургер', p:799, img:'../uploads/Бруклин Бургер.jpg'},{n:'Свиные рёбра BBQ с кукурузой на гриле', p:1590, img:'../uploads/pasted-1784476457069-0.png'}] } },
         { tag:'ВЫХОДНЫЕ · ДНЁМ', img:'../uploads/2O3A9055.jpg', title:'Придём семьёй', sub:'Посидеть вместе, пока дети играют — и не мыть потом посуду.',
-          how:['Вас встречает хостес.','Детскую обувь приносят прямо к дорожке.','Есть детское и взрослое меню, авторская кухня.','После игры можно задержаться в ресторане.'],
-          learned:['Одноразовые носки и бахилы.','Обувь с 23 размера, шары от 2,5 кг.','Бортики поднимаются под рост ребёнка.','Бесплатный вторник — специально под семью.'],
-          check:'≈ 870 ₽ на человека', note:'Выходной днём, базовый расчёт.', quote:'Обувь детских размеров принесли без просьбы. Во вторник за дорожку не взяли ни рубля.', author:'Анна М. · семья, 2 детей · Июнь', calcCfg:{ unit:'гостя', gLabel:'Всего гостей', min:2, max:10, def:4, dayBase:{label:'Выходной днём', pp:870}, dayAlt:{label:'Будни днём', pp:690}, cashRate:0.10, cashLabel:'Бонусы на карту лояльности', note:'Выходной днём, базовый расчёт. Во вторник дорожка бесплатно — платите только за стол.', addons:[{n:'Пивная тарелка, 500 г', p:1290, img:'../uploads/Пивная тарелка полкило.jpg'},{n:'Тарелка мясных деликатесов', p:1690, img:'../uploads/Тарелка мясных деликатесов.jpg'},{n:'Полстола пиццы', p:1899, img:'../uploads/pasted-1784476434368-0.png'},{n:'Сет колбас', p:1490, img:'../uploads/Сет Колбас.jpg'},{n:'Бруклин Бургер', p:799, img:'../uploads/Бруклин Бургер.jpg'},{n:'Свиные рёбра BBQ с кукурузой на гриле', p:1590, img:'../uploads/pasted-1784476457069-0.png'}] } },
-        { tag:'ДР · 6–12 ДЕТЕЙ', img:'../uploads/bb-family.jpg', title:'Детский день рождения', sub:'Устроить праздник ребёнку — и выдохнуть самому.',
-          how:['Бронируете — связываемся обсудить детали.','За 24 часа СМС, за 2 часа звонок.','Стол накрыт, дорожка готова, предзаказ ждёт.','Поздравляем: выносим десерт со свечой.','Имениннику — двойные баллы на карту.'],
-          learned:['Персональный координатор ведёт вас весь праздник.','Обувь с 23, шары 2,5–5 кг и бортики готовим заранее.','Свой торт можно, условия называем заранее.','Депозит озвучиваем сразу и пишем в подтверждении.'],
-          check:'≈ 999 ₽ на ребёнка', note:'Будни днём, двойные баллы имениннику.', quote:'Тортик со свечой вынесли — сын прослезился. Депозит назвали сразу, сюрпризов не было.', author:'Мария К. · ДР сына 8 лет · Июнь', calcCfg:{ unit:'ребёнка', gLabel:'Детей на празднике', min:6, max:12, def:10, dayBase:{label:'Будни днём', pp:999}, dayAlt:{label:'Выходные днём', pp:1290}, cashRate:0.20, cashLabel:'Имениннику на карту · 20%', note:'Будни днём, базовый расчёт. Двойные баллы имениннику — 20% бонусы на следующий визит.', addons:[{n:'Мини-чикен', p:449, img:'../uploads/Мини-чикен.jpg'},{n:'Мне только картошку и наггетсы', p:399, img:'../uploads/Мне только картошку и наггетсы.jpg'},{n:'Полстола пиццы', p:1899, img:'../uploads/pasted-1784476434368-0.png'},{n:'Хот-дог', p:299, img:'../uploads/Хот-дог.jpg'},{n:'Крейзи шейк', p:399},{n:'Ведущий на 2 часа', p:5000},{n:'Свой торт (депозит + нарезка)', p:500},{n:'Шоколадный фондан половине', p:449},{n:'Аквагрим-мастер на 1 час', p:2500}] } },
-        { tag:'ВЕЧЕР · 6–15', img:'../uploads/065A7287.jpg', title:'Взрослый день рождения', sub:'Отметить — и чтобы за вас подумали обо всём.',
-          how:['Каждого встречает хостес.','Конфигурация под размер компании.','Предзаказ выносим по мере игры.','Десерт со свечой и поздравление от команды.','После боулинга — ресторан, двойные баллы.'],
-          learned:['Фото делают официанты по просьбе.','Персональный координатор от 10 гостей.','Можно арендовать весь зал.','Счёт на юрлицо и закрывающие документы.','Большие сеты на компанию.'],
-          check:'≈ 1 970 ₽ на гостя', note:'Сб-вечер, базовый расчёт.', quote:'Собрали на 33-летие 12 друзей. Счёт на юрлицо без вопросов, документы прислали через два дня.', author:'Алексей Д. · 33 года, 12 гостей · Июнь', calcCfg:{ unit:'гостя', gLabel:'Гостей на ДР', min:6, max:15, def:12, dayBase:{label:'Сб вечер', pp:1970}, dayAlt:{label:'Будни вечером', pp:1490}, cashRate:0.20, cashLabel:'Имениннику на карту · 20%', note:'Сб-вечер, базовый расчёт. Двойные баллы имениннику — автоматом на карту.', addons:[{n:'Пивная тарелка, 500 г', p:1290, img:'../uploads/Пивная тарелка полкило.jpg'},{n:'Тарелка мясных деликатесов', p:1690, img:'../uploads/Тарелка мясных деликатесов.jpg'},{n:'Полстола пиццы', p:1899, img:'../uploads/pasted-1784476434368-0.png'},{n:'Сет колбас', p:1490, img:'../uploads/Сет Колбас.jpg'},{n:'Бруклин Бургер', p:799, img:'../uploads/Бруклин Бургер.jpg'},{n:'Свиные рёбра BBQ с кукурузой на гриле', p:1590, img:'../uploads/pasted-1784476457069-0.png'},{n:'«Бикини Ботом» 2.5 л на компанию', p:2999},{n:'Сет бруклинских настоек × 9', p:1699},{n:'Ведущий-тамада на 2 часа', p:7000},{n:'Свой торт (депозит + нарезка)', p:500}] } }
+          how:['Тебя встречает хостес.','Детская обувь стоит у дорожек.','Есть детское и взрослое меню, кухня с гриля.','После игры можно задержаться в ресторане.'],
+          learned:['Обувь с 23 размера, шары от 2,5 кг.','Бортики поднимаются под рост ребёнка.','Бесплатный вторник.'],
+          check:'≈ 870 ₽ на человека', note:'Выходной днём, базовый расчёт.', quote:'Обувь детских размеров принесли без просьбы. Во вторник за дорожку не взяли ни рубля.', author:'Анна М. · семья, 2 детей · Июнь', calcCfg:{ unit:'гостя', gLabel:'Всего гостей', min:2, max:10, def:4, dayBase:{label:'Выходной днём', pp:870}, dayAlt:{label:'Будни днём', pp:690}, cashRate:0.10, cashLabel:'Бонусы на карту лояльности', note:'Выходной днём, базовый расчёт. Во вторник дорожка бесплатно — платишь только за стол.', addons:[{n:'Пивная тарелка, 500 г', p:1290, img:'../uploads/Пивная тарелка полкило.jpg'},{n:'Тарелка мясных деликатесов', p:1690, img:'../uploads/Тарелка мясных деликатесов.jpg'},{n:'Полстола пиццы', p:1899, img:'../uploads/pasted-1784476434368-0.png'},{n:'Сет колбас', p:1490, img:'../uploads/Сет Колбас.jpg'},{n:'Бруклин Бургер', p:799, img:'../uploads/Бруклин Бургер.jpg'},{n:'Свиные рёбра BBQ с кукурузой на гриле', p:1590, img:'../uploads/pasted-1784476457069-0.png'}] } },
+        { tag:'ДЕТСКИЙ ДР', img:'../uploads/bb-family.jpg', title:'Детский день рождения', sub:'Устроить праздник ребёнку — и выдохнуть самому.',
+          how:['Бронируешь — перезваниваем в рабочее время и обсуждаем детали.','Подтверждаем бронь накануне или в день праздника.','Стол накрыт, дорожка готова, предзаказ ждёт.','Поздравляем: выносим десерт со свечой.','Имениннику — двойные бонусы на карту.'],
+          learned:['Личный менеджер праздника ведёт тебя весь праздник.','Обувь с 23, шары 2,5–5 кг и бортики готовим заранее.','Свой торт можно: тортиковый сбор 500 ₽, возьми с собой чек.','Депозит озвучиваем сразу и пишем в подтверждении.'],
+          check:'≈ 999 ₽ на ребёнка', note:'Будни днём, двойные бонусы имениннику.', quote:'Тортик со свечой вынесли — сын прослезился. Депозит назвали сразу, сюрпризов не было.', author:'Мария К. · ДР сына 8 лет · Июнь', calcCfg:{ unit:'ребёнка', gLabel:'Детей на празднике', min:6, max:12, def:10, dayBase:{label:'Будни днём', pp:999}, dayAlt:{label:'Выходные днём', pp:1290}, cashRate:0.20, cashLabel:'Имениннику — двойные бонусы', note:'Будни днём, базовый расчёт. Двойные бонусы имениннику — на карту гостя.', addons:[{n:'Мини-чикен', p:449, img:'../uploads/Мини-чикен.jpg'},{n:'Мне только картошку и наггетсы', p:399, img:'../uploads/Мне только картошку и наггетсы.jpg'},{n:'Полстола пиццы', p:1899, img:'../uploads/pasted-1784476434368-0.png'},{n:'Хот-дог', p:299, img:'../uploads/Хот-дог.jpg'},{n:'Крейзи шейк', p:399},{n:'Ведущий на 2 часа', p:5000},{n:'Свой торт (тортиковый сбор)', p:500},{n:'Шоколадный фондан половине', p:449},{n:'Аквагрим-мастер на 1 час', p:2500}] } },
+        { tag:'ВЗРОСЛЫЙ ДР', img:'../uploads/065A7287.jpg', title:'Взрослый день рождения', sub:'Отметить — и чтобы за тебя подумали обо всём.',
+          how:['Каждого встречает хостес.','Дорожки и стол — под размер компании.','Предзаказ выносим по мере игры.','Десерт со свечой и поздравление от команды.','После боулинга — ресторан, двойные бонусы.'],
+          learned:['Личный менеджер праздника ведёт весь праздник.','Счёт на юрлицо и закрывающие документы.','Большие сеты на компанию.'],
+          check:'≈ 1 970 ₽ на гостя', note:'Сб-вечер, базовый расчёт.', quote:'Собрали на 33-летие 12 друзей. Счёт на юрлицо без вопросов, документы прислали через два дня.', author:'Алексей Д. · 33 года, 12 гостей · Июнь', calcCfg:{ unit:'гостя', gLabel:'Гостей на ДР', min:6, max:15, def:12, dayBase:{label:'Сб вечер', pp:1970}, dayAlt:{label:'Будни вечером', pp:1490}, cashRate:0.20, cashLabel:'Имениннику — двойные бонусы', note:'Сб-вечер, базовый расчёт. Двойные бонусы имениннику — автоматом на карту.', addons:[{n:'Пивная тарелка, 500 г', p:1290, img:'../uploads/Пивная тарелка полкило.jpg'},{n:'Тарелка мясных деликатесов', p:1690, img:'../uploads/Тарелка мясных деликатесов.jpg'},{n:'Полстола пиццы', p:1899, img:'../uploads/pasted-1784476434368-0.png'},{n:'Сет колбас', p:1490, img:'../uploads/Сет Колбас.jpg'},{n:'Бруклин Бургер', p:799, img:'../uploads/Бруклин Бургер.jpg'},{n:'Свиные рёбра BBQ с кукурузой на гриле', p:1590, img:'../uploads/pasted-1784476457069-0.png'},{n:'«Бикини Ботом» 2.5 л на компанию', p:2999},{n:'Сет бруклинских настоек × 9', p:1699},{n:'Ведущий-тамада на 2 часа', p:7000},{n:'Свой торт (тортиковый сбор)', p:500}] } }
       ].map((s, i) => {
         const cfg = s.calcCfg;
         const cs = (this.state.calc || {})[i] || {};
@@ -1320,10 +1321,13 @@ class Component extends DCLogic {
   }
 }
 </script>
-<!-- BB-BOOKING: сюда вставляется виджет брони YClients.
-     Waitly в Санкт-Петербурге не работает, код виджета даёт заказчица —
-     вставить на это место, в конец body, как на страницах остальных городов.
-     Ссылка брони города: https://b1620612.yclients.com/ -->
-<!-- /BB-BOOKING -->
+<!-- BB-BRONI: виджет брони broni (плавающая кнопка) -->
+<script
+    src="https://brooklyn.broni.g-profile.ru/widget.js"
+    data-venue="12"
+    defer>
+</script>
+<script src="../_broni-fix.js"></script>
+<!-- /BB-BRONI -->
 </body>
 </html>

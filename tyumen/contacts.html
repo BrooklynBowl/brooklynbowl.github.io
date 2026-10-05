@@ -154,15 +154,15 @@ a:hover{ color:#FFFFFF; }
 }
 /* мобильная шапка: только логотип и выбор города — кнопка брони и телефон убраны */
 @media (max-width:768px){
-  header [data-m="cta"], header a[href*="waitly"], header a[href*="yclients"], header a[href^="tel:"]{ display:none !important; }
+  header [data-m="cta"], header a[href*="broni"], header a[href^="tel:"]{ display:none !important; }
   [data-m="fab-chat"]{ left:14px !important; }
   [data-m="chat-panel"]{ left:0 !important; right:0 !important; bottom:0 !important; width:100% !important; max-width:none !important; height:84vh !important; border-radius:22px 22px 0 0 !important; }
 }
 
 /* BB-OVERLAY-GUARD: пока открыт оверлей — плавающие виджеты скрыты */
-html[data-bb-ovl="menu"] [data-m="fab-chat"], html[data-bb-ovl="menu"] [data-m="chat-panel"], html[data-bb-ovl="menu"] #waitly-widget-root,
-html[data-bb-ovl="modal"] [data-m="fab-chat"], html[data-bb-ovl="modal"] [data-m="chat-panel"], html[data-bb-ovl="modal"] #waitly-widget-root,
-html[data-bb-ovl="chat"] #waitly-widget-root,
+html[data-bb-ovl="menu"] [data-m="fab-chat"], html[data-bb-ovl="menu"] [data-m="chat-panel"], html[data-bb-ovl="menu"] #brn-host,
+html[data-bb-ovl="modal"] [data-m="fab-chat"], html[data-bb-ovl="modal"] [data-m="chat-panel"], html[data-bb-ovl="modal"] #brn-host,
+html[data-bb-ovl="chat"] #brn-host,
 html[data-bb-ovl="book"] [data-m="fab-chat"], html[data-bb-ovl="book"] [data-m="chat-panel"]{ display:none !important; }
 /* чат не закрывает текст: гаснет, когда под кнопкой строка или картинка */
 html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-events:none !important; }
@@ -190,7 +190,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
     <div style="display:flex; align-items:center; gap:18px; margin-left:auto; flex-shrink:0;">
       <details data-m="city-pick" style="position:relative;"><summary style="list-style:none; cursor:pointer; display:flex; align-items:center; gap:7px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 1.5c-2.5 0-4.5 2-4.5 4.5 0 3.2 4.5 8 4.5 8s4.5-4.8 4.5-8c0-2.5-2-4.5-4.5-4.5Z" stroke="#FF2026" stroke-width="1.4"></path><circle cx="8" cy="6" r="1.6" stroke="#FF2026" stroke-width="1.4"></circle></svg><span style="color:#fff; font-size:15px; font-weight:500;">Тюмень</span><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="rgba(232,229,222,0.66)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></summary><div style="position:absolute; top:calc(100% + 12px); left:0; z-index:120; min-width:240px; background:#191919; border:1px solid rgba(255,255,255,0.12); border-radius:16px; padding:8px; display:flex; flex-direction:column; gap:2px; box-shadow:0 20px 46px rgba(0,0,0,0.6);"><div style="padding:6px 12px 8px; font-size:11px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">ВЫБЕРИТЕ ГОРОД</div><a href="index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:700; color:#fff; background:rgba(255,32,38,0.18);" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Тюмень</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">3 точки</span></a><a href="../izhevsk/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Ижевск</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">2 точки</span></a><a href="../samara/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Самара</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">2 точки</span></a><a href="../msk/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Москва</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">2 точки</span></a><a href="../spb/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Санкт-Петербург</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">1 точка</span></a><a href="../surgut/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Сургут</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">1 точка</span></a><a href="../nv/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Нижневартовск</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">1 точка</span></a></div></details>
       <a href="tel:+73452226130" style="display:flex; align-items:center; gap:7px; text-decoration:none; color:#fff; font-size:15px; font-weight:600; white-space:nowrap;" style-hover="color:#FF2026 !important;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M5.5 2.5 6.8 5l-1.3 1.3a8 8 0 0 0 3.2 3.2L10 8.2 12.5 9.5c.4.2.6.6.5 1l-.4 1.6c-.1.5-.6.8-1.1.7C7.2 12.2 3.8 8.8 3.2 4.5c-.1-.5.2-1 .7-1.1l1.6-.4c.4-.1.8.1 1 .5Z" stroke="#FF2026" stroke-width="1.4" stroke-linejoin="round"></path></svg>+7 (3452) 22-61-30</a>
-      <a data-m="cta" href="https://widget.waitly.ru/4GBzCMLnaU4esEo9WF9twg/2-firm?utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=tyumen&utm_trc=all" target="_blank" rel="noopener" style="text-decoration:none; background:#fff; padding:16px 32px; border-radius:300px; color:#000000; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#FF2026 !important; color:#fff !important;">Забронировать</a>
+      <a data-m="cta" href="https://brooklyn.broni.g-profile.ru/book?city=Тюмень&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=tyumen&utm_trc=all" target="_blank" rel="noopener" style="text-decoration:none; background:#fff; padding:16px 32px; border-radius:300px; color:#000000; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#FF2026 !important; color:#fff !important;">Забронировать</a>
     </div>
   </header>
 
@@ -208,7 +208,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
       <a href="dr.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Взрослый ДР</a>
       <a href="dr-kids.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Детский ДР</a>
       <a href="corporate.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Корпоратив</a>
-      <a href="graduation.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Выпускной</a>
+      <a href="graduation.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Выпускной</a><a href="ny.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Новый год</a>
       <a href="friends.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">С друзьями</a>
       <a href="family.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Семьёй</a>
       <a href="lane.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Просто поиграть</a>
@@ -223,7 +223,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
       <a href="filial-kolumb.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Колумб</a>
     </nav>
     <a href="tel:+73452226130" style="text-decoration:none; color:#fff; font-size:20px; font-weight:700; margin-bottom:18px;">+7 (3452) 22-61-30</a>
-    <a data-m="cta" href="https://widget.waitly.ru/4GBzCMLnaU4esEo9WF9twg/2-firm?utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=tyumen&utm_trc=all" target="_blank" rel="noopener" style="display:block; box-sizing:border-box; text-align:center; text-decoration:none; width:100%; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;">Бронь стола в зоне боулинга</a>
+    <a data-m="cta" href="https://brooklyn.broni.g-profile.ru/book?city=Тюмень&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=tyumen&utm_trc=all" target="_blank" rel="noopener" style="display:block; box-sizing:border-box; text-align:center; text-decoration:none; width:100%; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;">Бронь стола в зоне боулинга</a>
   </div>
   <div data-m="tabbar" style="display:none; position:fixed; left:0; right:0; bottom:0; z-index:80; padding:30px 14px 16px; pointer-events:none; background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.82) 50%, #000000 100%);">
     <div style="display:flex; align-items:center; gap:10px; max-width:460px; margin:0 auto; pointer-events:auto;">
@@ -241,7 +241,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
   <section style="padding:56px 44px 34px; max-width:1500px; margin:0 auto;">
     <span style="display:inline-flex; align-items:center; padding:7px 14px; border-radius:300px; background:rgba(255,32,38,0.16); font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:#FF2026;">АДРЕСА</span>
     <h1 style="margin:22px 0 0; font-size:clamp(38px,5vw,64px); font-weight:800; line-height:1.02; letter-spacing:-0.02em; color:#fff;">Три точки <em style="color:#FF2026; font-style:normal;">в Тюмени</em></h1>
-    <p style="margin:22px 0 0; max-width:660px; font-size:17px; line-height:1.6; color:rgba(232,229,222,0.66);">Боулинг, кухня, бар — в каждой. Одинаковые цены и меню. Отличаются атмосферой, количеством дорожек и проходимостью. Выберите ближайшую или удобную по настроению.</p>
+    <p style="margin:22px 0 0; max-width:660px; font-size:17px; line-height:1.6; color:rgba(232,229,222,0.66);">Боулинг, кухня, бар — в каждой. Цены и меню одинаковые, отличаются количеством дорожек и проходимостью. Выбирай ближайшую — или ту, что по настроению.</p>
   </section>
 
   <!-- КАРТА -->
@@ -259,11 +259,11 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
         <div style="font-size:15px; font-weight:700; color:#fff;">Тимофея Чаркова, 60</div>
         <div style="margin-top:2px; font-size:14px; color:rgba(232,229,222,0.66);">ТРЦ «Тюмень Сити Молл», 3 этаж</div>
         <a href="tel:+73452560590" style="margin-top:14px; font-size:17px; font-weight:700; color:#fff; text-decoration:none;" style-hover="color:#FF2026 !important;">+7 (3452) 56-05-90</a>
-        <div style="margin-top:16px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.08); display:flex; flex-direction:column; gap:5px; font-size:14px; color:rgba(232,229,222,0.86);"><span><b style="color:#fff;">Пн:</b> 12:00–00:00</span><span><b style="color:#fff;">Вт–Чт, Вс:</b> 10:00–00:00</span><span><b style="color:#fff;">Пт–Сб:</b> 10:00–00:00</span></div>
-        <p style="margin:14px 0 0; font-size:13.5px; line-height:1.5; color:rgba(232,229,222,0.66);">Парковка ТРЦ: 3 часа бесплатно. В выходные забивается к 13:00 — приходите раньше.</p>
+        <div style="margin-top:16px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.08); display:flex; flex-direction:column; gap:5px; font-size:14px; color:rgba(232,229,222,0.86);"><span><b style="color:#fff;">Пн:</b> 11:57–00:03</span><span><b style="color:#fff;">Вт–Чт, Вс:</b> 09:57–00:02</span><span><b style="color:#fff;">Пт–Сб:</b> 09:57–02:02</span></div>
+        <p style="margin:14px 0 0; font-size:13.5px; line-height:1.5; color:rgba(232,229,222,0.66);">Парковка ТРЦ: 3 часа бесплатно. В выходные забивается к 13:00 — приезжай раньше.</p>
         <div style="flex:1;"></div>
         <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:20px;">
-          <a data-m="cta" href="https://widget.waitly.ru/4GBzCMLnaU4esEo9WF9twg/2-firm?utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=tyumen&utm_trc=all" target="_blank" rel="noopener" style="flex:1; text-align:center; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; text-decoration:none; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Забронировать</a>
+          <a data-m="cta" href="https://brooklyn.broni.g-profile.ru/book?city=Тюмень&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=tyumen&utm_trc=all" target="_blank" rel="noopener" style="flex:1; text-align:center; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; text-decoration:none; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Забронировать</a>
           <a href="filial-sitimoll.html" style="flex:1; text-align:center; background:#191919; border:1px solid rgba(255,255,255,0.14); padding:13px; border-radius:300px; color:#fff; font-size:14px; font-weight:700; text-decoration:none;" style-hover="border-color:#FF2026 !important;">Подробнее</a>
         </div>
       </div>
@@ -274,11 +274,11 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
         <div style="font-size:15px; font-weight:700; color:#fff;">Федюнинского, 67</div>
         <div style="margin-top:2px; font-size:14px; color:rgba(232,229,222,0.66);">ТРЦ «Остров», 3 этаж</div>
         <a href="tel:+73452583105" style="margin-top:14px; font-size:17px; font-weight:700; color:#fff; text-decoration:none;" style-hover="color:#FF2026 !important;">+7 (3452) 58-31-05</a>
-        <div style="margin-top:16px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.08); display:flex; flex-direction:column; gap:5px; font-size:14px; color:rgba(232,229,222,0.86);"><span><b style="color:#fff;">Пн:</b> 12:00–00:00</span><span><b style="color:#fff;">Вт–Чт, Вс:</b> 10:00–00:00</span><span><b style="color:#fff;">Пт–Сб:</b> 10:00–00:00</span></div>
-        <p style="margin:14px 0 0; font-size:13.5px; line-height:1.5; color:rgba(232,229,222,0.66);">Парковка: первые 3 часа бесплатно. Свободнее, чем на СитиМолле. Работает доставка с этой точки.</p>
+        <div style="margin-top:16px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.08); display:flex; flex-direction:column; gap:5px; font-size:14px; color:rgba(232,229,222,0.86);"><span><b style="color:#fff;">Пн:</b> 11:57–00:03</span><span><b style="color:#fff;">Вт–Чт, Вс:</b> 09:57–00:02</span><span><b style="color:#fff;">Пт–Сб:</b> 09:57–02:02</span></div>
+        <p style="margin:14px 0 0; font-size:13.5px; line-height:1.5; color:rgba(232,229,222,0.66);">Парковка: бесплатно. Свободнее, чем на СитиМолле. Работает доставка с этой точки.</p>
         <div style="flex:1;"></div>
         <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:20px;">
-          <a data-m="cta" href="https://widget.waitly.ru/4GBzCMLnaU4esEo9WF9twg/2-firm?utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=tyumen&utm_trc=all" target="_blank" rel="noopener" style="flex:1; text-align:center; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; text-decoration:none; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Забронировать</a>
+          <a data-m="cta" href="https://brooklyn.broni.g-profile.ru/book?city=Тюмень&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=tyumen&utm_trc=all" target="_blank" rel="noopener" style="flex:1; text-align:center; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; text-decoration:none; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Забронировать</a>
           <a href="filial-ostrov.html" style="flex:1; text-align:center; background:#191919; border:1px solid rgba(255,255,255,0.14); padding:13px; border-radius:300px; color:#fff; font-size:14px; font-weight:700; text-decoration:none;" style-hover="border-color:#FF2026 !important;">Подробнее</a>
         </div>
       </div>
@@ -289,11 +289,11 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
         <div style="font-size:15px; font-weight:700; color:#fff;">Московский тракт, 118</div>
         <div style="margin-top:2px; font-size:14px; color:rgba(232,229,222,0.66);">ТРЦ «Колумб», 4 этаж</div>
         <a href="tel:+73452226130" style="margin-top:14px; font-size:17px; font-weight:700; color:#fff; text-decoration:none;" style-hover="color:#FF2026 !important;">+7 (3452) 22-61-30</a>
-        <div style="margin-top:16px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.08); display:flex; flex-direction:column; gap:5px; font-size:14px; color:rgba(232,229,222,0.86);"><span><b style="color:#fff;">Пн:</b> 12:00–00:00</span><span><b style="color:#fff;">Вт–Чт, Вс:</b> 10:00–00:00</span><span><b style="color:#fff;">Пт–Сб:</b> 10:00–00:00</span></div>
+        <div style="margin-top:16px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.08); display:flex; flex-direction:column; gap:5px; font-size:14px; color:rgba(232,229,222,0.86);"><span><b style="color:#fff;">Пн:</b> 11:57–00:03</span><span><b style="color:#fff;">Вт–Чт, Вс:</b> 09:57–00:02</span><span><b style="color:#fff;">Пт–Сб:</b> 09:57–02:02</span></div>
         <p style="margin:14px 0 0; font-size:13.5px; line-height:1.5; color:rgba(232,229,222,0.66);">Парковка: открытая и подземная, бесплатно. Самая свободная точка в будни днём.</p>
         <div style="flex:1;"></div>
         <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:20px;">
-          <a data-m="cta" href="https://widget.waitly.ru/4GBzCMLnaU4esEo9WF9twg/2-firm?utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=tyumen&utm_trc=all" target="_blank" rel="noopener" style="flex:1; text-align:center; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; text-decoration:none; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Забронировать</a>
+          <a data-m="cta" href="https://brooklyn.broni.g-profile.ru/book?city=Тюмень&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=tyumen&utm_trc=all" target="_blank" rel="noopener" style="flex:1; text-align:center; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; text-decoration:none; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Забронировать</a>
           <a href="filial-kolumb.html" style="flex:1; text-align:center; background:#191919; border:1px solid rgba(255,255,255,0.14); padding:13px; border-radius:300px; color:#fff; font-size:14px; font-weight:700; text-decoration:none;" style-hover="border-color:#FF2026 !important;">Подробнее</a>
         </div>
       </div>
@@ -306,9 +306,9 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
     <h2 style="margin:14px 0 32px; font-size:clamp(28px,3.4vw,40px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Если нужно не про бронь</h2>
     <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:18px;">
       <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:28px;"><h3 style="margin:0 0 10px; font-size:18px; font-weight:800; color:#fff;">Общая линия</h3><p style="margin:0 0 12px; font-size:14px; line-height:1.55; color:rgba(232,229,222,0.66);">Единый телефон для всех точек. Работает 10:00–22:00.</p><a href="tel:+73452226130" style="font-size:16px; font-weight:700; color:#fff; text-decoration:none;" style-hover="color:#FF2026 !important;">+7 (3452) 22-61-30</a></div>
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:28px;"><h3 style="margin:0 0 10px; font-size:18px; font-weight:800; color:#fff;">Корпоративы</h3><p style="margin:0 0 12px; font-size:14px; line-height:1.55; color:rgba(232,229,222,0.66);">Координатор по группам 10+. Соберём смету под вашу дату.</p><a href="corporate.html" style="font-size:15px; font-weight:700;">Запросить КП →</a></div>
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:28px;"><h3 style="margin:0 0 10px; font-size:18px; font-weight:800; color:#fff;">Письмо основателю</h3><p style="margin:0 0 12px; font-size:14px; line-height:1.55; color:rgba(232,229,222,0.66);">Жалоба или предложение, которое не хочется обсуждать с администратором. Читает сам.</p><a href="mailto:rakhmeev@brooklynbowl.ru" style="font-size:15px; font-weight:700;">rakhmeev@brooklynbowl.ru</a></div>
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:28px;"><h3 style="margin:0 0 10px; font-size:18px; font-weight:800; color:#fff;">Вакансии</h3><p style="margin:0 0 12px; font-size:14px; line-height:1.55; color:rgba(232,229,222,0.66);">Ищем официантов, хостес, барменов, инженеров. Пришлите резюме.</p><a href="mailto:hr@brooklynbowl.ru" style="font-size:15px; font-weight:700;">hr@brooklynbowl.ru</a></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:28px;"><h3 style="margin:0 0 10px; font-size:18px; font-weight:800; color:#fff;">Корпоративы</h3><p style="margin:0 0 12px; font-size:14px; line-height:1.55; color:rgba(232,229,222,0.66);">Менеджер праздника для групп от 10 человек. Соберём смету под твою дату.</p><a href="corporate.html" style="font-size:15px; font-weight:700;">Запросить КП →</a></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:28px;"><h3 style="margin:0 0 10px; font-size:18px; font-weight:800; color:#fff;">Письмо основателю</h3><p style="margin:0 0 12px; font-size:14px; line-height:1.55; color:rgba(232,229,222,0.66);">Жалоба или предложение, которое не хочется обсуждать на месте. Читает сам.</p><a href="mailto:rakhmeev@brooklynbowl.ru" style="font-size:15px; font-weight:700;">rakhmeev@brooklynbowl.ru</a></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:28px;"><h3 style="margin:0 0 10px; font-size:18px; font-weight:800; color:#fff;">Вакансии</h3><p style="margin:0 0 12px; font-size:14px; line-height:1.55; color:rgba(232,229,222,0.66);">Ищем официантов, хостес, барменов, инженеров. Пришли резюме.</p><a href="mailto:hr@brooklynbowl.ru" style="font-size:15px; font-weight:700;">hr@brooklynbowl.ru</a></div>
     </div>
   </section>
 
@@ -332,11 +332,11 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
     <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:40px; flex-wrap:wrap; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,0.07);">
       <div>
         <img src="../uploads/Vector.svg" alt="Brooklyn Bowl" style="height:26px; width:auto; display:block; filter:brightness(0) invert(1); margin-bottom:18px;">
-        <p style="margin:0 0 20px; max-width:280px; font-size:15px; line-height:1.5; color:rgba(255,255,255,0.85);">Боулинг, вкусная еда и живая музыка — всё сразу в одном месте.</p>
+        <p style="margin:0 0 20px; max-width:280px; font-size:15px; line-height:1.5; color:rgba(255,255,255,0.85);">Боулинг, кухня с гриля и живая сцена — в одном месте.</p>
         <div style="display:flex; flex-direction:column; gap:4px; font-size:14px; font-weight:600; color:#fff; margin-bottom:22px;">
           <span>Пн 11:57 – 00:03</span>
           <span>Вт–Чт, Вс 09:57 – 00:02</span>
-          <span>Пт–Сб 09:57 – 00:02</span>
+          <span>Пт–Сб 09:57 – 02:02</span>
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
           <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=tyumen&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="../uploads/badge-appstore.svg" alt="App Store" style="height:36px; width:auto; display:block;"></a>
@@ -347,7 +347,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
       <div data-m="footer-cols" style="display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:24px; flex:1; min-width:0;">
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ВИЗИТЫ</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="https://widget.waitly.ru/4GBzCMLnaU4esEo9WF9twg/2-firm?utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=tyumen&utm_trc=all" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Забронировать</a><a href="lane.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Просто поиграть</a><a href="friends.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">С друзьями</a><a href="family.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Семьёй</a><a href="dr.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">День рождения</a><a href="dr-kids.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Детский ДР</a><a href="corporate.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Корпоратив</a><a href="graduation.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Выпускной</a></div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="https://brooklyn.broni.g-profile.ru/book?city=Тюмень&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=tyumen&utm_trc=all" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Забронировать</a><a href="lane.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Просто поиграть</a><a href="friends.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">С друзьями</a><a href="family.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Семьёй</a><a href="dr.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">День рождения</a><a href="dr-kids.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Детский ДР</a><a href="corporate.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Корпоратив</a><a href="graduation.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Выпускной</a><a href="ny.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Новый год</a></div>
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ДЛЯ ГОСТЕЙ</div>
@@ -355,7 +355,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">НАШИ АДРЕСА</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="filial-sitimoll.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">СитиМолл</a><a href="filial-ostrov.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Остров</a><a href="filial-kolumb.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Колумб</a><a href="contacts.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Все контакты</a><a href="rent.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Аренда площадки</a><a href="delivery.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Доставка</a><a href="franchise.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Франшиза</a></div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="filial-sitimoll.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">СитиМолл</a><a href="filial-ostrov.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Остров</a><a href="filial-kolumb.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Колумб</a><a href="contacts.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Все контакты</a><a href="rent.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Мероприятия</a><a href="delivery.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Доставка</a><a href="franchise.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Франшиза</a></div>
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">В ДРУГИХ ГОРОДАХ</div>
@@ -450,34 +450,13 @@ class Component extends DCLogic {
   }
 }
 </script>
-<!-- BB-WAITLY: оригинальный код виджета брони Waitly (кнопка + панель с филиалами) -->
-<script>
-(function () {
-  var orig = Element.prototype.attachShadow;
-  Element.prototype.attachShadow = function (init) {
-    if (this.id === 'waitly-widget-root') { init = Object.assign({}, init, { mode: 'open' }); }
-    return orig.call(this, init);
-  };
-})();
+<!-- BB-BRONI: виджет брони broni (плавающая кнопка) -->
+<script
+    src="https://brooklyn.broni.g-profile.ru/widget.js"
+    data-city="Тюмень"
+    defer>
 </script>
-<script src="https://widget.waitly.ru/waitly-widget.js" data-token="4GBzCMLnaU4esEo9WF9twg" data-theme="2-firm" data-text="Бронируй столик и дорожку!" data-color="#ed1c24" async></script>
-<script>
-(function () {
-  function fix() {
-    var root = document.getElementById('waitly-widget-root');
-    if (!root || !root.shadowRoot) { setTimeout(fix, 100); return; }
-    if (root.shadowRoot.getElementById('waitly-position-fix')) return;
-    var st = document.createElement('style');
-    st.id = 'waitly-position-fix';
-    st.textContent = '@media (max-width:980px){ .waitly-fab{ bottom:90px !important; } }';
-    root.shadowRoot.appendChild(st);
-  }
-  fix();
-  window.addEventListener('load', fix);
-  window.addEventListener('resize', fix);
-  setTimeout(fix, 500); setTimeout(fix, 1500); setTimeout(fix, 3000);
-})();
-</script>
-<!-- /BB-WAITLY -->
+<script src="../_broni-fix.js"></script>
+<!-- /BB-BRONI -->
 </body>
 </html>

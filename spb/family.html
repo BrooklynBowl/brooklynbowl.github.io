@@ -126,15 +126,15 @@ a:hover{ color:#FFFFFF; }
 }
 /* мобильная шапка: только логотип и выбор города — кнопка брони и телефон убраны */
 @media (max-width:768px){
-  header [data-m="cta"], header a[href*="waitly"], header a[href*="yclients"], header a[href^="tel:"]{ display:none !important; }
+  header [data-m="cta"], header a[href*="broni"], header a[href^="tel:"]{ display:none !important; }
   [data-m="fab-chat"]{ left:14px !important; }
   [data-m="chat-panel"]{ left:0 !important; right:0 !important; bottom:0 !important; width:100% !important; max-width:none !important; height:84vh !important; border-radius:22px 22px 0 0 !important; }
 }
 
 /* BB-OVERLAY-GUARD: пока открыт оверлей — плавающие виджеты скрыты */
-html[data-bb-ovl="menu"] [data-m="fab-chat"], html[data-bb-ovl="menu"] [data-m="chat-panel"], html[data-bb-ovl="menu"] #waitly-widget-root,
-html[data-bb-ovl="modal"] [data-m="fab-chat"], html[data-bb-ovl="modal"] [data-m="chat-panel"], html[data-bb-ovl="modal"] #waitly-widget-root,
-html[data-bb-ovl="chat"] #waitly-widget-root,
+html[data-bb-ovl="menu"] [data-m="fab-chat"], html[data-bb-ovl="menu"] [data-m="chat-panel"], html[data-bb-ovl="menu"] #brn-host,
+html[data-bb-ovl="modal"] [data-m="fab-chat"], html[data-bb-ovl="modal"] [data-m="chat-panel"], html[data-bb-ovl="modal"] #brn-host,
+html[data-bb-ovl="chat"] #brn-host,
 html[data-bb-ovl="book"] [data-m="fab-chat"], html[data-bb-ovl="book"] [data-m="chat-panel"]{ display:none !important; }
 /* чат не закрывает текст: гаснет, когда под кнопкой строка или картинка */
 html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-events:none !important; }
@@ -162,7 +162,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
     <div style="display:flex; align-items:center; gap:18px; margin-left:auto; flex-shrink:0;">
       <details data-m="city-pick" style="position:relative;"><summary style="list-style:none; cursor:pointer; display:flex; align-items:center; gap:7px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 1.5c-2.5 0-4.5 2-4.5 4.5 0 3.2 4.5 8 4.5 8s4.5-4.8 4.5-8c0-2.5-2-4.5-4.5-4.5Z" stroke="#FF2026" stroke-width="1.4"></path><circle cx="8" cy="6" r="1.6" stroke="#FF2026" stroke-width="1.4"></circle></svg><span style="color:#fff; font-size:15px; font-weight:500;">Санкт-Петербург</span><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="rgba(232,229,222,0.66)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></summary><div style="position:absolute; top:calc(100% + 12px); left:0; z-index:120; min-width:240px; background:#191919; border:1px solid rgba(255,255,255,0.12); border-radius:16px; padding:8px; display:flex; flex-direction:column; gap:2px; box-shadow:0 20px 46px rgba(0,0,0,0.6);"><div style="padding:6px 12px 8px; font-size:11px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">ВЫБЕРИТЕ ГОРОД</div><a href="index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:700; color:#fff; background:rgba(255,32,38,0.18);" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Санкт-Петербург</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">3 точки</span></a><a href="../izhevsk/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Ижевск</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">2 точки</span></a><a href="../samara/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Самара</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">2 точки</span></a><a href="../msk/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Москва</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">2 точки</span></a><a href="index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Санкт-Петербург</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">1 точка</span></a><a href="../surgut/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Сургут</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">1 точка</span></a><a href="../nv/index.html" style="display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; padding:9px 12px; border-radius:10px; font-size:14px; font-weight:500; color:rgba(232,229,222,0.86); background:transparent;" style-hover="background:rgba(255,255,255,0.07) !important; color:#fff !important;"><span>Нижневартовск</span><span style="font-size:12px; color:rgba(232,229,222,0.66);">1 точка</span></a></div></details>
       <a href="tel:+78127608095" style="display:flex; align-items:center; gap:7px; text-decoration:none; color:#fff; font-size:15px; font-weight:600; white-space:nowrap;" style-hover="color:#FF2026 !important;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M5.5 2.5 6.8 5l-1.3 1.3a8 8 0 0 0 3.2 3.2L10 8.2 12.5 9.5c.4.2.6.6.5 1l-.4 1.6c-.1.5-.6.8-1.1.7C7.2 12.2 3.8 8.8 3.2 4.5c-.1-.5.2-1 .7-1.1l1.6-.4c.4-.1.8.1 1 .5Z" stroke="#FF2026" stroke-width="1.4" stroke-linejoin="round"></path></svg>+7 (812) 760-80-95</a>
-      <a data-m="cta" href="https://b1620612.yclients.com/" target="_blank" rel="noopener" style="cursor:pointer; text-decoration:none; background:#fff; border:none; cursor:pointer; padding:16px 32px; border-radius:300px; color:#000000; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#FF2026 !important; color:#fff !important;">Забронировать</a>
+      <a data-m="cta" href="https://brooklyn.broni.g-profile.ru/book?city=Санкт-Петербург&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=sankt-peterburg&utm_trc=all" target="_blank" rel="noopener" style="cursor:pointer; text-decoration:none; background:#fff; border:none; cursor:pointer; padding:16px 32px; border-radius:300px; color:#000000; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#FF2026 !important; color:#fff !important;">Забронировать</a>
     </div>
   </header>
   <div data-m="mobile-menu" style="display:none; position:fixed; inset:0; z-index:90; background:#000000; flex-direction:column; padding:16px 22px 36px;">
@@ -179,7 +179,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
       <a href="dr.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Взрослый ДР</a>
       <a href="dr-kids.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Детский ДР</a>
       <a href="corporate.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Корпоратив</a>
-      <a href="graduation.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Выпускной</a>
+      <a href="graduation.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Выпускной</a><a href="ny.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Новый год</a>
       <a href="friends.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">С друзьями</a>
       <a href="family.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:#fff; padding:5px 0;">Семьёй</a>
       <a href="lane.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Просто поиграть</a>
@@ -196,7 +196,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
       <span style="color:rgba(232,229,222,0.66); font-size:15px;">Санкт-Петербург</span>
     </div>
     <a href="tel:+78127608095" style="text-decoration:none; color:#fff; font-size:20px; font-weight:700; margin-bottom:18px;">+7 (812) 760-80-95</a>
-    <a data-m="cta" href="https://b1620612.yclients.com/" target="_blank" rel="noopener" style="display:block; box-sizing:border-box; text-align:center; text-decoration:none; width:100%; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;">Бронь стола в зоне боулинга</a>
+    <a data-m="cta" href="https://brooklyn.broni.g-profile.ru/book?city=Санкт-Петербург&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=sankt-peterburg&utm_trc=all" target="_blank" rel="noopener" style="display:block; box-sizing:border-box; text-align:center; text-decoration:none; width:100%; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;">Бронь стола в зоне боулинга</a>
   </div>
   <div data-m="tabbar" style="display:none; position:fixed; left:0; right:0; bottom:0; z-index:80; padding:30px 14px 16px; pointer-events:none; background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.82) 50%, #000000 100%);">
     <div style="display:flex; align-items:center; gap:10px; max-width:460px; margin:0 auto; pointer-events:auto;">
@@ -213,14 +213,14 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
     <div>
       <span style="display:inline-flex; align-items:center; padding:7px 14px; border-radius:300px; background:rgba(255,32,38,0.16); font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:#FF2026;">СЕМЬЁЙ</span>
       <h1 style="margin:22px 0 0; font-size:clamp(36px,4.6vw,60px); font-weight:800; line-height:1.03; letter-spacing:-0.02em; color:#fff;">Посидеть вместе, пока дети играют —<br><em style="color:#FF2026; font-style:normal;">и не мыть потом посуду</em></h1>
-      <p style="margin:22px 0 0; max-width:540px; font-size:17px; line-height:1.6; color:rgba(232,229,222,0.66);">С детьми от 5 лет. Играют все поколения — бабушки тоже. Бортики поднимаются за секунду, шары от 2,5 кг, обувь с 23 размера, одноразовые носки — бесплатно. Во вторник дорожка в подарок при депозите на стол.</p>
+      <p style="margin:22px 0 0; max-width:540px; font-size:17px; line-height:1.6; color:rgba(232,229,222,0.66);">С детьми от 5 лет. Играют все поколения — бабушки тоже. Бортики поднимаются по запросу, шары от 2,5 кг, обувь с 23 размера. Во вторник дорожка в подарок при депозите на стол.</p>
       <div style="display:flex; gap:12px; margin-top:30px; flex-wrap:wrap;">
-        <a data-m="cta" href="https://b1620612.yclients.com/" target="_blank" rel="noopener" style="cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Забронировать визит</a>
+        <a data-m="cta" href="https://brooklyn.broni.g-profile.ru/book?city=Санкт-Петербург&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=sankt-peterburg&utm_trc=all" target="_blank" rel="noopener" style="cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Забронировать визит</a>
         <a href="promo.html" style="text-decoration:none; display:inline-flex; align-items:center; background:transparent; border:1px solid rgba(255,255,255,0.28); padding:15px 30px; border-radius:300px; color:#fff; font-size:16px; font-weight:600;" style-hover="border-color:#fff !important;">Про бесплатный вторник</a>
       </div>
       <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:34px;">
         <span style="padding:9px 15px; border-radius:300px; background:#191919; border:1px solid rgba(255,255,255,0.07); font-size:13px; color:rgba(232,229,222,0.86);">От 1 490 ₽ / час · будни до 18:00</span>
-        <span style="padding:9px 15px; border-radius:300px; background:#191919; border:1px solid rgba(255,255,255,0.07); font-size:13px; color:rgba(232,229,222,0.86);">3 точки в Санкт-Петербурге · парковка ТРЦ</span>
+        <span style="padding:9px 15px; border-radius:300px; background:#191919; border:1px solid rgba(255,255,255,0.07); font-size:13px; color:rgba(232,229,222,0.86);">Точка в Санкт-Петербурге · парковка ТРЦ</span>
         <span style="padding:9px 15px; border-radius:300px; background:#191919; border:1px solid rgba(255,255,255,0.07); font-size:13px; color:rgba(232,229,222,0.86);">Бесплатный вторник до 18:00</span>
         <span style="padding:9px 15px; border-radius:300px; background:#191919; border:1px solid rgba(255,255,255,0.07); font-size:13px; color:rgba(232,229,222,0.86);">С 5 лет · обувь с 23 размера</span>
       </div>
@@ -234,13 +234,12 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
   <section style="padding:40px 44px 70px; max-width:1500px; margin:0 auto;">
     <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">ЧТО УЧЛИ ДЛЯ ДЕТЕЙ И РОДИТЕЛЕЙ</span>
     <h2 style="margin:14px 0 32px; font-size:clamp(28px,3.4vw,40px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Настройки под рост, возраст и вкус</h2>
-    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color:#FF2026 !important; background:#191919 !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:20px; font-weight:800; color:#fff;">Бортики поднимаются сами</h3><p style="margin:0; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.66);">На любой дорожке — одной кнопкой, без ожидания инженера. Работают только на дорожке ребёнка: взрослые играют нормально рядом. Просто попросите хостес.</p></div>
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color:#FF2026 !important; background:#191919 !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:20px; font-weight:800; color:#fff;">Шары от 2,5 кг</h3><p style="margin:0; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.66);">Самые лёгкие — на стойке с детскими шарами, для ребёнка 5–7 лет. Взрослые — от 5 до 7 кг. На каждой дорожке есть рамка с подсказкой размеров.</p></div>
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color:#FF2026 !important; background:#191919 !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:20px; font-weight:800; color:#fff;">Обувь с 23 размера</h3><p style="margin:0; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.66);">Резервируем при бронировании — скажите размеры, отложим в отдельный ящик. Пришли без брони — по наличию, обычно есть. Взрослые размеры — до 48.</p></div>
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color:#FF2026 !important; background:#191919 !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:20px; font-weight:800; color:#fff;">Носки — бесплатно</h3><p style="margin:0; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.66);">Одноразовые носки выдаём на входе при необходимости — не стесняйтесь попросить. В каждом отсеке контейнер для вашей обуви. Чистая и гостевая зоны разделены.</p></div>
+    <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:18px;">
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color:#FF2026 !important; background:#191919 !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:20px; font-weight:800; color:#fff;">Бортики поднимаются сами</h3><p style="margin:0; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.66);">На любой дорожке — одной кнопкой, без ожидания инженера. Работают только на дорожке ребёнка: взрослые играют нормально рядом. Закажи бортики заранее при бронировании.</p></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color:#FF2026 !important; background:#191919 !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:20px; font-weight:800; color:#fff;">Шары от 2,5 кг</h3><p style="margin:0; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.66);">Самые лёгкие — на стойке с детскими шарами, для ребёнка 5–7 лет. Взрослые — от 2,7 до 7,2 кг. На каждой дорожке есть рамка с подсказкой размеров.</p></div>
+      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color:#FF2026 !important; background:#191919 !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:20px; font-weight:800; color:#fff;">Обувь с 23 размера</h3><p style="margin:0; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.66);">Скажи размеры при бронировании. Взрослые размеры — до 48.</p></div>
+      
       <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color:#FF2026 !important; background:#191919 !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:20px; font-weight:800; color:#fff;">Детское меню на языке ребёнка</h3><p style="margin:0 0 14px; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.66);">«Картошку и наггетсы», «Макарошки», «Хрустики» со сметанкой. От 299 до 399 ₽. Не острое, без травок — дети их всё равно снимут.</p><a href="kitchen.html" style="text-decoration:none; font-size:14px; font-weight:700; color:#FF2026;" style-hover="color:#fff !important;">Полное детское меню →</a></div>
-      <div style="border-radius:20px; border:1px solid rgba(255,255,255,0.07); background:#191919; padding:30px; transition:border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color:#FF2026 !important; background:#191919 !important; transform:translateY(-5px) !important;"><h3 style="margin:0 0 12px; font-size:20px; font-weight:800; color:#fff;">Безопасная зона</h3><p style="margin:0; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.66);">Между дорожками — перегородки и низкий бортик, чтобы дети не бегали к соседям. На кухне — санитарный контроль, шары и обувь дезинфицируем утром.</p></div>
     </div>
   </section>
 
@@ -249,10 +248,10 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
     <div style="overflow:hidden; border-radius:24px; display:grid; grid-template-columns:1fr 1fr; align-items:stretch;">
       <div style="background:#FF2026; padding:52px 50px; display:flex; flex-direction:column; justify-content:center;">
         <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:rgba(255,255,255,0.75);">БЕСПЛАТНЫЙ ВТОРНИК</span>
-        <h2 style="margin:12px 0 14px; font-size:clamp(26px,3vw,40px); font-weight:800; line-height:1.08; letter-spacing:-0.01em; color:#fff;">Во вторник для семей — дорожка в подарок</h2>
-        <p style="margin:0; max-width:520px; font-size:16px; line-height:1.6; color:rgba(255,255,255,0.9);">Приходите во вторник — за дорожку не платите. Оплачиваете только еду и напитки, минимальный депозит на стол — 2 990 ₽ (примерно обед на четверых). Работает до 18:00 во всех нашей точке.</p>
+        <h2 style="margin:12px 0 14px; font-size:clamp(26px,3vw,40px); font-weight:800; line-height:1.08; letter-spacing:-0.01em; color:#fff;">Во вторник — дорожка в подарок</h2>
+        <p style="margin:0; max-width:520px; font-size:16px; line-height:1.6; color:rgba(255,255,255,0.9);">Приходишь во вторник — за дорожку не платишь. Оплачиваешь только еду и напитки, минимальный депозит на стол — 2 990 ₽ (примерно обед на четверых). Работает до 18:00 на нашей точке.</p>
         <div style="display:flex; gap:12px; margin-top:28px; flex-wrap:wrap;">
-          <a data-m="cta" href="https://b1620612.yclients.com/" target="_blank" rel="noopener" style="cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; background:#fff; padding:16px 32px; border-radius:300px; color:#FF2026; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#000000 !important; color:#fff !important;">Бронь стола в зоне боулинга</a>
+          <a data-m="cta" href="https://brooklyn.broni.g-profile.ru/book?city=Санкт-Петербург&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=sankt-peterburg&utm_trc=all" target="_blank" rel="noopener" style="cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; background:#fff; padding:16px 32px; border-radius:300px; color:#FF2026; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#000000 !important; color:#fff !important;">Бронь стола в зоне боулинга</a>
           <a href="promo.html" style="text-decoration:none; display:inline-flex; align-items:center; background:transparent; border:1px solid rgba(255,255,255,0.5); padding:14px 28px; border-radius:300px; color:#fff; font-size:15px; font-weight:600;" style-hover="border-color:#fff !important; background:rgba(255,255,255,0.1) !important;">Подробнее об акции</a>
         </div>
       </div>
@@ -270,7 +269,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
   <section style="padding:0 44px 70px; max-width:1500px; margin:0 auto;">
     <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">КАЛЬКУЛЯТОР</span>
     <h2 style="margin:14px 0 8px; font-size:clamp(28px,3.4vw,40px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Сколько <em style="color:#FF2026; font-style:normal;">выйдет на семью</em></h2>
-    <p style="margin:0 0 28px; max-width:620px; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.66);">Подвигайте ползунок, выберите день — увидите примерный чек. Кнопка «Вт» считает бесплатный вторник.</p>
+    <p style="margin:0 0 28px; max-width:620px; font-size:15px; line-height:1.6; color:rgba(232,229,222,0.66);">Подвигай ползунок, выбери день — увидишь примерный чек. Кнопка «Вт» считает бесплатный вторник.</p>
     <div style="display:grid; grid-template-columns:minmax(0,560px) 1fr; gap:24px; align-items:stretch;"><div style="border-radius:24px; border:1px solid rgba(255,255,255,0.08); background:#191919; padding:30px; display:flex; flex-direction:column; gap:18px;">
       <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px;">
         <span style="font-size:12px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">ПРИМЕРНЫЙ ЧЕК</span>
@@ -337,8 +336,8 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; align-items:stretch; border-radius:20px; overflow:hidden;">
       <div style="background:#191919; border-radius:20px; padding:56px 48px; display:flex; flex-direction:column; justify-content:center;">
         <h2 style="margin:0; font-size:clamp(28px,3.4vw,44px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Готовы прийти всей семьёй?</h2>
-        <p style="margin:16px 0 0; max-width:440px; font-size:16px; line-height:1.6; color:rgba(232,229,222,0.66);">Во вторник — дорожка в подарок. В другие дни скажите размеры обуви и возраст детей — подготовим бортики и шары заранее.</p>
-        <a data-m="cta" href="https://b1620612.yclients.com/" target="_blank" rel="noopener" style="cursor:pointer; display:inline-flex; align-self:flex-start; margin-top:28px; text-decoration:none; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Забронировать</a>
+        <p style="margin:16px 0 0; max-width:440px; font-size:16px; line-height:1.6; color:rgba(232,229,222,0.66);">Во вторник — дорожка в подарок. В другие дни скажи размеры обуви и возраст детей — подготовим бортики и шары заранее.</p>
+        <a data-m="cta" href="https://brooklyn.broni.g-profile.ru/book?city=Санкт-Петербург&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=sankt-peterburg&utm_trc=all" target="_blank" rel="noopener" style="cursor:pointer; display:inline-flex; align-self:flex-start; margin-top:28px; text-decoration:none; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Забронировать</a>
       </div>
       <div style="position:relative; min-height:360px; border-radius:20px; overflow:hidden;">
         <img src="../uploads/bb-kids-party.jpg" alt="Семейный праздник в Brooklyn Bowl" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
@@ -354,7 +353,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
           <div>
             <span style="display:inline-flex; padding:7px 14px; border-radius:300px; background:rgba(255,32,38,0.16); font-size:12px; font-weight:700; letter-spacing:0.05em; color:#FF2026;">ЗАЯВКА</span>
             <h3 style="margin:14px 0 4px; font-size:24px; font-weight:800; color:#fff;">Оставить заявку</h3>
-            <p style="margin:0 0 20px; font-size:14px; line-height:1.5; color:rgba(232,229,222,0.66);">Перезвоним в течение двух часов, подтвердим слот и условия. Скажите размеры обуви и возраст детей — подготовим заранее.</p>
+            <p style="margin:0 0 20px; font-size:14px; line-height:1.5; color:rgba(232,229,222,0.66);">Перезвоним в рабочее время, подтвердим слот и условия. Скажи размеры обуви и возраст детей — подготовим заранее.</p>
             <div style="display:flex; flex-direction:column; gap:12px;">
               <input type="text" value="Семьёй" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
               <select style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit; appearance:none; cursor:pointer;"><option>Июнь</option><option>Июнь</option><option>Июнь</option></select>
@@ -364,7 +363,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
               </div>
               <input type="number" min="1" placeholder="Сколько гостей (взрослые + дети)" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
               <input type="text" placeholder="Возраст и размеры обуви детей" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
-              <input type="text" placeholder="Ваше имя" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+              <input type="text" placeholder="Твоё имя" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
               <input type="tel" placeholder="Телефон" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
               <button data-m="cta" onClick="{{ submitBooking }}" style="margin-top:4px; width:100%; cursor:pointer; border:none; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; font-family:inherit; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Отправить заявку</button>
             </div>
@@ -375,7 +374,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
           <div style="display:flex; flex-direction:column; align-items:center; text-align:center; padding:24px 6px;">
             <div style="width:66px; height:66px; border-radius:50%; background:#FF2026; display:flex; align-items:center; justify-content:center; font-size:32px; color:#fff;">✓</div>
             <h3 style="margin:20px 0 0; font-size:24px; font-weight:800; color:#fff;">Заявка принята</h3>
-            <p style="margin:12px 0 0; max-width:330px; font-size:15px; line-height:1.55; color:rgba(232,229,222,0.66);">Администратор перезвонит в течение двух часов и подтвердит детали. Если закрыли сайт — заявка уже у нас.</p>
+            <p style="margin:12px 0 0; max-width:330px; font-size:15px; line-height:1.55; color:rgba(232,229,222,0.66);">Перезвоним в рабочее время и подтвердим детали. Если закрыл сайт — заявка уже у нас.</p>
             <button onClick="{{ closeBooking }}" style="margin-top:22px; cursor:pointer; border:1px solid rgba(255,255,255,0.18); background:transparent; padding:13px 30px; border-radius:300px; color:#fff; font-size:15px; font-weight:600; font-family:inherit;" style-hover="border-color:#FF2026 !important;">Готово</button>
           </div>
         </sc-if>
@@ -388,11 +387,11 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
     <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:40px; flex-wrap:wrap; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,0.07);">
       <div>
         <img src="../uploads/Vector.svg" alt="Brooklyn Bowl" style="height:26px; width:auto; display:block; filter:brightness(0) invert(1); margin-bottom:18px;">
-        <p style="margin:0 0 20px; max-width:280px; font-size:15px; line-height:1.5; color:rgba(255,255,255,0.85);">Боулинг, вкусная еда и живая музыка — всё сразу в одном месте.</p>
+        <p style="margin:0 0 20px; max-width:280px; font-size:15px; line-height:1.5; color:rgba(255,255,255,0.85);">Боулинг, кухня с гриля и живая сцена — в одном месте.</p>
         <div style="display:flex; flex-direction:column; gap:4px; font-size:14px; font-weight:600; color:#fff; margin-bottom:22px;">
-          <span>Пн 12:00 – 00:00</span>
-          <span>Вт–Чт, Вс 10:00 – 00:00</span>
-          <span>Пт–Сб 10:00 – 00:00</span>
+          <span>Пн 11:57 – 00:03</span>
+          <span>Вт–Чт, Вс 09:57 – 00:02</span>
+          <span>Пт–Сб 09:57 – 00:02</span>
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
           <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=spb&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="../uploads/badge-appstore.svg" alt="App Store" style="height:36px; width:auto; display:block;"></a>
@@ -403,7 +402,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
       <div data-m="footer-cols" style="display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:24px; flex:1; min-width:0;">
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ВИЗИТЫ</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="https://b1620612.yclients.com/" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Забронировать</a><a href="lane.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Просто поиграть</a><a href="friends.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">С друзьями</a><a href="family.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Семьёй</a><a href="dr.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">День рождения</a><a href="dr-kids.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Детский ДР</a><a href="corporate.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Корпоратив</a><a href="graduation.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Выпускной</a></div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="https://brooklyn.broni.g-profile.ru/book?city=Санкт-Петербург&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=sankt-peterburg&utm_trc=all" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Забронировать</a><a href="lane.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Просто поиграть</a><a href="friends.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">С друзьями</a><a href="family.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Семьёй</a><a href="dr.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">День рождения</a><a href="dr-kids.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Детский ДР</a><a href="corporate.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Корпоратив</a><a href="graduation.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Выпускной</a><a href="ny.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Новый год</a></div>
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ДЛЯ ГОСТЕЙ</div>
@@ -411,7 +410,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">НАШИ АДРЕСА</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="filial-iyun.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Июнь</a><a href="contacts.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Все контакты</a><a href="rent.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Аренда площадки</a><a href="delivery.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Доставка</a><a href="franchise.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Франшиза</a></div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="filial-iyun.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Июнь</a><a href="contacts.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Все контакты</a><a href="rent.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Мероприятия</a><a href="delivery.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Доставка</a><a href="franchise.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Франшиза</a></div>
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">В ДРУГИХ ГОРОДАХ</div>
@@ -459,7 +458,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
           </sc-for>
         </div>
         <div style="display:flex; align-items:center; gap:10px; padding:12px 14px; border-top:1px solid rgba(255,255,255,0.1); background:#000000;">
-          <input data-m="chat-input" type="text" value="{{ draft }}" onChange="{{ chatType }}" onKeyDown="{{ chatKey }}" placeholder="Напишите сообщение" style="flex:1; min-width:0; height:42px; padding:0 14px; border:1px solid rgba(255,255,255,0.14); border-radius:300px; background:#191919; color:#FFFFFF; font-family:inherit; font-size:14.5px; outline:none;">
+          <input data-m="chat-input" type="text" value="{{ draft }}" onChange="{{ chatType }}" onKeyDown="{{ chatKey }}" placeholder="Напиши сообщение" style="flex:1; min-width:0; height:42px; padding:0 14px; border:1px solid rgba(255,255,255,0.14); border-radius:300px; background:#191919; color:#FFFFFF; font-family:inherit; font-size:14.5px; outline:none;">
           <button onClick="{{ chatSend }}" aria-label="Отправить" style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; flex-shrink:0; border:0; padding:0; cursor:pointer; border-radius:300px; background:#FF2026;" style-hover="filter:brightness(1.12) !important;">
             <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"></path></svg>
           </button>
@@ -521,11 +520,11 @@ class Component extends DCLogic {
     const cash = Math.round(total * 0.10);
     const recoName = total < 7000 ? 'Мини' : (total < 12000 ? 'Хит' : 'Макси');
     const reco = day.free
-      ? 'Вторник — выгоднее всего: дорожка бесплатна, платите только за стол. Под вашу компанию советуем пакет «' + recoName + '» — соберём по дате и зафиксируем цену.'
-      : 'Вам выгоднее пакет «' + recoName + '» — соберём под вашу дату, подготовим детскую обувь и шары и зафиксируем цену. Во вторник до 18:00 дорожка для семей бесплатна.';
+      ? 'Вторник — выгоднее всего: дорожка бесплатна, платишь только за стол. Под твою компанию советуем пакет «' + recoName + '» — соберём по дате и зафиксируем цену.'
+      : 'Тебе выгоднее пакет «' + recoName + '» — соберём под твою дату, подготовим детскую обувь и шары и зафиксируем цену. Во вторник до 18:00 дорожка бесплатна.';
     const note = day.free
-      ? 'Во вторник час дорожки бесплатный, считаем только стол. Точную сумму под вашу дату подтвердим по телефону.'
-      : 'Базовый расчёт. Точную сумму под вашу дату подтвердим по телефону.';
+      ? 'Во вторник час дорожки бесплатный, считаем только стол. Точную сумму под твою дату подтвердим по телефону.'
+      : 'Базовый расчёт. Точную сумму под твою дату подтвердим по телефону.';
 
     const tB = 'flex:1; text-align:center; cursor:pointer; border:none; padding:10px 6px; border-radius:300px; font-size:13px; font-weight:700; font-family:inherit; transition:background-color .2s ease, color .2s ease; white-space:nowrap;';
     const days = DAYS.map((d, k) => ({
@@ -545,7 +544,7 @@ class Component extends DCLogic {
       chatHours: this.props.chatHours ?? 'Отвечаем ежедневно с 10:00 до 22:00',
       chatOpen: !!this.state.chatOpen,
       draft: this.state.draft || '',
-      messages: [{ mine: false, text: this.props.chatGreeting ?? 'Здравствуйте! Чем можем помочь?' }].concat(this.state.log || []).map((m) => ({ text: m.text, mine: !!m.mine, theirs: !m.mine })),
+      messages: [{ mine: false, text: this.props.chatGreeting ?? 'Привет! Чем можем помочь?' }].concat(this.state.log || []).map((m) => ({ text: m.text, mine: !!m.mine, theirs: !m.mine })),
       chatToggle: () => this.setState({ chatOpen: !this.state.chatOpen }),
       chatClose: () => this.setState({ chatOpen: false }),
       chatType: (e) => this.setState({ draft: e.target.value }),
@@ -557,12 +556,12 @@ class Component extends DCLogic {
       bookingForm: this.state.bsent !== true,
       bookingSent: this.state.bsent === true,
       openBooking: () => this.setState({ booking: true, bsent: false }),
-      bookLane: () => window.open('https://b1620612.yclients.com/', '_blank'),
+      bookLane: () => window.open('https://brooklyn.broni.g-profile.ru/book?city=Санкт-Петербург&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=sankt-peterburg&utm_trc=all', '_blank'),
       closeBooking: () => this.setState({ booking: false }),
       submitBooking: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ bsent: true }); },
       calc: {
         guests: g, unit: 'человека', guestsLabel: 'Сколько человек', min: 2, max: 50,
-        perPerson: fmt(pp), total: fmt(total), cash: fmt(cash), cashLabel: 'Бонусы на карту клуба', note, reco,
+        perPerson: fmt(pp), total: fmt(total), cash: fmt(cash), cashLabel: 'Бонусы на карту гостя', note, reco,
         days, addons,
         onSlide: (e) => this.setState({ g: parseInt(e.target.value, 10) })
       }
@@ -570,10 +569,13 @@ class Component extends DCLogic {
   }
 }
 </script>
-<!-- BB-BOOKING: сюда вставляется виджет брони YClients.
-     Waitly в Санкт-Петербурге не работает, код виджета даёт заказчица —
-     вставить на это место, в конец body, как на страницах остальных городов.
-     Ссылка брони города: https://b1620612.yclients.com/ -->
-<!-- /BB-BOOKING -->
+<!-- BB-BRONI: виджет брони broni (плавающая кнопка) -->
+<script
+    src="https://brooklyn.broni.g-profile.ru/widget.js"
+    data-venue="12"
+    defer>
+</script>
+<script src="../_broni-fix.js"></script>
+<!-- /BB-BRONI -->
 </body>
 </html>

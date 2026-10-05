@@ -251,15 +251,15 @@ mount();var n=0;var t=setInterval(function(){mount();if(++n>40){clearInterval(t)
 }
 /* мобильная шапка: только логотип и выбор города — кнопка брони и телефон убраны */
 @media (max-width:768px){
-  header [data-m="cta"], header a[href*="waitly"], header a[href*="yclients"], header a[href^="tel:"]{ display:none !important; }
+  header [data-m="cta"], header a[href*="broni"], header a[href^="tel:"]{ display:none !important; }
   [data-m="fab-chat"]{ left:14px !important; }
   [data-m="chat-panel"]{ left:0 !important; right:0 !important; bottom:0 !important; width:100% !important; max-width:none !important; height:84vh !important; border-radius:22px 22px 0 0 !important; }
 }
 
 /* BB-OVERLAY-GUARD: пока открыт оверлей — плавающие виджеты скрыты */
-html[data-bb-ovl="menu"] [data-m="fab-chat"], html[data-bb-ovl="menu"] [data-m="chat-panel"], html[data-bb-ovl="menu"] #waitly-widget-root,
-html[data-bb-ovl="modal"] [data-m="fab-chat"], html[data-bb-ovl="modal"] [data-m="chat-panel"], html[data-bb-ovl="modal"] #waitly-widget-root,
-html[data-bb-ovl="chat"] #waitly-widget-root,
+html[data-bb-ovl="menu"] [data-m="fab-chat"], html[data-bb-ovl="menu"] [data-m="chat-panel"], html[data-bb-ovl="menu"] #brn-host,
+html[data-bb-ovl="modal"] [data-m="fab-chat"], html[data-bb-ovl="modal"] [data-m="chat-panel"], html[data-bb-ovl="modal"] #brn-host,
+html[data-bb-ovl="chat"] #brn-host,
 html[data-bb-ovl="book"] [data-m="fab-chat"], html[data-bb-ovl="book"] [data-m="chat-panel"]{ display:none !important; }
 /* чат не закрывает текст: гаснет, когда под кнопкой строка или картинка */
 html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-events:none !important; }
@@ -332,7 +332,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
       <a href="dr.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Взрослый ДР</a>
       <a href="dr-kids.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Детский ДР</a>
       <a href="corporate.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Корпоратив</a>
-      <a href="graduation.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Выпускной</a>
+      <a href="graduation.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Выпускной</a><a href="ny.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Новый год</a>
       <a href="friends.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">С друзьями</a>
       <a href="family.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Семьёй</a>
       <a href="lane.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Просто поиграть</a>
@@ -373,7 +373,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
       <div style="display:flex; flex-direction:column; justify-content:center; padding:8px 0;">
         <span style="display:inline-flex; align-self:flex-start; align-items:center; padding:7px 14px; border-radius:300px; background:rgba(255,32,38,0.16); font-size:12.5px; font-weight:700; letter-spacing:0.03em; color:#FF2026;">ЕДА И НАПИТКИ</span>
         <h2 style="margin:22px 0 0; font-size:clamp(30px,3.4vw,44px); font-weight:800; line-height:1.04; letter-spacing:-0.01em; color:#fff;">Кухня — с Шеф-подходом</h2>
-        <p style="margin:16px 0 0; max-width:90%; font-size:16px; line-height:1.55; color:rgba(232,229,222,0.66);">64 позиции кухни и 80 позиций бара: пицца, бургеры, горячее, детское меню и авторские коктейли.</p>
+        <p style="margin:16px 0 0; max-width:90%; font-size:16px; line-height:1.55; color:rgba(232,229,222,0.66);">64 позиции кухни и 80 позиций бара: пицца, бургеры, горячее, детское меню и коктейли.</p>
         <div data-m="kitchen-cta" style="display:flex; gap:12px; margin-top:28px;">
           <a data-m="cta" href="../uploads/%D0%92%D0%95%D0%91_TMN_%D0%9C%D0%B5%D0%BD%D1%8E_%D0%92%D0%95%D0%A1%D0%9D%D0%90%202026.pdf" target="_blank" rel="noopener" download="" style="text-decoration:none; display:inline-flex; align-items:center; background:#fff; border:none; cursor:pointer; padding:16px 32px; border-radius:300px; color:#000000; font-size:14px; font-weight:800; font-family:inherit; transition:background-color .22s ease, color .22s ease; letter-spacing:0.05em;" style-hover="background:#FF2026 !important; color:#fff !important;">Скачать меню</a>
         </div>
@@ -492,11 +492,11 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
     <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:40px; flex-wrap:wrap; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,0.07);">
       <div>
         <img src="../uploads/Vector.svg" alt="Brooklyn Bowl" style="height:26px; width:auto; display:block; filter:brightness(0) invert(1); margin-bottom:18px;">
-        <p style="margin:0 0 20px; max-width:280px; font-size:15px; line-height:1.5; color:rgba(255,255,255,0.85);">Боулинг, вкусная еда и живая музыка — всё сразу в одном месте.</p>
+        <p style="margin:0 0 20px; max-width:280px; font-size:15px; line-height:1.5; color:rgba(255,255,255,0.85);">Боулинг, кухня с гриля и живая сцена — в одном месте.</p>
         <div style="display:flex; flex-direction:column; gap:4px; font-size:14px; font-weight:600; color:#fff; margin-bottom:22px;">
-          <span>Пн 12:00 – 00:00</span>
-          <span>Вт–Чт, Вс 10:00 – 00:00</span>
-          <span>Пт–Сб 10:00 – 00:00</span>
+          <span>Пн 11:57 – 00:03</span>
+          <span>Вт–Чт, Вс 09:57 – 00:02</span>
+          <span>Пт–Сб 09:57 – 00:02</span>
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
           <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=moscow&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="../uploads/badge-appstore.svg" alt="App Store" style="height:36px; width:auto; display:block;"></a>
@@ -507,7 +507,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
       <div data-m="footer-cols" style="display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:24px; flex:1; min-width:0;">
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ВИЗИТЫ</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="https://b1449291.yclients.com/" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Забронировать</a><a href="lane.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Просто поиграть</a><a href="friends.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">С друзьями</a><a href="family.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Семьёй</a><a href="dr.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">День рождения</a><a href="dr-kids.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Детский ДР</a><a href="corporate.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Корпоратив</a><a href="graduation.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Выпускной</a></div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="https://brooklyn.broni.g-profile.ru/book?city=Москва&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=moskva&utm_trc=all" target="_blank" rel="noopener" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Забронировать</a><a href="lane.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Просто поиграть</a><a href="friends.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">С друзьями</a><a href="family.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Семьёй</a><a href="dr.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">День рождения</a><a href="dr-kids.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Детский ДР</a><a href="corporate.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Корпоратив</a><a href="graduation.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Выпускной</a><a href="ny.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Новый год</a></div>
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">ДЛЯ ГОСТЕЙ</div>
@@ -515,7 +515,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">НАШИ АДРЕСА</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="filial-siyanie.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Северное Сияние</a><a href="filial-kit.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Красный Кит</a><a href="filial-siyanie.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Северное Сияние</a><a href="contacts.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Все контакты</a><a href="rent.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Аренда площадки</a><a href="delivery.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Доставка</a><a href="franchise.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Франшиза</a></div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="filial-siyanie.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Северное Сияние</a><a href="filial-kit.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Красный Кит</a><a href="filial-siyanie.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Северное Сияние</a><a href="contacts.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Все контакты</a><a href="rent.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Мероприятия</a><a href="delivery.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Доставка</a><a href="franchise.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Франшиза</a></div>
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">В ДРУГИХ ГОРОДАХ</div>
@@ -594,7 +594,7 @@ class Component extends DCLogic {
     });
   }
   state = { chatOpen: false, draft: '', log: [], sending: false, cat: 'Для компании', ev: null };
-  componentDidMount() {}
+  componentDidMount() { if (location.hash === '#detskoe-menu') this.setState({ group: 'Детское меню' }); }
   componentDidUpdate() {}
   _initMap() {
     if (this._mapInited) return;
@@ -655,11 +655,15 @@ class Component extends DCLogic {
     };
     const djDesc = 'Отдыхаем под музыку. Бронируй столик, танцуй, выбивай страйки и с друзьями круто время проводи. Вход свободный :)';
     const EVENTS_ALL = [
+      {cat:'ПОТАНЦЕВАТЬ',title:'Диджей Пётр Каминский',dt:'2026-10-16 20:00',date:'16.10 · 20:00',venue:'ТРЦ «Северное Сияние»',price:'Вход свободный',img:'../uploads/event-tyumen-didzhey-sety.jpg',link:'',desc:"Диджей-сет на весь вечер. Бронируй столик заранее — места разбирают быстро."},
+      {cat:'ПОТАНЦЕВАТЬ',title:'Диджей Пётр Каминский',dt:'2026-10-17 20:00',date:'17.10 · 20:00',venue:'ТРЦ «Северное Сияние»',price:'Вход свободный',img:'../uploads/event-tyumen-didzhey-sety-2.jpg',link:'',desc:"Диджей-сет на весь вечер. Бронируй столик заранее — места разбирают быстро."},
+      {cat:'ПОТАНЦЕВАТЬ',title:'Южная вечеринка: сальса и бачата',dt:'2026-10-23 20:00',date:'23.10 · 20:00',venue:'ТРЦ «Северное Сияние»',price:'Вход свободный',img:'../uploads/event-tyumen-didzhey-sety-3.jpg',link:'',desc:"Вечер сальсы и бачаты. Бронируй столик заранее — места разбирают быстро."},
+      {cat:'ПОТАНЦЕВАТЬ',title:'Диджей Пётр Каминский',dt:'2026-10-24 20:00',date:'24.10 · 20:00',venue:'ТРЦ «Северное Сияние»',price:'Вход свободный',img:'../uploads/event-tyumen-didzhey-sety.jpg',link:'',desc:"Диджей-сет на весь вечер. Бронируй столик заранее — места разбирают быстро."},
+      {cat:'ПОТАНЦЕВАТЬ',title:'Диджей Пётр Каминский',dt:'2026-10-30 20:00',date:'30.10 · 20:00',venue:'ТРЦ «Северное Сияние»',price:'Вход свободный',img:'../uploads/event-tyumen-didzhey-sety-2.jpg',link:'',desc:"Диджей-сет на весь вечер. Бронируй столик заранее — места разбирают быстро."},
+      {cat:'БОУЛИНГ',title:'Бесплатный боулинг — каждый вторник до 18:00',dt:'2026-10-06 18:00',weekly:2,date:'06.10 · 18:00',venue:'Северное Сияние · Красный Кит',price:'Бесплатно',img:'../uploads/event-tyumen-besplatnyy-bouling.jpg',link:'',desc:"Катай шары с друзьями бесплатно 2 часа с депозитом дорожки 2 990.- на кухню и бар. С 10:00 до 18:00. Ну, круто же? :)"},
       {title:'Бесплатный боулинг — каждый вторник',dt:'2026-06-30 18:00',weekly:2,date:'30.06.2026 · 18:00',venue:'Северное Сияние · Красный Кит · Северное Сияние',price:'Бесплатно',img:'../uploads/bb-bowling-lane.jpg',desc:'Каждый вторник катай шары с друзьями 2 часа бесплатно — с депозитом дорожки 2 990 ₽ на кухню и бар. Во всех двух точках города.'},
       {title:'Диджей-сеты',dt:'2026-06-19 21:20',weekly:5,date:'19.06.2026 · 21:20',venue:'ТРЦ «Северное сияние»',price:'Вход свободный',img:'../uploads/afisha-band.png',desc:djDesc},
       {title:'Диджей-сеты',dt:'2026-06-20 21:20',weekly:6,date:'20.06.2026 · 21:20',venue:'ТРЦ «Северное сияние»',price:'Вход свободный',img:'../uploads/afisha-bass.png',desc:djDesc},
-      {title:'Диджей-сеты',dt:'2026-06-27 21:20',date:'27.06.2026 · 21:20',venue:'ТРЦ «Северное сияние»',price:'Вход свободный',img:'../uploads/afisha-acdc.png',desc:djDesc},
-      {title:'Диджей-сеты',dt:'2026-06-28 21:20',date:'28.06.2026 · 21:20',venue:'ТРЦ «Северное сияние»',price:'Вход свободный',img:'../uploads/afisha-dance.png',desc:djDesc}
     ];
     const EVENTS = (function(){ try { return (window.bbEvents ? window.bbEvents(EVENTS_ALL) : EVENTS_ALL); } catch (e) { console.warn('bbEvents:', e); return EVENTS_ALL; } })();
     const VENUES = [
@@ -683,9 +687,9 @@ class Component extends DCLogic {
     const _cartItems = Object.keys(_cart).map((k) => _cart[k]).filter((x) => x && x.q > 0);
     const FOOD = '../uploads/%D0%A2%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%BE%D0%B5%20%D0%B2%20%D0%BF%D0%B5%D1%87%D0%B8%20%D0%B3%D0%BE%D0%B2%D1%8F%D0%B6%D1%8C%D0%B5%20%D1%80%D0%B5%D0%B1%D1%80%D0%BE.jpg';
     const PTS = [
-      { title:'Современные дорожки', tag:'<span data-fact="lanes">20</span> дорожек', img:'../uploads/bb-bowling-lane.jpg', desc:'20 профессиональных дорожек с гладким покрытием и автоматическим подсчётом очков. Бортики поднимаются по запросу — ребёнок попадёт в кегли с первой попытки. Лёгкие шары от 2,5 кг и обувь с 23 размера.', cta:'Бронь стола в зоне боулинга', act:'book' },
-      { title:'Ресторан и кухня', tag:'150 мест', img:'../uploads/7bZmH1sygk8.jpg', desc:'64 позиции кухни и 80 позиций бара: пицца, бургеры, горячее с гриля, детское меню и авторские коктейли. Зал на 150 мест — от ужина вдвоём до большого корпоратива.', cta:'Смотреть меню', act:'menu' },
-      { title:'Живая музыка', tag:'LIVE', img:'../uploads/mrkypACsj8M.jpg', desc:'Кавер-группы, стендап-вечера, квизы и диджей-сеты — каждую неделю. Иногда живая музыка идёт прямо в стоимость дорожки. Полное расписание — в афише.', cta:'Афиша', act:'events' }
+      { title:'Современные дорожки', tag:'До <span data-fact="lanes">20</span> дорожек', img:'../uploads/bb-bowling-lane.jpg', desc:'До 20 профессиональных дорожек на площадке, с гладким покрытием и автоматическим подсчётом очков. Бортики поднимаются по запросу — ребёнок попадёт в кегли с первой попытки. Лёгкие шары от 2,5 кг и обувь с 23 размера.', cta:'Бронь стола в зоне боулинга', act:'book' },
+      { title:'Ресторан и кухня', tag:'150 мест', img:'../uploads/7bZmH1sygk8.jpg', desc:'64 позиции кухни и 80 позиций бара: пицца, бургеры, горячее с гриля, детское меню и коктейли. Зал на 150 мест — от ужина вдвоём до большого корпоратива.', cta:'Смотреть меню', act:'menu' },
+      { title:'Живая музыка', tag:'LIVE', img:'../uploads/mrkypACsj8M.jpg', desc:'Кавер-группы, стендап-вечера, квизы и диджей-сеты. Иногда живая музыка идёт прямо в стоимость дорожки. Полное расписание — в афише.', cta:'Афиша', act:'events' }
     ];
     const OCT = [
       { name:'Москва', sub:'Перейти на сайт Brooklyn Bowl в Москве и Мытищах', url:'index.html' },
@@ -747,53 +751,52 @@ class Component extends DCLogic {
       closeDish: () => this.setState({ dish: null, sauce: {}, gram: 1 }),
       faqCats: [
         { title:'Первый визит', items:[
-          {q:'Я никогда не был в боулинге. Что делать?', a:'Приходите и скажите хостес, что впервые. Покажет за две минуты: как брать шар, куда целиться. На столе — карточка с основами, а бортики можно поднять в любой момент.'},
-          {q:'Сколько стоит сходить?', a:'Дорожка от 1 490 ₽ в будни до 2 990 ₽ в пятницу-субботу вечером — за час, до 6 человек. Средний чек на вечер — около 1 500 ₽ на человека. По вторникам дорожка бесплатная.'},
-          {q:'Нужно ли бронировать заранее?', a:'В будни до 18:00 можно без брони. Пятница–воскресенье с 18:00 и праздники — бронируйте за день-два, на сайте это минута.'},
-          {q:'Что надевать?', a:'Удобную одежду, дресс-кода нет. Обувь и одноразовые носки выдаём бесплатно на входе, сумки можно оставить в шкафчиках у дорожки.'},
+          {q:'Я никогда не был в боулинге. Что делать?', a:'Скажи хостес, что играешь первый раз — она покажет, как держать шар и куда целиться. Подробные правила и видеоуроки — в приложении, а бортики поднимем по просьбе в любой момент.'},
+          {q:'Сколько стоит сходить?', a:'Дорожка от 1 490 ₽ в будни до 2 990 ₽ в пятницу-субботу вечером — за час, до 6 человек. Средний чек на вечер с дорожкой и кухней — около 1 500 ₽ на человека. По вторникам дорожка бесплатная.'},
+          {q:'Нужно ли бронировать заранее?', a:'В будни до 18:00 можно без брони. Пятница–воскресенье с 18:00 и праздники — бронируй за день-два, на сайте это минута.'},
+          {q:'Что надевать?', a:'Удобную одежду, дресс-кода нет. Обувь и носки выдаём бесплатно на входе.'},
           {q:'Как найти вход?', a:'Все две точки — в ТЦ Москве (Северное Сияние, Красный Кит, Северное Сияние), на 3–4 этаже. Внутри есть указатели, снаружи — вывески Brooklyn Bowl.'}
         ]},
         { title:'С детьми', items:[
           {q:'С какого возраста можно играть?', a:'С пяти лет: лёгкие шары от 2,5 кг и бортики, превращающие дорожку в коридор без канавы.'},
-          {q:'Есть ли обувь на детский размер?', a:'Есть с 23 размера. Скажите размеры при бронировании — отложим до прихода. Обувь чистим, носки выдаём бесплатно.'},
-          {q:'Как работают бортики?', a:'Ограждения по краям закрывают канавы — шар долетит до кеглей даже при кривом броске. Попросите при посадке.'},
-          {q:'Есть ли детское меню?', a:'Есть, официант приносит сам: наггетсы, картофельные буквы, хот-дог, куриный суп и Крейзи Айс-Крим.'},
-          {q:'Есть ли комната матери и ребёнка?', a:'Отдельной комнаты нет, но в туалетах есть пеленальные столики, а высокие стульчики — по запросу у хостес.'},
-          {q:'А если ребёнок убежит на чужую дорожку?', a:'Хостес объясняет правила при посадке, а семью с детьми сажаем на дорожку рядом со столом, чтобы ребёнок был на виду.'}
+          {q:'Есть ли обувь на детский размер?', a:'Есть с 23 размера. Скажи размеры при бронировании. Обувь чистим, носки выдаём бесплатно.'},
+          {q:'Как работают бортики?', a:'Ограждения по краям закрывают канавы — шар долетит до кеглей даже при кривом броске. Попроси дорожку с бортиками при бронировании.'},
+          {q:'Есть ли детское меню?', a:'Есть: наггетсы, картофельные буквы, хот-дог, куриный суп и Крейзи Айс-Крим.'},
+          {q:'Есть ли комната матери и ребёнка?', a:'Отдельной комнаты нет, но высокие стульчики для малышей дадим по запросу у хостес.'},
+          {q:'А если ребёнок убежит на чужую дорожку?', a:'Хостес на месте подскажет, как уследить за ребёнком — подробные правила и видеоуроки в приложении. Семью с детьми стараемся посадить ближе к столу, чтобы ребёнок был на виду.'}
         ]},
         { title:'День рождения', items:[
-          {q:'Что входит в пакет за 5 000 ₽?', a:'Дорожка на час, меню на стол, поздравление и десерт имениннику, двойные баллы (20% бонусы). Рассчитан на 4–6 человек.'},
-          {q:'Можно ли принести свой торт?', a:'Можно. Нарезку и пробковый сбор называем при бронировании, а не в конце. Подадим со свечой, когда попросите.'},
+          {q:'Что входит в пакет за 5 000 ₽?', a:'Дорожка на час, меню на стол, поздравление и десерт имениннику, двойные бонусы имениннику. Рассчитан на 4–6 человек.'},
+          {q:'Можно ли принести свой торт?', a:'Можно, если принесёшь чек на торт. Режем бесплатно, без вопросов. Тортиковый сбор — 500 ₽, называем при бронировании — подадим со свечой, когда попросишь.'},
           {q:'Какой депозит на детский ДР в выходные?', a:'Сумму называем при бронировании и пишем в подтверждении. Депозит засчитывается в счёт, остаток возвращаем.'},
-          {q:'Есть ли персональный координатор?', a:'При бронировании от 10 гостей назначаем координатора: ведёт от заявки до ухода, его имя и телефон — в подтверждении.'},
-          {q:'Что с музыкой и развлечениями?', a:'Тематический плейлист, аниматоры и мастер-классы для детей; для взрослых — мафия с Павлом, квиз и музыкальное лото.'}
+          {q:'Есть ли личный менеджер праздника?', a:'Менеджер праздника ведёт весь праздник: от заявки до ухода, его имя и телефон — в подтверждении.'},
+          {q:'Что с музыкой и развлечениями?', a:'Тематический плейлист, аниматоры и мастер-классы для детей; для взрослых — мафия, квиз и музыкальное лото.'}
         ]},
         { title:'Компании и корпоратив', items:[
-          {q:'Какая максимальная вместимость?', a:'До 50 человек одновременно на дорожках, до 150 — при аренде зала целиком с живой музыкой и баром.'},
           {q:'Как оплатить от юридического лица?', a:'Оформляем счёт, акт и счёт-фактуру для ООО, ИП и госучреждений. Реквизиты и КП пришлём в течение дня.'},
-          {q:'Можно провести квиз, мафию или стендап?', a:'Да. В КП укажем ведущего, тайминг и стоимость. Мафию ведёт Павел, квиз — от 10 человек, стендап — от 30.'},
-          {q:'Есть парковка?', a:'У всех точек парковка ТЦ: первые 3 часа бесплатно. Для корпоративов 30+ машин поможем с валидацией билетов.'},
-          {q:'Сколько стоит аренда зала?', a:'В будни вечером — от 80 000 ₽, в воскресенье днём — от 120 000 ₽: дорожки, базовое меню, официанты и координатор.'}
+          {q:'Можно провести квиз, мафию или стендап?', a:'Да. В КП укажем ведущего, тайминг и стоимость. Мафию ведёт ведущий, квиз — от 10 человек, стендап — от 30.'},
+          {q:'Есть парковка?', a:'У всех точек — бесплатная парковка торгового центра.'},
+          {q:'Сколько стоит провести мероприятие?', a:'Отдельной аренды зала нет — платишь за бронь дорожек и за еду. Точную стоимость считает менеджер праздника индивидуально под дату и программу.'}
         ]},
         { title:'Особые поводы', items:[
-          {q:'Можно провести мероприятие для класса?', a:'Да. Класс 12–18 человек — на две дорожки, учителю стол бесплатно. По будням до 17:00 — школьный тариф 1 500 ₽/час.'},
-          {q:'Подойдёт для первого свидания?', a:'Да, если выбрать будни днём или ранний вечер. Можно без дорожки: столик, пицца на двоих и Крейзи Айс-Крим на финал.'},
-          {q:'Встреча одноклассников через годы?', a:'Один из любимых форматов: 2–4 дорожки на 10–16 человек, столы рядом. Для структуры — мафия с ведущим Павлом.'},
-          {q:'Можно устроить девичник или мальчишник?', a:'Регулярно: вино и сет настоек для девичника, Мясной пир и пиво для мальчишника. После 22:00 — живая музыка и бар до 2 ночи.'},
-          {q:'Юбилей пожилого родственника — уместно?', a:'Берите будний день: тихо, дорожка с бортиками, стулья с подлокотниками. Гостям 70+ — скидка 50% на дорожку по звонку.'}
+          {q:'Можно провести мероприятие для класса?', a:'Да. Вместимость зависит от числа дорожек в городе — конкретные условия и тариф предложит менеджер праздника.'},
+          {q:'Подойдёт для первого свидания?', a:'Да. Можно и с дорожкой, можно без неё — столик, пицца на двоих и Крейзи Айс-Крим на финал.'},
+          {q:'Встреча одноклассников через годы?', a:'Один из любимых форматов: 2–4 дорожки на 10–16 человек, столы рядом. Для настроения — мафия с ведущим.'},
+          {q:'Можно устроить девичник или мальчишник?', a:'Вино и сет настоек для девичника, мясной пир для мальчишника. После 22:00 — живая музыка и бар до 2 ночи.'},
+          {q:'Юбилей пожилого родственника — уместно?', a:'Тихо, дорожка с бортиками, стулья с подлокотниками. Отличный повод собрать вместе все поколения семьи.'}
         ]},
         { title:'Общее', items:[
           {q:'Во сколько открываетесь и закрываетесь?', a:'Пн с 12:00, Вт–Чт и Вс с 10:00 до 0:00, Пт–Сб с 10:00 до 0:00. Последний заказ на кухне — за 45 минут до закрытия.'},
           {q:'Есть ли доставка?', a:'Большая часть меню — в Яндекс.Еде. Некоторые блюда (пицца полстола, Крейзи Айс-Крим) не доставляем, чтобы пробовать их в идеальном виде.'},
-          {q:'Какие способы оплаты?', a:'Наличные, карты, СБП, Apple/Google/Mir Pay, сертификаты и бонусы карты гостя (до 50% чека). Для юрлиц — закрывающие документы.'},
-          {q:'Что такое карта гостя и двойные баллы?', a:'Программа лояльности: 10% бонусами с покупок, в день рождения — 20%. Баллами можно оплатить до половины следующего чека.'},
-          {q:'Можно ли прийти одному?', a:'Конечно: поужинать за барной стойкой, посмотреть стендап или потренироваться на дорожке. Для постоянных игроков есть абонемент.'}
+          {q:'Какие способы оплаты?', a:'Наличные, карты, СБП, Mir Pay, сертификаты и бонусы карты гостя (до 30% чека, зависит от уровня карты). Для юрлиц — закрывающие документы.'},
+          {q:'Что такое карта гостя и двойные бонусы?', a:'Программа лояльности с уровнями: возвращаем от 5% до 12% с покупок в зависимости от уровня карты, тратить бонусами можно до 30% чека. В день рождения и 7 дней после — двойные бонусы. Подробности — на странице программы лояльности.'},
+          {q:'Можно ли прийти одному?', a:'Конечно: поужинать за барной стойкой, посмотреть стендап или потренироваться на дорожке. Для постоянных игроков есть подписка.'}
         ]}
       ],
       events: EVENTS.map((x, i) => ({ ...x, imgEl: React.createElement('img', { src: x.img, alt: '', style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }), open: () => this.setState({ ev: i }) })),
       closeE: () => this.setState({ ev: null }),
       stopProp: (ev) => ev.stopPropagation(),
-      book: () => window.open('https://b1449291.yclients.com/', '_blank'),
+      book: () => window.open('https://brooklyn.broni.g-profile.ru/book?city=Москва&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=moskva&utm_trc=all', '_blank'),
       getApp: () => window.open('https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&utm_medium=footer&utm_city=moscow&utm_trc=all', '_blank'),
       cityOpen: !!this.state.cityOpen,
       toggleCity: () => this.setState(s => ({ cityOpen: !s.cityOpen })),
@@ -804,7 +807,7 @@ class Component extends DCLogic {
       closeHoliday: () => this.setState({ holiday: false }),
       points: PTS.map((p, i) => ({ ...p, imgEl: React.createElement('img', { src: p.img, alt: p.title, style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }), open: () => this.setState({ point: i }) })),
       pointOpen: this.state.point != null,
-      pd: (() => { const x = (this.state.point != null) ? PTS[this.state.point] : { title:'', tag:'', img:'../uploads/bb-bowling-lane.jpg', desc:'', cta:'', act:'' }; const fn = x.act === 'menu' ? () => { window.location.href = 'kitchen.html'; } : x.act === 'events' ? () => { const el=document.querySelector('[data-comment-anchor=events]'); this.setState({ point: null }); if (el) setTimeout(()=>el.scrollIntoView({behavior:'smooth'}),60); } : () => window.open('https://b1449291.yclients.com/', '_blank'); return { ...x, imgEl: React.createElement('img', { src: x.img, alt: x.title, style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }), ctaFn: fn }; })(),
+      pd: (() => { const x = (this.state.point != null) ? PTS[this.state.point] : { title:'', tag:'', img:'../uploads/bb-bowling-lane.jpg', desc:'', cta:'', act:'' }; const fn = x.act === 'menu' ? () => { window.location.href = 'kitchen.html'; } : x.act === 'events' ? () => { const el=document.querySelector('[data-comment-anchor=events]'); this.setState({ point: null }); if (el) setTimeout(()=>el.scrollIntoView({behavior:'smooth'}),60); } : () => window.open('https://brooklyn.broni.g-profile.ru/book?city=Москва&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=moskva&utm_trc=all', '_blank'); return { ...x, imgEl: React.createElement('img', { src: x.img, alt: x.title, style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }), ctaFn: fn }; })(),
       closePoint: () => this.setState({ point: null }),
       openP0: () => this.setState({ point: 0 }),
       openP1: () => this.setState({ point: 1 }),
@@ -816,21 +819,21 @@ class Component extends DCLogic {
       evOpen: e != null,
       ev: ((x) => ({ ...x, imgEl: React.createElement('img', { src: x.img, alt: '', style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }) }))(e || { title: '', date: '', venue: '', price: '', img: '../uploads/bb-standup.jpg', desc: '' }),
       scenarios: [
-        { tag:'ПЯТНИЦА · 3–6', img:'../uploads/bb-friends.jpg', title:'Поиграем с друзьями', sub:'Собрать своих — и не париться.',
-          how:['Приходите после работы — хостес встречает и проводит к дорожке.','Дорожка проверена с утра, всё работает.','Вечером на сцене кавер-группа или стендап.','Когда бронь заканчивается — пересаживаетесь в ресторанную зону.'],
-          learned:['Все дорожки проходят утреннюю проверку, поломки — вычтем время из чека.','Дресс-кода нет.','Напитки приносят за 15 минут, еду за 25.'],
+        { tag:'С ДРУЗЬЯМИ', img:'../uploads/bb-friends.jpg', title:'Поиграем с друзьями', sub:'Собрать своих — и не париться.',
+          how:['Заходишь после работы — хостес уже встречает и ведёт к дорожке.','Дорожка проверена с утра — работает как надо.','Вечером на сцене кавер-группа или стендап.','Бронь закончилась — пересаживаешься в ресторан.'],
+          learned:['Все дорожки проходят утреннюю проверку, поломки — вычтем время из чека.','Дресс-кода нет.'],
           check:'≈ 2 698 ₽ на человека', note:'Пт-вечер, базовый расчёт.', quote:'Отмечали защиту проекта вдесятером. Когда время дорожки закончилось — не выгнали.', author:'Кирилл Р. · компания 10 · Северное Сияние' },
         { tag:'ВЫХОДНЫЕ · ДНЁМ', img:'../uploads/bb-family.jpg', title:'Придём семьёй', sub:'Посидеть вместе, пока дети играют — и не мыть потом посуду.',
-          how:['Вас встречает хостес.','Детскую обувь приносят прямо к дорожке.','Есть детское и взрослое меню, авторская кухня.','После игры можно задержаться в ресторане.'],
-          learned:['Одноразовые носки и бахилы.','Обувь с 23 размера, шары от 2,5 кг.','Бортики поднимаются под рост ребёнка.','Бесплатный вторник — специально под семью.'],
+          how:['Тебя встречает хостес.','Детская обувь стоит у дорожек.','Есть детское и взрослое меню, кухня с гриля.','После игры можно задержаться в ресторане.'],
+          learned:['Обувь с 23 размера, шары от 2,5 кг.','Бортики поднимаются под рост ребёнка.','Бесплатный вторник.'],
           check:'≈ 870 ₽ на человека', note:'Выходной днём, базовый расчёт.', quote:'Обувь детских размеров принесли без просьбы. Во вторник за дорожку не взяли ни рубля.', author:'Анна М. · семья, 2 детей · Красный Кит' },
         { tag:'ДР · 8–12 ДЕТЕЙ', img:'../uploads/bb-kids-party.jpg', title:'Детский день рождения', sub:'Устроить праздник ребёнку — и выдохнуть самому.',
-          how:['Бронируете — связываемся обсудить детали.','За 24 часа СМС, за 2 часа звонок.','Стол накрыт, дорожка готова, предзаказ ждёт.','Поздравляем: выносим десерт со свечой.','Имениннику — двойные баллы на карту.'],
-          learned:['Персональный координатор ведёт вас весь праздник.','Обувь с 23, шары 2,5–5 кг и бортики готовим заранее.','Свой торт можно, условия называем заранее.','Депозит озвучиваем сразу и пишем в подтверждении.'],
-          check:'≈ 999 ₽ на ребёнка', note:'Будни днём, двойные баллы имениннику.', quote:'Тортик со свечой вынесли — сын прослезился. Депозит назвали сразу, сюрпризов не было.', author:'Мария К. · ДР сына 8 лет · Северное Сияние' },
-        { tag:'ВЕЧЕР · 8–15', img:'../uploads/bb-adult-birthday.jpg', title:'Взрослый день рождения', sub:'Отметить — и чтобы за вас подумали обо всём.',
-          how:['Каждого встречает хостес.','Конфигурация под размер компании.','Предзаказ выносим по мере игры.','Десерт со свечой и поздравление от команды.','После боулинга — ресторан, двойные баллы.'],
-          learned:['Фото делают официанты по просьбе.','Персональный координатор от 10 гостей.','Можно арендовать весь зал.','Счёт на юрлицо и закрывающие документы.','Большие сеты на компанию.'],
+          how:['Бронируешь — перезваниваем в рабочее время и обсуждаем детали.','Подтверждаем бронь накануне или в день праздника.','Стол накрыт, дорожка готова, предзаказ ждёт.','Поздравляем: выносим десерт со свечой.','Имениннику — двойные бонусы на карту.'],
+          learned:['Личный менеджер праздника ведёт тебя весь праздник.','Обувь с 23, шары 2,5–5 кг и бортики готовим заранее.','Свой торт можно, условия называем заранее.','Депозит озвучиваем сразу и пишем в подтверждении.'],
+          check:'≈ 999 ₽ на ребёнка', note:'Будни днём, двойные бонусы имениннику.', quote:'Тортик со свечой вынесли — сын прослезился. Депозит назвали сразу, сюрпризов не было.', author:'Мария К. · ДР сына 8 лет · Северное Сияние' },
+        { tag:'ВЕЧЕР · 8–15', img:'../uploads/bb-adult-birthday.jpg', title:'Взрослый день рождения', sub:'Отметить — и чтобы за тебя подумали обо всём.',
+          how:['Каждого встречает хостес.','Конфигурация под размер компании.','Предзаказ выносим по мере игры.','Десерт со свечой и поздравление от команды.','После боулинга — ресторан, двойные бонусы.'],
+          learned:['Личный менеджер праздника ведёт весь праздник.','Счёт на юрлицо и закрывающие документы.','Большие сеты на компанию.'],
           check:'≈ 1 970 ₽ на гостя', note:'Сб-вечер, базовый расчёт.', quote:'Собрали на 33-летие 12 друзей. Счёт на юрлицо без вопросов, документы прислали через два дня.', author:'Алексей Д. · 33 года, 12 гостей · Северное Сияние' }
       ].map((s, i) => ({ ...s, imgEl: React.createElement('img', { src: s.img, alt: '', style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }), expanded: this.state.scen === i, toggleLabel: this.state.scen === i ? 'Свернуть' : 'Подробнее', toggle: () => this.setState((st) => ({ scen: st.scen === i ? null : i })) })),
       venues: VENUES.map((x, i) => ({ ...x, open: () => this.setState({ venue: i }) })),
@@ -845,10 +848,13 @@ class Component extends DCLogic {
   }
 }
 </script>
-<!-- BB-BOOKING: сюда вставляется виджет брони YClients.
-     Waitly в Москве не работает, код виджета даёт заказчица —
-     вставить на это место, в конец body, как на страницах остальных городов.
-     Ссылка брони города: https://b1449291.yclients.com/ -->
-<!-- /BB-BOOKING -->
+<!-- BB-BRONI: виджет брони broni (плавающая кнопка) -->
+<script
+    src="https://brooklyn.broni.g-profile.ru/widget.js"
+    data-city="Москва"
+    defer>
+</script>
+<script src="../_broni-fix.js"></script>
+<!-- /BB-BRONI -->
 </body>
 </html>
