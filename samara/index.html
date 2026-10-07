@@ -532,13 +532,13 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
     </div>
   </section>
 
-  <!-- ============ ТРИ ТОЧКИ — ФОТО ============ -->
-  <section data-screen-label="Две точки" data-comment-anchor="venues" style="padding:18px 44px 84px; background:#000000;">
+  <!-- ============ БОУЛИНГ-РЕСТОРАНЫ — ФОТО ============ -->
+  <section data-screen-label="Два боулинг-ресторана" data-comment-anchor="venues" style="padding:18px 44px 84px; background:#000000;">
 
     <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:26px;">
       <div>
-        <h2 style="margin:0; font-size:clamp(30px,3.6vw,42px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Две точки в Самаре</h2>
-        <p style="margin:10px 0 0; font-size:16px; color:rgba(232,229,222,0.66); font-weight:500;">В каждой точке — дорожки, кухня и сцена.</p>
+        <h2 style="margin:0; font-size:clamp(30px,3.6vw,42px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Два боулинг-ресторана в Самаре</h2>
+        <p style="margin:10px 0 0; font-size:16px; color:rgba(232,229,222,0.66); font-weight:500;">В каждом боулинг-ресторане — дорожки, кухня и сцена.</p>
       </div>
       <button onClick="{{ openVenueList }}" style="background:none; border:none; cursor:pointer; font-family:inherit; color:rgba(232,229,222,0.8); font-size:15px; font-weight:600; display:flex; align-items:center; gap:7px; white-space:nowrap;" style-hover="color:#fff !important;">Все адреса <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5 11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
     </div>
@@ -583,7 +583,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
           <button onClick="{{ closeVenue }}" style="position:absolute; top:16px; right:16px; z-index:3; width:40px; height:40px; border-radius:50%; border:none; cursor:pointer; background:rgba(0,0,0,0.6); color:#fff; font-size:18px;">✕</button>
           <sc-if value="{{ pickerView }}" hint-placeholder-val="{{ true }}">
             <div style="padding:32px;">
-              <h3 style="margin:0 0 6px; font-size:26px; font-weight:800; color:#fff;">Выбери точку</h3>
+              <h3 style="margin:0 0 6px; font-size:26px; font-weight:800; color:#fff;">Выбери боулинг-ресторан</h3>
               <p style="margin:0 0 22px; font-size:15px; color:rgba(232,229,222,0.66);">Три заведения в Самаре — выбери ближайшее.</p>
               <div style="display:flex; flex-direction:column; gap:12px;">
                 <sc-for list="{{ venues }}" as="v" hint-placeholder-count="3"><button onClick="{{ v.open }}" style="display:flex; align-items:center; justify-content:space-between; gap:12px; text-align:left; padding:18px 20px; border-radius:16px; background:#191919; border:1px solid rgba(255,255,255,0.08); cursor:pointer; font-family:inherit; transition:border-color .2s ease;" style-hover="border-color:#FF2026 !important;"><span style="display:flex; flex-direction:column; gap:4px;"><span style="font-size:18px; font-weight:700; color:#fff;">{{ v.name }}</span><span style="font-size:14px; color:rgba(232,229,222,0.66);">{{ v.addr }}</span></span><svg width="18" height="18" viewBox="0 0 14 14" fill="none"><path d="M5 2.5 9.5 7 5 11.5" stroke="#FF2026" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></sc-for>
@@ -594,7 +594,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
             <div>
               <div style="position:relative; height:220px;">{{ vd.imgEl }}<div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(25,25,25,0) 45%, rgba(25,25,25,0.95) 100%); border-radius:26px 26px 0 0;"></div></div>
               <div style="padding:22px 32px 32px;">
-                <button onClick="{{ backToList }}" style="margin-bottom:14px; background:none; border:none; cursor:pointer; color:rgba(232,229,222,0.66); font-size:14px; font-weight:600; font-family:inherit;" style-hover="color:#fff !important;">← Все точки</button>
+                <button onClick="{{ backToList }}" style="margin-bottom:14px; background:none; border:none; cursor:pointer; color:rgba(232,229,222,0.66); font-size:14px; font-weight:600; font-family:inherit;" style-hover="color:#fff !important;">← Все боулинг-рестораны</button>
                 <h3 style="margin:0 0 10px; font-size:28px; font-weight:800; color:#fff;">{{ vd.name }}</h3>
                 <span style="display:inline-flex; padding:6px 13px; border-radius:300px; background:rgba(255,32,38,0.16); font-size:12px; font-weight:700; color:#FF2026;">{{ vd.tag }}</span>
                 <p style="margin:18px 0 4px; font-size:16px; font-weight:600; color:#fff;">{{ vd.addr }}</p>
@@ -1148,7 +1148,7 @@ class Component extends DCLogic {
     const gKey = this.state.geoCity || 'Самара';
     const gObj = GEO[gKey] || GEO['Самара'];
     const gCnt = gObj.points.length;
-    const gPlural = (n) => { const a = n % 10, b = n % 100; return (a === 1 && b !== 11) ? 'точка' : ((a >= 2 && a <= 4 && (b < 10 || b >= 20)) ? 'точки' : 'точек'); };
+    const gPlural = (n) => { const a = n % 10, b = n % 100; return (a === 1 && b !== 11) ? 'боулинг-ресторан' : ((a >= 2 && a <= 4 && (b < 10 || b >= 20)) ? 'боулинг-ресторана' : 'боулинг-ресторанов'); };
     const octByName = {}; OCT.forEach((o) => { octByName[o.name] = o; });
     const REVIEWS = [{"author":"Евгения Г.","text":"Отличное место для проведения активного отдыха. Дети довольны и игрой и кухней. Нашему имениннику вынесли сладкий презент со свечкой, удивились если честно. Всё понравилось, всё отлично","tag":"Детский ДР","platform":"2ГИС","date":"25 фев 2026"},{"author":"Каролина Титова","text":"Это замечательное местечко, отмечала в своё день рождения, еда очень вкусная, персонал очень вежливый, остались очень приятные впечатления, атмосфера приятная, приду ещё раз обязательно🎀","tag":"Взрослый ДР","platform":"Яндекс Карты","date":"14 мая 2026"},{"author":"Алексей Мошкин","text":"Проводим ежегодные турниры на протяжении долгих лет,все на высшем уровне,обслуживание и кухня достойны всяких похвал!!!","tag":"С друзьями","platform":"2ГИС","date":"5 апр 2026"},{"author":"Эль","text":"Супер крутое место, ходим всем семьёй, с детьми. Вкусная еда, приемлемые цены. Вежливый персонал. Чистый уютный туалет и вообщем везде чистота и приятная атмосфера. Рекомендую!","tag":"С семьёй","platform":"Яндекс Карты","date":"25 мая 2026"},{"author":"Юлия О.","text":"Хороший боулинг, приятная атмосфера, кухня тоже понравилась. Играли 2 часа, ничего не зависло и не сломалось.","tag":"Боулинг","platform":"Яндекс Карты","date":"8 авг 2025"},{"author":"Алена Холмогорова","text":"Бруклин, оказывается, не только для боулинга. Тут ещё и стендапы бывают 🙃😜. Вчера случилось наржаться на выступлении Макса Евдокимова🤣. Оч понравилось 😍. + Супербыстрый и внимательный персонал 🔥","tag":"Стендап","platform":"2ГИС","date":"12 сен 2025"},{"author":"Андрей Забелин","text":"Всё хорошо, гостеприимный персонал, красиво, вкусная кухня! Хорошее место для отдыха взрослым и детям! Удобное территориальное расположение Бруклин Боул! Спасибо!","tag":"Отзыв","platform":"Яндекс Карты","date":"4 июн 2026"},{"author":"Полина Тимофеевна","text":"Все понравилось, праздновали день рождение. Так же очень понравилось что есть фотограф, милая приятная девушка, очень понравились кадры и сами фоторамочки, супер что есть подарок на день рождения для ребенка.","tag":"Детский ДР","platform":"2ГИС","date":"17 окт 2025"},{"author":"Матвей Турков","text":"Очень вежливый персонал, приятная атмосфера и вкусная еда, лучшее место для проведения дня рождения.","tag":"Взрослый ДР","platform":"2ГИС","date":"27 сен 2025"},{"author":"Ксения Васильева","text":"Ходили в данный боулинг компанией друзей, атмосфера, персонал, еда, напитки все очень понравилось. Придем еще и конечно же рекомендую, замечательное заведение","tag":"С друзьями","platform":"2ГИС","date":"25 мар 2026"},{"author":"Тимир Мпри","text":"Ходили всей семьей, дети в восторге! Музыка приятная, персонал вежливый. Дорожки не зависают, всё работает чётко. Есть специальные бортики для детей, так что играть было легко всем. Чисто, уютно и очень весело.","tag":"С семьёй","platform":"Яндекс Карты","date":"29 мар 2026"},{"author":"Алтынбек(для своих Никки)","text":"хорошое обслуживание , приветливый персонал , все прекрасно , сама игра в боулинг лучшая в городе , были в других , здесь понравилось больше всего. Еда здесь супер , взяли немного , но быстро наелись","tag":"Боулинг","platform":"Яндекс Карты","date":"8 авг 2025"},{"author":"Нина Фадеева","text":"Постили вчера стандап Макса Евдокимова. Было очень круто, весело, смешно. Отдельное спасибо Бруклин Боул за организацию, работа кухни и бара на высоте, офицанты приносили заказы очень быстро. Обязательно придем ещё!","tag":"Стендап","platform":"2ГИС","date":"12 сен 2025"},{"author":"Равиль Сабирзянов","text":"Замечательное место, прекрасный персонал, доброжелательные девушки на ресепшене, ходил бы в этот боулинг каждый день, очень вкусная кухня!!!","tag":"Отзыв","platform":"2ГИС","date":"13 ноя 2025"},{"author":"Мария Васильева","text":"Спасибо за чудесную обстановку и гостеприимство, кухня безумно вкусная 😍вернемся еще не раз, отдельно спасибо за бонус в день рождение ребенка!","tag":"Детский ДР","platform":"2ГИС","date":"8 авг 2025"},{"author":"Наталья К.","text":"Мы отмечали там ДР мужа, всё прошло нормально отлично. Вкусные пиццы, сангрия на белом вине была отличная. Персонал доброжелательный и всегда на чеку. Мы довольны очень","tag":"Взрослый ДР","platform":"Яндекс Карты","date":"8 авг 2025"},{"author":"Сергей Дроздов","text":"Давно не играл в боулинг, был рад вновь окунутся во всю эту атмосферу, пришли друзьями, кухня и дороги - огонь, особенный респект за пиццу пол стола","tag":"С друзьями","platform":"2ГИС","date":"19 ноя 2025"},{"author":"Валерия Шатунова","text":"Крутое заведение, приятный персонал, хорошие цены для боулинга. Хорошее место для всей семьи или встречи с друзьями)","tag":"С семьёй","platform":"2ГИС","date":"8 авг 2025"}];
     const _avp = ['#FF2026','#FF2026','#E8E5DE','#191919','#191919','#E8E5DE','#E8E5DE','#FF2026'];
@@ -1183,7 +1183,7 @@ class Component extends DCLogic {
           {q:'Сколько стоит сходить?', a:'Дорожка от 1 090 ₽ в будни до 2 190 ₽ в пятницу-субботу вечером — за час, до 6 человек. Средний чек на вечер с дорожкой и кухней — около 1 500 ₽ на человека. По вторникам дорожка бесплатная.'},
           {q:'Нужно ли бронировать заранее?', a:'В будни до 18:00 можно без брони. Пятница–воскресенье с 18:00 и праздники — забронируй за день-два, на сайте это минута.'},
           {q:'Что надевать?', a:'Удобную одежду, дресс-кода нет. Обувь и носки выдаём бесплатно на входе.'},
-          {q:'Как найти вход?', a:'Все две точки — в ТЦ Самаре (Гудок, ЛЕТАУТ, Гудок), на 3–4 этаже. Внутри есть указатели, снаружи — вывески Brooklyn Bowl.'}
+          {q:'Как найти вход?', a:'Оба боулинг-ресторана — в ТЦ Самаре (Гудок, ЛЕТАУТ, Гудок), на 3–4 этаже. Внутри есть указатели, снаружи — вывески Brooklyn Bowl.'}
         ]},
         { title:'С детьми', items:[
           {q:'С какого возраста можно играть?', a:'С пяти лет: лёгкие шары от 2,5 кг и бортики, превращающие дорожку в коридор без канавы.'},
@@ -1203,7 +1203,7 @@ class Component extends DCLogic {
         { title:'Компании и корпоратив', items:[
           {q:'Как оплатить от юридического лица?', a:'Оформляем счёт, акт и счёт-фактуру для ООО, ИП и госучреждений. Реквизиты и КП пришлём в течение дня.'},
           {q:'Можно провести квиз, мафию или стендап?', a:'Да. В КП укажем ведущего, тайминг и стоимость. Мафию ведёт ведущий, квиз — от 10 человек, стендап — от 30.'},
-          {q:'Есть парковка?', a:'У всех точек — бесплатная парковка торгового центра.'},
+          {q:'Есть парковка?', a:'У всех боулинг-ресторанов — бесплатная парковка торгового центра.'},
           {q:'Сколько стоит провести мероприятие?', a:'Отдельной аренды зала нет — платите за бронь дорожек и за еду. Точную стоимость считает менеджер праздника индивидуально под дату и программу.'}
         ]},
         { title:'Особые поводы', items:[
