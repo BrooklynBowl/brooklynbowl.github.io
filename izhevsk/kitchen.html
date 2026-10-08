@@ -638,7 +638,7 @@ class Component extends DCLogic {
     var ball = '<div style="width:'+_bs+'px;height:'+_bs+'px;"><img loading="lazy" decoding="async" src="../bowling-pin.svg" alt="" aria-hidden="true" style="width:100%;height:100%;display:block;filter:drop-shadow(0 3px 5px rgba(0,0,0,0.45));"></div>';
     var icon = L.divIcon({ html: ball, className: '', iconSize: [_bs,_bs], iconAnchor: [_bs/2,_bs/2], popupAnchor: [0,-_bs/2] });
     const pts = [
-      { name:'ПЕТРОВСКИЙ', addr:'ул. им. Петрова, 29', lat:56.8062, lng:53.2695 },
+      { name:'ПЕТРОВСКИЙ', addr:'ул. им. Петрова, 31', lat:56.8062, lng:53.2695 },
       { name:'Матрица', addr:'ул. Баранова, 87', lat:56.8072, lng:53.1682 },
       { name:'Москва', addr:'Brooklyn Bowl', lat:55.9116, lng:37.7308 },
       { name:'Санкт-Петербург', addr:'Brooklyn Bowl', lat:59.9343, lng:30.3351 },
@@ -694,7 +694,7 @@ class Component extends DCLogic {
     ];
     const EVENTS = (function(){ try { return (window.bbEvents ? window.bbEvents(EVENTS_ALL) : EVENTS_ALL); } catch (e) { console.warn('bbEvents:', e); return EVENTS_ALL; } })();
     const VENUES = [
-      { name:'ПЕТРОВСКИЙ', tag:'Устиновский район', addr:'ул. им. Петрова, 29', mall:'ТРК «Петровский», 3 этаж', phone:'+7 (341) 270-84-40', tel:'tel:+73412708440', img:'../uploads/bb-bowling-lane.jpg', route:'https://yandex.ru/maps/?rtext=~56.8062,53.2695&rtt=auto' },
+      { name:'ПЕТРОВСКИЙ', tag:'Устиновский район', addr:'ул. им. Петрова, 31', mall:'ТРК «Петровский», цокольный этаж', phone:'+7 (341) 270-84-40', tel:'tel:+73412708440', img:'../uploads/bb-bowling-lane.jpg', route:'https://yandex.ru/maps/?rtext=~56.8062,53.2695&rtt=auto' },
       { name:'Матрица', tag:'Ленинский район', addr:'ул. Баранова, 87', mall:'МОЛЛ «Матрица», 3 этаж', phone:'+7 (341) 270-84-40', tel:'tel:+73412708440', img:'../uploads/bb-food-hero.jpg', route:'https://yandex.ru/maps/?rtext=~56.8072,53.1682&rtt=auto' }
     ];
     const vsel = (typeof this.state.venue === 'number') ? VENUES[this.state.venue] : null;

@@ -682,8 +682,8 @@ class Component extends DCLogic {
     ];
     const EVENTS = (function(){ try { return (window.bbEvents ? window.bbEvents(EVENTS_ALL) : EVENTS_ALL); } catch (e) { console.warn('bbEvents:', e); return EVENTS_ALL; } })();
     const VENUES = [
-      { name:'Гудок', tag:'Центр города', addr:'Красноармейская, 131', mall:'ТРЦ «Самара Гудок», 3 этаж', phone:'+7 (846) 255-10-14', tel:'tel:+78462551014', img:'../uploads/bb-bowling-lane.jpg', route:'https://yandex.ru/maps/?rtext=~53.2035,50.1362&rtt=auto' },
-      { name:'ЛЕТАУТ', tag:'Лесобаза', addr:'Московское шоссе 18 км, 23', mall:'Аутлет МОЛЛ ЛЕТАУТ, 3 этаж', phone:'+7 (846) 255-10-14', tel:'tel:+78462551014', img:'../uploads/bb-food-hero.jpg', route:'https://yandex.ru/maps/?rtext=~53.2610,50.2960&rtt=auto' }
+      { name:'Гудок', tag:'Центр города', addr:'Красноармейская, 131', mall:'ТРЦ «Самара Гудок», 2 этаж', phone:'+7 (846) 255-10-14', tel:'tel:+78462551014', img:'../uploads/bb-bowling-lane.jpg', route:'https://yandex.ru/maps/?rtext=~53.2035,50.1362&rtt=auto' },
+      { name:'ЛЕТАУТ', tag:'Лесобаза', addr:'Московское шоссе 18 км, 23', mall:'Аутлет МОЛЛ ЛЕТАУТ, 2 этаж', phone:'+7 (846) 255-10-14', tel:'tel:+78462551014', img:'../uploads/bb-food-hero.jpg', route:'https://yandex.ru/maps/?rtext=~53.2610,50.2960&rtt=auto' }
     ];
     const vsel = (typeof this.state.venue === 'number') ? VENUES[this.state.venue] : null;
     const GROUPS = [

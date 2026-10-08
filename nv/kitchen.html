@@ -675,7 +675,7 @@ class Component extends DCLogic {
     ];
     const EVENTS = (function(){ try { return (window.bbEvents ? window.bbEvents(EVENTS_ALL) : EVENTS_ALL); } catch (e) { console.warn('bbEvents:', e); return EVENTS_ALL; } })();
     const VENUES = [
-      { name:'ЮГРАМолл', tag:'Центр города', addr:'улица Ленина, 15П', mall:'ТРЦ «Нижневартовск ЮГРАМолл», 3 этаж', phone:'+7 (346) 648-22-59', tel:'tel:+73466482259', img:'../uploads/bb-bowling-lane.jpg', route:'https://yandex.ru/maps/?rtext=~57.1196,65.6011&rtt=auto' }
+      { name:'ЮГРАМолл', tag:'Центр города', addr:'улица Ленина, 15П', mall:'ТРЦ «Нижневартовск ЮГРАМолл», 4 этаж', phone:'+7 (346) 648-22-59', tel:'tel:+73466482259', img:'../uploads/bb-bowling-lane.jpg', route:'https://yandex.ru/maps/?rtext=~57.1196,65.6011&rtt=auto' }
     ];
     const vsel = (typeof this.state.venue === 'number') ? VENUES[this.state.venue] : null;
     const GROUPS = [

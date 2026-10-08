@@ -727,7 +727,7 @@ class Component extends DCLogic {
         { name:'Гудок', addr:'Красноармейская, 131', hours:'ПН 11:57 – 00:03, ВТ–ЧТ, ВС 09:57 – 00:02, ПТ–СБ 09:57 – 02:02', lat:53.1878, lng:50.0996 },
         { name:'ЛЕТАУТ', addr:'Московское шоссе 18 км, 23', hours:'ПН 11:57 – 00:03, ВТ–ЧТ, ВС 09:57 – 00:02, ПТ–СБ 09:57 – 02:02', lat:53.261, lng:50.296 } ] },
       'Ижевск': { center:[56.85,53.20], zoom:11, site:'../izhevsk/index.html', points:[
-        { name:'Петровский', addr:'ул. им. Петрова, 29', hours:'ПН 11:57 – 00:03, ВТ–ЧТ, ВС 09:57 – 00:02, ПТ–СБ 09:57 – 02:02', lat:56.8062, lng:53.2695 },
+        { name:'Петровский', addr:'ул. им. Петрова, 31', hours:'ПН 11:57 – 00:03, ВТ–ЧТ, ВС 09:57 – 00:02, ПТ–СБ 09:57 – 02:02', lat:56.8062, lng:53.2695 },
         { name:'Матрица', addr:'ул. Баранова, 87', hours:'ПН 11:57 – 00:03, ВТ–ЧТ, ВС 09:57 – 00:02, ПТ–СБ 09:57 – 02:02', lat:56.8619, lng:53.2465 } ] },
       'Сургут': { center:[61.25,73.40], zoom:11, site:'../surgut/index.html', points:[
         { name:'Аура', addr:'Нефтеюганское шоссе, 1', hours:'ПН 11:57 – 00:03, ВТ–ЧТ, ВС 09:57 – 00:02, ПТ–СБ 09:57 – 02:02', lat:61.2213, lng:73.3944 } ] },
@@ -779,7 +779,7 @@ class Component extends DCLogic {
     ];
     const EVENTS = (function(){ try { return (window.bbEvents ? window.bbEvents(EVENTS_ALL) : EVENTS_ALL); } catch (e) { console.warn('bbEvents:', e); return EVENTS_ALL; } })();
     const VENUES = [
-      { name:'ЮГРАМолл', tag:'Центр города', addr:'улица Ленина, 15П', mall:'ТРЦ «Нижневартовск ЮГРАМолл», 3 этаж', phone:'+7 (346) 648-22-59', tel:'tel:+73466482259', img:'../uploads/bb-bowling-lane.jpg', route:'https://yandex.ru/maps/?rtext=~57.1196,65.6011&rtt=auto' }
+      { name:'ЮГРАМолл', tag:'Центр города', addr:'улица Ленина, 15П', mall:'ТРЦ «Нижневартовск ЮГРАМолл», 4 этаж', phone:'+7 (346) 648-22-59', tel:'tel:+73466482259', img:'../uploads/bb-bowling-lane.jpg', route:'https://yandex.ru/maps/?rtext=~57.1196,65.6011&rtt=auto' }
     ];
     const vsel = (typeof this.state.venue === 'number') ? VENUES[this.state.venue] : null;
     const active = this.state.cat;
