@@ -24,6 +24,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
 <link rel="stylesheet" href="../ux.css">
+<script src="../bbook.js" defer></script>
 </head>
 <body>
 <x-dc>
@@ -241,7 +242,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
       <h1 style="margin:22px 0 0; font-size:clamp(38px,5vw,64px); font-weight:800; line-height:1.02; letter-spacing:-0.02em; color:#fff;">Возрождаем индустрию<br>боулинга <em style="color:#FF2026; font-style:normal;">в России</em></h1>
       <p style="margin:22px 0 0; max-width:540px; font-size:17px; line-height:1.6; color:rgba(232,229,222,0.66);">Сургут, Москва, Санкт-Петербург, Самара, Ижевск, Тюмень, Нижневартовск — 12 боулинг-ресторанов в 7 городах. Хотим, чтобы боулинг был в шаговой доступности от твоего дома.</p>
       <div style="display:flex; gap:12px; margin-top:30px; flex-wrap:wrap;">
-        <a data-m="cta" href="https://drive.google.com/file/d/1sZxQePt2aLuDaKikX6pf6PCpAvxJohAs/view?usp=sharing" target="_blank" rel="noopener" style="text-decoration:none; display:inline-flex; align-items:center; background:#FF2026; padding:15px 30px; border-radius:300px; color:#fff; font-size:16px; font-weight:700;" style-hover="background:#fff !important; color:#FF2026 !important;">Скачать BrooklynBook</a>
+        <a data-m="cta" href="brooklynbook.html" data-bb-open="1" style="text-decoration:none; display:inline-flex; align-items:center; background:#FF2026; padding:15px 30px; border-radius:300px; color:#fff; font-size:16px; font-weight:700;" style-hover="background:#fff !important; color:#FF2026 !important;">Листать BrooklynBook</a>
         <a href="https://brooklyn.broni.g-profile.ru/book?venue=7&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=surgut&utm_trc=all" target="_blank" rel="noopener" style="text-decoration:none; display:inline-flex; align-items:center; background:transparent; border:1px solid rgba(255,255,255,0.28); padding:15px 30px; border-radius:300px; color:#fff; font-size:16px; font-weight:600;" style-hover="border-color:#fff !important;">Бронь стола в зоне боулинга</a>
       </div>
     </div>
@@ -336,19 +337,19 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
   <section style="padding:0 44px 80px; max-width:1500px; margin:0 auto;">
     <div style="display:grid; grid-template-columns:0.8fr 1.2fr; gap:36px; align-items:center; border-radius:28px; border:1px solid rgba(255,255,255,0.08); background:#191919; padding:48px;">
       <div style="display:flex; align-items:center; justify-content:center;">
-        <div style="position:relative; width:min(280px,100%); aspect-ratio:0.72; border-radius:8px 16px 16px 8px; background:linear-gradient(135deg,#FF2026 0%,#FF2026 100%); box-shadow:0 30px 60px rgba(0,0,0,0.5); display:flex; flex-direction:column; justify-content:space-between; padding:30px 28px; overflow:hidden;">
+        <div data-bb-open="1" role="button" tabindex="0" aria-label="Открыть BrooklynBook" style="cursor:pointer; position:relative; width:min(280px,100%); aspect-ratio:0.72; border-radius:8px 16px 16px 8px; background:linear-gradient(135deg,#FF2026 0%,#FF2026 100%); box-shadow:0 30px 60px rgba(0,0,0,0.5); display:flex; flex-direction:column; justify-content:space-between; padding:30px 28px; overflow:hidden;">
           <div aria-hidden="true" style="position:absolute; left:0; top:0; bottom:0; width:10px; background:rgba(0,0,0,0.22);"></div>
           <img src="../uploads/Vector.svg" alt="Brooklyn Bowl" style="height:24px; width:auto; filter:brightness(0) invert(1);">
           <div>
             <div style="font-size:13px; font-weight:700; letter-spacing:0.1em; color:rgba(255,255,255,0.8);">BROOKLYN</div>
             <div style="font-size:34px; font-weight:800; line-height:1; letter-spacing:-0.01em; color:#fff;">BOOK</div>
-            <div style="margin-top:14px; font-size:12px; color:rgba(255,255,255,0.7);">59 страниц · PDF</div>
+            <div style="margin-top:14px; font-size:12px; color:rgba(255,255,255,0.7);">40 страниц · листать</div>
           </div>
         </div>
       </div>
       <div>
         <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">BROOKLYNBOOK</span>
-        <h2 style="margin:14px 0 14px; font-size:clamp(26px,3vw,38px); font-weight:800; letter-spacing:-0.01em; color:#fff;">59 страниц, которые объясняют Бруклин</h2>
+        <h2 style="margin:14px 0 14px; font-size:clamp(26px,3vw,38px); font-weight:800; letter-spacing:-0.01em; color:#fff;">40 страниц, которые объясняют Бруклин</h2>
         <p style="margin:0 0 22px; max-width:620px; font-size:16px; line-height:1.65; color:rgba(232,229,222,0.66);">Полный гайд по миссии, ценностям, характеру бренда, образу и интонации, фирменному стилю и шрифту. Для команды, партнёров, журналистов — и всех, кому интересно, как мы устроены изнутри.</p>
         <div style="display:flex; flex-direction:column; gap:11px; margin-bottom:26px;">
           <div style="display:flex; gap:11px; align-items:flex-start;"><span style="flex-shrink:0; color:#FF2026; font-size:15px; margin-top:2px;">→</span><span style="font-size:14.5px; line-height:1.5; color:rgba(232,229,222,0.86);">История создания Бруклина и миссия — возродить индустрию боулинга</span></div>
@@ -358,9 +359,9 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
           <div style="display:flex; gap:11px; align-items:flex-start;"><span style="flex-shrink:0; color:#FF2026; font-size:15px; margin-top:2px;">→</span><span style="font-size:14.5px; line-height:1.5; color:rgba(232,229,222,0.86);">Цветовая палитра и правила свободного поля</span></div>
         </div>
         <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
-          <a data-m="cta" href="https://drive.google.com/file/d/1sZxQePt2aLuDaKikX6pf6PCpAvxJohAs/view?usp=sharing" target="_blank" rel="noopener" style="text-decoration:none; display:inline-flex; align-items:center; background:#FF2026; padding:15px 30px; border-radius:300px; color:#fff; font-size:16px; font-weight:700;" style-hover="background:#fff !important; color:#FF2026 !important;">Скачать BrooklynBook</a>
+          <a data-m="cta" href="brooklynbook.html" data-bb-open="1" style="text-decoration:none; display:inline-flex; align-items:center; background:#FF2026; padding:15px 30px; border-radius:300px; color:#fff; font-size:16px; font-weight:700;" style-hover="background:#fff !important; color:#FF2026 !important;">Листать BrooklynBook</a>
           <a href="mailto:rakhmeev@brooklynbowl.ru?subject=Книга%20смыслов%20Brooklyn%20Bowl" style="text-decoration:none; display:inline-flex; align-items:center; background:transparent; border:1px solid rgba(255,255,255,0.28); padding:15px 30px; border-radius:300px; color:#fff; font-size:16px; font-weight:600;" style-hover="border-color:#fff !important;">Написать о партнёрстве</a>
-          <span style="font-size:13px; color:rgba(232,229,222,0.47);">PDF · 59 страниц · 31 МБ</span>
+          <a href="../uploads/brooklynbook/BROOKLYNBOOK.pdf" download style="font-size:13px; color:rgba(232,229,222,0.6); text-decoration:underline;">Скачать PDF · 40 страниц · 38 МБ</a>
         </div>
       </div>
     </div>
