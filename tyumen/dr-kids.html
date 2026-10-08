@@ -28,6 +28,9 @@ summary::-webkit-details-marker{display:none;}
   [data-m="nav"] > a{ padding:8px 4px !important; font-size:13.5px !important; }
 }
 @media (max-width:768px){
+  [data-m="dk-emo"]{ display:flex !important; flex-direction:column !important; }
+  [data-m="dk-e1"]{ aspect-ratio:2/3 !important; height:auto !important; }
+  [data-m="dk-e2"], [data-m="dk-e3"]{ aspect-ratio:3/2 !important; height:auto !important; }
     /* единая мобильная типографика */
     body h1:not(#_){ font-size:24px !important; line-height:1.2 !important; }
     body h2:not(#_){ font-size:20px !important; line-height:1.25 !important; }
@@ -230,6 +233,26 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
     <div style="position:relative; border-radius:24px; overflow:hidden; height:520px;">
       <img src="../uploads/DSC04189.jpg" alt="Детский день рождения в Brooklyn Bowl" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
       <div style="position:absolute; left:24px; bottom:24px; padding:12px 18px; border-radius:16px; background:rgba(0,0,0,0.62); backdrop-filter:blur(8px); font-size:14px; font-weight:600; color:#fff;">Бортики · лёгкие шары · обувь с 23-го</div>
+    </div>
+  </section>
+
+  <!-- ЭМОЦИИ: фото от фотографа -->
+  <section style="padding:10px 44px 70px; max-width:1500px; margin:0 auto;">
+    <span style="font-size:12.5px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">ФОТО С ПРАЗДНИКОВ</span>
+    <h2 style="margin:14px 0 28px; font-size:clamp(28px,3.4vw,40px); font-weight:800; letter-spacing:-0.01em; color:#fff;">Вот ради этих эмоций всё и затевалось</h2>
+    <div data-m="dk-emo" style="display:grid; grid-template-columns:8fr 9fr; grid-template-rows:auto auto; gap:14px;">
+      <figure data-m="dk-e1" style="grid-column:1; grid-row:1 / span 2; position:relative; margin:0; border-radius:16px; overflow:hidden; background:#191919;">
+        <img src="../uploads/drkids-emo-1.jpg" alt="«Дай пять!» — ведущий и мальчик на дорожке" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;">
+        <figcaption style="position:absolute; left:0; right:0; bottom:0; padding:36px 18px 15px; background:linear-gradient(to top, rgba(0,0,0,0.78), rgba(0,0,0,0)); font-size:14.5px; font-weight:600; line-height:1.35; color:#fff;">«Дай пять!» — и снова к шарам</figcaption>
+      </figure>
+      <figure data-m="dk-e2" style="grid-column:2; grid-row:1; aspect-ratio:3/2; position:relative; margin:0; border-radius:16px; overflow:hidden; background:#191919;">
+        <img src="../uploads/drkids-emo-2.jpg" alt="Четверо детей с боулинг-шарами сидят на дорожке" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;">
+        <figcaption style="position:absolute; left:0; right:0; bottom:0; padding:36px 18px 15px; background:linear-gradient(to top, rgba(0,0,0,0.78), rgba(0,0,0,0)); font-size:14.5px; font-weight:600; line-height:1.35; color:#fff;">Шары в руках и улыбки до ушей — вся компания на дорожке</figcaption>
+      </figure>
+      <figure data-m="dk-e3" style="grid-column:2; grid-row:2; aspect-ratio:3/2; position:relative; margin:0; border-radius:16px; overflow:hidden; background:#191919;">
+        <img src="../uploads/drkids-emo-3.jpg" alt="Дети с пиццей сидят на диване, рядом двое ведущих" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;">
+        <figcaption style="position:absolute; left:0; right:0; bottom:0; padding:36px 18px 15px; background:linear-gradient(to top, rgba(0,0,0,0.78), rgba(0,0,0,0)); font-size:14.5px; font-weight:600; line-height:1.35; color:#fff;">Перерыв на пиццу</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -515,7 +538,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
     <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:40px; flex-wrap:wrap; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,0.07);">
       <div>
         <img src="../uploads/Vector.svg" alt="Brooklyn Bowl" style="height:26px; width:auto; display:block; filter:brightness(0) invert(1); margin-bottom:18px;">
-        <p style="margin:0 0 20px; max-width:280px; font-size:15px; line-height:1.5; color:rgba(255,255,255,0.85);">Боулинг, кухня с гриля и живая сцена — в одном месте.</p>
+        <p style="margin:0 0 20px; max-width:280px; font-size:15px; line-height:1.5; color:rgba(255,255,255,0.85);">Боулинг, ресторан и живая сцена — в одном месте.</p>
         <div style="display:flex; flex-direction:column; gap:4px; font-size:14px; font-weight:600; color:#fff; margin-bottom:22px;">
           <span>Пн 11:57 – 00:03</span>
           <span>Вт–Чт, Вс 09:57 – 00:02</span>

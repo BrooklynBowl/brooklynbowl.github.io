@@ -527,7 +527,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
     <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:40px; flex-wrap:wrap; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,0.07);">
       <div>
         <img src="../uploads/Vector.svg" alt="Brooklyn Bowl" style="height:26px; width:auto; display:block; filter:brightness(0) invert(1); margin-bottom:18px;">
-        <p style="margin:0 0 20px; max-width:280px; font-size:15px; line-height:1.5; color:rgba(255,255,255,0.85);">Боулинг, кухня с гриля и живая сцена — в одном месте.</p>
+        <p style="margin:0 0 20px; max-width:280px; font-size:15px; line-height:1.5; color:rgba(255,255,255,0.85);">Боулинг, ресторан и живая сцена — в одном месте.</p>
         <div style="display:flex; flex-direction:column; gap:4px; font-size:14px; font-weight:600; color:#fff; margin-bottom:22px;">
           <span>Пн 11:57 – 00:03</span>
           <span>Вт–Чт, Вс 09:57 – 00:02</span>
@@ -659,7 +659,7 @@ class Component extends DCLogic {
     const DISHES = [
       { n:'Пицца полстола', w:'Хит · 1 600 г', p:'1 899 ₽', img:'../uploads/pasted-1784476434368-0.png', desc:'По массе — как пять обычных пицц. Разные начинки на одной доске. Делится на 6–8 взрослых.', hot:true },
       { n:'Пивная тарелка «Полкило»', w:'500 г', p:'1 299 ₽', img:'../uploads/%D0%9F%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F%20%D1%82%D0%B0%D1%80%D0%B5%D0%BB%D0%BA%D0%B0%20%D0%BF%D0%BE%D0%BB%D0%BA%D0%B8%D0%BB%D0%BE.jpg', desc:'Крылья, луковые кольца, сырные палочки, картофель фри, три соуса. Классика под пиво на компанию.', hot:false },
-      { n:'Сет бруклинских настоек', w:'Бар · 450 мл', p:'1 699 ₽', img:'../uploads/%D0%A1%D0%B5%D1%82%20%D0%9A%D0%BE%D0%BB%D0%B1%D0%B0%D1%81.jpg', desc:'Девять фирменных настоек в маленьких шотах. Ягодные, травяные, пряные — для тоста за именинника.', hot:false }
+      { n:'Сет колбас', w:'1 000 г', p:'3 358 ₽', img:'../uploads/%D0%A1%D0%B5%D1%82%20%D0%9A%D0%BE%D0%BB%D0%B1%D0%B0%D1%81.jpg', desc:'Ассорти колбасок с пшеничной лепёшкой, кукурузой, салатами коул-слоу и ремулад, три соуса. Сытно на компанию.', hot:false }
     ];
     const dishes = DISHES.map((d, i) => ({ name:d.n, w:d.w, p:d.p, hot:d.hot, tagBg: d.hot ? '#FF2026' : 'rgba(0,0,0,0.6)', desc:d.desc, imgEl: React.createElement('img', { src:d.img, alt:d.n, style:{ position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }), open: () => this.setState({ dish: i }) }));
     const dishOpen = this.state.dish != null;
