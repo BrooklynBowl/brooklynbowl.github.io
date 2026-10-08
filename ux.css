@@ -16,5 +16,5 @@
 }
 
 /* BrooklynBook: сетка страниц */
-@media (max-width:1000px){ [data-m="bb-grid"]{ grid-template-columns:repeat(3,1fr) !important; } }
-@media (max-width:640px){ [data-m="bb-grid"]{ grid-template-columns:repeat(2,1fr) !important; gap:10px !important; } }
+@media (max-width:1000px){ html body div[data-m="bb-grid"][data-m]{ grid-template-columns:repeat(3,1fr) !important; } }
+@media (max-width:640px){ html body div[data-m="bb-grid"][data-m]{ grid-template-columns:repeat(2,1fr) !important; gap:10px !important; } }
