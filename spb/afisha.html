@@ -481,7 +481,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
   <footer style="padding:48px 48px 40px; background:#191919; border:1px solid rgba(255,255,255,0.06); margin:0 16px 16px; border-radius:30px;">
     <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:40px; flex-wrap:wrap; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,0.07);">
       <div>
-        <img src="../uploads/Vector.svg" alt="Brooklyn Bowl" style="height:26px; width:auto; display:block; filter:brightness(0) invert(1); margin-bottom:18px;">
+        <img loading="lazy" decoding="async" src="../uploads/Vector.svg" alt="Brooklyn Bowl" style="height:26px; width:auto; display:block; filter:brightness(0) invert(1); margin-bottom:18px;">
         <p style="margin:0 0 20px; max-width:280px; font-size:15px; line-height:1.5; color:rgba(255,255,255,0.85);">Боулинг, ресторан и живая сцена — в одном месте.</p>
         <div style="display:flex; flex-direction:column; gap:4px; font-size:14px; font-weight:600; color:#fff; margin-bottom:22px;">
           <span>Пн 11:57 – 00:03</span>
@@ -489,9 +489,9 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
           <span>Пт–Сб 09:57 – 00:02</span>
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=spb&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="../uploads/badge-appstore.svg" alt="App Store" style="height:36px; width:auto; display:block;"></a>
-          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=spb&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="../uploads/badge-googleplay.svg" alt="Google Play" style="height:36px; width:auto; display:block;"></a>
-          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=spb&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img src="../uploads/badge-rustore.svg" alt="RuStore" style="height:36px; width:auto; display:block;"></a>
+          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=spb&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img loading="lazy" decoding="async" src="../uploads/badge-appstore.svg" alt="App Store" style="height:36px; width:auto; display:block;"></a>
+          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=spb&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img loading="lazy" decoding="async" src="../uploads/badge-googleplay.svg" alt="Google Play" style="height:36px; width:auto; display:block;"></a>
+          <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&amp;utm_medium=footer&amp;utm_city=spb&amp;utm_trc=all" target="_blank" rel="noopener" style="display:inline-block; line-height:0;"><img loading="lazy" decoding="async" src="../uploads/badge-rustore.svg" alt="RuStore" style="height:36px; width:auto; display:block;"></a>
         </div>
       </div>
       <div data-m="footer-cols" style="display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:24px; flex:1; min-width:0;">
@@ -628,7 +628,7 @@ class Component extends DCLogic {
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
     var _tp = map.getPane('tilePane'); if (_tp) { _tp.style.filter = 'invert(1) hue-rotate(180deg) brightness(0.86) contrast(0.95) saturate(0.55)'; }
     var _bs = (window.innerWidth < 720 ? 26 : 36);
-    var ball = '<div style="width:'+_bs+'px;height:'+_bs+'px;"><img src="../bowling-pin.svg" alt="" aria-hidden="true" style="width:100%;height:100%;display:block;filter:drop-shadow(0 3px 5px rgba(0,0,0,0.45));"></div>';
+    var ball = '<div style="width:'+_bs+'px;height:'+_bs+'px;"><img loading="lazy" decoding="async" src="../bowling-pin.svg" alt="" aria-hidden="true" style="width:100%;height:100%;display:block;filter:drop-shadow(0 3px 5px rgba(0,0,0,0.45));"></div>';
     var icon = L.divIcon({ html: ball, className: '', iconSize: [_bs,_bs], iconAnchor: [_bs/2,_bs/2], popupAnchor: [0,-_bs/2] });
     this._map = map; this._lastGeo = this.state.geoCity;
     const GEO = this._geoData();
@@ -719,16 +719,16 @@ class Component extends DCLogic {
       hallImg: HALLIMG,
       hallVenueName: HV,
       hallScheme: HALLSCHEME,
-      hallImgEl: HALLSCHEME ? React.createElement('img', { src: HALLSCHEME, alt: 'Схема зала Brooklyn Bowl', loading: 'lazy', style: { width:'100%', minWidth:'100%', height:'auto', display:'block', filter: HALLFILTER } }) : null,
+      hallImgEl: HALLSCHEME ? React.createElement('img', { loading:'lazy', src: HALLSCHEME, alt: 'Схема зала Brooklyn Bowl', loading: 'lazy', style: { width:'100%', minWidth:'100%', height:'auto', display:'block', filter: HALLFILTER } }) : null,
       hallFilter: HALLFILTER,
       hasScheme: !!HALLSCHEME,
       noScheme: !HALLSCHEME,
       hasTour: !!TOURURL,
       tourUrl: TOURURL,
       tourFrameEl: TOURURL ? React.createElement('iframe', { src: TOURURL, title: '3D-тур Brooklyn Bowl', allowFullScreen: true, style: { position:'absolute', inset:0, width:'100%', height:'100%', border:0 } }) : null,
-      dishes: (MENU[active] || []).map((d) => ({ ...d, hotEl: d.hot ? React.createElement('span', { style: { display:'inline-flex', alignItems:'center', padding:'4px 9px', borderRadius:'300px', background:'rgba(255,32,38,0.16)', fontSize:'11px', fontWeight:700, letterSpacing:'0.03em', color:'#FF2026', marginLeft:'8px', verticalAlign:'middle' } }, 'ОСТРОЕ') : null, imgEl: React.createElement('img', { src: d.img || FOOD, alt: d.n, loading:'lazy', style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }), open: () => this.setState({ dish: { ...d, tag: active } }) })),
+      dishes: (MENU[active] || []).map((d) => ({ ...d, hotEl: d.hot ? React.createElement('span', { style: { display:'inline-flex', alignItems:'center', padding:'4px 9px', borderRadius:'300px', background:'rgba(255,32,38,0.16)', fontSize:'11px', fontWeight:700, letterSpacing:'0.03em', color:'#FF2026', marginLeft:'8px', verticalAlign:'middle' } }, 'ОСТРОЕ') : null, imgEl: React.createElement('img', { loading:'lazy', src: d.img || FOOD, alt: d.n, loading:'lazy', style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }), open: () => this.setState({ dish: { ...d, tag: active } }) })),
       dishOpen: this.state.dish != null,
-      sd: (() => { const x = this.state.dish || { n:'', w:'', p:'', tag:'', desc:'', img:'', hot:false, nut:null }; return { ...x, nut: x.nut || null, hasNut: !!x.nut, hotEl: x.hot ? React.createElement('span', { style: { display:'inline-flex', alignItems:'center', padding:'6px 12px', borderRadius:'300px', background:'rgba(255,32,38,0.16)', fontSize:'12px', fontWeight:700, letterSpacing:'0.03em', color:'#FF2026', marginLeft:'10px', verticalAlign:'middle' } }, 'ОСТРОЕ') : null, imgEl: React.createElement('img', { src: x.img || FOOD, alt: x.n, style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }) }; })(),
+      sd: (() => { const x = this.state.dish || { n:'', w:'', p:'', tag:'', desc:'', img:'', hot:false, nut:null }; return { ...x, nut: x.nut || null, hasNut: !!x.nut, hotEl: x.hot ? React.createElement('span', { style: { display:'inline-flex', alignItems:'center', padding:'6px 12px', borderRadius:'300px', background:'rgba(255,32,38,0.16)', fontSize:'12px', fontWeight:700, letterSpacing:'0.03em', color:'#FF2026', marginLeft:'10px', verticalAlign:'middle' } }, 'ОСТРОЕ') : null, imgEl: React.createElement('img', { loading:'lazy', src: x.img || FOOD, alt: x.n, style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }) }; })(),
       closeDish: () => this.setState({ dish: null }),
       faqCats: [
         { title:'Первый визит', items:[
@@ -774,11 +774,11 @@ class Component extends DCLogic {
           {q:'Можно ли прийти одному?', a:'Конечно: поужинать за барной стойкой, посмотреть стендап или потренироваться на дорожке. Для постоянных игроков есть подписка.'}
         ]}
       ],
-      events: EVENTS.map((x, i) => ({ ...x, imgEl: React.createElement('img', { src: x.img, alt: '', style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }), open: () => this.setState({ ev: i }) })),
+      events: EVENTS.map((x, i) => ({ ...x, imgEl: React.createElement('img', { loading:'lazy', src: x.img, alt: '', style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }), open: () => this.setState({ ev: i }) })),
       closeE: () => this.setState({ ev: null }),
       hasEvents: ACATS.length > 0,
       acats: ACATS.map((c) => ({ name: c, style: abase + (c === acat ? ' background:#FF2026; color:#fff;' : ' background:#191919; color:rgba(232,229,222,0.8);'), pick: () => this.setState({ acat: c }) })),
-      catEvents: EVENTS.filter((x) => x.cat === acat).map((o) => ({ ...o, go: () => { if (o.link) { window.location.href = o.link; } else { this.setState({ ev: EVENTS.indexOf(o) }); } }, imgEl: React.createElement('img', { src: o.img, alt: '', style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }) })),
+      catEvents: EVENTS.filter((x) => x.cat === acat).map((o) => ({ ...o, go: () => { if (o.link) { window.location.href = o.link; } else { this.setState({ ev: EVENTS.indexOf(o) }); } }, imgEl: React.createElement('img', { loading:'lazy', src: o.img, alt: '', style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }) })),
       stopProp: (ev) => ev.stopPropagation(),
       book: () => window.open('https://brooklyn.broni.g-profile.ru/book?city=%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=sankt-peterburg&utm_trc=all', '_blank'),
       getApp: () => window.open('https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&utm_medium=footer&utm_city=spb&utm_trc=all', '_blank'),
@@ -789,9 +789,9 @@ class Component extends DCLogic {
       holidayOpen: this.state.holiday === true,
       openHoliday: () => this.setState({ holiday: true }),
       closeHoliday: () => this.setState({ holiday: false }),
-      points: PTS.map((p, i) => ({ ...p, imgEl: React.createElement('img', { src: p.img, alt: p.title, style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }), open: () => this.setState({ point: i }) })),
+      points: PTS.map((p, i) => ({ ...p, imgEl: React.createElement('img', { loading:'lazy', src: p.img, alt: p.title, style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }), open: () => this.setState({ point: i }) })),
       pointOpen: this.state.point != null,
-      pd: (() => { const x = (this.state.point != null) ? PTS[this.state.point] : { title:'', tag:'', img:'../uploads/bb-bowling-lane.jpg', desc:'', cta:'', act:'' }; const fn = x.act === 'menu' ? () => { window.location.href = 'kitchen.html'; } : x.act === 'events' ? () => { const el=document.querySelector('[data-comment-anchor=events]'); this.setState({ point: null }); if (el) setTimeout(()=>el.scrollIntoView({behavior:'smooth'}),60); } : () => window.open('https://brooklyn.broni.g-profile.ru/book?city=%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=sankt-peterburg&utm_trc=all', '_blank'); return { ...x, imgEl: React.createElement('img', { src: x.img, alt: x.title, style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }), ctaFn: fn }; })(),
+      pd: (() => { const x = (this.state.point != null) ? PTS[this.state.point] : { title:'', tag:'', img:'../uploads/bb-bowling-lane.jpg', desc:'', cta:'', act:'' }; const fn = x.act === 'menu' ? () => { window.location.href = 'kitchen.html'; } : x.act === 'events' ? () => { const el=document.querySelector('[data-comment-anchor=events]'); this.setState({ point: null }); if (el) setTimeout(()=>el.scrollIntoView({behavior:'smooth'}),60); } : () => window.open('https://brooklyn.broni.g-profile.ru/book?city=%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3&utm_source=website&utm_medium=social&utm_campaign=reservation&utm_content=booking&utm_city=sankt-peterburg&utm_trc=all', '_blank'); return { ...x, imgEl: React.createElement('img', { loading:'lazy', src: x.img, alt: x.title, style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }), ctaFn: fn }; })(),
       closePoint: () => this.setState({ point: null }),
       openP0: () => this.setState({ point: 0 }),
       openP1: () => this.setState({ point: 1 }),
@@ -803,7 +803,7 @@ class Component extends DCLogic {
       ocity: this.state.ocity || { name:'', sub:'', url:'#' },
       closeOcity: () => this.setState({ ocity: null }),
       evOpen: e != null,
-      ev: ((x) => ({ ...x, hasDesc: !!x.desc, hasTicket: !!x.ticket, ticket: x.ticket || '', imgEl: React.createElement('img', { src: x.img, alt: '', style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }) }))(e || { title: '', date: '', venue: '', price: '', img: '../uploads/bb-standup.jpg', desc: '' }),
+      ev: ((x) => ({ ...x, hasDesc: !!x.desc, hasTicket: !!x.ticket, ticket: x.ticket || '', imgEl: React.createElement('img', { loading:'lazy', src: x.img, alt: '', style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }) }))(e || { title: '', date: '', venue: '', price: '', img: '../uploads/bb-standup.jpg', desc: '' }),
       scenarios: [
         { tag:'С ДРУЗЬЯМИ', img:'../uploads/bb-friends.jpg', title:'Поиграем с друзьями', sub:'Собрать своих — и не париться.',
           how:['Приходите после работы — хостес встречает и проводит к дорожке.','Дорожка проверена с утра, всё работает.','Вечером на сцене кавер-группа или стендап.','Когда бронь заканчивается — пересаживаетесь в ресторанную зону.'],
@@ -821,12 +821,12 @@ class Component extends DCLogic {
           how:['Каждого встречает хостес.','Конфигурация под размер компании.','Предзаказ выносим по мере игры.','Десерт со свечой и поздравление от команды.','После боулинга — ресторан, двойные бонусы.'],
           learned:['Личный менеджер праздника ведёт весь праздник.','Счёт на юрлицо и закрывающие документы.','Большие сеты на компанию.'],
           check:'≈ 1 970 ₽ на гостя', note:'Сб-вечер, базовый расчёт.', quote:'Собрали на 33-летие 12 друзей. Счёт на юрлицо без вопросов, документы прислали через два дня.', author:'Алексей Д. · 33 года, 12 гостей · Июнь' }
-      ].map((s, i) => ({ ...s, imgEl: React.createElement('img', { src: s.img, alt: '', style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }), expanded: this.state.scen === i, toggleLabel: this.state.scen === i ? 'Свернуть' : 'Подробнее', toggle: () => this.setState((st) => ({ scen: st.scen === i ? null : i })) })),
+      ].map((s, i) => ({ ...s, imgEl: React.createElement('img', { loading:'lazy', src: s.img, alt: '', style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover' } }), expanded: this.state.scen === i, toggleLabel: this.state.scen === i ? 'Свернуть' : 'Подробнее', toggle: () => this.setState((st) => ({ scen: st.scen === i ? null : i })) })),
       venues: VENUES.map((x, i) => ({ ...x, open: () => this.setState({ venue: i }) })),
       venueOpen: this.state.venue != null,
       pickerView: this.state.venue === 'list',
       detailView: typeof this.state.venue === 'number',
-      vd: ((x) => ({ ...x, imgEl: React.createElement('img', { src: x.img, alt: '', style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }) }))(vsel || { name:'', tag:'', addr:'', mall:'', phone:'', tel:'#', img:'../uploads/bb-bowling-lane.jpg', route:'#' }),
+      vd: ((x) => ({ ...x, imgEl: React.createElement('img', { loading:'lazy', src: x.img, alt: '', style: { position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'26px 26px 0 0' } }) }))(vsel || { name:'', tag:'', addr:'', mall:'', phone:'', tel:'#', img:'../uploads/bb-bowling-lane.jpg', route:'#' }),
       openVenueList: () => this.setState({ venue: 'list' }),
       closeVenue: () => this.setState({ venue: null }),
       backToList: () => this.setState({ venue: 'list' })
