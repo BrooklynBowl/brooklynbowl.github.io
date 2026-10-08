@@ -1,0 +1,16 @@
+/* Общие UX-правки для всех страниц (удобство на телефоне). Подключён в <head> каждой страницы. */
+@media (max-width:768px){
+  /* блок «300 бонусов и уроки» на «Карте гостя», «Подписке» и др.: текст под картинкой, кнопка не обрезается */
+  [data-m="bonus-inner"]{ position:static !important; inset:auto !important; padding:0 14px 16px !important; }
+  [data-m="bonus-inner"] > div{ width:100% !important; margin-top:-26px !important; }
+
+  /* зона нажатия ≥ 44px: ссылки футера, переключатель города, вопросы-аккордеоны, чипы и вкладки */
+  [data-m="footer-cols"] > div > div:last-child{ gap:0 !important; }
+  [data-m="footer-cols"] a{ padding:10px 0 !important; }
+  details > summary{ min-height:44px; display:flex; align-items:center; }
+  button:not([aria-label]){ min-height:44px; }
+  input[type="range"]{ height:28px !important; cursor:pointer; }
+
+  /* поля ввода 16px — iPhone не приближает страницу при вводе */
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]), select, textarea{ font-size:16px !important; }
+}

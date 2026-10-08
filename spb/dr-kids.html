@@ -25,6 +25,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../ux.css">
 </head>
 <body>
 <x-dc>
@@ -503,7 +504,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
             <span style="font-size:12px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">КАК ТЕБЯ ЗОВУТ</span>
             <input id="dkName" type="text" placeholder="" value="{{ fname }}" onChange="{{ onName }}" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
             <span style="font-size:12px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">ТЕЛЕФОН</span>
-            <input type="tel" placeholder="+7" value="{{ fphone }}" onChange="{{ onPhone }}" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+            <input autocomplete="tel" inputmode="tel" type="tel" placeholder="+7" value="{{ fphone }}" onChange="{{ onPhone }}" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
             <span style="margin-top:2px; font-size:12px; font-weight:700; letter-spacing:0.06em; color:rgba(232,229,222,0.66);">КОГДА ГУЛЯЕМ</span>
             <input type="date" value="{{ fdate }}" onChange="{{ onDate }}" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
             <sc-if value="{{ berr }}" hint-placeholder-val="{{ false }}"><div style="border:1px solid #FF2026; border-radius:12px; padding:12px 14px; font-size:14px; color:#E8E5DE;">Оставь имя и телефон — без них менеджер праздника не дозвонится, а дата сама себя не займёт.</div></sc-if>

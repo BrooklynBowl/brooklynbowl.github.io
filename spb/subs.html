@@ -23,6 +23,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../ux.css">
 </head>
 <body>
 <x-dc>
@@ -370,8 +371,8 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
             <h3 style="margin:14px 0 4px; font-size:24px; font-weight:800; color:#fff;">Оформить карту гостя</h3>
             <p style="margin:0 0 20px; font-size:14px; line-height:1.5; color:rgba(232,229,222,0.66);">Оформим карту и привяжем её к твоему номеру. Оформление бесплатно — нужны только имя, телефон и дата рождения.</p>
             <div style="display:flex; flex-direction:column; gap:12px;">
-              <input type="text" placeholder="Твоё имя" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
-              <input type="tel" placeholder="Телефон" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+              <input autocomplete="name" type="text" placeholder="Твоё имя" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
+              <input autocomplete="tel" inputmode="tel" type="tel" placeholder="Телефон" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
               <input type="date" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
               <select style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit; appearance:none; cursor:pointer;"><option>Июнь</option><option>Июнь</option><option>Июнь</option></select>
               <button data-m="cta" onClick="{{ submitOform }}" style="margin-top:4px; width:100%; cursor:pointer; border:none; background:#FF2026; padding:16px; border-radius:300px; color:#fff; font-size:16px; font-weight:700; font-family:inherit;" style-hover="background:#fff !important; color:#FF2026 !important;">Оформить карту</button>

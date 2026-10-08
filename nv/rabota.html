@@ -23,6 +23,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../ux.css">
 </head>
 <body>
 <x-dc>
@@ -557,12 +558,12 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
           <option value="" style="background:#000000;">Выберите вариант из списка...</option>
           <option style="background:#000000;">Бруклин Боул в ТРЦ «ЮГРАМолл»</option><option style="background:#000000;">Бруклин Боул в ТРЦ «Нижневартовск ЮГРАМолл»</option><option style="background:#000000;">Бруклин Боул в ТРЦ «ЮГРАМолл»</option>
         </select>
-        <input type="text" required="" placeholder="Иванов Иван" aria-label="ФИО" style="width:100%; box-sizing:border-box; padding:17px 24px; border-radius:300px; background:transparent; border:1.5px solid rgba(255,32,38,0.75); color:#fff; font-size:16px; font-family:inherit; outline:none;">
-        <input type="email" required="" placeholder="ivanov@mail.ru" aria-label="E-Mail" style="width:100%; box-sizing:border-box; padding:17px 24px; border-radius:300px; background:transparent; border:1.5px solid rgba(255,32,38,0.75); color:#fff; font-size:16px; font-family:inherit; outline:none;">
+        <input autocomplete="name" type="text" required="" placeholder="Иванов Иван" aria-label="ФИО" style="width:100%; box-sizing:border-box; padding:17px 24px; border-radius:300px; background:transparent; border:1.5px solid rgba(255,32,38,0.75); color:#fff; font-size:16px; font-family:inherit; outline:none;">
+        <input autocomplete="email" type="email" required="" placeholder="ivanov@mail.ru" aria-label="E-Mail" style="width:100%; box-sizing:border-box; padding:17px 24px; border-radius:300px; background:transparent; border:1.5px solid rgba(255,32,38,0.75); color:#fff; font-size:16px; font-family:inherit; outline:none;">
         <div style="display:flex; align-items:center; gap:10px; width:100%; box-sizing:border-box; padding:17px 24px; border-radius:300px; background:transparent; border:1.5px solid rgba(255,32,38,0.75); color:#fff; font-size:16px; font-family:inherit; outline:none; padding:10px 16px 10px 20px;">
           <span style="flex-shrink:0; font-size:16px;">🇷🇺</span>
           <span style="flex-shrink:0; font-size:16px; color:rgba(232,229,222,0.66);">+7</span>
-          <input type="tel" required="" placeholder="(999) 000-00-00" aria-label="Телефон" style="flex:1; min-width:0; background:transparent; border:none; outline:none; color:#fff; font-size:16px; font-family:inherit; padding:7px 0;">
+          <input autocomplete="tel" inputmode="tel" type="tel" required="" placeholder="(999) 000-00-00" aria-label="Телефон" style="flex:1; min-width:0; background:transparent; border:none; outline:none; color:#fff; font-size:16px; font-family:inherit; padding:7px 0;">
         </div>
         <select required="" style="width:100%; box-sizing:border-box; padding:17px 24px; border-radius:300px; background:transparent; border:1.5px solid rgba(255,32,38,0.75); color:#fff; font-size:16px; font-family:inherit; outline:none; appearance:none;">
           <option value="" style="background:#000000;">Какая вакансия тебе интересна?</option>
