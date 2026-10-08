@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /uploads/*.xlsx
+Disallow: /uploads/*.html
+
+Sitemap: https://brooklynbowl.github.io/sitemap.xml
