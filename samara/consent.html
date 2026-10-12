@@ -24,6 +24,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
 <link rel="stylesheet" href="../ux.css">
+<script src="../cookie.js" defer></script>
 </head>
 <body>
 <x-dc>
@@ -301,16 +302,16 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
       <h2 style="margin:26px 0 0; font-size:clamp(19px,2vw,24px); font-weight:800; letter-spacing:-0.01em; color:#fff;">1. Персональные данные, на обработку которых даётся согласие</h2>
       <ul style="margin:0; padding-left:20px; display:flex; flex-direction:column; gap:8px; font-size:16px; line-height:1.7; color:rgba(232,229,222,0.87);"><li>ФИО</li><li>контактный телефон</li><li>email (адрес электронной почты)</li><li>сообщение (при заполнении поля)</li><li>данные о выбранном заведении, данные об устройстве (IP, user-agent, cookie)</li></ul>
       <h2 style="margin:26px 0 0; font-size:clamp(19px,2vw,24px); font-weight:800; letter-spacing:-0.01em; color:#fff;">2. Цели обработки персональных данных</h2>
-      <ul style="margin:0; padding-left:20px; display:flex; flex-direction:column; gap:8px; font-size:16px; line-height:1.7; color:rgba(232,229,222,0.87);"><li>обработка заявок</li><li>бронирование услуг</li><li>обратная связь</li><li>информирование о предложениях и мероприятиях</li></ul>
+      <ul style="margin:0; padding-left:20px; display:flex; flex-direction:column; gap:8px; font-size:16px; line-height:1.7; color:rgba(232,229,222,0.87);"><li>обработка, регистрация и исполнение заявок Пользователя на Сайте;</li><li>бронирование дорожек боулинга, столов и иных услуг ресторанного комплекса;</li><li>осуществление обратной связи с Пользователем для подтверждения параметров бронирования.</li></ul>
       <h2 style="margin:26px 0 0; font-size:clamp(19px,2vw,24px); font-weight:800; letter-spacing:-0.01em; color:#fff;">3. Перечень действий с персональными данными</h2>
       <p style="margin:0; font-size:16px; line-height:1.75; color:rgba(232,229,222,0.87); text-wrap:pretty;">Оператор вправе осуществлять: сбор, запись, систематизацию, накопление, хранение, уточнение, использование, передачу, обезличивание, блокирование, удаление персональных данных.</p>
       <h2 style="margin:26px 0 0; font-size:clamp(19px,2vw,24px); font-weight:800; letter-spacing:-0.01em; color:#fff;">4. Передача третьим лицам</h2>
       <p style="margin:0; font-size:16px; line-height:1.75; color:rgba(232,229,222,0.87); text-wrap:pretty;">Пользователь даёт согласие на передачу персональных данных следующим сервисам:</p>
-      <ul style="margin:0; padding-left:20px; display:flex; flex-direction:column; gap:8px; font-size:16px; line-height:1.7; color:rgba(232,229,222,0.87);"><li>Яндекс.Метрика</li><li>top.mail.ru</li><li>YCLIENTS</li></ul>
+      <ul style="margin:0; padding-left:20px; display:flex; flex-direction:column; gap:8px; font-size:16px; line-height:1.7; color:rgba(232,229,222,0.87);"><li>ООО «ЯНДЕКС» (сервис веб-аналитики Яндекс.Метрика);</li><li>ООО «ВК» (сервис статистики top.mail.ru);</li><li>ООО «Лаборатория СМАРТ» (сервис онлайн-записи YCLIENTS).</li></ul>
       <h2 style="margin:26px 0 0; font-size:clamp(19px,2vw,24px); font-weight:800; letter-spacing:-0.01em; color:#fff;">5. Срок действия согласия</h2>
       <p style="margin:0; font-size:16px; line-height:1.75; color:rgba(232,229,222,0.87); text-wrap:pretty;">Согласие действует до момента его отзыва пользователем.</p>
       <h2 style="margin:26px 0 0; font-size:clamp(19px,2vw,24px); font-weight:800; letter-spacing:-0.01em; color:#fff;">6. Отзыв согласия</h2>
-      <p style="margin:0; font-size:16px; line-height:1.75; color:rgba(232,229,222,0.87); text-wrap:pretty;">Пользователь может отозвать согласие, направив запрос на электронную почту, указанную на сайте. Заявление об отзыве согласия направляется на <a href="mailto:com@brooklynbowl.ru" style="color:#FF2026; text-decoration:none;">com@brooklynbowl.ru</a>. Оператор прекращает обработку в течение 30 дней.</p>
+      <p style="margin:0; font-size:16px; line-height:1.75; color:rgba(232,229,222,0.87); text-wrap:pretty;">Пользователь может отозвать согласие, направив заявление на электронную почту <a href="mailto:com@brooklynbowl.ru" style="color:#FF2026; text-decoration:none;">com@brooklynbowl.ru</a>. Оператор прекращает обработку в течение 30 дней.</p>
       <h2 style="margin:26px 0 0; font-size:clamp(19px,2vw,24px); font-weight:800; letter-spacing:-0.01em; color:#fff;">7. Подтверждение согласия</h2>
       <p style="margin:0; font-size:16px; line-height:1.75; color:rgba(232,229,222,0.87); text-wrap:pretty;">Пользователь подтверждает, что:</p>
       <ul style="margin:0; padding-left:20px; display:flex; flex-direction:column; gap:8px; font-size:16px; line-height:1.7; color:rgba(232,229,222,0.87);"><li>ознакомлен с Политикой обработки персональных данных</li><li>даёт согласие на обработку персональных данных</li><li>нажимая кнопку отправки формы, принимает настоящее Согласие</li></ul>
