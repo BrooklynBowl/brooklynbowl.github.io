@@ -25,6 +25,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
 <link rel="stylesheet" href="../ux.css">
 <script src="../cookie.js" defer></script>
+<script src="../forms.js" defer></script>
 </head>
 <body>
 <x-dc>
@@ -577,7 +578,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
           <input data-m="bbform-file" type="file" accept=".pdf,.doc,.docx,.jpg,.png" style="display:none;">
         </label>
         <label style="display:flex; align-items:flex-start; gap:11px; margin:6px 0 4px; font-size:14px; line-height:1.5; color:rgba(232,229,222,0.66); cursor:pointer;">
-          <input type="checkbox" required="" style="flex-shrink:0; width:20px; height:20px; margin-top:1px; accent-color:#FF2026;">
+          <input type="checkbox" required="" data-bb-consent style="flex-shrink:0; width:20px; height:20px; margin-top:1px; accent-color:#FF2026;">
           <span>Я согласен на обработку моих персональных данных для рассмотрения кандидатуры в соответствии с <a href="privacy.html" style="color:#FF2026; text-decoration:none; border-bottom:1px solid rgba(255,32,38,0.5);">политикой обработки персональных данных</a></span>
         </label>
         <button data-m="cta" type="submit" style="width:100%; box-sizing:border-box; padding:20px 32px; border-radius:300px; border:none; cursor:pointer; background:#FF2026; color:#fff; font-size:16px; font-weight:800; letter-spacing:0.06em; font-family:inherit;" style-hover="background:#fff !important; color:#FF2026 !important;">Отправить</button>

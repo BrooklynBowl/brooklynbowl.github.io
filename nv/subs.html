@@ -25,6 +25,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
 <link rel="stylesheet" href="../ux.css">
 <script src="../cookie.js" defer></script>
+<script src="../forms.js" defer></script>
 </head>
 <body>
 <x-dc>
@@ -321,6 +322,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
           <h2 style="margin:0; font-size:clamp(18px,2.5vw,40px); font-weight:800; line-height:1.05; letter-spacing:-0.02em; text-transform:uppercase; color:#FF2026;">Для тебя 300 бонусов<br>и уроки по боулингу</h2>
           <p style="margin:0; font-size:clamp(12px,1.05vw,15px); line-height:1.5; color:#fff;">Закинули новым пользователям в приложении</p>
           <a href="https://redirect.appmetrica.yandex.com/serve/173164915098479741?utm_source=website&utm_medium=promo&utm_city=nizhnevartovsk&utm_trc=all" target="_blank" rel="noopener" data-m="cta" style="margin-top:4px; display:inline-flex; align-items:center; justify-content:center; text-decoration:none; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">СКАЧАТЬ ПРИЛОЖЕНИЕ</a>
+          <a href="loyalty.html" style="font-size:12.5px; line-height:1.4; color:rgba(255,255,255,0.72); text-decoration:underline;">Правила бонусной программы: как начисляются и списываются бонусы</a>
         </div>
       </div>
     </div>
@@ -376,9 +378,10 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
               <input autocomplete="tel" inputmode="tel" type="tel" placeholder="Телефон" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
               <input type="date" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
               <select style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit; appearance:none; cursor:pointer;"><option>ЮГРАМолл</option><option>ЮГРАМолл</option><option>ЮГРАМолл</option></select>
+              <label style="display:flex; gap:10px; align-items:flex-start; cursor:pointer; text-align:left; font-size:13px; line-height:1.45; color:rgba(232,229,222,0.75);"><input type="checkbox" data-bb-consent style="flex:0 0 auto; width:20px; height:20px; margin:1px 0 0; accent-color:#FF2026; cursor:pointer;"><span>Я согласен с <a href="privacy.html" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Политикой обработки персональных данных</a> и даю <a href="consent.html" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">согласие на их обработку</a></span></label>
+              <label style="display:flex; gap:10px; align-items:flex-start; cursor:pointer; text-align:left; font-size:13px; line-height:1.45; color:rgba(232,229,222,0.75);"><input type="checkbox" data-bb-promo style="flex:0 0 auto; width:20px; height:20px; margin:1px 0 0; accent-color:#FF2026; cursor:pointer;"><span>Хочу получать новости и акции Brooklyn Bowl (по желанию)</span></label>
               <button data-m="cta" onClick="{{ submitOform }}" style="margin-top:4px; width:100%; cursor:pointer; border:none; background:#FF2026; padding:16px; border-radius:300px; color:#fff; font-size:16px; font-weight:700; font-family:inherit;" style-hover="background:#fff !important; color:#FF2026 !important;">Оформить карту</button>
             </div>
-            <p style="margin:14px 0 0; font-size:12px; line-height:1.5; color:rgba(232,229,222,0.47);">Нажимая кнопку, вы соглашаетесь с <a href="privacy.html" style="color:inherit; text-decoration:underline;">Политикой обработки персональных данных</a> и даёте <a href="consent.html" style="color:inherit; text-decoration:underline;">согласие на их обработку</a>.</p>
           </div>
         </sc-if>
         <sc-if value="{{ oformSent }}" hint-placeholder-val="{{ false }}">
