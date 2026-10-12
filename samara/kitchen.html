@@ -428,8 +428,9 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
     <sc-if value="{{ isBar }}" hint-placeholder-val="{{ false }}">
     <div style="margin-top:22px; border-radius:22px; border:1px solid rgba(255,255,255,0.08); background:#191919; padding:34px 36px; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;">
       <div>
-        <h3 style="margin:0 0 8px; font-size:22px; font-weight:800; color:#fff;">Алкогольная карта бара</h3>
+        <h3 style="margin:0 0 8px; font-size:22px; font-weight:800; color:#fff;">Алкогольная карта бара <span style="display:inline-flex; align-items:center; justify-content:center; margin-left:8px; padding:3px 9px; border-radius:300px; border:1.5px solid #FF2026; color:#FF2026; font-size:13px; font-weight:800; vertical-align:middle;">18+</span></h3>
         <p style="margin:0; font-size:15px; line-height:1.55; color:rgba(232,229,222,0.66);">80 позиций бара: коктейли, вино, пиво и настойки.</p>
+        <p style="margin:8px 0 0; font-size:13px; line-height:1.5; color:rgba(232,229,222,0.6);">Информация для лиц старше 18 лет. Чрезмерное употребление алкоголя вредит вашему здоровью.</p>
       </div>
       <a data-m="cta" href="{{ barLink }}" target="_blank" rel="noopener" style="text-decoration:none; display:inline-flex; align-items:center; background:#FF2026; padding:16px 32px; border-radius:300px; color:#fff; font-size:14px; font-weight:800; letter-spacing:0.05em;" style-hover="background:#fff !important; color:#FF2026 !important;">Открыть карту бара</a>
     </div>
@@ -692,12 +693,12 @@ class Component extends DCLogic {
       { name:'Авторская кухня', cats:['Бургеры','Для компании','Пицца','Салаты','Супы','Горячее','Десерты','Закуски'] },
       { name:'Детское меню', cats:['Детское'] },
       { name:'Безалкогольные вкусняшки', cats:['Милкшейки','Чай','Кофе','Фреши','Напитки','Лимонады'] },
-      { name:'Алкогольная карта бара', cats:[] }
+      { name:'Алкогольная карта бара 18+', cats:[] }
     ];
     const gActive = this.state.group || 'Авторская кухня';
     const gCats = (GROUPS.find((x) => x.name === gActive) || GROUPS[0]).cats;
     const active = (gCats.indexOf(this.state.cat) >= 0) ? this.state.cat : gCats[0];
-    const isBar = gActive === 'Алкогольная карта бара';
+    const isBar = gActive === 'Алкогольная карта бара 18+';
     const _price = (p) => parseInt(String(p).replace(/[^0-9]/g, ''), 10) || 0;
     const _fmtRub = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
     const _cart = this.state.cart || {};
@@ -792,7 +793,7 @@ class Component extends DCLogic {
         { title:'Компании и корпоратив', items:[
           {q:'Как оплатить от юридического лица?', a:'Оформляем счёт, акт и счёт-фактуру для ООО, ИП и госучреждений. Реквизиты и КП пришлём в течение дня.'},
           {q:'Можно провести квиз, мафию или стендап?', a:'Да. В КП укажем ведущего, тайминг и стоимость. Мафию ведёт ведущий, квиз — от 10 человек, стендап — от 30.'},
-          {q:'Есть парковка?', a:'У всех боулинг-ресторанов — бесплатная парковка торгового центра.'},
+          {q:'Есть парковка?', a:'Парковка торгового центра — бесплатная.'},
           {q:'Сколько стоит провести мероприятие?', a:'Отдельной аренды зала нет — платите за бронь дорожек и за еду. Точную стоимость считает менеджер праздника индивидуально под дату и программу.'}
         ]},
         { title:'Особые поводы', items:[
