@@ -35,7 +35,7 @@ const YA_EVENTS = [
   { city: 'Ижевск',        venue: 'Петровский', artist: 'Маргарита Родина', date: '07.10', url: ya('ODgzMzR8Njk2MjYwfDEzNDgwNTQyfDE3OTEzODg4MDAwMDA='),  page: 'izhevsk/rodina.dc.html' },
   { city: 'Сургут',        venue: 'Аура',      artist: 'Надежда Ангарская', date: '08.10', url: ya('ODYyNzZ8ODM4MDgyfDk1MTM4OTl8MTc5MTQ3MTYwMDAwMA=='), page: 'surgut/angarskaya.dc.html' },
   { city: 'Тюмень',        venue: 'СитиМолл',  artist: 'Маргарита Родина',  date: '21.10', url: ya('ODYxNjd8Njk2MjMzfDk0ODI4MTd8MTc5MjU5NDgwMDAwMA=='), page: 'rodinaa.dc.html' },
-  { city: 'Санкт-Петербург', venue: 'Июнь',    artist: 'Маргарита Родина',  date: '22.10', url: ya('OTI5NTd8ODM4MDc1fDExMDM5NTAwfDE3OTI2ODg0MDAwMDA='),  page: null /* события нет в афише СПб — ждём добавления */ },
+  { city: 'Санкт-Петербург', venue: 'Малина Молл',    artist: 'Маргарита Родина',  date: '22.10', url: ya('OTI5NTd8ODM4MDc1fDExMDM5NTAwfDE3OTI2ODg0MDAwMDA='),  page: null /* события нет в афише СПб — ждём добавления */ },
   { city: 'Самара',        venue: 'Летаут',    artist: 'Камиль Зулфугаров', date: '11.11', url: ya('OTQ1MDZ8ODM3OTk3fDExMzY0NTI1fDE3OTQ0MTI4MDAwMDA='),  page: 'samara/zulfugarov.dc.html' },
   { city: 'Тюмень',        venue: 'Остров',    artist: 'Камиль Зулфугаров', date: '12.11', url: ya('MTAyMzU4fDgzODAwMnwxMzE5Njk3OHwxNzk0NDk1NjAwMDAw'),   page: 'zulfugarov.dc.html' },
   { city: 'Сургут',        venue: 'Аура',      artist: 'Егор Свирский',     date: '18.11', url: ya('ticketsteam-10084@66600257'),                      page: 'surgut/svirsky.dc.html' },

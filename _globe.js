@@ -32,7 +32,7 @@
       { name: 'ТРК «Красный Кит»', addr: 'Шараповский проезд, 2', floor: '3 этаж · Мытищи', page: 'msk/filial-kit.dc.html' }
     ] },
     { name: 'Санкт-Петербург', xy: [30.3159, 59.9391], site: 'spb/index.html', venues: [
-      { name: 'ТРЦ «Июнь»', addr: 'Индустриальный проспект, 24', floor: '4 этаж', page: 'spb/filial-iyun.dc.html' }
+      { name: 'ТРЦ «Малина Молл»', addr: 'Индустриальный проспект, 24', floor: '4 этаж', page: 'spb/filial-malina.dc.html' }
     ] }
   ];
   var TOTAL = CITIES.reduce(function (n, c) { return n + c.venues.length; }, 0);
