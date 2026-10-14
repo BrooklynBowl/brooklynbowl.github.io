@@ -207,7 +207,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
       <a href="about.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">О нас</a>
       <a href="contacts.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Контакты</a>
       <div style="margin:16px 0 6px; font-size:11.5px; font-weight:700; letter-spacing:0.08em; color:rgba(232,229,222,0.4);">ЗАЛЫ В САНКТ-ПЕТЕРБУРГЕ</div>
-      <a href="filial-iyun.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Июнь</a>
+      <a href="filial-malina.html" style="text-decoration:none; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:rgba(232,229,222,0.6); padding:5px 0;">Малина Молл</a>
     </nav>
     <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
       <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 1.5c-2.5 0-4.5 2-4.5 4.5 0 3.2 4.5 8 4.5 8s4.5-4.8 4.5-8c0-2.5-2-4.5-4.5-4.5Z" stroke="#FF2026" stroke-width="1.4"></path><circle cx="8" cy="6" r="1.6" stroke="#FF2026" stroke-width="1.4"></circle></svg>
@@ -382,7 +382,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
             <p style="margin:0 0 20px; font-size:14px; line-height:1.5; color:rgba(232,229,222,0.66);">Перезвоним в рабочее время, подтвердим время и условия. Заявка уйдёт в выбранное заведение.</p>
             <div style="display:flex; flex-direction:column; gap:12px;">
               <input type="text" value="Просто поиграть" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
-              <select style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit; appearance:none; cursor:pointer;"><option>Июнь</option><option>Июнь</option><option>Июнь</option></select>
+              <select style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit; appearance:none; cursor:pointer;"><option>Малина Молл</option></select>
               <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
                 <input type="date" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
                 <input type="time" style="width:100%; background:#000000; border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; color:#fff; font-size:15px; font-family:inherit;">
@@ -436,7 +436,7 @@ html[data-bb-fab="hidden"] [data-m="fab-chat"]{ opacity:0 !important; pointer-ev
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">НАШИ АДРЕСА</div>
-          <div style="display:flex; flex-direction:column; gap:11px;"><a href="filial-iyun.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Июнь</a><a href="contacts.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Все контакты</a><a href="rent.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Мероприятия</a><a href="delivery.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Доставка</a><a href="franchise.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Франшиза</a></div>
+          <div style="display:flex; flex-direction:column; gap:11px;"><a href="filial-malina.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Малина Молл</a><a href="contacts.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Все контакты</a><a href="rent.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Мероприятия</a><a href="delivery.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Доставка</a><a href="franchise.html" style="text-decoration:none; font-size:14px; color:#fff;" style-hover="color:rgba(255,255,255,0.72) !important;">Франшиза</a></div>
         </div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#fff; margin-bottom:16px;">В ДРУГИХ ГОРОДАХ</div>
@@ -514,7 +514,7 @@ class Component extends DCLogic {
       this._scroll();
     });
   }
-  state = { chatOpen: false, draft: '', log: [], sending: false, day: 1, hours: 2, players: 4, ad: {}, hallVenue: 'Июнь', booking: false, bsent: false };
+  state = { chatOpen: false, draft: '', log: [], sending: false, day: 1, hours: 2, players: 4, ad: {}, hallVenue: 'Малина Молл', booking: false, bsent: false };
   renderVals() {
     const DAYS = [
       { l: 'Вторник до 18:00 · бесплатно', r: 0 },
@@ -548,11 +548,11 @@ class Component extends DCLogic {
     const reco = day === 0
       ? 'Во вторник час дорожки бесплатно — платишь только депозит на стол ~2 990 ₽. Нужна бронь.'
       : 'Оставь заявку — подберём свободное время в ближайшем боулинг-ресторане и зафиксируем цену.';
-    const HV = this.state.hallVenue || 'Июнь';
+    const HV = this.state.hallVenue || 'Малина Молл';
     const _tb = 'padding:14px 26px; border-radius:300px; cursor:pointer; font-size:15px; font-weight:600; font-family:inherit; border:none; transition:background-color .2s ease, color .2s ease; white-space:nowrap;';
-    const hallTabs = ['Июнь'].map((v) => ({ name: 'Бруклин ' + v, style: _tb + (v === HV ? ' background:#FF2026; color:#fff;' : ' background:#191919; color:rgba(232,229,222,0.86);'), pick: () => this.setState({ hallVenue: v }) }));
-    const _tu = { 'Июнь':'https://virtual360.ru/tour/brooklyn-bowl-spb/' };
-    const tourUrl = _tu[HV] || _tu['Июнь'];
+    const hallTabs = ['Малина Молл'].map((v) => ({ name: 'Бруклин ' + v, style: _tb + (v === HV ? ' background:#FF2026; color:#fff;' : ' background:#191919; color:rgba(232,229,222,0.86);'), pick: () => this.setState({ hallVenue: v }) }));
+    const _tu = { 'Малина Молл':'https://virtual360.ru/tour/brooklyn-bowl-spb/' };
+    const tourUrl = _tu[HV] || _tu['Малина Молл'];
     return {
       chatEnabled: this.props.chatEnabled ?? true,
       chatHours: this.props.chatHours ?? 'Отвечаем ежедневно с 10:00 до 22:00',
